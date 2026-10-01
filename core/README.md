@@ -1,5 +1,9 @@
 # Portable core: learning and API guide
 
+> Historical M0–M2 record. The selected architecture is now the
+> [Rust frontend → LLVM AOT → C/RTOS runtime](../README.md).
+> Bytecode/Python remain independent test references, not the product path.
+
 Read `src/tags.c`, then `src/image.c`, `src/vm.c`, and `src/runtime.c`. Public types and functions live in `include/tinyplc/core.h`. Only C11 standard headers are used. There are no heap allocations, HAL calls, FreeRTOS headers, sockets, or GPIO references.
 
 ## Program construction and execution

@@ -1,0 +1,16 @@
+[package]
+name = "tinyplc-compiler"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+license = "MIT"
+description = "Structured Text frontend and LLVM IR emitter for tinyplc"
+
+[lib]
+name = "tinyplc_compiler"
+
+[[bin]]
+name = "plcc"
+path = "src/main.rs"
+
+[dependencies]

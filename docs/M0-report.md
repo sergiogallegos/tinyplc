@@ -1,5 +1,9 @@
 # M0 verification report
 
+> Historical M0–M2 record. The selected architecture is now the
+> [Rust frontend → LLVM AOT → C/RTOS runtime](../README.md).
+> Bytecode/Python remain independent test references, not the product path.
+
 Date: 2026-09-30. M0 host scaffold is complete; target build and hardware acceptance remain pending.
 
 ## Works and was verified on host

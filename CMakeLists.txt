@@ -39,4 +39,13 @@ else()
   target_compile_options(core-tests PRIVATE -Wall -Wextra -Wpedantic -Werror)
   add_test(NAME core_tests COMMAND core-tests)
   set_tests_properties(core_tests PROPERTIES TIMEOUT 30)
+  add_executable(vm-runner tests/native/vm_runner.c)
+  target_link_libraries(vm-runner PRIVATE tinyplc-core)
+  target_compile_options(vm-runner PRIVATE -Wall -Wextra -Wpedantic -Werror)
+  find_package(Python3 3.11 REQUIRED COMPONENTS Interpreter)
+  add_test(NAME host_tests COMMAND ${CMAKE_COMMAND} -E env
+    "PYTHONPATH=${CMAKE_CURRENT_SOURCE_DIR}/host"
+    "TINYPLC_VM_RUNNER=$<TARGET_FILE:vm-runner>"
+    ${Python3_EXECUTABLE} -m unittest discover -s ${CMAKE_CURRENT_SOURCE_DIR}/host/tests -v)
+  set_tests_properties(host_tests PROPERTIES TIMEOUT 120)
 endif()

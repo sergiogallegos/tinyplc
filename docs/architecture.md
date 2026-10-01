@@ -1,66 +1,142 @@
-# Runtime architecture
+# Native PLC runtime architecture
 
-M1 implements the tag database, validator, VM, transactional scan wrapper, and basic two-slot boundary activation. Its simulator executes the shared core. FreeRTOS/deadline enforcement, snapshots, protocol, migration, and rollback below remain the M3–M5 design. The current ownership API is documented in [core/README.md](../core/README.md).
+Current decision: **ST → Rust frontend → typed PLC IR → LLVM IR → AOT native
+code on the PC → native image → C/FreeRTOS runtime on the MCU**. The earlier
+bytecode/Python design is historical. There is no planned VM fallback in the
+product architecture. Existing interpreters remain independent test oracles.
 
-## State owned by the scan
+R1 implements the Rust compiler and verifies host-native execution and ARM
+object generation. This document describes the target supervisor, loader, and
+monitoring design still to be built. The current statically linked test ABI is
+in [compiler/README.md](../compiler/README.md); package/target work is detailed
+in [native-roadmap.md](native-roadmap.md).
 
-The portable core contains fixed arrays for program bytes, tag descriptors/values, VM stack, faults, and status. The port supplies time and physical I/O. `core/` accepts values, never a GPIO register, RTOS task handle, or socket. A program image is immutable once validated. Mutable tag state belongs to its slot. The VM receives a validated image and its state explicitly, making a native test independent of hardware.
+## Ownership boundaries
 
-The scan executes these phases:
+The Rust frontend resolves declarations into typed expressions and numeric tag
+indices. LLVM IR uses a caller-supplied state base, not privileged absolute
+addresses. LLVM produces target object code on the PC; the host then needs a
+link/package step against a versioned native ABI. LLVM does not provide PLC
+semantics, a loader, I/O, tag monitoring, or update transactions.
 
-1. Record start timestamp and interval from the previous start.
-2. Sample physical inputs once into input tags; apply board-profile inversion.
-3. Copy persistent values to a fixed working tag array, reset PC and operand stack, and execute within the instruction budget. Commit working values only after a successful scan; faults must not persist partial internal assignments.
-4. Check fault and elapsed time before committing output values. On failure discard proposed outputs and write FALSE to every physical output.
-5. Publish a coherent copy of tags and status; apply queued internal-tag writes and pending activation at the boundary before the next input read.
-6. Wait for the next fixed release time. If late, count an overrun and avoid a rapid catch-up burst.
+The privileged C runtime owns the scheduler interface, active generation,
+physical I/O, committed state, diagnostics, and update lifecycle. User code
+receives only permitted input/working state and bounded services. The
+communications task owns transport buffers, its snapshot, and an explicitly
+reserved staging region. It cannot mutate active code or live state.
 
-Output writes and boundary work contribute to the full scan execution time too. A deadline exceeded after output commit must immediately force outputs FALSE, set output tags FALSE in the published snapshot, and restore pre-scan persistent values. Fault policy is fail-closed for this experiment; it does not guarantee physical safety or replace electrical protection. Retain the failed PC/opcode separately for diagnostics rather than presenting proposed outputs as applied outputs.
+## Scan and tag database
 
-## FreeRTOS target
+Target period defaults to 10 ms, subject to actual board timing acceptance:
 
-Use FreeRTOS-Kernel ARM_CM4F with `configTICK_RATE_HZ=1000`, `configSUPPORT_STATIC_ALLOCATION=1`, `configSUPPORT_DYNAMIC_ALLOCATION=0`, `configCHECK_FOR_STACK_OVERFLOW=2`, and `configASSERT` enabled. Supply static task stacks, idle-task storage, and queues. Do not link a heap implementation. M4 must measure stack high-water marks rather than guessing final sizes.
+1. Record start/interval and sample GPIO into the input image.
+2. Construct the working state from committed internal state and frozen inputs.
+3. Arm an independent deadline guard and enter the native user context.
+4. On trusted completion, validate outcome and elapsed time; commit permitted
+   state only on success. On a contained fault, discard working changes.
+5. Apply physical output values; enforce FALSE for the experimental fault state.
+6. Publish coherent tags, status, diagnostics, scan sequence and generation.
+7. Apply accepted generation-checked requests at the boundary, account for all
+   boundary work in the deadline, and wait for the next absolute release.
 
-The scan is the highest application priority task, scheduled with `vTaskDelayUntil`. Comms has lower priority. UART IRQs copy bytes into a bounded ring and never parse frames or run the VM. Comms can block on its own UART/event queue, while the scan never waits for comms, transport availability, download completion, or monitor readers. Requests use bounded mailboxes; a full mailbox returns BUSY. No mutex protects execution of a scan.
+After an overrun, avoid a burst of overdue scans. A late overrun must force
+outputs FALSE and publish corrected status; it cannot undo an earlier physical
+pulse. DWT measures cycles and jitter but is not itself a preemptive guard.
+An interrupt-driven deadline guard and watchdog recovery are separate mechanisms.
 
-Configure period as an integer number of ticks (default 10, permitted 1..1000 ms) at startup; reject zero or unrepresentable values. No live period-change protocol is promised in v1. On overrun, rebase the next `vTaskDelayUntil` release to a future tick instead of repeatedly running overdue scans. An instruction budget bounds instruction count, not wall-clock time: IRQ duration, snapshot copies, migration of up to 64 names, and GPIO work belong in timing acceptance. A deadlocked runtime or hung instruction cannot be recovered by an elapsed-time check that never runs; watchdog coverage is a separate later extension.
+The initial compiler ABI uses one 32-bit cell per tag, with canonical uppercase
+names, type/class metadata, and offset `4 * index`. This is a prototype layout,
+not the finalized native package contract. New types need size, alignment and
+migration rules. Input values and output proposals must not grant user code
+access to physical GPIO. Timers will use a defined scan clock and runtime-owned
+service semantics; they are not implemented in R1.
 
-DWT CYCCNT supplies cycle measurements. Unsigned subtraction handles one 32-bit wrap; task intervals must remain below the wrap duration. Convert cycles using the actual configured CPU clock. Define period jitter as `(current_start - previous_start) - configured_period`; retain signed minimum and maximum after the first measured interval. GET_STATUS reports scan count, last/max execution time, jitter min/max, overrun count, active generation, and fault. M0 uses 16 MHz HSI for blink; M4 will choose/document its clock and FPU/interrupt configuration explicitly.
+R1's generated function already stages tag changes privately and commits on
+success. It clears output cells on division/type faults and reports source
+line/column. It does not implement input sampling, fault latching, deadline
+interruption, physical outputs, snapshots, privilege transitions, or recovery.
+Those responsibilities remain in the target C supervisor.
 
-## Snapshot publication without blocking
+## FreeRTOS, MPU, and services
 
-Use three statically allocated snapshot buffers: one owned by the scan producer, one by the comms consumer, and one exchange buffer. An atomic integer packs the exchange-buffer index and a dirty flag. Producer fills only its private buffer, then release/acquire exchanges its index with the middle index and sets dirty. It takes ownership of the previous middle buffer. Consumer swaps its own buffer with the middle only when dirty, clearing dirty, then reads its privately owned buffer.
+Use static allocation for task stacks, queues, slot/state storage, and
+snapshots. The scan supervisor has the highest application priority; comms has
+lower priority. No scan-path allocation or waiting for transport/readers.
+Bound UART IRQ work and keep frame parsing in the comms task. DMA is a port
+choice, not an initial requirement.
 
-This is a single-producer/single-consumer latest-value mailbox. Slow consumers may miss scans; snapshots include scan sequence and program generation. Neither side accesses the other's owned buffer; repeated publication reuses only producer/middle buffers. Comms serializes monitor requests through one consumer. C11 atomics provide ordering; `volatile` does not provide ownership or race protection. The target build must assert that the chosen atomic word operation is lock-free. M5 must exercise interrupted exchanges and slow readers. READ_TAGS must copy names/types/generation into the snapshot too, rather than retaining pointers to reusable program slots.
+Native execution requires a reviewed MPU-aware FreeRTOS port and context
+switch handling. The earlier ordinary ARM_CM4F plan is insufficient by itself.
+Use unprivileged execution, protected supervisor memory/stack, non-executable
+working data, and immutable executable user code after staging. Budget MPU
+regions with the RTOS. Restrict peripheral/DMA control and check aliases.
 
-For a paginated READ_TAGS enumeration, comms keeps ownership of one captured snapshot until all pages are read or the enumeration times out. Each page carries its scan sequence and generation; the host supplies that sequence on continuation requests. Comms does not exchange its consumer buffer mid-enumeration. The scan continues publishing through the other two buffers without waiting. This prevents a tag table assembled from different scans.
+A function-pointer service table alone cannot cross privilege boundaries.
+Use a controlled gateway coordinated with SVC handling, with service IDs,
+validated pointers/ranges, bounded execution and a specified ABI. Services may
+read the input image and propose outputs; only the supervisor drives pins.
 
-## A/B slots and requests
+Arm the guard before entering user code. A native infinite loop must not
+prevent fault handling. Returning to the faulting instruction is not recovery:
+the supervisor needs a controlled abort path and a valid protected context.
+Contained user faults should leave comms available. Privileged corruption,
+exception-stacking failures and unrecoverable faults may require reset instead.
+Feed a watchdog only while the controller makes bounded progress, including
+responsive FAULT cycles holding outputs FALSE; user-logic success alone is not
+the appropriate health criterion.
 
-Slots progress through EMPTY → DOWNLOADING → READY → PENDING → ACTIVE, with a preserved previous image marked ROLLBACK. Only comms writes a DOWNLOADING slot; the scan owns ACTIVE state. Validation finishes before READY is exposed using release/acquire ordering. DOWNLOAD_BEGIN refuses a slot that is PENDING or being migrated. Once the user starts another download into the inactive slot, the previous rollback image is explicitly retired; INFO must expose that rollback is then unavailable. Two slots cannot hold active, previous, and a third candidate simultaneously.
+## Snapshot publication
 
-Both slots remain reserved from accepted activation until the new program's first scan completes, so comms cannot erase the image needed for automatic rollback. Slot reservations and boundary requests use atomic state transitions with generation checks; a pointer switch alone does not establish ownership of the other slot. Comms never spins waiting for the scan. DOWNLOAD_BEGIN, ACTIVATE, ROLLBACK, and WRITE_TAG must resolve conflicting requests as BUSY and cannot target state owned by a pending operation.
+Use three statically allocated buffers: producer-owned, consumer-owned, and an
+exchange buffer with an atomic index/dirty flag. A release/acquire exchange
+hands off completed data; neither party reads the other's private buffer.
+Require the selected atomic operation to be lock-free on the target. A slow
+consumer can miss updates but cannot delay the scan.
 
-ACTIVATE changes only the pending request. After outputs are written, the scan matches internal VAR names and types, copies their values, zeroes other new state, then switches the active program pointer once with an atomic store. Input tags are overwritten by the next physical sample; output tags are calculated by the next execution. Pending requests carry a slot generation so a stale request cannot activate different bytes. No comms operation mutates live tags; WRITE_TAG enqueues an index/value/generation request, checked again at the boundary.
+Copy tag names, types, values, scan ID, generation and diagnostics into the
+snapshot. No pointers into reusable image/state slots. During paginated reads,
+comms pins one snapshot through completion or timeout; subsequent requests
+must identify that scan and generation. This is a consistency boundary between
+monitoring and execution, not merely shared RAM exposed over UART.
 
-The old slot's state is frozen after migration. Explicit ROLLBACK restores that saved state and image at a boundary. If the candidate's first execution faults, force outputs FALSE, record the candidate fault, restore the old image, and resume the old program on the next scheduled scan. Avoid recursive rollback or clearing the recorded cause. With no old image, remain faulted with outputs FALSE. Later VM faults latch until explicit valid activation/rollback; exact acknowledgements distinguish accepted requests from completed swaps.
+## Download and activation
 
-Retained diagnostic cause and current execution state are separate: after successful automatic rollback the old program may run while status still reports the rejected generation/fault. Explicit rollback restores the old frozen VAR state rather than migrating the candidate's latest values; this is deliberate and must be visible to users. In M5, test output continuity separately from VAR continuity: matching VARs alone cannot guarantee unchanged physical outputs after a logic edit.
+The native artifact needs its own versioned contract: target features, ABI,
+segments, state schema, entry offsets, imports, stack/capacity needs, integrity
+and authenticity policy, and permitted relocation records. An ELF `.o` from
+R1 is an intermediate artifact, not accepted controller input. Never execute a
+partially received, incompatible, or unvalidated image.
 
-## Memory and validation
+Slots follow reserved staging → validated READY → PENDING → ACTIVE. Every
+activation request identifies a generation. An accepted response acknowledges
+a queued request, not completed execution. The scan owner prepares state,
+installs protection/context, and activates only at a boundary. Both old and
+new contexts remain reserved through the candidate's first scan.
 
-Two 4376-byte maximum images plus two 64-entry value arrays use under 10 KB before snapshot buffers, stacks, and UART storage. Obtain actual totals from the linker map in M4. No casts from image bytes to packed structs: use explicit little-endian reads, bounds checked before advancing.
+Future migration copies compatible internal variables by name/type/layout.
+Inputs are sampled again; outputs are recomputed. Do not copy raw pointers.
+Freeze the old context/state for rollback. If the candidate fails its first
+scan, enforce outputs FALSE, retain its diagnostic, and restore old execution
+at the next scheduled release if recovery is possible. Explicit rollback
+restores saved old state, not the candidate's newest values. Starting another
+download retires old rollback storage; two slots cannot hold three versions.
 
-The extra working-value array is 256 bytes. Three snapshots containing 64 complete descriptors and values cost roughly 8 KB plus metadata. This remains practical within 128 KB, but fixed VM validation workspaces, RTOS stacks, queues, and every static buffer must be included in the map. Check both flash and RAM budgets.
+## Acceptance evidence
 
-Validation walks all instructions to build an instruction-boundary map, checks every operand (even in unreachable code), rejects backward jumps in v1, and propagates typed stack states through control flow. Branch merges must agree on stack depth and types. All reachable paths must end at HALT with an empty stack. Runtime guards remain independent of validation, including stack bounds, division checks, and instruction count.
+The host can verify compilation, arithmetic, branches, ABI calls, metadata,
+and transactional results. Target tests must additionally verify memory/MPU
+layout, gateway behavior, stack limits, relocations, interruption/abort,
+physical output behavior, whole-scan timing and recovery. New CPU targets need
+new port/ABI/protection evidence even if the language frontend is reusable.
+See [R1-report.md](R1-report.md) for current evidence and
+[native-roadmap.md](native-roadmap.md) for subsequent gates.
 
-## Host simulator and compiler
+## Reference implementations
 
-The M1 native simulator calls the same core scan operations using monotonic POSIX time and simulated GPIO. In M3 a TCP server will replace UART framing with exactly the same messages. Absolute deadlines use relative nanosleeps recomputed from CLOCK_MONOTONIC because macOS does not provide every Linux timer API. Host timing is not deterministic.
+The [educational design study](education.md) compares Rusty/matiec frontend stages and
+OpenPLC Runtime process images, lifecycle and generated-code interfaces with
+our choices. Linux dynamic loading and synchronization are references for
+responsibilities, not implementations to transplant into FreeRTOS.
 
-Python compilation stages are lexer → AST parser → symbol/type/binding checks → bytecode emitter → image encoder. Parse errors include source line/column. The compiler computes capacity/stack bounds, but the controller repeats validation because transport bytes are untrusted. Python's reference VM masks DINT operations to 32 bits; differential tests compare it with the compiled C VM, including signed limits, every branch, and faults.
-
-## Milestone dependencies
-
-M1 owns slot state and a native scan-boundary API alongside tags/VM/validation. M3 implements and tests basic boundary activation plus coherent snapshots, since its CLI already exposes ACTIVATE and READ_TAGS. M4 ports that proven API to FreeRTOS and checks actual timing. M5 completes state migration, explicit/automatic rollback, race testing, and live-edit monitoring. These foundations cannot all be postponed until M5 without making M3 unsafe or misleading.
+See [references and acknowledgments](references.md) for related work and official
+technology documentation, and [tasks](tasks.md) for implementation status.

@@ -1,4 +1,27 @@
-# Assumptions and decisions
+# Current decisions (R1, 2026-09-30)
+
+- Primary path: project-owned Rust ST frontend, typed PLC IR, textual LLVM IR,
+  PC-side LLVM AOT, native package, project-owned C supervisor on FreeRTOS.
+- Keep the compiler standard-library-only. LLVM is the external code generator;
+  FreeRTOS is the planned scheduler. No automatic downloads. Python/C bytecode
+  implementations remain test oracles and historical evidence.
+- R1 supports the [language subset](language.md) and [research call ABI](../compiler/README.md).
+  Native packaging, loading, privileged services, MPU isolation, deadlines,
+  snapshots, transport, and online migration are subsequent work.
+- NUCLEO-F446RE remains the first target. Host tests and ARM object generation
+  do not establish board execution, timing, fault containment, or certification.
+- Shared state uses explicit layouts and ownership. A flag is not a complete
+  synchronization protocol. Comms reads owned snapshots, never racing live tags.
+- Native code requires a deadline guard and a recoverable execution context;
+  bytecode instruction budgets do not carry over. Fault handlers cannot promise
+  continued communication after arbitrary supervisor corruption.
+- The [native roadmap](native-roadmap.md) supersedes the old M3–M5 plan.
+  [Educational goals](education.md) explain scope and dependency choices.
+
+The sections below preserve earlier decisions for interpreting historical code.
+Conflicts are resolved in favor of the current decisions above.
+
+# Historical M0–M2 assumptions
 
 Recorded before M0 code, 2026-09-30. These are design commitments unless a later milestone explicitly revises them.
 
@@ -24,3 +47,17 @@ Recorded before M0 code, 2026-09-30. These are design commitments unless a later
 - The core receives an explicit list of permitted I/O bindings; it never reads JSON or assumes STM32 pin names. The host/port supply the same profile semantics.
 - M1 provides a single-producer comms/scan activation mailbox. Download/image validation occurs while the inactive slot is reserved; the scan owns tag values and commits swaps only through an explicit boundary call. Migration and rollback are deferred to M5; M1 activation starts new values at zero.
 - A scan fault latches execution off until a valid activation. A diagnostic record remains available after recovery. M1's scan wrapper handles VM faults transactionally; hardware deadline/output handling is added by the port in M4.
+
+## M2 implementation decisions
+
+- The exact grammar and operator rules are in [language.md](language.md).
+  Decimal literals are signed-range checked, with a special immediately
+  negated minimum DINT; runtime arithmetic wraps. Logic is eager.
+- Host tooling and tests use Python 3.11+ and the standard library. M2 uses
+  `unittest` instead of the originally proposed pytest, keeping builds free of
+  dependency installation. Native CMake configuration now requires Python.
+- Differential execution uses a standalone native adapter linked to the real
+  C core. A separate test AST evaluator also checks compiler meaning.
+- The test adapter's values reflect standalone VM working state. Transactional
+  scans, fault latching, and boundary ownership remain the M1 runtime's API;
+  the simulator's scheduled demonstration remains unchanged until M3.

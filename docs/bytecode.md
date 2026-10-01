@@ -1,6 +1,10 @@
 # Bytecode v1
 
-Implemented and tested by the M1 C core. M2 adds the compiler/reference interpreter against this contract. All multibyte fields are little-endian, with no C struct padding.
+> Historical M0–M2 record. The selected architecture is now the
+> [Rust frontend → LLVM AOT → C/RTOS runtime](../README.md).
+> Bytecode/Python remain independent test references, not the product path.
+
+Implemented and tested by the M1 C core and M2 compiler/reference interpreter. See [language.md](language.md) for source semantics and [host tools](../host/README.md) for compilation and disassembly. All multibyte fields are little-endian, with no C struct padding.
 
 ## Image layout
 

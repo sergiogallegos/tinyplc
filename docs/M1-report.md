@@ -1,5 +1,9 @@
 # M1: portable runtime core
 
+> Historical M0–M2 record. The selected architecture is now the
+> [Rust frontend → LLVM AOT → C/RTOS runtime](../README.md).
+> Bytecode/Python remain independent test references, not the product path.
+
 Repository name is now **tinyplc**, with origin `git@github.com:sergiogallegos/tinyplc.git`. Public include paths and executable names use `tinyplc`. The existing local workspace folder can retain its old name.
 
 ## Implemented
@@ -17,10 +21,10 @@ Repository name is now **tinyplc**, with origin `git@github.com:sergiogallegos/t
 Environment: macOS arm64, Apple Clang 21.0.0, CMake 4.4.3. Warnings are treated as errors. Native tests cover eight groups: tags/header/CRC, operators, branches, rejection/capacity limits, transactional faults, slot lifecycle, mutations, and producer/scan concurrency. Tests use 4000 deterministic image mutations and 2000 actual concurrent activation handoffs. AddressSanitizer/UndefinedBehaviorSanitizer and ThreadSanitizer builds run the same suite. These checks exercise memory, arithmetic, and ownership rules; they do not prove worst-case timing or every possible race.
 
 ```sh
-make test
+make test-legacy
 make sanitize
 make thread-sanitize
-make run
+make run-legacy
 ./build/sim/core-tests
 ```
 
@@ -41,3 +45,6 @@ No firmware was flashed or hardware-tested in M1. M0's ARM build/blink acceptanc
 M1 activates a program with zeroed state; migration, rollback, trial-scan reservations, snapshots, protocol commands, and real deadline/output enforcement remain later milestones as documented. The standalone VM mutates its supplied working values; callers wanting fault containment must use the scan wrapper. Direct live-tag access is scan-owner-only, not a comms API.
 
 M2 is next: Python lexer/parser, semantic analysis, compiler, disassembler, reference interpreter, and differential tests against this C VM. Stop after this M1 report before beginning M2.
+
+Reproduction aliases above follow the current Makefile; recorded milestone
+results describe the implementation at the time of that milestone.

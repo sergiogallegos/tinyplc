@@ -1,3 +1,7 @@
+/* Hardware references: ST UM1724 (board mapping), DS10693 (device), and PM0214
+ * (Cortex-M4 programming). Official links are in docs/references.md.
+ * This project-owned bring-up example is not the FreeRTOS PLC supervisor.
+ */
 /* M0 board bring-up only. STM32F446 reset uses the internal 16 MHz HSI.
  * Register offsets: ST RM0390, RCC/GPIO/SysTick. No HAL or library required. */
 #include <stdint.h>
