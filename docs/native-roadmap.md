@@ -223,3 +223,6 @@ loaded artifact. [R1 report](R1-report.md) records the present boundary.
 
 See [references and acknowledgments](references.md) for related work and official
 technology documentation, and [tasks](tasks.md) for implementation status.
+
+R2.1 has frozen the [call ABI draft](native-abi.md) and added host/ARM contract
+fixtures. This does not complete the R2 hardware or package acceptance gate.

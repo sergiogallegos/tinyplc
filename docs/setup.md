@@ -79,3 +79,11 @@ Expected paths depend on the Mac. The blink target emits no UART output. The nat
 
 See [references and acknowledgments](references.md) for related work and official
 technology documentation, and [tasks](tasks.md) for implementation status.
+
+`make test-abi` runs the R2.1 C/LLVM call-contract fixtures at O0/O2 and
+cross-compiles both sides for Cortex-M. It is included in `make test`.
+
+R2.2 [pins tools and the FreeRTOS MPU port](target-toolchain.md). Run
+`python3 scripts/check_target.py --tools host` or `--tools target` for offline
+version checks. GCC/OpenOCD are selected but currently absent; these checks
+do not install them or imply a firmware build.

@@ -134,14 +134,14 @@ sequenceDiagram
   Note over Loader,Scan: Current program keeps running
   User->>PC: Accept edit
   PC->>Loader: ACTIVATE(candidate generation)
-  Loader-->>PC: Request accepted; not yet running
+  Loader-->>PC: Request accepted, not yet running
   Loader->>Scan: Publish owned boundary request
   Scan->>Scan: Migrate permitted state and install native context
   Scan->>Scan: Execute first candidate scan under deadline guard
   alt Successful execution
     Scan-->>Loader: Snapshot confirms running generation
   else Contained application fault
-    Scan->>Scan: Outputs FALSE; discard candidate working state
+    Scan->>Scan: Outputs FALSE, discard candidate working state
     Scan->>Scan: Restore reserved old context for next scan
     Scan-->>Loader: Fault and rejected generation retained
   end
@@ -247,4 +247,7 @@ contracts. See [references and acknowledgments](docs/references.md) for credits,
 official Rust/C/LLVM/FreeRTOS/STM32 documentation, and the attribution policy.
 
 The [task checklist](docs/tasks.md) records completed work, acceptance evidence
-and open decisions. R1 is complete; the next task is the R2 target ABI draft.
+and open decisions. R1 and the R2.1 [target call ABI draft](docs/native-abi.md) are complete.
+The compiler still emits ABI 1; ABI 2 integration and board execution remain
+pending. R2.2 [toolchain and MPU-port selection](docs/target-toolchain.md) is
+recorded; next is R2.3 memory layout and target build verification.

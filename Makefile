@@ -6,7 +6,7 @@ LLVM_AS ?= llvm-as
 LLVM_OPT ?= opt
 OPENOCD ?= openocd
 .DEFAULT_GOAL := compiler
-.PHONY: compiler llvm-example aot-arm run test test-compiler test-llvm test-legacy sim run-legacy sanitize thread-sanitize blink flash-blink help
+.PHONY: test-abi compiler llvm-example aot-arm run test test-compiler test-llvm test-legacy sim run-legacy sanitize thread-sanitize blink flash-blink help
 compiler:
 	$(CARGO) build --workspace --locked --offline
 llvm-example: compiler
@@ -19,7 +19,9 @@ aot-arm: llvm-example
 run: llvm-example
 	$(CLANG) -O2 -Wall -Wextra -Werror -Wno-override-module -Icompiler sim/aot_main.c build/aot/button_led.ll -o build/aot/tinyplc-aot
 	./build/aot/tinyplc-aot
-test: test-compiler test-llvm test-legacy
+test: test-compiler test-llvm test-legacy test-abi
+test-abi:
+	CLANG="$(CLANG)" $(PYTHON) -m unittest discover -s tests/abi -v
 test-compiler:
 	$(CARGO) test --workspace --locked --offline
 test-llvm: compiler sim
@@ -46,6 +48,6 @@ blink:
 flash-blink: blink
 	$(OPENOCD) -f interface/stlink.cfg -f target/stm32f4x.cfg -c "program build/blink/blink.elf verify reset exit"
 help:
-	@echo "make compiler | llvm-example | aot-arm | run | test | test-compiler | test-llvm"
+	@echo "make compiler | llvm-example | aot-arm | run | test | test-compiler | test-llvm | test-abi"
 	@echo "Historical checks: test-legacy | run-legacy | sanitize | thread-sanitize"
 	@echo "Board bring-up: blink | flash-blink"

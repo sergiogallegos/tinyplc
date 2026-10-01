@@ -100,3 +100,7 @@ Compiler-stage reading references include Rusty and matiec. This compiler is
 project-owned code; no implementation from either project is incorporated.
 See [credits and official documentation](../docs/references.md) and the
 [study notes](../docs/education.md) for the exact lessons and source links.
+
+R2.1 specifies [target ABI draft 2](../docs/native-abi.md) with separate input
+and working buffers. This compiler still emits ABI 1; the new call shape must
+not be used with its current output.

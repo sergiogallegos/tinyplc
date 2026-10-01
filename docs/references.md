@@ -35,7 +35,7 @@ not claims of research novelty.
 | LLVM | [LLVM documentation](https://llvm.org/docs/), [LangRef](https://llvm.org/docs/LangRef.html), [source](https://github.com/llvm/llvm-project) | External PC-side IR verification, optimization and native code generation |
 | CLANG | [Clang documentation](https://clang.llvm.org/docs/), [cross compilation](https://clang.llvm.org/docs/CrossCompilation.html) | Host AOT and Cortex-M object generation; target ABI still needs validation |
 | ARM-ABI | [Arm ABI specifications](https://github.com/ARM-software/abi-aa) | Target calling convention, object and relocation contract reference for R2 |
-| FREERTOS | [FreeRTOS documentation](https://www.freertos.org/Documentation/00-Overview), [kernel source](https://github.com/FreeRTOS/FreeRTOS-Kernel) | Planned scheduler dependency; not integrated in R1; select and pin an MPU-aware port in R2 |
+| FREERTOS | [FreeRTOS documentation](https://www.freertos.org/Documentation/00-Overview), [kernel source](https://github.com/FreeRTOS/FreeRTOS-Kernel) | Planned scheduler dependency; not integrated in R1; R2.2 pins V11.3.1 and the GCC ARM_CM4_MPU integration base |
 
 ## Board and processor references
 
@@ -75,3 +75,6 @@ manual revisions and applicable licenses with the corresponding stage report.
   External tools and any future vendored components retain their own licenses.
 - Keep implementation status and evidence separate from plans. A cited project
   does not establish our own correctness, timing, isolation or certification.
+
+See [R2.2 provenance](target-toolchain.md) for immutable kernel source links
+and the selected tool versions. Upstream source is reviewed, not vendored.

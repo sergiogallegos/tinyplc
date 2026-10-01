@@ -9,7 +9,9 @@ R1 implements the Rust compiler and verifies host-native execution and ARM
 object generation. This document describes the target supervisor, loader, and
 monitoring design still to be built. The current statically linked test ABI is
 in [compiler/README.md](../compiler/README.md); package/target work is detailed
-in [native-roadmap.md](native-roadmap.md).
+in [native-roadmap.md](native-roadmap.md). The [R2.1 call ABI draft](native-abi.md)
+defines separate input/working buffers for target integration; it is not yet
+emitted by the compiler.
 
 ## Ownership boundaries
 
@@ -140,3 +142,7 @@ responsibilities, not implementations to transplant into FreeRTOS.
 
 See [references and acknowledgments](references.md) for related work and official
 technology documentation, and [tasks](tasks.md) for implementation status.
+
+R2.2 selects the [GCC Cortex-M4 MPU port](target-toolchain.md). Its default
+peripheral permissions require hardening before this isolation policy holds;
+selection alone is not evidence of isolation.

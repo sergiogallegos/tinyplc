@@ -21,11 +21,14 @@ Evidence: [R1 report](R1-report.md), [compiler ABI](../compiler/README.md),
 
 Execute in this order; each item produces reviewable code/specification and evidence.
 
-- [ ] R2.1: Freeze a target ABI draft: Thumb/float convention, entry/return,
+- [x] R2.1: Freeze a target ABI draft: Thumb/float convention, entry/return,
   tag layout, input/output permissions, fault result and permitted services.
   Specify how the research ABI changes; add host ABI fixtures.
-- [ ] R2.2: Select and pin toolchain, FreeRTOS revision and compatible MPU-aware
+  Evidence: [ABI draft 2](native-abi.md), `make test-abi`; [R2.1 report](R2.1-report.md).
+- [x] R2.2: Select and pin toolchain, FreeRTOS revision and compatible MPU-aware
   port. Record license/provenance, build flags, startup ownership and SVC use.
+  Evidence: [selection](target-toolchain.md), [R2.2 report](R2.2-report.md).
+  Target build and hardening are still pending; selected GCC/OpenOCD are absent.
 - [ ] R2.3: Measure firmware RAM/flash/stack needs; define linker regions with
   assertions for supervisor, user stack/state and executable RAM. Budget MPU
   regions and verify code fetch on the actual F446 board.
@@ -42,9 +45,10 @@ Execute in this order; each item produces reviewable code/specification and evid
   lab authenticity policies. Write the R2 report with reproducible commands,
   memory/timing measurements and remaining limitations.
 
-Open decisions belong to R2.1–R2.3/R2.7: final ABI, MPU port, memory partitions,
-code placement, supported imports/fixups and package encoding. No claim that
-these are already frozen is made. First practical next task: R2.1.
+The call ABI draft is frozen for experiments; target integration is not complete.
+The MPU port and versions are selected. Open decisions in R2.3/R2.7 include
+memory partitions, code placement, fixups and package encoding. Next: R2.3. ABI 2 compiler emission
+and semantic regression checks must precede the R2.4 ST-generated experiment.
 
 ## R3 — upload, acceptance and monitoring
 

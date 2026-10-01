@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "freertos": {
+    "repository": "https://github.com/FreeRTOS/FreeRTOS-Kernel",
+    "tag": "V11.3.1",
+    "commit": "3a22924e0a9ddbbc8b0758881c33b3422a5cc20d",
+    "archive_url": "https://codeload.github.com/FreeRTOS/FreeRTOS-Kernel/tar.gz/3a22924e0a9ddbbc8b0758881c33b3422a5cc20d",
+    "archive_sha256": "e7d25915c043f4695eb066117cc60a42e7c58e421d971ebaf6fe2ec97208d658",
+    "license": "MIT",
+    "port": "portable/GCC/ARM_CM4_MPU",
+    "mpu_wrappers": 2,
+    "reviewed_files_sha256": {
+      "LICENSE.md": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1",
+      "tasks.c": "ae8bcc9dd0b30d39bf37eb36f1ef3067d086906b2f92ca2aea1acc0f0ad31645",
+      "include/FreeRTOS.h": "c8e1cec639a7e8aa115ec5a1d19ab5c06cc06ab84f5c7fedefeba410a09cad55",
+      "include/mpu_syscall_numbers.h": "c59cd2441cf7b77abcb1f80fa4c2a6e8dc46c889697952e41ae75ad9113cb5df",
+      "portable/Common/mpu_wrappers_v2.c": "9f2ea55e19e378f59347a261d8f9109eece53782a21a665ccac0da82d887aa54",
+      "portable/GCC/ARM_CM4_MPU/port.c": "304cdb562c7a947fba1fa9c11dd90aff794a7e7423776078b6711c4e69877629",
+      "portable/GCC/ARM_CM4_MPU/portmacro.h": "5a9b6ef2bfe61884d841f8c4ecb228fbc7c1098cd408ca7d8b239e0be3b268b3",
+      "portable/GCC/ARM_CM4_MPU/mpu_wrappers_v2_asm.c": "292994b043585039070250c73d24d5b072df76bb6277082f00453932e1f39898"
+    }
+  },
+  "tools": {
+    "rustc": "1.98.1",
+    "cargo": "1.98.1",
+    "clang": "23.1.2",
+    "llvm-as": "23.1.2",
+    "opt": "23.1.2",
+    "cmake": "4.4.3",
+    "arm-none-eabi-gcc": "13.3.1",
+    "openocd": "0.12.0"
+  },
+  "runtime_cflags": [
+    "-mcpu=cortex-m4",
+    "-mthumb",
+    "-mfpu=fpv4-sp-d16",
+    "-mfloat-abi=softfp",
+    "-std=c11",
+    "-ffreestanding",
+    "-fno-common",
+    "-ffunction-sections",
+    "-fdata-sections",
+    "-O2",
+    "-fno-lto"
+  ],
+  "user_flags": [
+    "--target=thumbv7em-none-eabi",
+    "-mcpu=cortex-m4",
+    "-mthumb",
+    "-mfloat-abi=soft",
+    "-ffreestanding",
+    "-O2",
+    "-fno-lto"
+  ]
+}
