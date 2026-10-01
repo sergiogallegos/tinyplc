@@ -3,11 +3,12 @@
 //! In particular, sdiv requires guards for zero and signed overflow; PLC wrapping
 //! arithmetic must not acquire LLVM nsw/nuw promises. See docs/references.md.
 
-use crate::{ir::*, Span};
+use crate::{ir::*, Abi, Span};
 use std::fmt::Write;
 
 struct Emitter<'a> {
     program: &'a Program,
+    abi: Abi,
     text: String,
     next: usize,
 }
@@ -32,7 +33,7 @@ impl Emitter<'_> {
         self.line(format!("store i32 {}, ptr %diag, align 4", span.line));
         self.line(format!("store i32 {}, ptr %diag_col, align 4", span.column));
         for (index, tag) in self.program.tags.iter().enumerate() {
-            if tag.kind == Class::Output {
+            if self.abi == Abi::ResearchV1 && tag.kind == Class::Output {
                 self.line(format!("store i32 0, ptr %p{index}, align 4"));
             }
         }
@@ -161,12 +162,16 @@ impl Emitter<'_> {
     }
 }
 
-pub(crate) fn emit(program: &Program) -> String {
+pub(crate) fn emit(program: &Program, abi: Abi) -> String {
     let count = program.tags.len();
-    let mut e = Emitter { program, text: format!("; tinyplc Rust frontend: PROGRAM {}\n; Research scan ABI v1; target selected by the LLVM driver.\n", program.name), next: 0 };
+    let mut e = Emitter { program, abi, text: format!("; tinyplc Rust frontend: PROGRAM {}\n; Research scan ABI v1; target selected by the LLVM driver.\n", program.name), next: 0 };
+    if abi == Abi::NativeV2 {
+        e.text = format!("; tinyplc Rust frontend: PROGRAM {}\n; Native scan ABI v2; separate input and working state.\n", program.name);
+    }
+    let version = if abi == Abi::NativeV2 { 2 } else { 1 };
     writeln!(
         e.text,
-        "@tinyplc_abi_version = constant i32 1\n@tinyplc_tag_count = constant i32 {count}"
+        "@tinyplc_abi_version = constant i32 {version}\n@tinyplc_tag_count = constant i32 {count}"
     )
     .unwrap();
     for (global, data) in [
@@ -215,20 +220,32 @@ pub(crate) fn emit(program: &Program) -> String {
         "@tinyplc_tag_names = constant [{count} x [32 x i8]] {names}\n"
     )
     .unwrap();
-    e.text
-        .push_str("define i32 @tinyplc_scan(ptr %cells, i32 %count, ptr %diag) {\nentry:\n");
+    if abi == Abi::NativeV2 {
+        e.text.push_str(
+            "define i32 @tinyplc_scan(ptr %inputs, ptr %cells, i32 %count, ptr %diag) {\nentry:\n",
+        );
+    } else {
+        e.text
+            .push_str("define i32 @tinyplc_scan(ptr %cells, i32 %count, ptr %diag) {\nentry:\n");
+    }
     e.line("%diag_col = getelementptr i32, ptr %diag, i32 1");
     e.line("store i32 0, ptr %diag, align 4");
     e.line("store i32 0, ptr %diag_col, align 4");
-    let valid = e.value(format!("icmp uge i32 %count, {count}"));
+    let predicate = if abi == Abi::NativeV2 { "eq" } else { "uge" };
+    let valid = e.value(format!("icmp {predicate} i32 %count, {count}"));
     e.line(format!("br i1 {valid}, label %prepare, label %bad_count"));
     e.label("bad_count");
     e.line("ret i32 4");
     e.label("prepare");
     // All pointers dominate every fault path. State is never committed early.
     for index in 0..count {
+        let base = if abi == Abi::NativeV2 && program.tags[index].kind == Class::Input {
+            "%inputs"
+        } else {
+            "%cells"
+        };
         e.line(format!(
-            "%p{index} = getelementptr i32, ptr %cells, i32 {index}"
+            "%p{index} = getelementptr i32, ptr {base}, i32 {index}"
         ));
         e.line(format!("%w{index} = alloca i32, align 4"));
         e.line(format!(

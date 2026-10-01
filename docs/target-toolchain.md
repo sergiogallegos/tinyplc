@@ -7,7 +7,7 @@ No kernel source is vendored and no tools are installed by this change.
 
 ## Selected versions
 
-| Component | Selection | Local evidence |
+| Component | Selection | Evidence at R2.2 selection (see later updates below) |
 | --- | --- | --- |
 | Rust / Cargo | 1.98.1 | Installed version check passed |
 | LLVM Clang / llvm-as / opt | 23.1.2 | Installed version check and R1/R2.1 object tests passed |
@@ -116,3 +116,13 @@ archive bytes. All commands are offline; missing tools or mismatches fail.
 A matching version string does not verify a tool binary's origin.
 Next: install/provide the selected target tools through an explicit setup step,
 then R2.3 firmware layout/build measurements and board instruction-fetch tests.
+
+R2.3 update: the selected GCC distribution was downloaded to temporary storage,
+checked against Arm's published SHA-256 and used for the [layout build](memory-layout.md).
+The source review above remains the baseline; build-time integration now applies
+the documented peripheral-permission patch. Hardware validation remains pending.
+
+R2.4 update: hardware tests used xPack OpenOCD v0.12.0-7, whose reported
+version is `0.12.0+dev-02228-ge5888bda3-dirty`. This is a documented tool
+distribution change from the pristine 0.12.0 proposal. Its archive digest is
+pinned and the [board report](R2.4-report.md) records successful use.

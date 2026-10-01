@@ -5,6 +5,7 @@ CLANG ?= clang
 LLVM_AS ?= llvm-as
 LLVM_OPT ?= opt
 OPENOCD ?= openocd
+ARM_PREFIX ?= arm-none-eabi-
 .DEFAULT_GOAL := compiler
 .PHONY: test-abi compiler llvm-example aot-arm run test test-compiler test-llvm test-legacy sim run-legacy sanitize thread-sanitize blink flash-blink help
 compiler:
@@ -51,3 +52,17 @@ help:
 	@echo "make compiler | llvm-example | aot-arm | run | test | test-compiler | test-llvm | test-abi"
 	@echo "Historical checks: test-legacy | run-legacy | sanitize | thread-sanitize"
 	@echo "Board bring-up: blink | flash-blink"
+
+# Explicit local prerequisites only; no download and no flashing.
+.PHONY: target-build target-verify
+target-build: compiler
+	$(PYTHON) scripts/build_target.py --kernel-archive "$(FREERTOS_ARCHIVE)" --gcc-prefix "$(ARM_PREFIX)"
+target-verify:
+	$(PYTHON) scripts/verify_target.py --gcc-prefix "$(ARM_PREFIX)"
+
+.PHONY: test-scan
+test: test-scan
+test-scan:
+	mkdir -p build/scan
+	$(CLANG) -std=c11 -O2 -Wall -Wextra -Werror -fsanitize=address,undefined -Iruntime/include runtime/src/scan.c tests/scan/scan_test.c -o build/scan/scan-test
+	./build/scan/scan-test

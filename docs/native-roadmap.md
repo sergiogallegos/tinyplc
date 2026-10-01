@@ -226,3 +226,12 @@ technology documentation, and [tasks](tasks.md) for implementation status.
 
 R2.1 has frozen the [call ABI draft](native-abi.md) and added host/ARM contract
 fixtures. This does not complete the R2 hardware or package acceptance gate.
+
+R2.3/R2.4 update: the selected MPU port now links, and ABI 2 ST-generated code
+runs from SRAM under a privileged FreeRTOS task. See [hardware evidence](R2.4-report.md).
+This advances the prototype; the full R2 protection/deadline gate remains open.
+
+R2.5 update: the privileged board scan now uses physical GPIO, separate working/
+committed state, latched faults and measured release timing. See the
+[scan design](scan-runtime.md) and [hardware report](R2.5-report.md). R2.6
+isolation and deadline abort remain unimplemented.

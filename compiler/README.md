@@ -14,7 +14,9 @@ make aot-arm
 make test
 ```
 
-`plcc source.st` defaults to `source.ll`; `-o` selects a path. Errors include
+`plcc source.st` defaults to `source.ll`; `-o` selects a path.
+`--abi 1` (default) selects the original host interface; `--abi 2` selects
+separate frozen-input and working-state buffers for target integration. Errors include
 file, line and column. Compilation errors leave an existing output untouched.
 The CLI currently uses the built-in NUCLEO logical bindings (BTN BOOL input,
 LED BOOL output). Library callers can supply explicit `Binding` records;
@@ -83,8 +85,8 @@ ABI. It is not an uploadable `.bin`, a linked firmware image, or evidence of
 board execution. No target runtime libraries or MCU toolchain are downloaded.
 
 `make test-compiler` runs Rust syntax/type/limit/golden tests. `make test-llvm`
-requires LLVM, Python and a C build; it verifies combined modules, executes
-109 programs at O0 and O2 (including 100 seeded random programs), compares
+requires LLVM, Python and a C build; it verifies both ABI variants, executes
+109 programs per ABI at O0 and O2 (including 100 seeded random programs), compares
 three scans each with independent Python/C references, checks metadata/faults,
 and cross-compiles the corpus to an ARM object. `make test` also runs the
 historical oracle regression suite. `make sanitize` and `make thread-sanitize`
@@ -102,5 +104,5 @@ See [credits and official documentation](../docs/references.md) and the
 [study notes](../docs/education.md) for the exact lessons and source links.
 
 R2.1 specifies [target ABI draft 2](../docs/native-abi.md) with separate input
-and working buffers. This compiler still emits ABI 1; the new call shape must
-not be used with its current output.
+and working buffers. Use `--abi 2` for this interface. Never cast a function pointer between ABI
+versions. The R2.4 board build explicitly selects version 2.

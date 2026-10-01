@@ -1,5 +1,5 @@
 /* tinyplc target call ABI draft 2, revision 1. Project-owned contract.
- * See docs/native-abi.md; not implemented by the R1 compiler yet.
+ * See docs/native-abi.md; compiler --abi 2 implements this call shape.
  * Arm calling-convention source: https://github.com/ARM-software/abi-aa
  * Related-work credits: docs/references.md. No upstream code incorporated.
  */

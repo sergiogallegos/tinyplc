@@ -2,7 +2,8 @@
 
 This freezes the first target **call contract** for R2 experiments. It is not
 an image format, an implemented native loader, or a board acceptance result.
-The R1 compiler still emits research ABI 1; ABI 2 integration is pending.
+The compiler implements ABI 2 with `--abi 2`; default emission remains ABI 1
+for existing host examples. R2.4 verifies ABI 2 on the board.
 Changes to this contract require a new draft revision and fixture updates;
 a deployed incompatible contract must receive a new ABI version.
 
@@ -95,7 +96,7 @@ are R2.2/R2.6 work; this header does not implement them.
 
 ## Change from research ABI 1
 
-| ABI 1, implemented R1 | ABI 2, specified here |
+| ABI 1, implemented R1 | ABI 2, implemented with --abi 2 |
 | --- | --- |
 | One mixed mutable cell array | Separate frozen input and writable candidate arrays |
 | Generated function stages locally and rolls back internal values on fault | Supervisor owns transaction; candidate may be dirty on failure |
@@ -103,9 +104,8 @@ are R2.2/R2.6 work; this header does not implement them.
 | Count at least schema size | Exact schema count |
 | Diagnostic and tag metadata | Same scalar meanings; version 2 distinguishes the call shape |
 
-Do not cast an ABI 1 function pointer to ABI 2. Compiler integration must add
-versioned emission and rerun the semantic corpus, including fault/discard
-cases. R1's header, emitter and golden outputs remain unchanged in R2.1.
+Do not cast an ABI 1 function pointer to ABI 2. Versioned emission now runs the full semantic corpus for both ABIs, including
+fault/discard cases. R1's call behavior and golden fixture remain unchanged.
 
 ## Acceptance and limits
 
@@ -118,7 +118,6 @@ pointer-size assertions. These are contract fixtures, not a generated ST
 program or a production supervisor. They establish no MPU, stack-budget,
 register-preservation-on-hardware or timing evidence.
 
-Next: R2.2 toolchain/MPU-port selection, then R2.3 memory layout. Compiler ABI 2
-integration must precede R2.4's ST-generated board experiment. No board was
-flashed as part of R2.1. Related work and official references are in
+The R2.1 fixture stage did not flash a board. Subsequent [R2.4 evidence](R2.4-report.md)
+records ABI 2 compiled ST running in RAM on the F446. Related work and official references are in
 [references.md](references.md).

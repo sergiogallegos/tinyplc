@@ -40,6 +40,7 @@ class Diagnostic(ctypes.Structure):
 
 
 class AotTests(unittest.TestCase):
+    abi = 1
     @classmethod
     def setUpClass(cls):
         for tool in (PLCC, VM, CLANG, LLVM_AS, OPT):
@@ -73,7 +74,7 @@ class AotTests(unittest.TestCase):
         for index, text in enumerate(cls.sources):
             st, ll = cls.path / 'source.st', cls.path / 'source.ll'
             st.write_text(text)
-            command([PLCC, st, '-o', ll])
+            command([PLCC, st, '-o', ll, '--abi', cls.abi])
             cls.irs.append(ll.read_text())
             cls.images.append(compile_source(text, PROFILE))
         module = cls.path / 'combined.ll'
@@ -132,7 +133,7 @@ class AotTests(unittest.TestCase):
         for index, image in enumerate(self.images):
             tags = read_image(image, PROFILE).tags
             lib = self.libraries[1]
-            self.assertEqual(ctypes.c_uint32.in_dll(lib, f'p{index}_abi_version').value, 1)
+            self.assertEqual(ctypes.c_uint32.in_dll(lib, f'p{index}_abi_version').value, self.abi)
             self.assertEqual(ctypes.c_uint32.in_dll(lib, f'p{index}_tag_count').value, len(tags))
             names = ((ctypes.c_char * 32) * len(tags)).in_dll(lib, f'p{index}_tag_names')
             types = (ctypes.c_uint8 * len(tags)).in_dll(lib, f'p{index}_tag_types')
@@ -170,8 +171,51 @@ class AotTests(unittest.TestCase):
         self.assertNotEqual(process.returncode, 0)
         self.assertIn('assignment type mismatch', process.stderr)
         self.assertEqual(ll.read_text(), 'keep me')
-        for arguments in ([], ['--bad'], [str(st), '-o'], [str(st), '-o', str(st)]):
+        for arguments in ([], ['--bad'], [str(st), '-o'], [str(st), '-o', str(st)], [str(st), '--abi'], [str(st), '--abi', '3']):
             self.assertNotEqual(subprocess.run([PLCC, *arguments], capture_output=True).returncode, 0)
+
+
+class NativeV2Tests(AotTests):
+    abi = 2
+
+    def raw(self, library, index, inputs, working, count):
+        inp = (ctypes.c_uint32 * max(1, len(inputs)))(*inputs)
+        work = (ctypes.c_uint32 * max(1, len(working)))(*working)
+        diagnostic = Diagnostic(999, 999)
+        function = getattr(library, f'p{index}_scan')
+        function.argtypes = [ctypes.POINTER(ctypes.c_uint32), ctypes.POINTER(ctypes.c_uint32),
+                             ctypes.c_uint32, ctypes.POINTER(Diagnostic)]
+        function.restype = ctypes.c_uint32
+        status = function(inp, work, count, ctypes.byref(diagnostic))
+        self.assertEqual(tuple(inp)[:len(inputs)], tuple(inputs))
+        return status, tuple(work)[:len(working)], (diagnostic.line, diagnostic.column)
+
+    def native(self, library, index, values, count=None):
+        tags = read_image(self.images[index], PROFILE).tags
+        inputs = [v if t.kind == 1 else 0 for t, v in zip(tags, values)]
+        working = [0 if t.kind == 1 else v for t, v in zip(tags, values)]
+        status, candidate, diagnostic = self.raw(library, index, inputs, working,
+                                                len(values) if count is None else count)
+        self.assertTrue(all(v == 0 for t, v in zip(tags, candidate) if t.kind == 1))
+        # Model only the specified supervisor commit/discard policy for comparison.
+        if status == 4:
+            observed = tuple(values)
+        elif status:
+            observed = tuple(0 if t.kind == 2 else v for t, v in zip(tags, values))
+        else:
+            observed = tuple(v if t.kind == 1 else c for t, v, c in zip(tags, values, candidate))
+        return status, observed, diagnostic
+
+    def test_separate_bases_and_exact_count(self):
+        for library in self.libraries:
+            # Non-input cells in the input buffer must not be used as old state.
+            status, work, diag = self.raw(library, 0, [1, 99, 99], [0, 0, 7], 3)
+            self.assertEqual((status, work, diag), (0, (0, 0, 8), (0, 0)))
+            self.assertEqual(self.raw(library, 0, [1, 0, 0], [0, 1, 7], 4),
+                             (4, (0, 1, 7), (0, 0)))
+            # Fault outputs are candidate memory, not physical output policy.
+            status, work, _ = self.raw(library, 0, [2, 0, 0], [0, 1, 7], 3)
+            self.assertEqual((status, work), (8, (0, 1, 7)))
 
 
 if __name__ == '__main__':

@@ -10,16 +10,18 @@ functions.** Output fault handling is not a certified safety system.
 
 Repository: [sergiogallegos/tinyplc](https://github.com/sergiogallegos/tinyplc).
 
-## Current state: R1 Rust frontend and LLVM AOT
+## Current state: Rust/LLVM compiler and STM32 scan experiment
 
 Implemented: a dependency-free Rust ST frontend, positioned diagnostics,
 separate typed PLC IR, textual LLVM IR emission, exported tag metadata, and a
 C-compatible scan entry point. Tests verify IR, execute host machine code at
 `-O0` and `-O2`, compare results with independent historical interpreters, and
-cross-compile to ARM Cortex-M object code.
+cross-compile to ARM Cortex-M object code. A static FreeRTOS task now runs
+linked ST machine code from RAM on the F446, samples PC13, commits PA5, latches
+returned faults and measures the 10 ms release schedule. See [R2.5 evidence](docs/R2.5-report.md).
 
 **Not implemented yet:** a downloadable native image format, native loader,
-RTOS execution of downloaded logic, MPU isolation, deadline abort, transport,
+RTOS execution of downloaded logic, unprivileged isolation, deadline abort, transport,
 snapshot monitor, or native online migration/rollback. An ARM `.o` proves code
 generation, not MCU execution. See the [R1 report](docs/R1-report.md).
 
@@ -57,10 +59,12 @@ flowchart TB
     Front --> IR["Typed PLC IR<br/>tags, types, expressions, control flow"]
     IR --> LLVM["LLVM IR"]
     LLVM --> Object["LLVM ahead-of-time compiler<br/>ARM Cortex-M object code"]
+    Object --> Experiment["Current experiment<br/>static firmware link into RAM slot"]
+    Experiment --> Runtime
     Object -. "planned" .-> Package["Link and package<br/>ABI, state layout, code, integrity metadata"]
   end
   Package -. "planned serial / ST-LINK USB bridge" .-> Loader
-  subgraph Board["STM32 — native integration planned"]
+  subgraph Board["STM32 — privileged scan experiment implemented"]
     Loader["Privileged C loader<br/>validate and reserve inactive storage"]
     Loader --> Activate["Accept generation at scan boundary<br/>prepare state and protection context"]
     Activate --> Runtime["C supervisor on FreeRTOS<br/>periodically invokes native entry"]
@@ -69,20 +73,21 @@ flowchart TB
   end
   classDef implemented fill:#e1f5ef,stroke:#39927d,color:#064f43;
   classDef planned fill:#f2f2f2,stroke:#888,color:#333;
-  class ST,Front,IR,LLVM,Object implemented;
-  class Package,Loader,Activate,Runtime,IO,Tags planned;
+  class ST,Front,IR,LLVM,Object,Experiment,Runtime,IO implemented;
+  class Package,Loader,Activate,Tags planned;
 ```
 
-Green is implemented host functionality; grey is planned integration. The C
+Green is implemented compiler/board functionality; grey is planned integration. The C
 runtime is firmware installed through ST-LINK. The user program is a separate
 native artifact downloaded through the engineering connection. A general
 Linux `.so` or an unqualified raw `.bin` is not our MCU loading contract.
 
 ### 2. Scan ownership and monitoring
 
-**Planned target design.** The generated host scan function already implements
-transactional values, but scheduling, physical I/O, protection, snapshots, and
-fault latching still belong to the future supervisor.
+**Full target design.** Scheduling, sampled inputs, working/committed state,
+physical outputs and returned-fault latching are implemented in the
+[C scan supervisor](docs/scan-runtime.md). Unprivileged execution, deadline
+abort, concurrent snapshots and boundary requests in this diagram remain planned.
 
 ```mermaid
 flowchart TB
@@ -248,6 +253,12 @@ official Rust/C/LLVM/FreeRTOS/STM32 documentation, and the attribution policy.
 
 The [task checklist](docs/tasks.md) records completed work, acceptance evidence
 and open decisions. R1 and the R2.1 [target call ABI draft](docs/native-abi.md) are complete.
-The compiler still emits ABI 1; ABI 2 integration and board execution remain
-pending. R2.2 [toolchain and MPU-port selection](docs/target-toolchain.md) is
-recorded; next is R2.3 memory layout and target build verification.
+The compiler supports `--abi 2`; the ST example now runs from RAM in a
+privileged FreeRTOS board experiment. R2.2 [toolchain and MPU-port selection](docs/target-toolchain.md) is
+recorded; [R2.3](docs/R2.3-report.md) and [R2.4](docs/R2.4-report.md) now include hardware evidence.
+
+R2.3 now has a [buildable FreeRTOS layout scaffold](docs/memory-layout.md)
+and checked ELF memory boundaries. Its privileged task executes LLVM-generated
+ST with physical input/output supervision; [R2.5](docs/R2.5-report.md) records
+GPIO, fault-latch and scan-timing evidence. Unprivileged
+protection, deadline abort, download and online change remain pending.

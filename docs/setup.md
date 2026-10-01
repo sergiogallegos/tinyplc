@@ -85,5 +85,20 @@ cross-compiles both sides for Cortex-M. It is included in `make test`.
 
 R2.2 [pins tools and the FreeRTOS MPU port](target-toolchain.md). Run
 `python3 scripts/check_target.py --tools host` or `--tools target` for offline
-version checks. GCC/OpenOCD are selected but currently absent; these checks
-do not install them or imply a firmware build.
+version checks. GCC/OpenOCD were exercised from temporary local storage;
+these checks do not install them or imply a firmware build.
+
+For the separate R2.3 firmware target, follow [memory-layout.md](memory-layout.md).
+Use explicit `FREERTOS_ARCHIVE` and `ARM_PREFIX` arguments; the build performs
+no downloads or flashing. The selected GCC was exercised from temporary local
+storage during R2.3. No global tool installation was made.
+
+[R2.4](R2.4-report.md) records successful board execution. The current target
+build requires `make compiler` first and installed LLVM for ABI 2 user code.
+The hardware test uses a checksum-pinned xPack OpenOCD distribution from
+temporary storage; its exact development version is recorded in the report.
+
+R2.5 update: the privileged board scan now uses physical GPIO, separate working/
+committed state, latched faults and measured release timing. See the
+[scan design](scan-runtime.md) and [hardware report](R2.5-report.md). R2.6
+isolation and deadline abort remain unimplemented.

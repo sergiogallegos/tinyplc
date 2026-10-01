@@ -7,11 +7,12 @@ product architecture. Existing interpreters remain independent test oracles.
 
 R1 implements the Rust compiler and verifies host-native execution and ARM
 object generation. This document describes the target supervisor, loader, and
-monitoring design still to be built. The current statically linked test ABI is
+monitoring design. R2.5 implements the basic GPIO scan transaction; isolation,
+loading and monitoring remain to be built. The current statically linked test ABI is
 in [compiler/README.md](../compiler/README.md); package/target work is detailed
 in [native-roadmap.md](native-roadmap.md). The [R2.1 call ABI draft](native-abi.md)
-defines separate input/working buffers for target integration; it is not yet
-emitted by the compiler.
+defines separate input/working buffers, now emitted with `--abi 2` and exercised
+in the [R2.4 privileged board experiment](R2.4-report.md).
 
 ## Ownership boundaries
 
@@ -146,3 +147,8 @@ technology documentation, and [tasks](tasks.md) for implementation status.
 R2.2 selects the [GCC Cortex-M4 MPU port](target-toolchain.md). Its default
 peripheral permissions require hardening before this isolation policy holds;
 selection alone is not evidence of isolation.
+
+R2.5 update: the privileged board scan now uses physical GPIO, separate working/
+committed state, latched faults and measured release timing. See the
+[scan design](scan-runtime.md) and [hardware report](R2.5-report.md). R2.6
+isolation and deadline abort remain unimplemented.

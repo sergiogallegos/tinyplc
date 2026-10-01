@@ -28,15 +28,18 @@ Execute in this order; each item produces reviewable code/specification and evid
 - [x] R2.2: Select and pin toolchain, FreeRTOS revision and compatible MPU-aware
   port. Record license/provenance, build flags, startup ownership and SVC use.
   Evidence: [selection](target-toolchain.md), [R2.2 report](R2.2-report.md).
-  Target build and hardening are still pending; selected GCC/OpenOCD are absent.
-- [ ] R2.3: Measure firmware RAM/flash/stack needs; define linker regions with
+  R2.3/R2.4 built and exercised the selected integration; full isolation remains R2.6.
+- [x] R2.3: Measure firmware RAM/flash/stack needs; define linker regions with
   assertions for supervisor, user stack/state and executable RAM. Budget MPU
   regions and verify code fetch on the actual F446 board.
-- [ ] R2.4: Link one tiny native function for a reserved RAM address; audit
+  Build/layout and board RAM-fetch/stack observations passed; [R2.3 evidence](R2.3-report.md).
+- [x] R2.4: Link one tiny native function for a reserved RAM address; audit
   relocations/helper calls and execute it under C supervision on hardware.
   This experiment precedes a downloadable loader.
-- [ ] R2.5: Establish static FreeRTOS tasks, frozen input/working state, GPIO
+  ABI 2 semantic regression and ST-generated board execution passed; [R2.4 evidence](R2.4-report.md).
+- [x] R2.5: Establish static FreeRTOS tasks, frozen input/working state, GPIO
   commit, boot/fault output policy and a measured 10 ms scan release schedule.
+  Host fault tests and board GPIO/fault/timing checks passed; [R2.5 evidence](R2.5-report.md).
 - [ ] R2.6: Implement user privilege/MPU boundaries, checked service gateway,
   protected return/abort, independent deadline guard and watchdog fallback.
   Inject illegal access, infinite execution and stack faults; measure output
@@ -47,8 +50,9 @@ Execute in this order; each item produces reviewable code/specification and evid
 
 The call ABI draft is frozen for experiments; target integration is not complete.
 The MPU port and versions are selected. Open decisions in R2.3/R2.7 include
-memory partitions, code placement, fixups and package encoding. Next: R2.3. ABI 2 compiler emission
-and semantic regression checks must precede the R2.4 ST-generated experiment.
+final package placement/fixups and encoding. Experimental memory partitions
+and ABI 2 ST execution are established. Physical I/O supervision is established. Next: R2.6 unprivileged fault
+containment, protected return/abort and independent deadline enforcement.
 
 ## R3 — upload, acceptance and monitoring
 

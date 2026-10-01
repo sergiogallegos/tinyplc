@@ -78,3 +78,12 @@ manual revisions and applicable licenses with the corresponding stage report.
 
 See [R2.2 provenance](target-toolchain.md) for immutable kernel source links
 and the selected tool versions. Upstream source is reviewed, not vendored.
+
+The R2.3 firmware link also permits the compiler support library supplied with
+Arm GNU Toolchain (`libgcc`). Its distribution notices apply separately from
+project code; it is not the ST user-program service interface.
+
+Hardware tests used [xPack OpenOCD](https://github.com/xpack-dev-tools/openocd-xpack/releases/tag/v0.12.0-7),
+a binary distribution linked from the OpenOCD project's download guide. Its
+GPL and bundled component notices remain in the temporary tool distribution.
+The exact tested binary version and archive checksum are in the target lock.

@@ -69,6 +69,16 @@ pub fn analyze(source: &str, bindings: &[Binding]) -> Result<ir::Program, Error>
     semantic::analyze(parser::parse(lexer::lex(source)?)?, bindings)
 }
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Abi {
+    ResearchV1,
+    NativeV2,
+}
+
 pub fn compile(source: &str, bindings: &[Binding]) -> Result<String, Error> {
-    Ok(llvm::emit(&analyze(source, bindings)?))
+    compile_with_abi(source, bindings, Abi::ResearchV1)
+}
+
+pub fn compile_with_abi(source: &str, bindings: &[Binding], abi: Abi) -> Result<String, Error> {
+    Ok(llvm::emit(&analyze(source, bindings)?, abi))
 }

@@ -51,5 +51,19 @@
     "-ffreestanding",
     "-O2",
     "-fno-lto"
-  ]
+  ],
+  "tool_archives": {
+    "arm_gnu_darwin_arm64": {
+      "url": "https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-darwin-arm64-arm-none-eabi.tar.xz",
+      "sha256": "fb6921db95d345dc7e5e487dd43b745e3a5b4d5c0c7ca4f707347148760317b4",
+      "checksum_url": "https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-darwin-arm64-arm-none-eabi.tar.xz.sha256asc"
+    },
+    "openocd_xpack_darwin_arm64": {
+      "distribution": "xPack OpenOCD v0.12.0-7",
+      "version_output": "0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:45)",
+      "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.12.0-7/xpack-openocd-0.12.0-7-darwin-arm64.tar.gz",
+      "sha256": "667342c086984f3e5a55b4e0d5f711add13fb04de040fca493303000e6c19327",
+      "license": "GPL-2.0; see distribution notices"
+    }
+  }
 }

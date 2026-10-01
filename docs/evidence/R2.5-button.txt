@@ -1,0 +1,8 @@
+2026-10-01: user held B1 for about two seconds and released without reset
+ELF SHA256 2201820c8f404949c5ac1cdd8b72b7091426fd9776cff860d0e8127794860793
+BOARD id=0x10006421 flash_kib=0x200
+SAMPLE scans=0x3972 status=0x0 n=0xbb led=0x1 raw=0x1 pressed=0x0 transitions=0x2 stack_free=0x1da scan_cycles_max=0x17d period_min=0x270fd period_max=0x271d5 jitter_max=0xd5 missed=0x0
+MPU enabled=0x5 peripheral_rasr=0x11000039
+SAMPLE scans=0x39d7 status=0x0 n=0xbb led=0x1 raw=0x1 pressed=0x0 transitions=0x2 stack_free=0x1da scan_cycles_max=0x17d period_min=0x270fd period_max=0x271d5 jitter_max=0xd5 missed=0x0
+MPU enabled=0x5 peripheral_rasr=0x11000039
+TINYPLC_BOARD_CHECK_PASS

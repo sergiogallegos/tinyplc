@@ -1,0 +1,8 @@
+2026-10-01: deliberate ST division fault
+ELF SHA256 91ed27dc244021050858170285e71cf4ddbaa8ef033ece061ca16a73a5622b83
+BOARD id=0x10006421 flash_kib=0x200
+SAMPLE scans=0x6d status=0x5 n=0x0 led=0x0 raw=0x1 pressed=0x0 transitions=0x0 stack_free=0x1da scan_cycles_max=0x10a period_min=0x27100 period_max=0x271d5 jitter_max=0xd5 missed=0x0
+MPU enabled=0x5 peripheral_rasr=0x11000039
+SAMPLE scans=0xd2 status=0x5 n=0x0 led=0x0 raw=0x1 pressed=0x0 transitions=0x0 stack_free=0x1da scan_cycles_max=0x10a period_min=0x270fd period_max=0x271d5 jitter_max=0xd5 missed=0x0
+MPU enabled=0x5 peripheral_rasr=0x11000039
+TINYPLC_BOARD_CHECK_PASS

@@ -1,0 +1,12 @@
+Hardware observation, 2026-09-30–2026-10-01
+ELF SHA-256: 75ec62cbf1e21c849d7c57d0c0ade8cd9f5de4bcc817388a74090a8fa70bb70b
+xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:45)
+BOARD id=0x10006421 flash_kib=0x200
+Info : device id = 0x10006421
+Info : flash size = 512 KiB
+** Verified OK **
+SAMPLE scans=0x6d n=0x2c led=0x1 stack_free=0x1e0 cycles_max=0x34
+MPU enabled=0x5 peripheral_rasr=0x11000039
+SAMPLE scans=0xd1 n=0x54 led=0x1 stack_free=0x1e0 cycles_max=0x34
+MPU enabled=0x5 peripheral_rasr=0x11000039
+TINYPLC_BOARD_CHECK_PASS
