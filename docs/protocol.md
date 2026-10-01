@@ -22,13 +22,13 @@ Responses use `request_command | 0x80`. Every response payload starts with statu
 | 0x04 | DOWNLOAD_END | transfer_id:u32 | validated candidate generation:u32 |
 | 0x05 | ACTIVATE | candidate_generation:u32 | accepted generation:u32; completion observed in status |
 | 0x06 | ROLLBACK | empty | accepted generation:u32 |
-| 0x07 | READ_TAGS | generation:u32, first_index:u8, count:u8 | generation/scan sequence and bounded tag records |
+| 0x07 | READ_TAGS | generation:u32, snapshot_scan:u64, first_index:u8, count:u8 | generation/scan sequence and bounded tag records |
 | 0x08 | WRITE_TAG | generation:u32, index:u8, value:u32 | accepted; scan boundary applies it |
 | 0x09 | GET_STATUS | empty | active generation, scan count, timing/jitter, overruns, fault and pending state |
 
 Downloads are contiguous: offset must equal next_offset. An exact retransmission of the most recent chunk can be acknowledged idempotently; other duplicates/out-of-order chunks fail. DOWNLOAD_END validates the complete image and expected count. Abandoned transfers are discarded after a documented transfer timeout in M3. DOWNLOAD_BEGIN returns BUSY while an activation/migration owns the slot. Beginning a new download retires the old rollback image, exposed through INFO.
 
-READ_TAGS paginates because 64 names cannot fit one frame. A stale generation produces BUSY so the host retries against a fresh snapshot. Values, types, names, scan count, and generation come from one owned snapshot. WRITE_TAG rejects INPUT/OUTPUT and noncanonical BOOLs; it never writes directly into scan state. Full request queues return BUSY.
+READ_TAGS paginates because 64 names cannot fit one frame. `snapshot_scan=0` starts a new enumeration (scan sequences start at 1); generation=0 accepts the captured active generation. Comms pins its owned snapshot for the entire enumeration, returning its generation and scan sequence on every page. Continuation requests must supply both returned identifiers. Release after the last page or 2 seconds of inactivity; stale identifiers produce BUSY and the host restarts. Values, types, names, scan count, and generation come from that one snapshot. Holding it cannot block the scan producer. WRITE_TAG rejects INPUT/OUTPUT and noncanonical BOOLs; it never writes directly into scan state. Full request queues return BUSY.
 
 M3 must finalize exact response field layouts and width/unit definitions with cross-language golden frame fixtures before implementation. Timing values should be microseconds, signed jitter, and cumulative counters; they must not leak host struct layout. INFO's protocol version protects host/runtime compatibility.
 

@@ -118,9 +118,9 @@ Native C unit tests, Python compiler golden tests, protocol round trips, and ran
 | Milestone | Deliverable | State |
 | --- | --- | --- |
 | M0 | Scaffold, documentation, toolchain choice, `make sim`, LD2 blink | Host scaffold ready; target build/hardware verification pending tools |
-| M1 | Tag DB, VM, image validator, native unit tests | Planned |
+| M1 | Tag DB, VM, image validator, slot ownership/boundary API, native unit tests | Planned |
 | M2 | Compiler, disassembler, reference interpreter, differential tests | Planned |
-| M3 | Protocol, TCP simulator, CLI end to end | Planned |
+| M3 | Protocol, TCP simulator, basic safe activation/snapshots, CLI end to end | Planned |
 | M4 | FreeRTOS scan task, GPIO/UART, real button/LED ST program | Planned |
 | M5 | Live swap, state migration, rollback, DWT statistics in monitor | Planned |
 | M6 | TON, Modbus RTU, flash persistence, CI | Stretch |
