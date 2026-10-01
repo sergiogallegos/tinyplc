@@ -1,12 +1,14 @@
-# toyplc
+# tinyplc
 
 A tiny PLC built from scratch to learn how hardware, a cyclic runtime, a bytecode virtual machine, and a Structured Text compiler fit together. The controller target is an STM32 NUCLEO-F446RE; a native macOS simulator will run the same portable C core so learning can continue without a board.
 
-**Education and research only. Do not use toyplc for real machines or safety functions.** Its output fault handling is a learning mechanism, not a certified safety system.
+**Education and research only. Do not use tinyplc for real machines or safety functions.** Its output fault handling is a learning mechanism, not a certified safety system.
 
-## Current state: M0 scaffold
+Repository: [sergiogallegos/tinyplc](https://github.com/sergiogallegos/tinyplc).
 
-Implemented: native scheduling demonstration, standalone register-level LD2 blink source, CMake/Make targets, board profile, MIT license, and the design documents. The VM, compiler, protocol, TCP server, and FreeRTOS integration are planned milestones. Commands for those features below illustrate the intended workflow, not tools available today.
+## Current state: M1 portable core
+
+Implemented: portable C11 tag database, typed bytecode VM, CRC/image/control-flow validation, two RAM slots, deferred boundary activation, and transactional scan execution. The native simulator executes a hand-encoded version of the button/LED program. Native tests cover malformed images, arithmetic, stack/branch rules, faults, and concurrent activation handoffs. The compiler, protocol/TCP server, FreeRTOS, snapshots, state migration, and rollback remain later milestones.
 
 Start on the Mac with an existing C compiler, CMake, and Make:
 
@@ -14,9 +16,10 @@ Start on the Mac with an existing C compiler, CMake, and Make:
 make sim
 make run
 make test
+make sanitize
 ```
 
-The executable finishes after five scheduled scans and prints `M0 scans=5 period_ms=10 output=1`. `make test` runs its native smoke test. It does not load ST or open a network socket yet. See [setup](docs/setup.md) for pinned toolchain versions and board commands.
+The executable finishes after five scheduled scans and prints `M1 scans=5 period_ms=10 LED=1 N=2 generation=1`. `make test` runs the simulator check and eight native test groups. `make sanitize` repeats them under address/undefined-behavior sanitizers; `make thread-sanitize` checks the producer/scan handoff with ThreadSanitizer. It does not load ST source or open a network socket yet. See [setup](docs/setup.md) for toolchain and board commands, and the [M1 report](docs/M1-report.md) for verified scope.
 
 ## What makes it a PLC?
 
@@ -101,6 +104,8 @@ The VM is a C interpreter with a program counter, a fixed operand stack, a tag a
 
 ## Scheduling, faults, and online edits
 
+M1 implements the scan-owner API, fault latching, zero-initialized activation at a boundary, and bounded comms/scan slot handoff. A successful scan commits internal values; a failed scan discards partial internal assignments and clears output tags. The caller applies those tags to physical outputs. See [core API guide](core/README.md) for ownership rules. The FreeRTOS, snapshot, migration, and rollback behavior described next is the remaining v1 design.
+
 The planned FreeRTOS configuration uses its ARM_CM4F port, a 1 kHz tick, static task/queue allocation, assertions, and stack overflow checks. The highest application priority scan task uses `vTaskDelayUntil`; the lower priority comms task receives bytes and stages downloads. No allocation or UART waiting occurs in the scan path. DWT measures execution cycles, actual scan intervals, jitter extrema, and overruns. Host timing does not substitute for DWT measurements.
 
 Downloads fill the inactive RAM slot. `ACTIVATE` validates it and requests a swap. After the current scan writes outputs, the scan owner migrates internal VAR values with matching names and types and publishes the new active pointer atomically. New or changed variables start at zero. The next scan reads inputs and runs the new program. The old image remains available for rollback; a failed first scan triggers automatic rollback. Slot ownership prevents downloading over either active code or the preserved rollback image.
@@ -118,7 +123,7 @@ Native C unit tests, Python compiler golden tests, protocol round trips, and ran
 | Milestone | Deliverable | State |
 | --- | --- | --- |
 | M0 | Scaffold, documentation, toolchain choice, `make sim`, LD2 blink | Host scaffold ready; target build/hardware verification pending tools |
-| M1 | Tag DB, VM, image validator, slot ownership/boundary API, native unit tests | Planned |
+| M1 | Tag DB, VM, image validator, slot ownership/boundary API, native unit tests | Verified on host |
 | M2 | Compiler, disassembler, reference interpreter, differential tests | Planned |
 | M3 | Protocol, TCP simulator, basic safe activation/snapshots, CLI end to end | Planned |
 | M4 | FreeRTOS scan task, GPIO/UART, real button/LED ST program | Planned |

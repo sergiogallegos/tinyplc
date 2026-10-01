@@ -1,6 +1,6 @@
-# Bytecode v1 proposal
+# Bytecode v1
 
-Specified at M0; implementation and executable conformance tests start at M1/M2. All multibyte fields are little-endian, with no C struct padding.
+Implemented and tested by the M1 C core. M2 adds the compiler/reference interpreter against this contract. All multibyte fields are little-endian, with no C struct padding.
 
 ## Image layout
 
@@ -68,4 +68,6 @@ The expression does not read GPIO. The port sampled GPIO into tag 0 before the V
 
 Reject bad magic/version/CRC/lengths; extra/truncated bytes; unknown opcodes; malformed operands; unsupported I/O; out-of-range indices; writes to inputs; jumps outside code or into operands; backward/self jumps; mismatched operand types; stack underflow/overflow; inconsistent branch merges; missing HALT; and nonempty stack at a reachable HALT. Verify computed maximum depth equals the header declaration. Scan budget remains 4096 instructions even though forward-only accepted code is bounded.
 
-Planned fault codes: NONE=0, INVALID_IMAGE=1, STACK=2, BAD_OPCODE=3, TAG_BOUNDS=4, DIV_ZERO=5, INSTRUCTION_BUDGET=6, SCAN_OVERRUN=7, TYPE=8. Structural rejection happens before activation; execution faults force outputs FALSE and preserve diagnostics. M1 locks these values and adds corruption/control-flow tests.
+Fault codes: NONE=0, INVALID_IMAGE=1, STACK=2, BAD_OPCODE=3, TAG_BOUNDS=4, DIV_ZERO=5, INSTRUCTION_BUDGET=6, SCAN_OVERRUN=7, TYPE=8. Structural rejection happens before activation. The M1 scan wrapper clears output tags and preserves fault PC/opcode/reason; the port must write those values to physical outputs. SCAN_OVERRUN is reserved for M4 deadline enforcement. Image/header errors use PC=65535 to mean no instruction location. The standalone VM mutates a working tag array; use the scan wrapper for transactional state and output fault handling.
+
+Unknown opcodes and invalid operands are rejected even in unreachable code. Typed stack propagation and declared maximum depth apply to reachable instructions. The instruction budget counts HALT; a path containing ten instructions requires a budget of at least ten. Validation uses an 18,432-byte caller-owned workspace with a depth and a 64-bit type mask per code offset. It is separate from the VM's 64-cell execution stack.

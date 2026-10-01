@@ -1,7 +1,7 @@
-#ifndef TOYPLC_LIMITS_H
-#define TOYPLC_LIMITS_H
+#ifndef TINYPLC_LIMITS_H
+#define TINYPLC_LIMITS_H
 
-/* Fixed capacities shared by both ports. There is no VM yet at M0. */
+/* Fixed capacities shared by the portable runtime and both ports. */
 #define PLC_SCAN_PERIOD_MS 10u
 #define PLC_MAX_CODE_BYTES 2048u
 #define PLC_MAX_TAGS 64u

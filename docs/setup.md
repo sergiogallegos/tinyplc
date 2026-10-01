@@ -14,11 +14,13 @@ Official distributions: [CMake](https://cmake.org/download/), [GNU Arm 13.3.Rel1
 make sim
 make run
 make test
+make sanitize
+make thread-sanitize
 ```
 
-Expected executable line: `M0 scans=5 period_ms=10 output=1`.
-Expected CTest summary: `100% tests passed, 0 tests failed out of 1`.
-Build artifacts stay under `build/`. This is a finite scheduling demonstration; TCP and VM arrive later.
+Expected executable line: `M1 scans=5 period_ms=10 LED=1 N=2 generation=1`.
+Expected CTest summary: `100% tests passed, 0 tests failed out of 2`.
+The native test binary also reports eight groups, 4000 image mutations, and 2000 concurrent activation handoffs. Build artifacts stay under `build/`. Address/undefined-behavior and thread sanitizer builds use separate directories and require compiler sanitizer support; they install nothing. This finite demonstration executes the real C VM; TCP arrives in M3.
 
 ## Board bring-up
 

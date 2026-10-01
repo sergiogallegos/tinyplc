@@ -1,6 +1,6 @@
-# Runtime architecture (planned v1)
+# Runtime architecture
 
-M0 provides scheduling and blink scaffolds only. This document describes the runtime to build in M1–M5; it is not a claim that those features work already.
+M1 implements the tag database, validator, VM, transactional scan wrapper, and basic two-slot boundary activation. Its simulator executes the shared core. FreeRTOS/deadline enforcement, snapshots, protocol, migration, and rollback below remain the M3–M5 design. The current ownership API is documented in [core/README.md](../core/README.md).
 
 ## State owned by the scan
 
@@ -57,7 +57,7 @@ Validation walks all instructions to build an instruction-boundary map, checks e
 
 ## Host simulator and compiler
 
-The native simulator will call the same core scan operations using monotonic POSIX time and simulated GPIO. A TCP server replaces UART framing but uses exactly the same messages. M0 demonstrates absolute deadlines with relative nanosleeps recomputed from CLOCK_MONOTONIC because macOS does not provide every Linux timer API. It does not claim deterministic timing.
+The M1 native simulator calls the same core scan operations using monotonic POSIX time and simulated GPIO. In M3 a TCP server will replace UART framing with exactly the same messages. Absolute deadlines use relative nanosleeps recomputed from CLOCK_MONOTONIC because macOS does not provide every Linux timer API. Host timing is not deterministic.
 
 Python compilation stages are lexer → AST parser → symbol/type/binding checks → bytecode emitter → image encoder. Parse errors include source line/column. The compiler computes capacity/stack bounds, but the controller repeats validation because transport bytes are untrusted. Python's reference VM masks DINT operations to 32 bits; differential tests compare it with the compiled C VM, including signed limits, every branch, and faults.
 

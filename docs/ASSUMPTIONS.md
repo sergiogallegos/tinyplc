@@ -17,3 +17,10 @@ Recorded before M0 code, 2026-09-30. These are design commitments unless a later
 - macOS is a functional simulator, not evidence of microcontroller timing. A detected usbmodem device is not proof of the board identity or a passed hardware test.
 - Bytecode and wire formats below are proposed v1 contracts until M1/M3 tests lock them down. Documentation must distinguish implemented behavior from planned behavior.
 - MIT applies to project code; future third-party code retains its own license.
+
+## M1 implementation decisions
+
+- The validator uses a caller-owned fixed workspace, with one depth and a 64-bit type mask per code offset. It is allocated statically in the simulator/tests, not on the scan stack. This keeps forward-control-flow validation bounded without storing a full stack at every instruction.
+- The core receives an explicit list of permitted I/O bindings; it never reads JSON or assumes STM32 pin names. The host/port supply the same profile semantics.
+- M1 provides a single-producer comms/scan activation mailbox. Download/image validation occurs while the inactive slot is reserved; the scan owns tag values and commits swaps only through an explicit boundary call. Migration and rollback are deferred to M5; M1 activation starts new values at zero.
+- A scan fault latches execution off until a valid activation. A diagnostic record remains available after recovery. M1's scan wrapper handles VM faults transactionally; hardware deadline/output handling is added by the port in M4.
