@@ -10,7 +10,7 @@ functions.** Output fault handling is not a certified safety system.
 
 Repository: [sergiogallegos/tinyplc](https://github.com/sergiogallegos/tinyplc).
 
-## Current state: Rust/LLVM compiler and STM32 scan experiment
+## Current state: compile, download and activate native ST on STM32
 
 Implemented: a dependency-free Rust ST frontend, positioned diagnostics,
 separate typed PLC IR, textual LLVM IR emission, exported tag metadata, and a
@@ -18,12 +18,23 @@ C-compatible scan entry point. Tests verify IR, execute host machine code at
 `-O0` and `-O2`, compare results with independent historical interpreters, and
 cross-compile to ARM Cortex-M object code. A static FreeRTOS task now runs
 linked ST machine code from RAM on the F446, samples PC13, commits PA5, latches
-returned faults and measures the 10 ms release schedule. See [R2.5 evidence](docs/R2.5-report.md).
+faults and measures the 10 ms release schedule. ST now executes in a separate
+unprivileged task, with checked return, MPU isolation, TIM2 deadline abort and
+IWDG reset fallback. R2 is complete; see the [consolidated report](docs/R2-report.md).
 
-**Not implemented yet:** a downloadable native image format, native loader,
-RTOS execution of downloaded logic, unprivileged isolation, deadline abort, transport,
-snapshot monitor, or native online migration/rollback. An ARM `.o` proves code
-generation, not MCU execution. See the [R1 report](docs/R1-report.md).
+The [R3.1 wire contract](docs/wire-format.md) now defines native packages and
+engineering frames, with generated Rust/C constants and golden fixtures.
+
+[R3.2](docs/R3.2-report.md) adds the Rust native packager and portable C
+package validation/staging, tested together on the host.
+
+[R3.3](docs/R3.3-report.md) connects the board over USB serial: `plctool` downloads
+into an inactive slot, explicitly activates a generation, and reports execution
+status. Downloaded code runs unprivileged with validated tag bindings and a
+fresh worker context. Both slots and 64-tag execution have hardware evidence.
+
+**Not implemented yet:** coherent tag monitoring, tag writes, online state
+migration or rollback. Activation currently resets state to zero.
 
 The primary compiler is `compiler/` (Rust). Earlier Python/bytecode work is
 retained only as a historical semantic test reference; it is not the product
@@ -32,7 +43,7 @@ architecture or a planned fallback execution mode.
 ## Try it on the PC
 
 Use existing Rust/Cargo, LLVM (`clang`, `llvm-as`, `opt`), Python 3.11+, CMake,
-and a C compiler. No packages are fetched by these commands.
+a C compiler, and ARM GNU ld for the package integration tests. No packages are fetched by these commands.
 
 ```sh
 make compiler
@@ -59,25 +70,30 @@ flowchart TB
     Front --> IR["Typed PLC IR<br/>tags, types, expressions, control flow"]
     IR --> LLVM["LLVM IR"]
     LLVM --> Object["LLVM ahead-of-time compiler<br/>ARM Cortex-M object code"]
-    Object --> Experiment["Current experiment<br/>static firmware link into RAM slot"]
+    Object --> Experiment["Boot program<br/>static firmware link into slot A"]
     Experiment --> Runtime
-    Object -. "planned" .-> Package["Link and package<br/>ABI, state layout, code, integrity metadata"]
+    Object --> Link["Host link for slot A or B<br/>all addresses resolved on PC"]
+    Link --> Package["Rust plcpack<br/>ABI, state layout, code, integrity metadata"]
   end
-  Package -. "planned serial / ST-LINK USB bridge" .-> Loader
-  subgraph Board["STM32 — privileged scan experiment implemented"]
-    Loader["Privileged C loader<br/>validate and reserve inactive storage"]
+  Package -->|"plctool over ST-LINK USB serial"| Loader
+  subgraph Board["STM32 — isolated native scan experiment implemented"]
+    Loader["Low-priority C comms and loader<br/>validate, stage and seal inactive slot"]
     Loader --> Activate["Accept generation at scan boundary<br/>prepare state and protection context"]
     Activate --> Runtime["C supervisor on FreeRTOS<br/>periodically invokes native entry"]
+    Runtime --> Worker["Unprivileged ST worker<br/>private stack and MPU permissions"]
+    Worker --> Gate["Firmware-flash return gateway<br/>TIM2 deadline and watchdog fallback"]
+    Gate --> Runtime
     Runtime --> IO["Input sampling and output commit"]
-    Runtime --> Tags["Runtime-owned tag database<br/>names, types, offsets, values"]
+    Runtime --> Tags["Runtime-owned schema and values<br/>validated bindings, frozen I/O"]
+    Tags -. "next milestone" .-> Monitor["Coherent tag snapshots<br/>PC monitoring"]
   end
   classDef implemented fill:#e1f5ef,stroke:#39927d,color:#064f43;
   classDef planned fill:#f2f2f2,stroke:#888,color:#333;
-  class ST,Front,IR,LLVM,Object,Experiment,Runtime,IO implemented;
-  class Package,Loader,Activate,Tags planned;
+  class ST,Front,IR,LLVM,Object,Link,Package,Experiment,Runtime,Worker,Gate,IO,Loader,Activate,Tags implemented;
+  class Monitor planned;
 ```
 
-Green is implemented compiler/board functionality; grey is planned integration. The C
+Green is implemented and tested; grey is the next monitoring milestone. The C
 runtime is firmware installed through ST-LINK. The user program is a separate
 native artifact downloaded through the engineering connection. A general
 Linux `.so` or an unqualified raw `.bin` is not our MCU loading contract.
@@ -85,9 +101,10 @@ Linux `.so` or an unqualified raw `.bin` is not our MCU loading contract.
 ### 2. Scan ownership and monitoring
 
 **Full target design.** Scheduling, sampled inputs, working/committed state,
-physical outputs and returned-fault latching are implemented in the
-[C scan supervisor](docs/scan-runtime.md). Unprivileged execution, deadline
-abort, concurrent snapshots and boundary requests in this diagram remain planned.
+physical outputs, fault latching, unprivileged execution and native deadline
+abort are implemented in the [scan supervisor](docs/scan-runtime.md) and
+[execution boundary](docs/native-isolation.md). Concurrent snapshots and
+boundary requests in this diagram remain planned.
 
 ```mermaid
 flowchart TB
@@ -123,8 +140,8 @@ with byte offset `4 × declaration index`.
 
 ### 3. Edit, download, accept, observe
 
-**Planned engineering workflow.** Download success and activation success are
-separate states. The current R1 compiler stops before this workflow.
+**Implemented download/activation workflow.** Download success and activation
+success are separate states; tag snapshots are the next step.
 
 ```mermaid
 sequenceDiagram
@@ -134,28 +151,28 @@ sequenceDiagram
   participant Scan as FreeRTOS scan supervisor
   User->>PC: Edit ST and build target native image
   PC->>Loader: Transfer bounded chunks
-  Loader->>Loader: Validate package, ABI, memory and imports
+  Loader->>Loader: Validate package, ABI, exact slot and state schema
   Loader-->>PC: READY with candidate generation
   Note over Loader,Scan: Current program keeps running
   User->>PC: Accept edit
   PC->>Loader: ACTIVATE(candidate generation)
   Loader-->>PC: Request accepted, not yet running
   Loader->>Scan: Publish owned boundary request
-  Scan->>Scan: Migrate permitted state and install native context
+  Scan->>Scan: Reset state and install a fresh native worker
   Scan->>Scan: Execute first candidate scan under deadline guard
   alt Successful execution
     Scan-->>Loader: Snapshot confirms running generation
   else Contained application fault
     Scan->>Scan: Outputs FALSE, discard candidate working state
-    Scan->>Scan: Restore reserved old context for next scan
+    Scan->>Scan: Latch fault and keep outputs FALSE
     Scan-->>Loader: Fault and rejected generation retained
   end
-  PC->>Loader: Read status and tag snapshot
-  Loader-->>PC: Coherent values and actual execution state
-  PC-->>User: Monitor tags and confirm edit outcome
+  PC->>Loader: Read execution status
+  Loader-->>PC: Actual generation, outcome, fault and timing
+  PC-->>User: Confirm the edit outcome
 ```
 
-Migration matches internal variable names and compatible types/layouts.
+Future R4 migration will match internal variable names and compatible types/layouts.
 Inputs are resampled and outputs recomputed. Preserved variables do not
 promise unchanged output behavior; rollback cannot undo physical actions.
 Two slots cannot preserve active, previous, and another candidate at once.
@@ -201,7 +218,7 @@ On macOS a VCP commonly appears as `/dev/tty.usbmodem*` and `/dev/cu.usbmodem*`;
 
 The Rust CLI currently uses built-in logical bindings for `BTN` (BOOL input)
 and `LED` (BOOL output). The [board profile](boards/nucleo_f446re.json) records
-the physical mapping; the future C board port applies it. The compiler library
+the physical mapping; the C board port applies it. The compiler library
 also accepts an explicit list of logical bindings. No register access is emitted
 into user logic.
 
@@ -213,15 +230,18 @@ order, dependency boundary, and reasons for using a small STM32 board.
 | Directory | Role |
 | --- | --- |
 | `compiler/` | Primary Rust lexer/parser, semantic analysis, typed PLC IR, LLVM emitter, CLI, scan ABI, tests |
+| `contract/` | Shared wire definitions and generated Rust/C constants |
+| `packager/`, `engineering/` | Rust native package builder and serial engineering CLI |
+| `runtime/` | Portable C scan transaction, package validator, staging and framing |
 | `sim/aot_main.c` | Current C harness invoking host AOT machine code |
-| `port/` | Existing M0 blink; future native supervisor, GPIO/UART, MPU, deadline and fault handling |
+| `port/` | STM32 C/FreeRTOS supervisor, GPIO/UART, MPU, deadline and fault handling; historical blink |
 | `tests/llvm/` | IR verification, optimized host AOT execution, ARM codegen and semantic comparisons |
-| `boards/` | Target mapping information; native memory/ABI profiles remain to be defined |
+| `boards/` | Explicit target I/O mapping; native profiles are documented in `docs/` |
 | `core/`, `host/`, `tests/native/` | Historical M1/M2 implementation and independent test oracles |
 | `docs/` | Current architecture, compiler contract, native loader roadmap, reports and historical designs |
 
 The Rust frontend uses only its standard library. LLVM is a PC-side toolchain
-dependency; no LLVM library or compiler runs on the MCU. FreeRTOS is the planned
+dependency; no LLVM library or compiler runs on the MCU. FreeRTOS is the
 scheduler dependency. The project owns PLC semantics, the native image/ABI
 contract, engineering operations, and runtime state management.
 
@@ -231,8 +251,8 @@ contract, engineering operations, and runtime state management.
 | --- | --- | --- |
 | M0–M2 | Initial board scaffold, C VM, Python compiler and independent execution tests | Historical; retained for evidence and test reuse |
 | R1 | Rust ST frontend → typed PLC IR → LLVM IR; host AOT and Cortex-M object generation | Implemented and host-tested |
-| R2 | Native ABI/package contract, C supervisor, bounded static native execution and fault containment on F446 | Planned |
-| R3 | Native loader, upload protocol, engineering CLI and coherent tag monitoring | Planned |
+| R2 | Native ABI/package contract, C supervisor, bounded static native execution and fault containment on F446 | Complete, including hardware evidence |
+| R3 | Native loader, upload protocol, engineering CLI and coherent tag monitoring | R3.1–R3.3 complete; coherent tag monitoring next |
 | R4 | Online state migration, first-scan trial and explicit/automatic rollback | Planned |
 | R5 | Larger language scope, source debugging, target ports and production-oriented assurance | Research extensions |
 
@@ -254,11 +274,16 @@ official Rust/C/LLVM/FreeRTOS/STM32 documentation, and the attribution policy.
 The [task checklist](docs/tasks.md) records completed work, acceptance evidence
 and open decisions. R1 and the R2.1 [target call ABI draft](docs/native-abi.md) are complete.
 The compiler supports `--abi 2`; the ST example now runs from RAM in a
-privileged FreeRTOS board experiment. R2.2 [toolchain and MPU-port selection](docs/target-toolchain.md) is
+FreeRTOS board experiment with an unprivileged native worker. R2.2 [toolchain and MPU-port selection](docs/target-toolchain.md) is
 recorded; [R2.3](docs/R2.3-report.md) and [R2.4](docs/R2.4-report.md) now include hardware evidence.
 
 R2.3 now has a [buildable FreeRTOS layout scaffold](docs/memory-layout.md)
-and checked ELF memory boundaries. Its privileged task executes LLVM-generated
+and checked ELF memory boundaries. Its privileged supervisor schedules LLVM-generated
 ST with physical input/output supervision; [R2.5](docs/R2.5-report.md) records
-GPIO, fault-latch and scan-timing evidence. Unprivileged
-protection, deadline abort, download and online change remain pending.
+GPIO, fault-latch and scan-timing evidence. [R2.6](docs/R2.6-report.md) adds
+unprivileged protection, checked return/abort and watchdog recovery. Package
+requirements and fixed-slot placement are defined in [R2.7](docs/native-package.md).
+The [R2 report](docs/R2-report.md) closes this stage. [R3.1](docs/R3.1-report.md) freezes shared package/protocol encoding and golden
+fixtures. [R3.2](docs/R3.2-report.md) adds the Rust packager and bounded C
+validation/staging. [R3.3](docs/R3.3-report.md) implements USB serial download
+and board activation. Next is coherent tag snapshots and PC monitoring.

@@ -1,0 +1,14 @@
+[package]
+name = "tinyplc-packager"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+license = "MIT"
+
+[dependencies]
+tinyplc-contract = { path = "../contract" }
+tinyplc-compiler = { path = "../compiler" }
+
+[[bin]]
+name = "plcpack"
+path = "src/main.rs"

@@ -91,8 +91,10 @@ also confirm the deadline, intact context, generation and canonical outputs.
 The guard is armed before entry. Normal return reaches a controlled
 unprivileged trampoline; a reviewed RTOS exception/gateway path returns to the
 supervisor. Do not call unprivileged code on a privileged supervisor stack or
-assume a C function return restores privilege. Exact SVC/MPU/abort mechanics
-are R2.2/R2.6 work; this header does not implement them.
+assume a C function return restores privilege. The R2.6 STM32 experiment now implements these mechanics in a separate
+worker, checked SVC gateway and timer/fault handlers. See
+[native-isolation.md](native-isolation.md); this portable header alone does not
+implement isolation. The fixed three-tag board trampoline is not a generic loader.
 
 ## Change from research ABI 1
 

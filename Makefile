@@ -49,7 +49,7 @@ blink:
 flash-blink: blink
 	$(OPENOCD) -f interface/stlink.cfg -f target/stm32f4x.cfg -c "program build/blink/blink.elf verify reset exit"
 help:
-	@echo "make compiler | llvm-example | aot-arm | run | test | test-compiler | test-llvm | test-abi"
+	@echo "make compiler | llvm-example | aot-arm | run | test | test-compiler | test-llvm | test-abi | test-loader | loader-target-check"
 	@echo "Historical checks: test-legacy | run-legacy | sanitize | thread-sanitize"
 	@echo "Board bring-up: blink | flash-blink"
 
@@ -59,6 +59,7 @@ target-build: compiler
 	$(PYTHON) scripts/build_target.py --kernel-archive "$(FREERTOS_ARCHIVE)" --gcc-prefix "$(ARM_PREFIX)"
 target-verify:
 	$(PYTHON) scripts/verify_target.py --gcc-prefix "$(ARM_PREFIX)"
+	$(PYTHON) scripts/verify_placement.py --gcc-prefix "$(ARM_PREFIX)"
 
 .PHONY: test-scan
 test: test-scan
@@ -66,3 +67,33 @@ test-scan:
 	mkdir -p build/scan
 	$(CLANG) -std=c11 -O2 -Wall -Wextra -Werror -fsanitize=address,undefined -Iruntime/include runtime/src/scan.c tests/scan/scan_test.c -o build/scan/scan-test
 	./build/scan/scan-test
+
+.PHONY: test-frame
+test: test-frame
+test-frame:
+	mkdir -p build/scan
+	$(CLANG) -std=c11 -O2 -Wall -Wextra -Werror -fsanitize=address,undefined -Iport/nucleo_f446re/native tests/target/frame_test.c -o build/scan/frame-test
+	./build/scan/frame-test
+
+.PHONY: wire-generate test-wire
+wire-generate:
+	$(PYTHON) scripts/generate_wire.py
+test: test-wire
+test-wire:
+	$(PYTHON) scripts/generate_wire.py --check
+	CLANG="$(CLANG)" $(PYTHON) -m unittest discover -s tests/wire -v
+
+# Uses the explicitly installed target linker; no downloads or hardware access.
+.PHONY: test-loader
+test-loader: compiler
+	CLANG="$(CLANG)" ARM_LD="$(ARM_PREFIX)ld" $(PYTHON) -m unittest discover -s tests/loader -v
+
+.PHONY: loader-target-check
+test: test-loader
+loader-target-check:
+	$(PYTHON) scripts/check_loader_target.py --gcc-prefix "$(ARM_PREFIX)"
+
+.PHONY: test-engineering
+test: test-engineering
+test-engineering: compiler
+	CLANG="$(CLANG)" $(PYTHON) -m unittest discover -s tests/engineering -v

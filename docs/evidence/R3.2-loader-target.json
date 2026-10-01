@@ -1,0 +1,63 @@
+{
+  "compiler": "13.3.1",
+  "text_bytes": 2512,
+  "data_bytes": 0,
+  "bss_bytes": 24240,
+  "ram_budget_bytes": 24576,
+  "undefined_symbols": [],
+  "static_frames": [
+    {
+      "function": "tplc_crc32",
+      "bytes": 16
+    },
+    {
+      "function": "tplc_read_u16.part.0.constprop.isra",
+      "bytes": 0
+    },
+    {
+      "function": "tplc_read_u32.constprop.isra",
+      "bytes": 4
+    },
+    {
+      "function": "tinyplc_package_validate",
+      "bytes": 80
+    },
+    {
+      "function": "tinyplc_loader_init",
+      "bytes": 32
+    },
+    {
+      "function": "tinyplc_loader_expire",
+      "bytes": 16
+    },
+    {
+      "function": "tinyplc_loader_begin",
+      "bytes": 40
+    },
+    {
+      "function": "tinyplc_loader_chunk",
+      "bytes": 24
+    },
+    {
+      "function": "tinyplc_loader_end",
+      "bytes": 80
+    },
+    {
+      "function": "memset",
+      "bytes": 0
+    },
+    {
+      "function": "memcpy",
+      "bytes": 0
+    },
+    {
+      "function": "memcmp",
+      "bytes": 0
+    },
+    {
+      "function": "memmove",
+      "bytes": 0
+    }
+  ],
+  "limitation": "Relocatable ARM link only; no board MPU/transport integration or runtime stack measurement."
+}

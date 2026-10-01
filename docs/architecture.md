@@ -7,12 +7,14 @@ product architecture. Existing interpreters remain independent test oracles.
 
 R1 implements the Rust compiler and verifies host-native execution and ARM
 object generation. This document describes the target supervisor, loader, and
-monitoring design. R2.5 implements the basic GPIO scan transaction; isolation,
-loading and monitoring remain to be built. The current statically linked test ABI is
+monitoring design. R2.5 implements the GPIO scan transaction and R2.6 adds an isolated native
+worker with deadline/reset recovery. R3.2 implements the Rust packager and
+portable C validation/staging. R3.3 integrates board download/activation;
+coherent tag monitoring remains next. The current statically linked test ABI is
 in [compiler/README.md](../compiler/README.md); package/target work is detailed
 in [native-roadmap.md](native-roadmap.md). The [R2.1 call ABI draft](native-abi.md)
 defines separate input/working buffers, now emitted with `--abi 2` and exercised
-in the [R2.4 privileged board experiment](R2.4-report.md).
+in the [R2.6 isolated board experiment](R2.6-report.md).
 
 ## Ownership boundaries
 
@@ -105,8 +107,9 @@ monitoring and execution, not merely shared RAM exposed over UART.
 ## Download and activation
 
 The native artifact needs its own versioned contract: target features, ABI,
-segments, state schema, entry offsets, imports, stack/capacity needs, integrity
-and authenticity policy, and permitted relocation records. An ELF `.o` from
+exact slot address, state schema, entry offsets, stack/capacity needs, integrity
+and authenticity policy. The [R2.7 profile](native-package.md) resolves addresses
+on the host and forbids imports and on-device relocations. An ELF `.o` from
 R1 is an intermediate artifact, not accepted controller input. Never execute a
 partially received, incompatible, or unvalidated image.
 
@@ -144,11 +147,11 @@ responsibilities, not implementations to transplant into FreeRTOS.
 See [references and acknowledgments](references.md) for related work and official
 technology documentation, and [tasks](tasks.md) for implementation status.
 
-R2.2 selects the [GCC Cortex-M4 MPU port](target-toolchain.md). Its default
-peripheral permissions require hardening before this isolation policy holds;
-selection alone is not evidence of isolation.
+R2.2 selects the [GCC Cortex-M4 MPU port](target-toolchain.md). The build hardens its default
+peripheral mapping to privileged-only. R2.6 now tests that permission and the
+separate checked gateway on hardware; port selection alone was not evidence.
 
-R2.5 update: the privileged board scan now uses physical GPIO, separate working/
-committed state, latched faults and measured release timing. See the
-[scan design](scan-runtime.md) and [hardware report](R2.5-report.md). R2.6
-isolation and deadline abort remain unimplemented.
+R2.6 update: the native worker is unprivileged, has a separate stack and can
+only return through the checked gateway. TIM2 aborts overrunning jobs; IWDG
+resets unsafe contexts into a fault-latched boot. See the
+[execution boundary](native-isolation.md) and [hardware report](R2.6-report.md).

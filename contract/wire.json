@@ -1,0 +1,629 @@
+{
+  "description": "tinyPLC native lab wire contract v1. Little endian; no serialized C structs. Generated offsets count bytes. Responses include status; error responses contain only status.",
+  "constants": {
+    "PACKAGE_MAGIC": 1313034324,
+    "PACKAGE_VERSION": 1,
+    "IMAGE_NATIVE": 1,
+    "TARGET_F446": 1,
+    "NATIVE_ABI": 2,
+    "RUNTIME_CONTRACT": 1,
+    "AUTH_UNSIGNED_LAB": 0,
+    "SLOT_A_BASE": 536936448,
+    "SLOT_B_BASE": 536952832,
+    "CODE_CAPACITY": 16384,
+    "TAG_LIMIT": 64,
+    "CELL_BYTES": 4,
+    "WORKER_STACK_BYTES": 2048,
+    "TYPE_BOOL": 1,
+    "TYPE_DINT": 2,
+    "CLASS_INPUT": 1,
+    "CLASS_OUTPUT": 2,
+    "CLASS_VAR": 3,
+    "BINDING_NONE": 0,
+    "BINDING_BTN_PC13": 1,
+    "BINDING_LED_PA5": 2,
+    "FRAME_START": 165,
+    "PROTOCOL_VERSION": 1,
+    "FRAME_LENGTH_MIN": 1,
+    "FRAME_LENGTH_MAX": 257,
+    "FRAME_BYTES_MAX": 262,
+    "CHUNK_BYTES_MAX": 240,
+    "TAG_PAGE_LIMIT": 5,
+    "FRAME_TIMEOUT_MS": 100,
+    "TRANSFER_TIMEOUT_MS": 30000,
+    "SNAPSHOT_TIMEOUT_MS": 2000,
+    "RESPONSE_BIT": 128,
+    "DISPATCH_INPUT_OFFSET": 256,
+    "SLOT_EMPTY": 0,
+    "SLOT_ACTIVE": 1,
+    "SLOT_RECEIVING": 2,
+    "SLOT_READY": 3,
+    "SLOT_PENDING": 4,
+    "SLOT_PREVIOUS": 5,
+    "EXEC_STOPPED": 0,
+    "EXEC_RUNNING": 1,
+    "EXEC_FAULT": 2,
+    "OUTCOME_NONE": 0,
+    "OUTCOME_PENDING": 1,
+    "OUTCOME_RUNNING": 2,
+    "OUTCOME_REJECTED": 3,
+    "OUTCOME_ROLLED_BACK": 4,
+    "CAP_UNSIGNED_LAB": 1,
+    "CAP_ONLINE_MIGRATION": 2,
+    "CAP_ROLLBACK": 4,
+    "CAP_WRITE_TAG": 8,
+    "STATUS_OK": 0,
+    "STATUS_BAD_REQUEST": 1,
+    "STATUS_CRC_ERROR": 2,
+    "STATUS_BUSY": 3,
+    "STATUS_INVALID_IMAGE": 4,
+    "STATUS_NO_PROGRAM": 5,
+    "STATUS_NOT_WRITABLE": 6,
+    "STATUS_FAULT": 7,
+    "STATUS_UNSUPPORTED": 8,
+    "CMD_INFO": 1,
+    "CMD_DOWNLOAD_BEGIN": 2,
+    "CMD_DOWNLOAD_CHUNK": 3,
+    "CMD_DOWNLOAD_END": 4,
+    "CMD_ACTIVATE": 5,
+    "CMD_ROLLBACK": 6,
+    "CMD_READ_TAGS": 7,
+    "CMD_WRITE_TAG": 8,
+    "CMD_GET_STATUS": 9,
+    "PACKAGE_BYTES_MAX": 19024,
+    "CRC32_POLY_REFLECTED": 3988292384,
+    "CRC32_INIT": 4294967295,
+    "CRC32_XOROUT": 4294967295,
+    "CRC32_CHECK": 3421780262,
+    "CRC16_POLY": 4129,
+    "CRC16_INIT": 65535,
+    "CRC16_XOROUT": 0,
+    "CRC16_CHECK": 10673
+  },
+  "layouts": {
+    "package": [
+      [
+        "magic",
+        "u32"
+      ],
+      [
+        "version",
+        "u16"
+      ],
+      [
+        "header_bytes",
+        "u16"
+      ],
+      [
+        "total_bytes",
+        "u32"
+      ],
+      [
+        "kind",
+        "u16"
+      ],
+      [
+        "target",
+        "u16"
+      ],
+      [
+        "native_abi",
+        "u16"
+      ],
+      [
+        "runtime_contract",
+        "u16"
+      ],
+      [
+        "auth",
+        "u16"
+      ],
+      [
+        "flags",
+        "u16"
+      ],
+      [
+        "link_base",
+        "u32"
+      ],
+      [
+        "payload_offset",
+        "u32"
+      ],
+      [
+        "payload_bytes",
+        "u32"
+      ],
+      [
+        "text_offset",
+        "u32"
+      ],
+      [
+        "text_bytes",
+        "u32"
+      ],
+      [
+        "entry_offset",
+        "u32"
+      ],
+      [
+        "tags_offset",
+        "u32"
+      ],
+      [
+        "tag_count",
+        "u16"
+      ],
+      [
+        "tag_record_bytes",
+        "u16"
+      ],
+      [
+        "cell_bytes",
+        "u16"
+      ],
+      [
+        "stack_bytes",
+        "u16"
+      ],
+      [
+        "schema_crc",
+        "u32"
+      ],
+      [
+        "package_crc",
+        "u32"
+      ],
+      [
+        "reserved",
+        "12"
+      ]
+    ],
+    "tag": [
+      [
+        "name",
+        "32"
+      ],
+      [
+        "type",
+        "u8"
+      ],
+      [
+        "class",
+        "u8"
+      ],
+      [
+        "binding",
+        "u16"
+      ],
+      [
+        "reserved",
+        "u32"
+      ]
+    ],
+    "dispatch": [
+      [
+        "entry",
+        "u32"
+      ],
+      [
+        "tag_count",
+        "u32"
+      ],
+      [
+        "generation",
+        "u32"
+      ],
+      [
+        "reserved",
+        "u32"
+      ]
+    ],
+    "frame_prefix": [
+      [
+        "start",
+        "u8"
+      ],
+      [
+        "length",
+        "u16"
+      ],
+      [
+        "command",
+        "u8"
+      ]
+    ],
+    "slot": [
+      [
+        "base",
+        "u32"
+      ],
+      [
+        "capacity",
+        "u32"
+      ],
+      [
+        "state",
+        "u8"
+      ],
+      [
+        "reserved",
+        "3"
+      ],
+      [
+        "generation",
+        "u32"
+      ]
+    ],
+    "tag_value": [
+      [
+        "name",
+        "32"
+      ],
+      [
+        "type",
+        "u8"
+      ],
+      [
+        "class",
+        "u8"
+      ],
+      [
+        "binding",
+        "u16"
+      ],
+      [
+        "value",
+        "u32"
+      ]
+    ],
+    "info_request": [],
+    "info_response": [
+      [
+        "status",
+        "u8"
+      ],
+      [
+        "protocol",
+        "u16"
+      ],
+      [
+        "package_version",
+        "u16"
+      ],
+      [
+        "target",
+        "u16"
+      ],
+      [
+        "native_abi",
+        "u16"
+      ],
+      [
+        "runtime_contract",
+        "u16"
+      ],
+      [
+        "auth",
+        "u16"
+      ],
+      [
+        "capabilities",
+        "u32"
+      ],
+      [
+        "command_mask",
+        "u32"
+      ],
+      [
+        "package_max",
+        "u32"
+      ],
+      [
+        "tag_limit",
+        "u16"
+      ],
+      [
+        "cell_bytes",
+        "u16"
+      ],
+      [
+        "stack_bytes",
+        "u16"
+      ],
+      [
+        "reserved",
+        "u16"
+      ],
+      [
+        "transfer_timeout_ms",
+        "u32"
+      ],
+      [
+        "transfer_id",
+        "u32"
+      ],
+      [
+        "next_offset",
+        "u32"
+      ],
+      [
+        "transfer_remaining_ms",
+        "u32"
+      ],
+      [
+        "slot_a",
+        "16"
+      ],
+      [
+        "slot_b",
+        "16"
+      ]
+    ],
+    "download_begin_request": [
+      [
+        "total_bytes",
+        "u32"
+      ]
+    ],
+    "download_begin_response": [
+      [
+        "status",
+        "u8"
+      ],
+      [
+        "transfer_id",
+        "u32"
+      ],
+      [
+        "slot_base",
+        "u32"
+      ],
+      [
+        "slot_capacity",
+        "u32"
+      ],
+      [
+        "timeout_ms",
+        "u32"
+      ]
+    ],
+    "download_chunk_request": [
+      [
+        "transfer_id",
+        "u32"
+      ],
+      [
+        "offset",
+        "u32"
+      ]
+    ],
+    "download_chunk_response": [
+      [
+        "status",
+        "u8"
+      ],
+      [
+        "next_offset",
+        "u32"
+      ]
+    ],
+    "download_end_request": [
+      [
+        "transfer_id",
+        "u32"
+      ]
+    ],
+    "download_end_response": [
+      [
+        "status",
+        "u8"
+      ],
+      [
+        "candidate_generation",
+        "u32"
+      ]
+    ],
+    "activate_request": [
+      [
+        "candidate_generation",
+        "u32"
+      ]
+    ],
+    "activate_response": [
+      [
+        "status",
+        "u8"
+      ],
+      [
+        "accepted_generation",
+        "u32"
+      ]
+    ],
+    "rollback_request": [],
+    "rollback_response": [
+      [
+        "status",
+        "u8"
+      ],
+      [
+        "accepted_generation",
+        "u32"
+      ]
+    ],
+    "read_tags_request": [
+      [
+        "generation",
+        "u32"
+      ],
+      [
+        "snapshot_scan",
+        "u64"
+      ],
+      [
+        "first_index",
+        "u8"
+      ],
+      [
+        "count",
+        "u8"
+      ]
+    ],
+    "read_tags_response": [
+      [
+        "status",
+        "u8"
+      ],
+      [
+        "generation",
+        "u32"
+      ],
+      [
+        "snapshot_scan",
+        "u64"
+      ],
+      [
+        "first_index",
+        "u8"
+      ],
+      [
+        "count",
+        "u8"
+      ],
+      [
+        "total_count",
+        "u8"
+      ]
+    ],
+    "write_tag_request": [
+      [
+        "generation",
+        "u32"
+      ],
+      [
+        "index",
+        "u8"
+      ],
+      [
+        "value",
+        "u32"
+      ]
+    ],
+    "write_tag_response": [
+      [
+        "status",
+        "u8"
+      ],
+      [
+        "generation",
+        "u32"
+      ],
+      [
+        "apply_after_scan",
+        "u64"
+      ]
+    ],
+    "get_status_request": [],
+    "get_status_response": [
+      [
+        "status",
+        "u8"
+      ],
+      [
+        "active_generation",
+        "u32"
+      ],
+      [
+        "scan",
+        "u64"
+      ],
+      [
+        "execution",
+        "u8"
+      ],
+      [
+        "outcome",
+        "u8"
+      ],
+      [
+        "reserved",
+        "u16"
+      ],
+      [
+        "requested_generation",
+        "u32"
+      ],
+      [
+        "pending_generation",
+        "u32"
+      ],
+      [
+        "fault",
+        "u32"
+      ],
+      [
+        "last_scan_us",
+        "u32"
+      ],
+      [
+        "max_scan_us",
+        "u32"
+      ],
+      [
+        "release_jitter_us",
+        "i32"
+      ],
+      [
+        "missed_releases",
+        "u64"
+      ]
+    ]
+  },
+  "commands": {
+    "info": {
+      "id": 1,
+      "request": "info_request",
+      "response": "info_response"
+    },
+    "download_begin": {
+      "id": 2,
+      "request": "download_begin_request",
+      "response": "download_begin_response"
+    },
+    "download_chunk": {
+      "id": 3,
+      "request": "download_chunk_request",
+      "response": "download_chunk_response"
+    },
+    "download_end": {
+      "id": 4,
+      "request": "download_end_request",
+      "response": "download_end_response"
+    },
+    "activate": {
+      "id": 5,
+      "request": "activate_request",
+      "response": "activate_response"
+    },
+    "rollback": {
+      "id": 6,
+      "request": "rollback_request",
+      "response": "rollback_response"
+    },
+    "read_tags": {
+      "id": 7,
+      "request": "read_tags_request",
+      "response": "read_tags_response"
+    },
+    "write_tag": {
+      "id": 8,
+      "request": "write_tag_request",
+      "response": "write_tag_response"
+    },
+    "get_status": {
+      "id": 9,
+      "request": "get_status_request",
+      "response": "get_status_response"
+    }
+  }
+}

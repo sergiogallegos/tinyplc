@@ -4,6 +4,7 @@
 #include <stdint.h>
 void tinyplc_assert_failed(void);
 #define configASSERT(x) do { if (!(x)) tinyplc_assert_failed(); } while (0)
+#define TINYPLC_ALLOW_UNSIGNED_LAB 1 /* Explicit local research firmware policy. */
 #define configCPU_CLOCK_HZ 16000000UL
 #define configTICK_RATE_HZ 1000
 #define configUSE_PREEMPTION 1
@@ -35,10 +36,10 @@ void tinyplc_assert_failed(void);
 #define configPROTECTED_KERNEL_OBJECT_POOL_SIZE 8
 #define configKERNEL_INTERRUPT_PRIORITY (15U << 4)
 #define configMAX_SYSCALL_INTERRUPT_PRIORITY (5U << 4)
-#define configCHECK_HANDLER_INSTALLATION 1
+#define configCHECK_HANDLER_INSTALLATION 0 /* Custom SVC router; checked by ELF test. */
 #define INCLUDE_vTaskDelay 1
 #define INCLUDE_xTaskDelayUntil 1
 #define INCLUDE_uxTaskGetStackHighWaterMark 1
-#define INCLUDE_vTaskSuspend 0
-#define INCLUDE_vTaskDelete 0
+#define INCLUDE_vTaskSuspend 1
+#define INCLUDE_vTaskDelete 1
 #endif

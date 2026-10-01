@@ -19,6 +19,7 @@ def main():
     parser.add_argument('--kernel-archive', required=True, type=Path)
     parser.add_argument('--gcc-prefix', default='arm-none-eabi-')
     parser.add_argument('--source', type=Path, default=ROOT / 'examples/button_led.st')
+    parser.add_argument('--probe', type=int, choices=range(1, 19), help='test-only adversarial image')
     args = parser.parse_args()
     lock = json.loads((ROOT / 'config/target-lock.json').read_text())
     if hashlib.sha256(args.kernel_archive.read_bytes()).hexdigest() != lock['freertos']['archive_sha256']:
@@ -49,16 +50,22 @@ def main():
     sources = [kernel / x for x in ['tasks.c', 'queue.c', 'list.c']]
     sources += [patched, port / 'mpu_wrappers_v2_asm.c', kernel / 'portable/Common/mpu_wrappers_v2.c']
     sources += [local / x for x in ['startup.c', 'main.c', 'memory.c']]
-    sources += [ROOT / 'runtime/src/scan.c']
+    sources += [ROOT / 'runtime/src/scan.c', local / 'guard.c', local / 'gateway.S']
+    sources += [ROOT / 'runtime/src' / x for x in ['package.c', 'loader.c', 'engineering.c']]
+    sources += [local / 'engineering_board.c']
     flags = lock['runtime_cflags'] + ['-fno-builtin', '-fstack-usage', '-Wall', '-Wextra', '-Werror']
-    includes = ['-I', local, '-I', kernel / 'include', '-I', port, '-I', ROOT / 'runtime/include']
+    includes = ['-I', local, '-I', kernel / 'include', '-I', port, '-I', ROOT / 'runtime/include', '-I', ROOT / 'contract']
     # ABI 2 ST code is a separate LLVM-produced object placed in executable RAM.
     plcc = ROOT / 'target/debug/plcc'
     clang = os.environ.get('CLANG', 'clang')
     ll = out / 'user_program.ll'
     user_obj = out / 'user_program.o'
-    run([plcc, args.source, '--abi', '2', '-o', ll])
-    run([clang, *lock['user_flags'], '-Wno-override-module', '-c', ll, '-o', user_obj])
+    if args.probe:
+        run([gcc, '-mcpu=cortex-m4', '-mthumb', f'-DPROBE={args.probe}', '-c',
+             ROOT / 'tests/target/probes.S', '-o', user_obj])
+    else:
+        run([plcc, args.source, '--abi', '2', '-o', ll])
+        run([clang, *lock['user_flags'], '-Wno-override-module', '-c', ll, '-o', user_obj])
     imports = subprocess.check_output([args.gcc_prefix + 'nm', '-u', user_obj], text=True)
     if imports.strip():
         raise RuntimeError(f'user code must have no imports: {imports}')

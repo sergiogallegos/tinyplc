@@ -1,0 +1,26 @@
+{
+  "programs": [
+    {
+      "slot": "A",
+      "base": "0x20010000",
+      "entry": "0x20010001",
+      "payload_bytes": 184,
+      "sha256": "649f3f0ee74d497cb48de309cf9df99478d720a3dfa3649a5248f9297673a3e7"
+    },
+    {
+      "slot": "B",
+      "base": "0x20014000",
+      "entry": "0x20014001",
+      "payload_bytes": 184,
+      "sha256": "649f3f0ee74d497cb48de309cf9df99478d720a3dfa3649a5248f9297673a3e7"
+    }
+  ],
+  "rejected": [
+    "import",
+    "weak-import",
+    "data",
+    "overflow",
+    "firmware-address"
+  ],
+  "absolute_fixups": "host-resolved in both slots"
+}

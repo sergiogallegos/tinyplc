@@ -1,0 +1,2947 @@
+{
+  "firmware_sha256": "f6b9ef060894a7e319498aeb1c2ff9f08ab859113dfd1667b980de78c7d0dace",
+  "events": [
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 73,
+        "execution": 1,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 154,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "serial-negative-tests",
+      "crc_drop": true,
+      "partial_timeout": true,
+      "unsupported": true,
+      "partial_end": true,
+      "duplicate_chunk": true,
+      "corrupt_package_rejected": true
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 142,
+        "execution": 1,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 170,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/off-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 194,
+        "execution": 1,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 170,
+        "jitter_us": 35,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "before-activation",
+      "values": {
+        "native_status": [
+          0
+        ],
+        "native_output": [
+          1
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          2708
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          390
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          0
+        ],
+        "guard_fault_cycles": [
+          0
+        ],
+        "guard_safe_cycles": [
+          0
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          0,
+          1,
+          0
+        ],
+        "descriptor": [
+          536936449,
+          3,
+          1,
+          0
+        ],
+        "gpio": [
+          32
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 234,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1264,
+        "max_scan_us": 1264,
+        "jitter_us": 38,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "reordered-tags-running",
+      "values": {
+        "native_status": [
+          0
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          20218
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          388
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          0
+        ],
+        "guard_fault_cycles": [
+          0
+        ],
+        "guard_safe_cycles": [
+          0
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          33,
+          0,
+          0
+        ],
+        "descriptor": [
+          536952833,
+          3,
+          2,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/divide-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 3,
+        "base": 536936448,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "3"
+      ],
+      "code": 1,
+      "result": {
+        "active_generation": 3,
+        "scan": 315,
+        "execution": 2,
+        "outcome": 3,
+        "requested_generation": 3,
+        "pending_generation": 0,
+        "fault": 5,
+        "last_scan_us": 20,
+        "max_scan_us": 1264,
+        "jitter_us": 35,
+        "missed_releases": 0
+      },
+      "error": "activation completed in fault/rejected state"
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 3,
+        "scan": 336,
+        "execution": 2,
+        "outcome": 3,
+        "requested_generation": 3,
+        "pending_generation": 0,
+        "fault": 5,
+        "last_scan_us": 21,
+        "max_scan_us": 1264,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "division-fault",
+      "values": {
+        "native_status": [
+          5
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          20218
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          388
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          0
+        ],
+        "guard_fault_cycles": [
+          0
+        ],
+        "guard_safe_cycles": [
+          0
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          0,
+          0,
+          0
+        ],
+        "descriptor": [
+          536936449,
+          3,
+          3,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 4,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "4"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 4,
+        "scan": 405,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 4,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1287,
+        "max_scan_us": 1287,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/maximum-tags-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 5,
+        "base": 536936448,
+        "bytes": 4872
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "5"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 5,
+        "scan": 511,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 5,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1521,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "maximum-tags-running",
+      "values": {
+        "native_status": [
+          0
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          24333
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          388
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          0
+        ],
+        "guard_fault_cycles": [
+          0
+        ],
+        "guard_safe_cycles": [
+          0
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          33,
+          0,
+          0
+        ],
+        "descriptor": [
+          536936449,
+          64,
+          5,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 6,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "6"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 6,
+        "scan": 590,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 6,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1242,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 5
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 6
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 5
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 6
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/probe-1-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 7,
+        "base": 536936448,
+        "bytes": 252
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "7"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 7,
+        "scan": 680,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 7,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1278,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 7,
+        "scan": 709,
+        "execution": 2,
+        "outcome": 2,
+        "requested_generation": 7,
+        "pending_generation": 0,
+        "fault": 259,
+        "last_scan_us": 20,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-1-contained",
+      "values": {
+        "native_status": [
+          259
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          24333
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          388
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          130
+        ],
+        "guard_fault_cycles": [
+          109162143
+        ],
+        "guard_safe_cycles": [
+          109162156
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          0,
+          0,
+          3
+        ],
+        "descriptor": [
+          536936449,
+          3,
+          7,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 7
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 6
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 8,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "8"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 8,
+        "scan": 801,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 8,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1521,
+        "jitter_us": 35,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 7
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 8
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 9,
+        "base": 536936448,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "9"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 9,
+        "scan": 874,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 9,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 9
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 8
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/probe-3-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 10,
+        "base": 536952832,
+        "bytes": 256
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "10"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 10,
+        "scan": 945,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 10,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1241,
+        "max_scan_us": 1521,
+        "jitter_us": 35,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 10,
+        "scan": 975,
+        "execution": 2,
+        "outcome": 2,
+        "requested_generation": 10,
+        "pending_generation": 0,
+        "fault": 259,
+        "last_scan_us": 20,
+        "max_scan_us": 1521,
+        "jitter_us": 35,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-3-contained",
+      "values": {
+        "native_status": [
+          259
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          24333
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          388
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          130
+        ],
+        "guard_fault_cycles": [
+          151562214
+        ],
+        "guard_safe_cycles": [
+          151562227
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          0,
+          0,
+          3
+        ],
+        "descriptor": [
+          536952833,
+          3,
+          10,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 9
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 10
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 11,
+        "base": 536936448,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "11"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 11,
+        "scan": 1066,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 11,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 11
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 10
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 12,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "12"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 12,
+        "scan": 1137,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 12,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1287,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 11
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 12
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/probe-7-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 13,
+        "base": 536936448,
+        "bytes": 248
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "13"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 13,
+        "scan": 1209,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 13,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 153,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 13,
+        "scan": 1239,
+        "execution": 2,
+        "outcome": 2,
+        "requested_generation": 13,
+        "pending_generation": 0,
+        "fault": 260,
+        "last_scan_us": 20,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-7-contained",
+      "values": {
+        "native_status": [
+          260
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          24333
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          388
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          130
+        ],
+        "guard_fault_cycles": [
+          193642165
+        ],
+        "guard_safe_cycles": [
+          193642177
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          0,
+          0,
+          3
+        ],
+        "descriptor": [
+          536936449,
+          3,
+          13,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 13
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 12
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 14,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "14"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 14,
+        "scan": 1329,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 14,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1242,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 13
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 14
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 15,
+        "base": 536936448,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "15"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 15,
+        "scan": 1402,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 15,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 15
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 14
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/probe-8-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 16,
+        "base": 536952832,
+        "bytes": 248
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "16"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 16,
+        "scan": 1477,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 16,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 153,
+        "max_scan_us": 1521,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 16,
+        "scan": 1507,
+        "execution": 2,
+        "outcome": 2,
+        "requested_generation": 16,
+        "pending_generation": 0,
+        "fault": 258,
+        "last_scan_us": 20,
+        "max_scan_us": 10075,
+        "jitter_us": 35,
+        "missed_releases": 1
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-8-contained",
+      "values": {
+        "native_status": [
+          258
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          161186
+        ],
+        "missed_releases": [
+          1
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          388
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          130
+        ],
+        "guard_fault_cycles": [
+          236521118
+        ],
+        "guard_safe_cycles": [
+          236521141
+        ],
+        "guard_last_elapsed": [
+          160237
+        ],
+        "committed": [
+          0,
+          0,
+          3
+        ],
+        "descriptor": [
+          536952833,
+          3,
+          16,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 15
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 16
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 17,
+        "base": 536936448,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "17"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 17,
+        "scan": 1600,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 17,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 10075,
+        "jitter_us": 31,
+        "missed_releases": 1
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 17
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 16
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 18,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "18"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 18,
+        "scan": 1674,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 18,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 10075,
+        "jitter_us": 31,
+        "missed_releases": 1
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 17
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 18
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/probe-9-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 19,
+        "base": 536936448,
+        "bytes": 256
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "19"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 19,
+        "scan": 1747,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 19,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 153,
+        "max_scan_us": 10075,
+        "jitter_us": 31,
+        "missed_releases": 1
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 38,
+        "execution": 2,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 261,
+        "last_scan_us": 21,
+        "max_scan_us": 21,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-9-contained",
+      "values": {
+        "native_status": [
+          261
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          327
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          976
+        ],
+        "stack_free_words": [
+          424
+        ],
+        "worker_stack_free_words": [
+          512
+        ],
+        "guard_fault_cfsr": [
+          16
+        ],
+        "guard_fault_cycles": [
+          279898148
+        ],
+        "guard_safe_cycles": [
+          279898173
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          0,
+          0,
+          0
+        ],
+        "descriptor": [
+          536936449,
+          3,
+          1,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 1
+          },
+          {
+            "base": 536952832,
+            "state": 0,
+            "generation": 0
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 130,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1242,
+        "max_scan_us": 1242,
+        "jitter_us": 35,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 1
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 2
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 3,
+        "base": 536936448,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "3"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 3,
+        "scan": 202,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 3,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1242,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 3
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 2
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/probe-17-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 4,
+        "base": 536952832,
+        "bytes": 256
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "4"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 4,
+        "scan": 275,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 4,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1249,
+        "max_scan_us": 1249,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 37,
+        "execution": 2,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 261,
+        "last_scan_us": 21,
+        "max_scan_us": 21,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-17-contained",
+      "values": {
+        "native_status": [
+          261
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          327
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          976
+        ],
+        "stack_free_words": [
+          414
+        ],
+        "worker_stack_free_words": [
+          512
+        ],
+        "guard_fault_cfsr": [
+          16
+        ],
+        "guard_fault_cycles": [
+          44362241
+        ],
+        "guard_safe_cycles": [
+          44362266
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          0,
+          0,
+          0
+        ],
+        "descriptor": [
+          536936449,
+          3,
+          1,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 1
+          },
+          {
+            "base": 536952832,
+            "state": 0,
+            "generation": 0
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 128,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1242,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 1
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 2
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 1
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 2
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/probe-18-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 3,
+        "base": 536936448,
+        "bytes": 252
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "3"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 3,
+        "scan": 223,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 3,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 153,
+        "max_scan_us": 1242,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 3,
+        "scan": 253,
+        "execution": 2,
+        "outcome": 2,
+        "requested_generation": 3,
+        "pending_generation": 0,
+        "fault": 259,
+        "last_scan_us": 21,
+        "max_scan_us": 1242,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-18-contained",
+      "values": {
+        "native_status": [
+          259
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          19864
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          388
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          130
+        ],
+        "guard_fault_cycles": [
+          35722221
+        ],
+        "guard_safe_cycles": [
+          35722234
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          0,
+          0,
+          3
+        ],
+        "descriptor": [
+          536936449,
+          3,
+          3,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 3
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 2
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 4,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "4"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 4,
+        "scan": 345,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 4,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1242,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 3
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 4
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 5,
+        "base": 536936448,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "5"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 5,
+        "scan": 417,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 5,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1242,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 5
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 4
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/probe-19-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 6,
+        "base": 536952832,
+        "bytes": 260
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "6"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 6,
+        "scan": 487,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 6,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1241,
+        "max_scan_us": 1242,
+        "jitter_us": 38,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 6,
+        "scan": 516,
+        "execution": 2,
+        "outcome": 2,
+        "requested_generation": 6,
+        "pending_generation": 0,
+        "fault": 259,
+        "last_scan_us": 20,
+        "max_scan_us": 1242,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-19-contained",
+      "values": {
+        "native_status": [
+          259
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          19869
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          388
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          130
+        ],
+        "guard_fault_cycles": [
+          78282153
+        ],
+        "guard_safe_cycles": [
+          78282166
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          0,
+          0,
+          3
+        ],
+        "descriptor": [
+          536952833,
+          3,
+          6,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 5
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 6
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 7,
+        "base": 536936448,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "7"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 7,
+        "scan": 607,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 7,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1242,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 7
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 6
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 8,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "8"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 8,
+        "scan": 682,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 8,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1242,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 5,
+            "generation": 7
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 8
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/probe-20-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 9,
+        "base": 536936448,
+        "bytes": 252
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "9"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 9,
+        "scan": 753,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 9,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1285,
+        "max_scan_us": 1285,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 9,
+        "scan": 784,
+        "execution": 2,
+        "outcome": 2,
+        "requested_generation": 9,
+        "pending_generation": 0,
+        "fault": 259,
+        "last_scan_us": 21,
+        "max_scan_us": 1285,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-20-contained",
+      "values": {
+        "native_status": [
+          259
+        ],
+        "native_output": [
+          0
+        ],
+        "input_pressed": [
+          0
+        ],
+        "scan_cycles_max": [
+          20550
+        ],
+        "missed_releases": [
+          0
+        ],
+        "uart_rx_errors": [
+          0
+        ],
+        "comms_stack_free_words": [
+          928
+        ],
+        "stack_free_words": [
+          388
+        ],
+        "worker_stack_free_words": [
+          502
+        ],
+        "guard_fault_cfsr": [
+          130
+        ],
+        "guard_fault_cycles": [
+          120842218
+        ],
+        "guard_safe_cycles": [
+          120842231
+        ],
+        "guard_last_elapsed": [
+          0
+        ],
+        "committed": [
+          0,
+          0,
+          3
+        ],
+        "descriptor": [
+          536936449,
+          3,
+          9,
+          0
+        ],
+        "gpio": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 287,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 9
+          },
+          {
+            "base": 536952832,
+            "state": 5,
+            "generation": 8
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/engineering-board/normal-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 10,
+        "base": 536952832,
+        "bytes": 384
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "10"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 10,
+        "scan": 875,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 10,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 1285,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "hardware_matrix_pass",
+      "native_fault_cases": 9,
+      "division_case": true
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 50,
+        "execution": 1,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 154,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "normal_firmware_restored",
+      "status": {
+        "active_generation": 1,
+        "scan": 50,
+        "execution": 1,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 154,
+        "max_scan_us": 154,
+        "jitter_us": 31,
+        "missed_releases": 0
+      }
+    }
+  ],
+  "packages": {
+    "normal-A": "4ba824149a2ca48e79a95ded42a13f018a7fdc98a9494bfb8ef02660a24135a8",
+    "normal-B": "20babe1a0b92f87d05ec76d08af7e592352411b7994deafc9c22fa9d67af1fc7",
+    "off-A": "b59fc618e89f2545d0d3608183c39c3714d7da88e9973466557ec8362bc6e82c",
+    "off-B": "f3696dc97afbfd1b79cbf21410f0b5f724529ad2b40a30b2d0d1f463cc3e336d",
+    "divide-A": "8ea68ffa055e40b209dd4b285529b2dcfc31c30bba204a942e31c229ae888db5",
+    "divide-B": "7080c6e5aecff0fc4b4c8bdbb20aca64b81bc3c7d41f222f48e66e07657669b0",
+    "probe-1-A": "787168e3ec04e8b44ee100c389e543b68ac4f2d5e5f37561fb48ba88ebab307e",
+    "probe-1-B": "f86681ece3cc07e2938119b7a5ea4ea2c1c71cea996e343c4a801a2571064991",
+    "probe-3-A": "2c3a130ef015301aa8bf0eaa2f60f90df882efffa25d9b4b9d7dbbe6bb75398c",
+    "probe-3-B": "5b0d61db6f810ff6abeb33fd36ece3aadf2e4cb16c32bbb698c0e986ac9b07ab",
+    "probe-7-A": "3df7ad4fcf9c5f8185b80bb2164430c3e9ae99e3f0db54cfd5f4a2eadc29fa77",
+    "probe-7-B": "e05c08f04397826d16f0ae10291c76d619c5a3f6d7106f3749294470e694cc69",
+    "probe-8-A": "53bfed17557d87061ecb8ca9943550a8c1d701b460b296dd27268feba6da7675",
+    "probe-8-B": "c16f83a2d1a25d5af2a9ead5f6b176b96cbdde220949bb5113a1fefd67da762c",
+    "probe-9-A": "73dd23bba0b9d2beddaa6834a46e3a1e644e5fcb23755bbedbbf368ea13adc62",
+    "probe-9-B": "ffff551f0db5bc9d4d62443a92b9ba0578cb6b9055a72ac90d48cd1086199bc2",
+    "probe-17-A": "d1eb0be3443cf3d328983b9c25642b3c302245ff5e94379463aff0e8d7674691",
+    "probe-17-B": "8d19f91c3beff331a97a2264bce199074f414d549225c8b0d5f1bde175b08e37",
+    "probe-18-A": "823b19bf1ce0b1a6175c972d4326111c285d2634c64aef879c36f3108c8fc08b",
+    "probe-18-B": "399e7976f758bfc5af8bf02cef137a2f13749a24c4fc20b1d60aa0a4fea2c752",
+    "probe-19-A": "fac336eb0277a9d0d8b2514f2b7668a709f232bd4a5665783bd6839a8370b92f",
+    "probe-19-B": "51d8e81892ffeefdb1883f25cc8cd242f57b90850a778dd3c34e65b3575b4529",
+    "probe-20-A": "1c9084cb98c2d47c42cf05240c350292b5c1677cbcd1b4b117d90d91e20e4b30",
+    "probe-20-B": "b892a31b558c158f668a17c52e7c7a354e4c492aae00fac02b719b7258048b8b",
+    "maximum-A": "7e287ed6140357bcb5c0b4e77087d3bdfa00e9bae5e31fa4bd9e89fd6e34c71d"
+  },
+  "date": "2026-10-01"
+}

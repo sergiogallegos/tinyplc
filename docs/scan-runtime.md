@@ -1,4 +1,8 @@
-# Scan supervision: R2.5
+# Scan supervision: transaction core
+
+R2.5 established this transaction. R2.6 now routes its entry callback through
+a [separate unprivileged worker and deadline guard](native-isolation.md).
+R3.3 adds [boundary activation and serial status](engineering-transport.md).
 
 The portable [C scan module](../runtime/src/scan.c) owns committed state and the
 fault latch. The [board port](../port/nucleo_f446re/native/main.c) owns GPIO,
@@ -7,9 +11,10 @@ and a disposable working buffer through ABI 2. No heap allocation is used.
 
 ```mermaid
 flowchart TD
-  Release["10 ms FreeRTOS release"] --> Sample["Read PC13 once<br/>freeze BTN input"]
+  Release["10 ms FreeRTOS release"] --> Boundary["Apply pending activation<br/>fresh worker and zero state"]
+  Boundary --> Sample["Read PC13 once<br/>freeze BTN input"]
   Sample --> Prepare["Copy committed values to working state"]
-  Prepare --> Run["Call LLVM-generated ST in RAM<br/>currently privileged"]
+  Prepare --> Run["Call LLVM-generated ST in RAM<br/>isolated worker via checked gateway"]
   Run --> Check{"Return status, values<br/>and elapsed budget OK?"}
   Check -->|yes| Output["Write LED to PA5<br/>check elapsed budget again"]
   Output --> Commit{"Output step within budget?"}
@@ -28,7 +33,8 @@ cells are cleared on faults, including a failed program that previously drove
 an output high. Unknown nonzero native statuses also latch. The supervisor
 checks canonical BOOL values and rejects writes to reserved INPUT working
 cells. This is a transaction contract, not protection against arbitrary native
-writes; the current task is privileged. R2.6 supplies the isolation boundary.
+writes; the portable module alone cannot contain arbitrary native writes. The STM32
+port now supplies the R2.6 isolation boundary.
 
 The GPIO port matches `boards/nucleo_f446re.json`: PC13 is an input, inverted
 into BOOL BTN; PA5 drives LD2. The GPIO latch is cleared before enabling output
@@ -39,9 +45,10 @@ The cycle clock is the DWT 32-bit counter at the nominal 16 MHz HSI clock.
 Unsigned subtraction handles wrap for intervals shorter than one counter
 period. The 160,000-cycle budget is checked after native return and after the
 output write. A slow output callback can briefly apply a value before the
-second check clears it. Non-returning native code cannot be interrupted by
-these checks. Neither behavior substitutes for R2.6's independent deadline
-guard and watchdog.
+second check clears it. These checks alone cannot interrupt non-returning native code. The STM32
+entry callback now adds R2.6's independent deadline guard and watchdog.
+The timer guards the native job; trusted supervisor work after return still
+uses elapsed checks and watchdog fallback.
 
 `scan_cycles_max` measures from before GPIO acquisition through supervisor
 execution, physical output writes, state commit and publication of counter/

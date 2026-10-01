@@ -5,3 +5,22 @@ version = 3
 [[package]]
 name = "tinyplc-compiler"
 version = "0.1.0"
+
+[[package]]
+name = "tinyplc-contract"
+version = "0.1.0"
+
+[[package]]
+name = "tinyplc-engineering"
+version = "0.1.0"
+dependencies = [
+ "tinyplc-contract",
+]
+
+[[package]]
+name = "tinyplc-packager"
+version = "0.1.0"
+dependencies = [
+ "tinyplc-compiler",
+ "tinyplc-contract",
+]

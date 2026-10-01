@@ -98,7 +98,45 @@ build requires `make compiler` first and installed LLVM for ABI 2 user code.
 The hardware test uses a checksum-pinned xPack OpenOCD distribution from
 temporary storage; its exact development version is recorded in the report.
 
-R2.5 update: the privileged board scan now uses physical GPIO, separate working/
-committed state, latched faults and measured release timing. See the
-[scan design](scan-runtime.md) and [hardware report](R2.5-report.md). R2.6
-isolation and deadline abort remain unimplemented.
+R2.6 update: physical GPIO scans now execute ST in a separate unprivileged
+worker, with checked return, deadline abort and reset fallback. See the
+[execution boundary and test commands](native-isolation.md) and
+[hardware report](R2.6-report.md). R2.7 selects fixed-slot host linking and moves the gateway to firmware flash.
+See the [R2 report](R2-report.md); [R3.1](R3.1-report.md) now freezes package/frame encoding. [R3.2](R3.2-report.md) adds portable validation/staging and the Rust packager;
+UART transport and board activation are next.
+
+`make target-verify` also links the current program independently for slots A
+and B, checks prohibited imports/globals and address-dependent fixups, and
+writes `build/placement/report.json`. Its raw `.bin` files are placement
+experiments, not downloadable packages. See [R2](R2-report.md).
+
+## R3.2 native package build and staging tests
+
+Install/use the pinned ARM GNU toolchain as well as LLVM. The full test target
+now includes Rust-packager/C-loader integration, so it needs the target linker:
+
+```sh
+make test ARM_PREFIX=/path/to/bin/arm-none-eabi-
+make loader-target-check ARM_PREFIX=/path/to/bin/arm-none-eabi-
+./target/debug/plcpack examples/button_led.st --slot B -o build/button-b.tplc \
+  --clang /path/to/clang --ld /path/to/bin/arm-none-eabi-ld
+```
+
+`test-loader` runs focused host tests. The target check compiles a relocatable
+ARM object and checks static RAM/undefined symbols; it does not flash or activate
+anything. See [packager usage](../packager/README.md), [loader ownership](native-loader.md)
+and the [R3.2 report](R3.2-report.md).
+
+## R3.3 serial engineering
+
+After installing the native firmware, use the local callout device:
+
+```sh
+./target/debug/plctool /dev/cu.usbmodem2103 info
+./target/debug/plctool /dev/cu.usbmodem2103 status
+```
+
+[The transport guide](engineering-transport.md) shows slot selection, package
+build, download and explicit activation. [R3.3](R3.3-report.md) gives the separate
+lab-board fault-test command and measured results. Host tests now also use a
+POSIX pseudo-terminal and the system `stty`; they do not access the board.

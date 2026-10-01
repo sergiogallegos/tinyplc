@@ -75,16 +75,16 @@ the pristine-source checksums.
 ## Startup, exceptions and linker ownership
 
 Project-owned startup initializes data/BSS, board clocks and fault output policy.
-The current blink vector table is insufficient: target integration must route
-SVC to `vPortSVCHandler`, PendSV to `xPortPendSVHandler`, and SysTick to
-`xPortSysTickHandler`. FreeRTOS owns these exception paths. Project handlers
-own MemManage/BusFault/UsageFault/HardFault and the independent deadline timer,
-with a defined abort/reset policy. Do not introduce a second SVC handler.
+The native target routes PendSV to `xPortPendSVHandler` and SysTick to
+`xPortSysTickHandler`. One project-owned SVC router delegates privileged startup
+to the unchanged `vPortSVCHandler` and validates every unprivileged completion.
+Project handlers own MemManage/BusFault/UsageFault/HardFault and the independent
+deadline timer, with contained abort or watchdog reset recovery. ELF checks
+verify these vector bindings; see [the execution boundary](native-isolation.md).
 
 MPU wrappers v2 use a privileged system-call stack and validate entry/exit
-locations. Keep the kernel's SVC namespace and handler intact. Any future
-PLC completion gateway needs a reviewed extension coordinated with these
-mechanisms; ABI 2 currently exposes no user-callable services. Numeric SVC
+locations. Keep the kernel's SVC namespace and handler intact. The R2.6 PLC completion gateway is coordinated with these
+mechanisms and rejects direct user kernel calls; ABI 2 currently exposes no user-callable services. Numeric SVC
 values are not permission to call kernel operations.
 [Wrapper implementation](https://github.com/FreeRTOS/FreeRTOS-Kernel/blob/3a22924e0a9ddbbc8b0758881c33b3422a5cc20d/portable/Common/mpu_wrappers_v2.c).
 

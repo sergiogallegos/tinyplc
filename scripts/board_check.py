@@ -19,7 +19,7 @@ def main():
         parts = line.split()
         if len(parts) == 3:
             symbols[parts[2]] = int(parts[0], 16)
-    fields = ['probe_result', 'assertion_latched', 'scan_count', 'stack_free_words',
+    fields = ['assertion_latched', 'scan_count', 'stack_free_words',
               'native_status', 'native_count', 'native_output', 'scan_cycles_max',
               'input_raw', 'input_pressed', 'input_transitions', 'period_cycles_min',
               'period_cycles_max', 'release_jitter_max', 'missed_releases']
@@ -45,7 +45,7 @@ for {set sample 0} {$sample < 2} {incr sample} {
     sleep 1000
     halt
 ''' + reads + '''
-    require {$probe_result == 42 && $assertion_latched == 0} "Probe/assertion failure"
+    require {$assertion_latched == 0} "Assertion failure"
     require {$scan_count > $previous && $native_status == EXPECTED_STATUS} "No scan progress"
     require {$stack_free_words > 0 && $stack_free_words <= 512} "Stack failure"
     require {$scan_cycles_max > 0 && $scan_cycles_max < 160000} "Scan timing failure"

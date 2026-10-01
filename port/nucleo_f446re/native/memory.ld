@@ -31,6 +31,7 @@ SECTIONS {
     KEEP(*(freertos_system_calls))
     __syscalls_flash_end__ = .;
   } > CALL_FLASH
+  .gateway : { KEEP(*(.user_gate)) } > CALL_FLASH
   .data : {
     . = ALIGN(4); _sdata = .; *(privileged_data) *(.data*)
     . = ALIGN(4); _edata = .;
@@ -40,19 +41,21 @@ SECTIONS {
     . = ALIGN(8); _sbss = .; *(.bss*) *(COMMON)
     . = ALIGN(8); _ebss = .;
   } > PRIV_RAM
-  .ram_probe : {
-    _sprobe = .; KEEP(*(.ram_probe))
+  .retained (NOLOAD) : { KEEP(*(.retained)) } > PRIV_RAM
+  .user_program : {
+    _suser = .;
     KEEP(*user_program.o(.text* .rodata*))
-    . = ALIGN(4); _eprobe = .;
+    . = ALIGN(4); _euser = .;
   } > CODE_A AT > PRIV_FLASH
-  _siprobe = LOADADDR(.ram_probe);
+  _siuser = LOADADDR(.user_program);
   .code_b (NOLOAD) : { . += LENGTH(CODE_B); } > CODE_B
   .inputs (NOLOAD) : { KEEP(*(.inputs)) } > INPUTS
   .working (NOLOAD) : { KEEP(*(.working)) } > WORK
   .user_stack (NOLOAD) : { KEEP(*(.user_stack)) } > USER_STACK
   /DISCARD/ : { *(.comment) *(.note*) }
-  ASSERT(_ebss <= _estack - 4096, "privileged RAM overflow: reserve 4K MSP")
-  ASSERT(SIZEOF(.ram_probe) <= LENGTH(CODE_A), "code A overflow")
+  ASSERT(ADDR(.retained) + SIZEOF(.retained) <= _estack - 4096, "privileged RAM overflow: reserve 4K MSP")
+  ASSERT(ADDR(.gateway) + SIZEOF(.gateway) <= ORIGIN(CALL_FLASH) + LENGTH(CALL_FLASH), "firmware gateway overflow")
+  ASSERT(SIZEOF(.user_program) <= LENGTH(CODE_A), "code A overflow")
   ASSERT(SIZEOF(.inputs) <= LENGTH(INPUTS), "input region overflow")
   ASSERT(SIZEOF(.working) <= LENGTH(WORK), "working region overflow")
   ASSERT(SIZEOF(.user_stack) == LENGTH(USER_STACK), "stack reservation mismatch")

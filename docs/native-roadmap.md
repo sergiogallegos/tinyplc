@@ -3,8 +3,9 @@
 **Selected architecture:** ST → Rust frontend → typed PLC IR → LLVM IR →
 ahead-of-time target machine code → C runtime on FreeRTOS. This is the primary
 path, replacing the earlier proposal for a bytecode product with optional
-native execution. R1 implements the frontend and host AOT stage. Packaging,
-loading, RTOS execution, protection, and online changes remain planned.
+native execution. R1 implements the frontend and host AOT stage. R2 adds
+RTOS execution and protection. R3.3 adds board download and activation;
+coherent monitoring and online state migration remain planned; [R2 closes the execution experiment](R2-report.md).
 
 ## Established practice and our scope
 
@@ -28,8 +29,8 @@ technologies. Rust and LLVM are our choices; neither is a certification.
 | --- | --- | --- | --- |
 | Engineering tool | Rust `plcc` CLI; C host demo | Download/activate/status/tag monitor, source maps, trends | Versioned projects, recovery, authorization, diagnostics, supported UI |
 | Compiler | Rust parser and semantic analysis → typed PLC IR → LLVM IR | Expanded ST semantics, verified optimization and target ABI | Declared language coverage, reproducible builds, maintained target support |
-| Artifact | LLVM IR and ARM relocatable object today | Defined native package, imports/relocations, state schema and authenticity policy | Key lifecycle, compatibility, power-loss and rollback strategy |
-| Runtime/RTOS | Host C-compatible scan function; target supervisor planned | Static FreeRTOS tasks, native loader, MPU, checked services, deadline abort | Proven resource budgets, operational recovery, additional scan rates only when needed |
+| Artifact | LLVM IR, ARM object and fixed A/B host links | Defined native package, fixed placement, state schema and authenticity policy | Key lifecycle, compatibility, power-loss and rollback strategy |
+| Runtime/RTOS | C/FreeRTOS supervisor and protected native worker | Static FreeRTOS tasks, native loader, MPU, checked services, deadline abort | Proven resource budgets, operational recovery, additional scan rates only when needed |
 | Hardware | F446RE for initial native tests | More capacity/connectivity when justified by measurements | Engineered I/O/power, environmental/EMC evidence, manufacturing and service |
 | Safety/security | Educational fault semantics | Fault injection, threat model, explicit limits | Requirements-driven assurance; functional safety, cybersecurity and EMC assessed separately |
 
@@ -47,7 +48,7 @@ flowchart TB
   LLVM --> Host["Host machine code<br/>implemented semantic tests"]
   LLVM --> ARM["ARM Cortex-M object<br/>implemented cross-codegen check"]
   LLVM -. "later target port" .-> RV["RISC-V object<br/>separate ABI and board integration"]
-  ARM -. "planned" .-> Package["Native package<br/>link, describe state, integrity policy"]
+  ARM --> Package["Rust plcpack<br/>slot link, compiler metadata, CRCs"]
   classDef project fill:#e1f5ef,stroke:#39927d,color:#064f43;
   classDef external fill:#eeeaff,stroke:#8070cf,color:#403484;
   class Front,IR,Lower,Package project;
@@ -76,15 +77,14 @@ entry and can interrupt execution; it is not a test reached only after return.
 flowchart TB
   subgraph PC["Build on PC"]
     Rust["Rust frontend + LLVM IR"] --> AOT["LLVM AOT<br/>target object code"]
-    AOT --> Link["Link against specified native ABI<br/>resolve or record permitted relocations"]
+    AOT --> Link["Link against specified native ABI<br/>resolve all addresses for slot A or B"]
     Link --> Package["Package code and state schema<br/>integrity and signing policy"]
   end
   Package -->|"engineering connection"| Validate
   subgraph Loader["Privileged C loader — per download"]
     Validate["Check bounds, target, ABI, authenticity<br/>reserve inactive storage"]
     Validate --> Copy["Load while non-executable"]
-    Copy --> Relocate["Apply constrained relocations<br/>check locations and destinations"]
-    Relocate --> Ready["Finalize immutable candidate<br/>READY with generation"]
+    Copy --> Ready["Finalize immutable candidate<br/>READY with generation"]
   end
   Ready --> Accept["Engineer accepts generation<br/>owned activation request"]
   subgraph Runtime["C supervisor on FreeRTOS"]
@@ -107,10 +107,10 @@ supplies it. R1 does not yet produce an uploadable package.
 
 ### Linking strategy and image checks
 
-Start with a function linked for one reserved RAM address to isolate ABI and
-instruction-fetch issues. Later choose slot-specific variants, constrained
-position-independent code, or supported relocation records. A general ELF
-dynamic loader is unnecessary for the first prototype.
+R2.7 selects slot-specific host links: the PC resolves every address for A or B.
+The MCU will reject a package for the wrong slot; it will not relocate it or
+resolve imports. See [native-package.md](native-package.md). Position-independent
+code or device relocation would require a later profile.
 
 The native contract must specify ISA/features, endianness, calling/float ABI,
 entry offsets, code/constants/data/BSS sizes and alignment, state schema,
@@ -119,9 +119,9 @@ cross-codegen check uses `thumbv7em-none-eabi`, `cortex-m4`, Thumb, and soft-flo
 ABI. Audit any compiler-emitted helper calls rather than assuming libraries
 exist on the controller.
 
-Validate size/address arithmetic before copying and bound both relocation
-patches and destinations. Authenticate original package bytes/metadata before
-applying authorized fixups. A signature identifies an authorized key, not
+Validate size/address arithmetic and exact placement before copying. The initial
+explicit unsigned-lab profile checks corruption but does not authenticate code.
+A future signed profile must authenticate package bytes and metadata. A signature identifies an authorized key, not
 correctness or termination. Signing, trusted boot, key lifecycle, command
 permissions and rollback policy are distinct concerns. Unsigned lab steps
 must remain explicitly labelled; CRC is not authentication.
@@ -212,7 +212,7 @@ Rust uses no third-party crates; LLVM runs on the PC, not the microcontroller.
 | --- | --- |
 | R1 | Typed Rust frontend, LLVM verification, host AOT semantics at O0/O2, tag ABI, ARM object generation |
 | R2 | Freeze native ABI/state/package requirements; measure memory; execute a small linked native function on F446; prove privileged supervision, user isolation, deadline abort and reset fallback |
-| R3 | Bounded native loading/relocations, integrity policy, upload/activation CLI, snapshots and coherent monitoring |
+| R3 | Bounded fixed-slot native loading, integrity policy, upload/activation CLI, snapshots and coherent monitoring |
 | R4 | State migration, reserved first-scan trial, rollback, concurrent update/fault tests |
 | R5 | Expanded IEC subset, source tooling and additional targets with their own validation |
 
@@ -231,7 +231,10 @@ R2.3/R2.4 update: the selected MPU port now links, and ABI 2 ST-generated code
 runs from SRAM under a privileged FreeRTOS task. See [hardware evidence](R2.4-report.md).
 This advances the prototype; the full R2 protection/deadline gate remains open.
 
-R2.5 update: the privileged board scan now uses physical GPIO, separate working/
-committed state, latched faults and measured release timing. See the
-[scan design](scan-runtime.md) and [hardware report](R2.5-report.md). R2.6
-isolation and deadline abort remain unimplemented.
+R2.6 update: physical GPIO scans now execute ST in a separate unprivileged
+worker, with checked return, deadline abort and reset fallback. See the
+[execution boundary and test commands](native-isolation.md) and
+[hardware report](R2.6-report.md). R2.7 selects fixed-slot host linking and moves the gateway to firmware flash.
+See the [R2 report](R2-report.md); [R3.1](R3.1-report.md) now freezes package/frame encoding. [R3.2](R3.2-report.md) adds portable validation/staging and the Rust packager;
+[R3.3](R3.3-report.md) adds UART transport and board activation; coherent tag
+monitoring is next.
