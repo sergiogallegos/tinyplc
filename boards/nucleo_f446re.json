@@ -1,0 +1,7 @@
+{
+  "board": "nucleo_f446re",
+  "mcu": "STM32F446RE",
+  "inputs": {"BTN": {"type": "BOOL", "pin": "PC13", "inverted": true}},
+  "outputs": {"LED": {"type": "BOOL", "pin": "PA5", "inverted": false}},
+  "serial": {"peripheral": "USART2", "tx": "PA2", "rx": "PA3", "baud": 115200, "data_bits": 8, "parity": "none", "stop_bits": 1}
+}
