@@ -35,26 +35,28 @@ static void create_worker(void) {
     vTaskSuspend(worker_handle);
 }
 static void activate_boundary(void) {
-    const tinyplc_slot *candidate=engineering_candidate();
+    const tinyplc_slot *candidate=engineering_prepare(&supervisor,scan_sequence+1);
     if(!candidate)return;
     /* Worker is suspended following every return/fault. Discard its old stack
      * and register context before publishing a new descriptor or slot mapping. */
     vTaskDelete(worker_handle);
-    uint8_t types[64],classes[64];input_index=-1;output_index=-1;
+    input_index=-1;output_index=-1;
     for(unsigned i=0;i<candidate->tag_count;++i) {
         const uint8_t *tag=candidate->tags+i*TPLC_TAG_BYTES;
-        types[i]=tag[TPLC_TAG_TYPE_OFFSET];classes[i]=tag[TPLC_TAG_CLASS_OFFSET];
         if(tag[TPLC_TAG_BINDING_OFFSET]==TPLC_BINDING_BTN_PC13)input_index=(int)i;
         if(tag[TPLC_TAG_BINDING_OFFSET]==TPLC_BINDING_LED_PA5)output_index=(int)i;
     }
-    configASSERT(tinyplc_scan_init(&supervisor,candidate->tag_count,types,classes)==0);
     for(unsigned i=0;i<64;++i){inputs[i]=0;working.cells[i]=0;}
     inputs[64]=candidate->entry;inputs[65]=candidate->tag_count;inputs[66]=candidate->generation;inputs[67]=0;
     __asm volatile("dsb\nisb":::"memory");
-    create_worker();guard_set_worker(worker_handle);engineering_accept();
+    create_worker();guard_set_worker(worker_handle);
 }
 
 volatile uint32_t input_raw, input_pressed, input_transitions;
+/* Complete application scan body, sampled immediately before scheduler wait.
+ * Includes status/snapshot publication, heartbeat and stack checks. Excludes
+ * these instrumentation stores and xTaskDelayUntil itself. */
+volatile uint32_t scan_body_cycles_last, scan_body_cycles_max;
 volatile uint32_t scan_cycles_max, period_cycles_min = UINT32_MAX, period_cycles_max;
 volatile uint32_t release_jitter_max, missed_releases;
 extern uint32_t tinyplc_scan(const uint32_t *, uint32_t *, uint32_t, tinyplc_native_diagnostic *);
@@ -110,6 +112,12 @@ static void scan(void *unused)
     for (;;) {
         const uint32_t start = cycle_clock();
         int32_t signed_jitter=release_jitter(release,start);
+        /* Resolve the preceding trial only after its scheduler admission check.
+         * Its slots stay reserved throughout the wait. This boundary work is
+         * included in the new release's whole-body measurement. */
+        engineering_finish(&supervisor,&working.diagnostic,scan_sequence);
+        if(supervisor.fault && scan_sequence)
+            engineering_snapshot(scan_sequence,supervisor.count,supervisor.committed,inputs);
         activate_boundary();
         if (scan_count) {
             uint32_t period = start - previous;
@@ -129,20 +137,40 @@ static void scan(void *unused)
             &working.diagnostic, guard_invoke, cycle_clock, commit_outputs, start, 160000);
         native_output = output_index>=0 ? supervisor.committed[output_index] : 0;
         native_count = supervisor.count>2 ? supervisor.committed[2] : 0;
+        if(scan_sequence!=UINT64_MAX)++scan_sequence;
+        engineering_snapshot(scan_sequence,supervisor.count,supervisor.committed,inputs);
         uint32_t elapsed = cycle_clock() - start;
         if (elapsed > scan_cycles_max) scan_cycles_max = elapsed;
         if(scan_count!=UINT32_MAX)++scan_count;
-        if(scan_sequence!=UINT64_MAX)++scan_sequence;
         engineering_publish(scan_sequence,supervisor.fault,elapsed,scan_cycles_max,signed_jitter,missed_sequence);
         guard_heartbeat();
         stack_free_words = uxTaskGetStackHighWaterMark(NULL);
         worker_stack_free_words = uxTaskGetStackHighWaterMark(worker_handle);
+        scan_body_cycles_last = cycle_clock() - start;
+        if(scan_body_cycles_last > scan_body_cycles_max)scan_body_cycles_max=scan_body_cycles_last;
+        if(scan_body_cycles_last>=160000 || (TickType_t)(xTaskGetTickCount()-release)>=pdMS_TO_TICKS(10)) {
+            supervisor.fault=TINYPLC_SCAN_OVERRUN;
+            for(unsigned i=0;i<supervisor.count;++i)if(supervisor.classes[i]==TPLC_CLASS_OUTPUT)supervisor.committed[i]=0;
+            commit_outputs(supervisor.committed);
+        }
+        if(supervisor.fault!=native_status) {
+            engineering_discard(&supervisor);
+            engineering_snapshot(scan_sequence,supervisor.count,supervisor.committed,inputs);
+            engineering_publish(scan_sequence,supervisor.fault,elapsed,scan_cycles_max,signed_jitter,missed_sequence);
+        }
+        native_status=supervisor.fault;
+        scan_body_cycles_last=cycle_clock()-start;
+        if(scan_body_cycles_last>scan_body_cycles_max)scan_body_cycles_max=scan_body_cycles_last;
         if (xTaskDelayUntil(&release, pdMS_TO_TICKS(10)) == pdFALSE) {
             if(missed_releases!=UINT32_MAX)++missed_releases;
             if(missed_sequence!=UINT64_MAX)++missed_sequence;
             supervisor.fault = TINYPLC_SCAN_OVERRUN;
             for(unsigned i=0;i<supervisor.count;++i) if(supervisor.classes[i]==TPLC_CLASS_OUTPUT)supervisor.committed[i]=0;
             commit_outputs(supervisor.committed);
+            native_status=supervisor.fault;
+            engineering_discard(&supervisor);
+            engineering_snapshot(scan_sequence,supervisor.count,supervisor.committed,inputs);
+            engineering_publish(scan_sequence,supervisor.fault,elapsed,scan_cycles_max,signed_jitter,missed_sequence);
             /* Skip catch-up bursts after a missed release. */
             vTaskDelay(pdMS_TO_TICKS(10));
             release = xTaskGetTickCount();

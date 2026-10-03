@@ -2,8 +2,10 @@
 
 The byte contract is frozen. The portable package validator/staging and Rust
 packager are implemented. [R3.3](engineering-transport.md) adds the UART parser,
-board integration and INFO/download/activate/status CLI. Tag reads/writes and
-rollback remain unsupported and are not advertised. The normative [wire specification](wire-format.md) defines
+board integration and INFO/download/activate/status CLI. R3.4/R3.5 add owned
+tag reads and hardware monitoring evidence. R4.2 adds migration, rollback and GET_UPDATE_STATUS with
+[defined state semantics](online-state.md). Tag writes remain unsupported and
+are not advertised. The normative [wire specification](wire-format.md) defines
 framing, CRC coverage, every command/response, errors, expiry, retries and
 activation outcomes. [Generated layouts and IDs](wire-layouts.md) come from
 [`contract/wire.json`](../contract/wire.json), shared by Rust and C.
@@ -19,6 +21,7 @@ activation outcomes. [Generated layouts and IDs](wire-layouts.md) come from
 | READ_TAGS | Read bounded pages from one owned coherent snapshot |
 | WRITE_TAG | Optional queued VAR write with generation/boundary acknowledgement |
 | GET_STATUS | Observe actual execution, request outcome, fault and timing |
+| GET_UPDATE_STATUS | Observe retained first-trial/recovery causes and completion |
 
 A5 framing bounds messages at 262 bytes. Every response includes status; errors
 contain status only. CRC detects corruption and does not authorize native code.

@@ -5,7 +5,7 @@ ahead-of-time target machine code → C runtime on FreeRTOS. This is the primary
 path, replacing the earlier proposal for a bytecode product with optional
 native execution. R1 implements the frontend and host AOT stage. R2 adds
 RTOS execution and protection. R3.3 adds board download and activation;
-coherent monitoring and online state migration remain planned; [R2 closes the execution experiment](R2-report.md).
+coherent monitoring and online state migration are implemented; [R2 closes the execution experiment](R2-report.md).
 
 ## Established practice and our scope
 
@@ -236,5 +236,8 @@ worker, with checked return, deadline abort and reset fallback. See the
 [execution boundary and test commands](native-isolation.md) and
 [hardware report](R2.6-report.md). R2.7 selects fixed-slot host linking and moves the gateway to firmware flash.
 See the [R2 report](R2-report.md); [R3.1](R3.1-report.md) now freezes package/frame encoding. [R3.2](R3.2-report.md) adds portable validation/staging and the Rust packager;
-[R3.3](R3.3-report.md) adds UART transport and board activation; coherent tag
-monitoring is next.
+[R3.3](R3.3-report.md) adds UART transport and board activation;
+[R3.4](R3.4-report.md) implements coherent monitoring and [R3.5](R3.5-report.md)
+verifies it on the board under mixed traffic. The R3 gate is closed. [R4.1](online-state.md) defines state migration and
+rollback semantics; [R4.2](R4.2-report.md) implements them and
+[R4.3](R4.3-report.md) verifies state transfer and fault recovery on hardware.

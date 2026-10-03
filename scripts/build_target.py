@@ -51,7 +51,7 @@ def main():
     sources += [patched, port / 'mpu_wrappers_v2_asm.c', kernel / 'portable/Common/mpu_wrappers_v2.c']
     sources += [local / x for x in ['startup.c', 'main.c', 'memory.c']]
     sources += [ROOT / 'runtime/src/scan.c', local / 'guard.c', local / 'gateway.S']
-    sources += [ROOT / 'runtime/src' / x for x in ['package.c', 'loader.c', 'engineering.c']]
+    sources += [ROOT / 'runtime/src' / x for x in ['package.c', 'loader.c', 'engineering.c', 'snapshot.c', 'update.c']]
     sources += [local / 'engineering_board.c']
     flags = lock['runtime_cflags'] + ['-fno-builtin', '-fstack-usage', '-Wall', '-Wextra', '-Werror']
     includes = ['-I', local, '-I', kernel / 'include', '-I', port, '-I', ROOT / 'runtime/include', '-I', ROOT / 'contract']

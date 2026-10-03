@@ -1,0 +1,3881 @@
+{
+  "date": "2026-10-02",
+  "firmware_sha256": "978cbd170d52c548a6a904709ef1eb686c3af440ea9d726aba285e7f84689b30",
+  "events": [
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 7,
+        "commands": 895,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 1
+          },
+          {
+            "base": 536952832,
+            "state": 0,
+            "generation": 0
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 0,
+        "phase": 0,
+        "outcome": 0,
+        "source_generation": 0,
+        "requested_generation": 0,
+        "failed_generation": 0,
+        "first_fault": 0,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 0,
+        "completed_generation": 0,
+        "completed_scan": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/source-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 488
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 127,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 234,
+        "max_scan_us": 1419,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 2,
+        "source_generation": 1,
+        "requested_generation": 2,
+        "failed_generation": 0,
+        "first_fault": 0,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 0,
+        "completed_generation": 2,
+        "completed_scan": 125
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 2,
+        "scan": 173,
+        "tags": [
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": true
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 89
+          },
+          {
+            "name": "FLAG",
+            "type": 1,
+            "class": 3,
+            "binding": 0,
+            "value": true
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/edit-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 3,
+        "base": 536936448,
+        "bytes": 560
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "3"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 3,
+        "scan": 229,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 3,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 252,
+        "max_scan_us": 1445,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 2,
+        "source_generation": 2,
+        "requested_generation": 3,
+        "failed_generation": 0,
+        "first_fault": 0,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 0,
+        "completed_generation": 3,
+        "completed_scan": 227
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 3,
+        "scan": 270,
+        "tags": [
+          {
+            "name": "FLAG",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 0
+          },
+          {
+            "name": "NEW",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 132
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 450
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": false
+          },
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "rollback"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 295,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 256,
+        "max_scan_us": 1445,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 2,
+        "phase": 5,
+        "outcome": 2,
+        "source_generation": 3,
+        "requested_generation": 2,
+        "failed_generation": 0,
+        "first_fault": 0,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 0,
+        "completed_generation": 2,
+        "completed_scan": 293
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 2,
+        "scan": 336,
+        "tags": [
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": true
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 186
+          },
+          {
+            "name": "FLAG",
+            "type": 1,
+            "class": 3,
+            "binding": 0,
+            "value": true
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "rollback"
+      ],
+      "code": 1,
+      "result": null,
+      "error": "device status 5 for command 6"
+    },
+    {
+      "name": "migration-explicit-rollback-pass",
+      "source_generation": 2,
+      "target_generation": 3,
+      "source_first_scan": 125,
+      "target_first_scan": 227,
+      "checkpoint_n": 142,
+      "rollback_first_scan": 293,
+      "observed": {
+        "generation": 2,
+        "scan": 336,
+        "tags": [
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": true
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 186
+          },
+          {
+            "name": "FLAG",
+            "type": 1,
+            "class": 3,
+            "binding": 0,
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 2,
+        "scan": 380,
+        "tags": [
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": true
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 230
+          },
+          {
+            "name": "FLAG",
+            "type": 1,
+            "class": 3,
+            "binding": 0,
+            "value": true
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/fault-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 4,
+        "base": 536936448,
+        "bytes": 504
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "4"
+      ],
+      "code": 1,
+      "result": {
+        "active_generation": 2,
+        "scan": 435,
+        "execution": 1,
+        "outcome": 4,
+        "requested_generation": 4,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 233,
+        "max_scan_us": 1445,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": "update failed or automatically rolled back; inspect update-status"
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 4,
+        "source_generation": 2,
+        "requested_generation": 4,
+        "failed_generation": 4,
+        "first_fault": 5,
+        "recovery_fault": 0,
+        "line": 7,
+        "column": 8,
+        "failed_scan": 432,
+        "completed_generation": 2,
+        "completed_scan": 433
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 2,
+        "scan": 480,
+        "tags": [
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": true
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 329
+          },
+          {
+            "name": "FLAG",
+            "type": 1,
+            "class": 3,
+            "binding": 0,
+            "value": true
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 7,
+        "commands": 895,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 0,
+            "generation": 0
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 2
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "language-fault-auto-rollback-pass",
+      "diagnostic": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 4,
+        "source_generation": 2,
+        "requested_generation": 4,
+        "failed_generation": 4,
+        "first_fault": 5,
+        "recovery_fault": 0,
+        "line": 7,
+        "column": 8,
+        "failed_scan": 432,
+        "completed_generation": 2,
+        "completed_scan": 433
+      },
+      "observed": {
+        "generation": 2,
+        "scan": 480,
+        "tags": [
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": true
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 329
+          },
+          {
+            "name": "FLAG",
+            "type": 1,
+            "class": 3,
+            "binding": 0,
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/edit-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 5,
+        "base": 536936448,
+        "bytes": 560
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "5"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 5,
+        "scan": 559,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 5,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 251,
+        "max_scan_us": 1445,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/edit-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 6,
+        "base": 536936448,
+        "bytes": 560
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "6"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 6,
+        "scan": 622,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 6,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 252,
+        "max_scan_us": 1445,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "begin-retirement-pass"
+    },
+    {
+      "name": "migration-timing",
+      "values": {
+        "scan_count": 651,
+        "native_status": 0,
+        "assertion_latched": 0,
+        "scan_body_cycles_max": 46384,
+        "missed_releases": 0,
+        "uart_rx_errors": 0,
+        "stack_free_words": 438,
+        "worker_stack_free_words": 502,
+        "comms_stack_free_words": 928
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/wide-source-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 5304
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 140,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1398,
+        "max_scan_us": 2825,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 2,
+        "scan": 162,
+        "tags": [
+          {
+            "name": "LONG_COMMON_PREFIX_00",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 24
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_01",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 25
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_02",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 26
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_03",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 27
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_04",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 28
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_05",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 29
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_06",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 30
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_07",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 31
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_08",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 32
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_09",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 33
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_10",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 34
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_11",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 35
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_12",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 36
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_13",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 37
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_14",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 38
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_15",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 39
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_16",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 40
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_17",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 41
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_18",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 42
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_19",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 43
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_20",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 44
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_21",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 45
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_22",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 46
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_23",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 47
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_24",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 48
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_25",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 49
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_26",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 50
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_27",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 51
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_28",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 52
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_29",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 53
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_30",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 54
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_31",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 55
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_32",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 56
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_33",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 57
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_34",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 58
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_35",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 59
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_36",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 60
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_37",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 61
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_38",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 62
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_39",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 63
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_40",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 64
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_41",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 65
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_42",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 66
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_43",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 67
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_44",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 68
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_45",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 69
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_46",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 70
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_47",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 71
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_48",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 72
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_49",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 73
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_50",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 74
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_51",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 75
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_52",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 76
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_53",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 77
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_54",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 78
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_55",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 79
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_56",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 80
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_57",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 81
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_58",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 82
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_59",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 83
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_60",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 84
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_61",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 85
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_62",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 86
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_63",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 87
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/wide-edit-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 3,
+        "base": 536936448,
+        "bytes": 6392
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "3"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 3,
+        "scan": 343,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 3,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1480,
+        "max_scan_us": 4364,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 2,
+        "source_generation": 2,
+        "requested_generation": 3,
+        "failed_generation": 0,
+        "first_fault": 0,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 0,
+        "completed_generation": 3,
+        "completed_scan": 341
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 3,
+        "scan": 388,
+        "tags": [
+          {
+            "name": "LONG_COMMON_PREFIX_63",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 601
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_62",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 600
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_61",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 599
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_60",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 598
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_59",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 597
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_58",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 596
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_57",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 595
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_56",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 594
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_55",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 593
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_54",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 592
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_53",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 591
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_52",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 590
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_51",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 589
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_50",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 588
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_49",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 587
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_48",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 586
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_47",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 585
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_46",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 584
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_45",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 583
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_44",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 582
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_43",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 581
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_42",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 580
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_41",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 579
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_40",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 578
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_39",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 577
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_38",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 576
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_37",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 575
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_36",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 574
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_35",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 573
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_34",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 572
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_33",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 571
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_32",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 570
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_31",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 569
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_30",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 568
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_29",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 567
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_28",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 566
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_27",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 565
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_26",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 564
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_25",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 563
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_24",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 562
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_23",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 561
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_22",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 560
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_21",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 559
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_20",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 558
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_19",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 557
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_18",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 556
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_17",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 555
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_16",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 554
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_15",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 553
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_14",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 552
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_13",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 551
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_12",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 550
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_11",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 549
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_10",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 548
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_09",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 547
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_08",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 546
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_07",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 545
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_06",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 544
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_05",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 543
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_04",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 542
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_03",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 541
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_02",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 540
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_01",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 539
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_00",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 538
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "rollback"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 454,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1395,
+        "max_scan_us": 4364,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 2,
+        "phase": 5,
+        "outcome": 2,
+        "source_generation": 3,
+        "requested_generation": 2,
+        "failed_generation": 0,
+        "first_fault": 0,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 0,
+        "completed_generation": 2,
+        "completed_scan": 452
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 2,
+        "scan": 497,
+        "tags": [
+          {
+            "name": "LONG_COMMON_PREFIX_00",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 248
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_01",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 249
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_02",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 250
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_03",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 251
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_04",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 252
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_05",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 253
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_06",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 254
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_07",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 255
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_08",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 256
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_09",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 257
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_10",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 258
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_11",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 259
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_12",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 260
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_13",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 261
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_14",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 262
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_15",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 263
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_16",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 264
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_17",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 265
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_18",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 266
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_19",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 267
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_20",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 268
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_21",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 269
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_22",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 270
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_23",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 271
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_24",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 272
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_25",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 273
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_26",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 274
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_27",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 275
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_28",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 276
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_29",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 277
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_30",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 278
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_31",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 279
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_32",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 280
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_33",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 281
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_34",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 282
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_35",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 283
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_36",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 284
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_37",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 285
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_38",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 286
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_39",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 287
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_40",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 288
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_41",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 289
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_42",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 290
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_43",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 291
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_44",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 292
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_45",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 293
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_46",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 294
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_47",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 295
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_48",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 296
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_49",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 297
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_50",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 298
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_51",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 299
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_52",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 300
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_53",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 301
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_54",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 302
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_55",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 303
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_56",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 304
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_57",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 305
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_58",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 306
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_59",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 307
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_60",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 308
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_61",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 309
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_62",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 310
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_63",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 311
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "maximum-reordered-migration-pass",
+      "checkpoint_base": 202,
+      "trial_scan": 341,
+      "restore_scan": 452,
+      "observed": {
+        "generation": 2,
+        "scan": 497,
+        "tags": [
+          {
+            "name": "LONG_COMMON_PREFIX_00",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 248
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_01",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 249
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_02",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 250
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_03",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 251
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_04",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 252
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_05",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 253
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_06",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 254
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_07",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 255
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_08",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 256
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_09",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 257
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_10",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 258
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_11",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 259
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_12",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 260
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_13",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 261
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_14",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 262
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_15",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 263
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_16",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 264
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_17",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 265
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_18",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 266
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_19",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 267
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_20",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 268
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_21",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 269
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_22",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 270
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_23",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 271
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_24",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 272
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_25",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 273
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_26",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 274
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_27",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 275
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_28",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 276
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_29",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 277
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_30",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 278
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_31",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 279
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_32",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 280
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_33",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 281
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_34",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 282
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_35",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 283
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_36",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 284
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_37",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 285
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_38",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 286
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_39",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 287
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_40",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 288
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_41",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 289
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_42",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 290
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_43",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 291
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_44",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 292
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_45",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 293
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_46",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 294
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_47",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 295
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_48",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 296
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_49",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 297
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_50",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 298
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_51",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 299
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_52",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 300
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_53",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 301
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_54",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 302
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_55",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 303
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_56",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 304
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_57",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 305
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_58",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 306
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_59",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 307
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_60",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 308
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_61",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 309
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_62",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 310
+          },
+          {
+            "name": "LONG_COMMON_PREFIX_63",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 311
+          }
+        ]
+      }
+    },
+    {
+      "name": "maximum-migration-timing",
+      "values": {
+        "scan_count": 561,
+        "native_status": 0,
+        "assertion_latched": 0,
+        "scan_body_cycles_max": 90063,
+        "missed_releases": 0,
+        "uart_rx_errors": 0,
+        "stack_free_words": 438,
+        "worker_stack_free_words": 502,
+        "comms_stack_free_words": 928
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/probe-3-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 356
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 1,
+      "result": {
+        "active_generation": 1,
+        "scan": 79,
+        "execution": 1,
+        "outcome": 4,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 213,
+        "max_scan_us": 1386,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": "update failed or automatically rolled back; inspect update-status"
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 101,
+        "execution": 1,
+        "outcome": 4,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 229,
+        "max_scan_us": 1386,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 4,
+        "source_generation": 1,
+        "requested_generation": 2,
+        "failed_generation": 2,
+        "first_fault": 259,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 76,
+        "completed_generation": 1,
+        "completed_scan": 77
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 1,
+        "scan": 142,
+        "tags": [
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": true
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 0
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-3-auto-rollback-pass",
+      "status": {
+        "active_generation": 1,
+        "scan": 101,
+        "execution": 1,
+        "outcome": 4,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 229,
+        "max_scan_us": 1386,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "diagnostic": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 4,
+        "source_generation": 1,
+        "requested_generation": 2,
+        "failed_generation": 2,
+        "first_fault": 259,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 76,
+        "completed_generation": 1,
+        "completed_scan": 77
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/probe-8-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 344
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 1,
+      "result": {
+        "active_generation": 1,
+        "scan": 80,
+        "execution": 1,
+        "outcome": 4,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 213,
+        "max_scan_us": 10130,
+        "jitter_us": 31,
+        "missed_releases": 1
+      },
+      "error": "update failed or automatically rolled back; inspect update-status"
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 101,
+        "execution": 1,
+        "outcome": 4,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 214,
+        "max_scan_us": 10130,
+        "jitter_us": 26,
+        "missed_releases": 1
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 4,
+        "source_generation": 1,
+        "requested_generation": 2,
+        "failed_generation": 2,
+        "first_fault": 258,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 77,
+        "completed_generation": 1,
+        "completed_scan": 78
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 1,
+        "scan": 146,
+        "tags": [
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": true
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 0
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "probe-8-auto-rollback-pass",
+      "status": {
+        "active_generation": 1,
+        "scan": 101,
+        "execution": 1,
+        "outcome": 4,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 214,
+        "max_scan_us": 10130,
+        "jitter_us": 26,
+        "missed_releases": 1
+      },
+      "diagnostic": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 4,
+        "source_generation": 1,
+        "requested_generation": 2,
+        "failed_generation": 2,
+        "first_fault": 258,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 77,
+        "completed_generation": 1,
+        "completed_scan": 78
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/probe-9-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 352
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 1,
+      "result": null,
+      "error": "timeout: outcome uncertain; reconcile info/status before retrying a mutation"
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 240,
+        "execution": 2,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 261,
+        "last_scan_us": 149,
+        "max_scan_us": 149,
+        "jitter_us": 27,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 0,
+        "phase": 0,
+        "outcome": 0,
+        "source_generation": 0,
+        "requested_generation": 0,
+        "failed_generation": 0,
+        "first_fault": 0,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 0,
+        "completed_generation": 0,
+        "completed_scan": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "watchdog-reset-discards-checkpoint-pass",
+      "status": {
+        "active_generation": 1,
+        "scan": 240,
+        "execution": 2,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 261,
+        "last_scan_us": 149,
+        "max_scan_us": 149,
+        "jitter_us": 27,
+        "missed_releases": 0
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/fault-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 504
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 1,
+      "result": {
+        "active_generation": 2,
+        "scan": 317,
+        "execution": 2,
+        "outcome": 3,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 5,
+        "last_scan_us": 192,
+        "max_scan_us": 1425,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": "update failed or automatically rolled back; inspect update-status"
+    },
+    {
+      "name": "cli",
+      "command": [
+        "rollback"
+      ],
+      "code": 1,
+      "result": null,
+      "error": "device status 5 for command 6"
+    },
+    {
+      "name": "faulted-source-cold-start-pass",
+      "status": {
+        "active_generation": 2,
+        "scan": 317,
+        "execution": 2,
+        "outcome": 3,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 5,
+        "last_scan_us": 192,
+        "max_scan_us": 1425,
+        "jitter_us": 26,
+        "missed_releases": 0
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/restore-fault-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 400
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 77,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 214,
+        "max_scan_us": 1328,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 2,
+        "source_generation": 1,
+        "requested_generation": 2,
+        "failed_generation": 0,
+        "first_fault": 0,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 0,
+        "completed_generation": 2,
+        "completed_scan": 76
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/fault-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 3,
+        "base": 536936448,
+        "bytes": 504
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "3"
+      ],
+      "code": 1,
+      "result": {
+        "active_generation": 2,
+        "scan": 156,
+        "execution": 2,
+        "outcome": 3,
+        "requested_generation": 3,
+        "pending_generation": 0,
+        "fault": 5,
+        "last_scan_us": 148,
+        "max_scan_us": 1401,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": "update failed or automatically rolled back; inspect update-status"
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 3,
+        "source_generation": 2,
+        "requested_generation": 3,
+        "failed_generation": 3,
+        "first_fault": 5,
+        "recovery_fault": 5,
+        "line": 7,
+        "column": 8,
+        "failed_scan": 152,
+        "completed_generation": 2,
+        "completed_scan": 153
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 199,
+        "execution": 2,
+        "outcome": 3,
+        "requested_generation": 3,
+        "pending_generation": 0,
+        "fault": 5,
+        "last_scan_us": 148,
+        "max_scan_us": 1401,
+        "jitter_us": 35,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 2,
+        "scan": 222,
+        "tags": [
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": false
+          },
+          {
+            "name": "RESTORE_COUNT",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 76
+          },
+          {
+            "name": "ZERO",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 0
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 7,
+        "commands": 895,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 0,
+            "generation": 0
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 2
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "rollback"
+      ],
+      "code": 1,
+      "result": null,
+      "error": "device status 5 for command 6"
+    },
+    {
+      "name": "automatic-recovery-failure-pass",
+      "diagnostic": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 3,
+        "source_generation": 2,
+        "requested_generation": 3,
+        "failed_generation": 3,
+        "first_fault": 5,
+        "recovery_fault": 5,
+        "line": 7,
+        "column": 8,
+        "failed_scan": 152,
+        "completed_generation": 2,
+        "completed_scan": 153
+      },
+      "observed": {
+        "generation": 2,
+        "scan": 222,
+        "tags": [
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": false
+          },
+          {
+            "name": "RESTORE_COUNT",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 76
+          },
+          {
+            "name": "ZERO",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/restore-fault-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 400
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 79,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 213,
+        "max_scan_us": 1328,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 2,
+        "source_generation": 1,
+        "requested_generation": 2,
+        "failed_generation": 0,
+        "first_fault": 0,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 0,
+        "completed_generation": 2,
+        "completed_scan": 77
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/edit-A.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 3,
+        "base": 536936448,
+        "bytes": 560
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "3"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 3,
+        "scan": 157,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 3,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 252,
+        "max_scan_us": 1376,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 1,
+        "phase": 5,
+        "outcome": 2,
+        "source_generation": 2,
+        "requested_generation": 3,
+        "failed_generation": 0,
+        "first_fault": 0,
+        "recovery_fault": 0,
+        "line": 0,
+        "column": 0,
+        "failed_scan": 0,
+        "completed_generation": 3,
+        "completed_scan": 155
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "rollback"
+      ],
+      "code": 1,
+      "result": {
+        "active_generation": 2,
+        "scan": 203,
+        "execution": 2,
+        "outcome": 3,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 5,
+        "last_scan_us": 158,
+        "max_scan_us": 1376,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": "update failed or automatically rolled back; inspect update-status"
+    },
+    {
+      "name": "cli",
+      "command": [
+        "update-status"
+      ],
+      "code": 0,
+      "result": {
+        "kind": 2,
+        "phase": 5,
+        "outcome": 3,
+        "source_generation": 3,
+        "requested_generation": 2,
+        "failed_generation": 2,
+        "first_fault": 5,
+        "recovery_fault": 0,
+        "line": 4,
+        "column": 70,
+        "failed_scan": 202,
+        "completed_generation": 2,
+        "completed_scan": 202
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 247,
+        "execution": 2,
+        "outcome": 3,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 5,
+        "last_scan_us": 148,
+        "max_scan_us": 1376,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "code": 0,
+      "result": {
+        "generation": 2,
+        "scan": 270,
+        "tags": [
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": false
+          },
+          {
+            "name": "RESTORE_COUNT",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 78
+          },
+          {
+            "name": "ZERO",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 0
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "code": 0,
+      "result": {
+        "protocol": 1,
+        "capabilities": 7,
+        "commands": 895,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 0,
+            "generation": 0
+          },
+          {
+            "base": 536952832,
+            "state": 1,
+            "generation": 2
+          }
+        ]
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "rollback"
+      ],
+      "code": 1,
+      "result": null,
+      "error": "device status 5 for command 6"
+    },
+    {
+      "name": "explicit-rollback-failure-pass",
+      "diagnostic": {
+        "kind": 2,
+        "phase": 5,
+        "outcome": 3,
+        "source_generation": 3,
+        "requested_generation": 2,
+        "failed_generation": 2,
+        "first_fault": 5,
+        "recovery_fault": 0,
+        "line": 4,
+        "column": 70,
+        "failed_scan": 202,
+        "completed_generation": 2,
+        "completed_scan": 202
+      },
+      "observed": {
+        "generation": 2,
+        "scan": 270,
+        "tags": [
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": false
+          },
+          {
+            "name": "RESTORE_COUNT",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 78
+          },
+          {
+            "name": "ZERO",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/update-board/late-B.tplc"
+      ],
+      "code": 0,
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 224
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 80,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 173,
+        "max_scan_us": 1301,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 2,
+        "scan": 123,
+        "execution": 2,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 5,
+        "last_scan_us": 78,
+        "max_scan_us": 1301,
+        "jitter_us": 27,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "rollback"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 148,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 1,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 217,
+        "max_scan_us": 1342,
+        "jitter_us": 26,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 171,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 1,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 213,
+        "max_scan_us": 1342,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "later-fault-explicit-recovery-pass"
+    },
+    {
+      "name": "R4-board-pass"
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "code": 0,
+      "result": {
+        "active_generation": 1,
+        "scan": 49,
+        "execution": 1,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 213,
+        "max_scan_us": 214,
+        "jitter_us": 31,
+        "missed_releases": 0
+      },
+      "error": ""
+    },
+    {
+      "name": "normal-boot-restored",
+      "status": {
+        "active_generation": 1,
+        "scan": 49,
+        "execution": 1,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 213,
+        "max_scan_us": 214,
+        "jitter_us": 31,
+        "missed_releases": 0
+      }
+    }
+  ],
+  "sources": {
+    "source": "PROGRAM Source\nVAR_INPUT BTN : BOOL; END_VAR\nVAR_OUTPUT LED : BOOL; END_VAR\nVAR N : DINT; FLAG : BOOL; END_VAR\nIF N = 0 THEN N := 41; ELSE N := N + 1; END_IF;\nFLAG := TRUE;\nLED := NOT BTN;\nEND_PROGRAM\n",
+    "edit": "PROGRAM Edited\nVAR FLAG : DINT; NEW : DINT; N : DINT; END_VAR\nVAR_OUTPUT LED : BOOL; END_VAR\nVAR_INPUT BTN : BOOL; END_VAR\nN := N + 7;\nNEW := NEW + 3;\nEND_PROGRAM\n",
+    "fault": "PROGRAM Fault\nVAR_INPUT BTN : BOOL; END_VAR\nVAR_OUTPUT LED : BOOL; END_VAR\nVAR N : DINT; ZERO : DINT; END_VAR\nN := N + 1000;\nLED := TRUE;\nN := N / ZERO;\nEND_PROGRAM\n",
+    "restore-fault": "PROGRAM RestoreFault\nVAR_OUTPUT LED : BOOL; END_VAR\nVAR RESTORE_COUNT : DINT; ZERO : DINT; END_VAR\nIF RESTORE_COUNT > 0 AND NOT LED THEN RESTORE_COUNT := RESTORE_COUNT / ZERO; END_IF;\nRESTORE_COUNT := RESTORE_COUNT + 1;\nLED := TRUE;\nEND_PROGRAM\n",
+    "late": "PROGRAM Late\nVAR N : DINT; END_VAR\nN := N + 1;\nIF N >= 10 THEN N := N / 0; END_IF;\nEND_PROGRAM\n",
+    "wide-source": "PROGRAM Wide\nVAR\nLONG_COMMON_PREFIX_00 : DINT;\nLONG_COMMON_PREFIX_01 : DINT;\nLONG_COMMON_PREFIX_02 : DINT;\nLONG_COMMON_PREFIX_03 : DINT;\nLONG_COMMON_PREFIX_04 : DINT;\nLONG_COMMON_PREFIX_05 : DINT;\nLONG_COMMON_PREFIX_06 : DINT;\nLONG_COMMON_PREFIX_07 : DINT;\nLONG_COMMON_PREFIX_08 : DINT;\nLONG_COMMON_PREFIX_09 : DINT;\nLONG_COMMON_PREFIX_10 : DINT;\nLONG_COMMON_PREFIX_11 : DINT;\nLONG_COMMON_PREFIX_12 : DINT;\nLONG_COMMON_PREFIX_13 : DINT;\nLONG_COMMON_PREFIX_14 : DINT;\nLONG_COMMON_PREFIX_15 : DINT;\nLONG_COMMON_PREFIX_16 : DINT;\nLONG_COMMON_PREFIX_17 : DINT;\nLONG_COMMON_PREFIX_18 : DINT;\nLONG_COMMON_PREFIX_19 : DINT;\nLONG_COMMON_PREFIX_20 : DINT;\nLONG_COMMON_PREFIX_21 : DINT;\nLONG_COMMON_PREFIX_22 : DINT;\nLONG_COMMON_PREFIX_23 : DINT;\nLONG_COMMON_PREFIX_24 : DINT;\nLONG_COMMON_PREFIX_25 : DINT;\nLONG_COMMON_PREFIX_26 : DINT;\nLONG_COMMON_PREFIX_27 : DINT;\nLONG_COMMON_PREFIX_28 : DINT;\nLONG_COMMON_PREFIX_29 : DINT;\nLONG_COMMON_PREFIX_30 : DINT;\nLONG_COMMON_PREFIX_31 : DINT;\nLONG_COMMON_PREFIX_32 : DINT;\nLONG_COMMON_PREFIX_33 : DINT;\nLONG_COMMON_PREFIX_34 : DINT;\nLONG_COMMON_PREFIX_35 : DINT;\nLONG_COMMON_PREFIX_36 : DINT;\nLONG_COMMON_PREFIX_37 : DINT;\nLONG_COMMON_PREFIX_38 : DINT;\nLONG_COMMON_PREFIX_39 : DINT;\nLONG_COMMON_PREFIX_40 : DINT;\nLONG_COMMON_PREFIX_41 : DINT;\nLONG_COMMON_PREFIX_42 : DINT;\nLONG_COMMON_PREFIX_43 : DINT;\nLONG_COMMON_PREFIX_44 : DINT;\nLONG_COMMON_PREFIX_45 : DINT;\nLONG_COMMON_PREFIX_46 : DINT;\nLONG_COMMON_PREFIX_47 : DINT;\nLONG_COMMON_PREFIX_48 : DINT;\nLONG_COMMON_PREFIX_49 : DINT;\nLONG_COMMON_PREFIX_50 : DINT;\nLONG_COMMON_PREFIX_51 : DINT;\nLONG_COMMON_PREFIX_52 : DINT;\nLONG_COMMON_PREFIX_53 : DINT;\nLONG_COMMON_PREFIX_54 : DINT;\nLONG_COMMON_PREFIX_55 : DINT;\nLONG_COMMON_PREFIX_56 : DINT;\nLONG_COMMON_PREFIX_57 : DINT;\nLONG_COMMON_PREFIX_58 : DINT;\nLONG_COMMON_PREFIX_59 : DINT;\nLONG_COMMON_PREFIX_60 : DINT;\nLONG_COMMON_PREFIX_61 : DINT;\nLONG_COMMON_PREFIX_62 : DINT;\nLONG_COMMON_PREFIX_63 : DINT;\nEND_VAR\nLONG_COMMON_PREFIX_00 := LONG_COMMON_PREFIX_00 + 1;\nLONG_COMMON_PREFIX_01 := LONG_COMMON_PREFIX_00 + 1;\nLONG_COMMON_PREFIX_02 := LONG_COMMON_PREFIX_00 + 2;\nLONG_COMMON_PREFIX_03 := LONG_COMMON_PREFIX_00 + 3;\nLONG_COMMON_PREFIX_04 := LONG_COMMON_PREFIX_00 + 4;\nLONG_COMMON_PREFIX_05 := LONG_COMMON_PREFIX_00 + 5;\nLONG_COMMON_PREFIX_06 := LONG_COMMON_PREFIX_00 + 6;\nLONG_COMMON_PREFIX_07 := LONG_COMMON_PREFIX_00 + 7;\nLONG_COMMON_PREFIX_08 := LONG_COMMON_PREFIX_00 + 8;\nLONG_COMMON_PREFIX_09 := LONG_COMMON_PREFIX_00 + 9;\nLONG_COMMON_PREFIX_10 := LONG_COMMON_PREFIX_00 + 10;\nLONG_COMMON_PREFIX_11 := LONG_COMMON_PREFIX_00 + 11;\nLONG_COMMON_PREFIX_12 := LONG_COMMON_PREFIX_00 + 12;\nLONG_COMMON_PREFIX_13 := LONG_COMMON_PREFIX_00 + 13;\nLONG_COMMON_PREFIX_14 := LONG_COMMON_PREFIX_00 + 14;\nLONG_COMMON_PREFIX_15 := LONG_COMMON_PREFIX_00 + 15;\nLONG_COMMON_PREFIX_16 := LONG_COMMON_PREFIX_00 + 16;\nLONG_COMMON_PREFIX_17 := LONG_COMMON_PREFIX_00 + 17;\nLONG_COMMON_PREFIX_18 := LONG_COMMON_PREFIX_00 + 18;\nLONG_COMMON_PREFIX_19 := LONG_COMMON_PREFIX_00 + 19;\nLONG_COMMON_PREFIX_20 := LONG_COMMON_PREFIX_00 + 20;\nLONG_COMMON_PREFIX_21 := LONG_COMMON_PREFIX_00 + 21;\nLONG_COMMON_PREFIX_22 := LONG_COMMON_PREFIX_00 + 22;\nLONG_COMMON_PREFIX_23 := LONG_COMMON_PREFIX_00 + 23;\nLONG_COMMON_PREFIX_24 := LONG_COMMON_PREFIX_00 + 24;\nLONG_COMMON_PREFIX_25 := LONG_COMMON_PREFIX_00 + 25;\nLONG_COMMON_PREFIX_26 := LONG_COMMON_PREFIX_00 + 26;\nLONG_COMMON_PREFIX_27 := LONG_COMMON_PREFIX_00 + 27;\nLONG_COMMON_PREFIX_28 := LONG_COMMON_PREFIX_00 + 28;\nLONG_COMMON_PREFIX_29 := LONG_COMMON_PREFIX_00 + 29;\nLONG_COMMON_PREFIX_30 := LONG_COMMON_PREFIX_00 + 30;\nLONG_COMMON_PREFIX_31 := LONG_COMMON_PREFIX_00 + 31;\nLONG_COMMON_PREFIX_32 := LONG_COMMON_PREFIX_00 + 32;\nLONG_COMMON_PREFIX_33 := LONG_COMMON_PREFIX_00 + 33;\nLONG_COMMON_PREFIX_34 := LONG_COMMON_PREFIX_00 + 34;\nLONG_COMMON_PREFIX_35 := LONG_COMMON_PREFIX_00 + 35;\nLONG_COMMON_PREFIX_36 := LONG_COMMON_PREFIX_00 + 36;\nLONG_COMMON_PREFIX_37 := LONG_COMMON_PREFIX_00 + 37;\nLONG_COMMON_PREFIX_38 := LONG_COMMON_PREFIX_00 + 38;\nLONG_COMMON_PREFIX_39 := LONG_COMMON_PREFIX_00 + 39;\nLONG_COMMON_PREFIX_40 := LONG_COMMON_PREFIX_00 + 40;\nLONG_COMMON_PREFIX_41 := LONG_COMMON_PREFIX_00 + 41;\nLONG_COMMON_PREFIX_42 := LONG_COMMON_PREFIX_00 + 42;\nLONG_COMMON_PREFIX_43 := LONG_COMMON_PREFIX_00 + 43;\nLONG_COMMON_PREFIX_44 := LONG_COMMON_PREFIX_00 + 44;\nLONG_COMMON_PREFIX_45 := LONG_COMMON_PREFIX_00 + 45;\nLONG_COMMON_PREFIX_46 := LONG_COMMON_PREFIX_00 + 46;\nLONG_COMMON_PREFIX_47 := LONG_COMMON_PREFIX_00 + 47;\nLONG_COMMON_PREFIX_48 := LONG_COMMON_PREFIX_00 + 48;\nLONG_COMMON_PREFIX_49 := LONG_COMMON_PREFIX_00 + 49;\nLONG_COMMON_PREFIX_50 := LONG_COMMON_PREFIX_00 + 50;\nLONG_COMMON_PREFIX_51 := LONG_COMMON_PREFIX_00 + 51;\nLONG_COMMON_PREFIX_52 := LONG_COMMON_PREFIX_00 + 52;\nLONG_COMMON_PREFIX_53 := LONG_COMMON_PREFIX_00 + 53;\nLONG_COMMON_PREFIX_54 := LONG_COMMON_PREFIX_00 + 54;\nLONG_COMMON_PREFIX_55 := LONG_COMMON_PREFIX_00 + 55;\nLONG_COMMON_PREFIX_56 := LONG_COMMON_PREFIX_00 + 56;\nLONG_COMMON_PREFIX_57 := LONG_COMMON_PREFIX_00 + 57;\nLONG_COMMON_PREFIX_58 := LONG_COMMON_PREFIX_00 + 58;\nLONG_COMMON_PREFIX_59 := LONG_COMMON_PREFIX_00 + 59;\nLONG_COMMON_PREFIX_60 := LONG_COMMON_PREFIX_00 + 60;\nLONG_COMMON_PREFIX_61 := LONG_COMMON_PREFIX_00 + 61;\nLONG_COMMON_PREFIX_62 := LONG_COMMON_PREFIX_00 + 62;\nLONG_COMMON_PREFIX_63 := LONG_COMMON_PREFIX_00 + 63;\nEND_PROGRAM\n",
+    "wide-edit": "PROGRAM WideEdit\nVAR\nLONG_COMMON_PREFIX_63 : DINT;\nLONG_COMMON_PREFIX_62 : DINT;\nLONG_COMMON_PREFIX_61 : DINT;\nLONG_COMMON_PREFIX_60 : DINT;\nLONG_COMMON_PREFIX_59 : DINT;\nLONG_COMMON_PREFIX_58 : DINT;\nLONG_COMMON_PREFIX_57 : DINT;\nLONG_COMMON_PREFIX_56 : DINT;\nLONG_COMMON_PREFIX_55 : DINT;\nLONG_COMMON_PREFIX_54 : DINT;\nLONG_COMMON_PREFIX_53 : DINT;\nLONG_COMMON_PREFIX_52 : DINT;\nLONG_COMMON_PREFIX_51 : DINT;\nLONG_COMMON_PREFIX_50 : DINT;\nLONG_COMMON_PREFIX_49 : DINT;\nLONG_COMMON_PREFIX_48 : DINT;\nLONG_COMMON_PREFIX_47 : DINT;\nLONG_COMMON_PREFIX_46 : DINT;\nLONG_COMMON_PREFIX_45 : DINT;\nLONG_COMMON_PREFIX_44 : DINT;\nLONG_COMMON_PREFIX_43 : DINT;\nLONG_COMMON_PREFIX_42 : DINT;\nLONG_COMMON_PREFIX_41 : DINT;\nLONG_COMMON_PREFIX_40 : DINT;\nLONG_COMMON_PREFIX_39 : DINT;\nLONG_COMMON_PREFIX_38 : DINT;\nLONG_COMMON_PREFIX_37 : DINT;\nLONG_COMMON_PREFIX_36 : DINT;\nLONG_COMMON_PREFIX_35 : DINT;\nLONG_COMMON_PREFIX_34 : DINT;\nLONG_COMMON_PREFIX_33 : DINT;\nLONG_COMMON_PREFIX_32 : DINT;\nLONG_COMMON_PREFIX_31 : DINT;\nLONG_COMMON_PREFIX_30 : DINT;\nLONG_COMMON_PREFIX_29 : DINT;\nLONG_COMMON_PREFIX_28 : DINT;\nLONG_COMMON_PREFIX_27 : DINT;\nLONG_COMMON_PREFIX_26 : DINT;\nLONG_COMMON_PREFIX_25 : DINT;\nLONG_COMMON_PREFIX_24 : DINT;\nLONG_COMMON_PREFIX_23 : DINT;\nLONG_COMMON_PREFIX_22 : DINT;\nLONG_COMMON_PREFIX_21 : DINT;\nLONG_COMMON_PREFIX_20 : DINT;\nLONG_COMMON_PREFIX_19 : DINT;\nLONG_COMMON_PREFIX_18 : DINT;\nLONG_COMMON_PREFIX_17 : DINT;\nLONG_COMMON_PREFIX_16 : DINT;\nLONG_COMMON_PREFIX_15 : DINT;\nLONG_COMMON_PREFIX_14 : DINT;\nLONG_COMMON_PREFIX_13 : DINT;\nLONG_COMMON_PREFIX_12 : DINT;\nLONG_COMMON_PREFIX_11 : DINT;\nLONG_COMMON_PREFIX_10 : DINT;\nLONG_COMMON_PREFIX_09 : DINT;\nLONG_COMMON_PREFIX_08 : DINT;\nLONG_COMMON_PREFIX_07 : DINT;\nLONG_COMMON_PREFIX_06 : DINT;\nLONG_COMMON_PREFIX_05 : DINT;\nLONG_COMMON_PREFIX_04 : DINT;\nLONG_COMMON_PREFIX_03 : DINT;\nLONG_COMMON_PREFIX_02 : DINT;\nLONG_COMMON_PREFIX_01 : DINT;\nLONG_COMMON_PREFIX_00 : DINT;\nEND_VAR\nLONG_COMMON_PREFIX_00 := LONG_COMMON_PREFIX_00 + 7;\nLONG_COMMON_PREFIX_01 := LONG_COMMON_PREFIX_01 + 7;\nLONG_COMMON_PREFIX_02 := LONG_COMMON_PREFIX_02 + 7;\nLONG_COMMON_PREFIX_03 := LONG_COMMON_PREFIX_03 + 7;\nLONG_COMMON_PREFIX_04 := LONG_COMMON_PREFIX_04 + 7;\nLONG_COMMON_PREFIX_05 := LONG_COMMON_PREFIX_05 + 7;\nLONG_COMMON_PREFIX_06 := LONG_COMMON_PREFIX_06 + 7;\nLONG_COMMON_PREFIX_07 := LONG_COMMON_PREFIX_07 + 7;\nLONG_COMMON_PREFIX_08 := LONG_COMMON_PREFIX_08 + 7;\nLONG_COMMON_PREFIX_09 := LONG_COMMON_PREFIX_09 + 7;\nLONG_COMMON_PREFIX_10 := LONG_COMMON_PREFIX_10 + 7;\nLONG_COMMON_PREFIX_11 := LONG_COMMON_PREFIX_11 + 7;\nLONG_COMMON_PREFIX_12 := LONG_COMMON_PREFIX_12 + 7;\nLONG_COMMON_PREFIX_13 := LONG_COMMON_PREFIX_13 + 7;\nLONG_COMMON_PREFIX_14 := LONG_COMMON_PREFIX_14 + 7;\nLONG_COMMON_PREFIX_15 := LONG_COMMON_PREFIX_15 + 7;\nLONG_COMMON_PREFIX_16 := LONG_COMMON_PREFIX_16 + 7;\nLONG_COMMON_PREFIX_17 := LONG_COMMON_PREFIX_17 + 7;\nLONG_COMMON_PREFIX_18 := LONG_COMMON_PREFIX_18 + 7;\nLONG_COMMON_PREFIX_19 := LONG_COMMON_PREFIX_19 + 7;\nLONG_COMMON_PREFIX_20 := LONG_COMMON_PREFIX_20 + 7;\nLONG_COMMON_PREFIX_21 := LONG_COMMON_PREFIX_21 + 7;\nLONG_COMMON_PREFIX_22 := LONG_COMMON_PREFIX_22 + 7;\nLONG_COMMON_PREFIX_23 := LONG_COMMON_PREFIX_23 + 7;\nLONG_COMMON_PREFIX_24 := LONG_COMMON_PREFIX_24 + 7;\nLONG_COMMON_PREFIX_25 := LONG_COMMON_PREFIX_25 + 7;\nLONG_COMMON_PREFIX_26 := LONG_COMMON_PREFIX_26 + 7;\nLONG_COMMON_PREFIX_27 := LONG_COMMON_PREFIX_27 + 7;\nLONG_COMMON_PREFIX_28 := LONG_COMMON_PREFIX_28 + 7;\nLONG_COMMON_PREFIX_29 := LONG_COMMON_PREFIX_29 + 7;\nLONG_COMMON_PREFIX_30 := LONG_COMMON_PREFIX_30 + 7;\nLONG_COMMON_PREFIX_31 := LONG_COMMON_PREFIX_31 + 7;\nLONG_COMMON_PREFIX_32 := LONG_COMMON_PREFIX_32 + 7;\nLONG_COMMON_PREFIX_33 := LONG_COMMON_PREFIX_33 + 7;\nLONG_COMMON_PREFIX_34 := LONG_COMMON_PREFIX_34 + 7;\nLONG_COMMON_PREFIX_35 := LONG_COMMON_PREFIX_35 + 7;\nLONG_COMMON_PREFIX_36 := LONG_COMMON_PREFIX_36 + 7;\nLONG_COMMON_PREFIX_37 := LONG_COMMON_PREFIX_37 + 7;\nLONG_COMMON_PREFIX_38 := LONG_COMMON_PREFIX_38 + 7;\nLONG_COMMON_PREFIX_39 := LONG_COMMON_PREFIX_39 + 7;\nLONG_COMMON_PREFIX_40 := LONG_COMMON_PREFIX_40 + 7;\nLONG_COMMON_PREFIX_41 := LONG_COMMON_PREFIX_41 + 7;\nLONG_COMMON_PREFIX_42 := LONG_COMMON_PREFIX_42 + 7;\nLONG_COMMON_PREFIX_43 := LONG_COMMON_PREFIX_43 + 7;\nLONG_COMMON_PREFIX_44 := LONG_COMMON_PREFIX_44 + 7;\nLONG_COMMON_PREFIX_45 := LONG_COMMON_PREFIX_45 + 7;\nLONG_COMMON_PREFIX_46 := LONG_COMMON_PREFIX_46 + 7;\nLONG_COMMON_PREFIX_47 := LONG_COMMON_PREFIX_47 + 7;\nLONG_COMMON_PREFIX_48 := LONG_COMMON_PREFIX_48 + 7;\nLONG_COMMON_PREFIX_49 := LONG_COMMON_PREFIX_49 + 7;\nLONG_COMMON_PREFIX_50 := LONG_COMMON_PREFIX_50 + 7;\nLONG_COMMON_PREFIX_51 := LONG_COMMON_PREFIX_51 + 7;\nLONG_COMMON_PREFIX_52 := LONG_COMMON_PREFIX_52 + 7;\nLONG_COMMON_PREFIX_53 := LONG_COMMON_PREFIX_53 + 7;\nLONG_COMMON_PREFIX_54 := LONG_COMMON_PREFIX_54 + 7;\nLONG_COMMON_PREFIX_55 := LONG_COMMON_PREFIX_55 + 7;\nLONG_COMMON_PREFIX_56 := LONG_COMMON_PREFIX_56 + 7;\nLONG_COMMON_PREFIX_57 := LONG_COMMON_PREFIX_57 + 7;\nLONG_COMMON_PREFIX_58 := LONG_COMMON_PREFIX_58 + 7;\nLONG_COMMON_PREFIX_59 := LONG_COMMON_PREFIX_59 + 7;\nLONG_COMMON_PREFIX_60 := LONG_COMMON_PREFIX_60 + 7;\nLONG_COMMON_PREFIX_61 := LONG_COMMON_PREFIX_61 + 7;\nLONG_COMMON_PREFIX_62 := LONG_COMMON_PREFIX_62 + 7;\nLONG_COMMON_PREFIX_63 := LONG_COMMON_PREFIX_63 + 7;\nEND_PROGRAM\n"
+  },
+  "packages": {
+    "source-A": "d55013cf2fd8f10ec1b819611c9c93e6144c67bada92badc0c62865024f2132e",
+    "source-B": "614a86c6b555c8e0632e8ea22e20c722d3994652c106b156f7651e072a5089c6",
+    "edit-A": "c37a1eaf069c934fd7f79f2cd6628bb8b539e9556c9b73b61449ba3fc75a1f9a",
+    "edit-B": "b2ba1a0c67a6a3320fd94ec94f00d70c7c2f91fa3281ed9b3e3c9a083e209651",
+    "fault-A": "ee6554c3227dc948fab506c1732964e2218055eafc788318b33eaac1ba4c5852",
+    "fault-B": "cb08caace29b7ee214a8ad5a2ecf905696c7a1375d216739cc08dfc11b63619d",
+    "restore-fault-A": "f50e114ac3862111df195dd7d55eec171035ee163184e01b857591db836edbfa",
+    "restore-fault-B": "8188c9708dcc6094002984ca17e4e36442dc18f4edc0e31559b9d8c313925d82",
+    "late-A": "10cad16728fdc9c68fb8b64596bbdb9192e30fd00f96cc58d3b16a6e91af264a",
+    "late-B": "14752fb8d2cfdd36d53cb753ffda76d7ba5d94471a5ba9b848aa2f037737b884",
+    "wide-source-A": "c659d0f7568d5845309f0674e88840b3c927c51f981963d98b49aa987ddc4889",
+    "wide-source-B": "af46cc545d5904829044902c16b511e6d15569b7815edf2473b75dd82f37b104",
+    "wide-edit-A": "4af586250a429d9611cfac5aac815daf74dd416f1e4c8548bbf8191a3212d611",
+    "wide-edit-B": "ab8898d4945a56e0f261b654a0b4ec300b50cea18f19982f9d26f7e3ffdfe434",
+    "probe-3-A": "2582d47cb5385be4028351ebf9c3c4a263b801747952de1ed9dcc1cc4bacdbd6",
+    "probe-3-B": "7f814f989d516621807fd1ec747e96157327a9919de3b53c5c54fd1ba5295719",
+    "probe-8-A": "1f4c2146b9ed1e34f18ec780cdded82a402acd4ff7c28de9b55438f452e53377",
+    "probe-8-B": "bd90f7e2818d7125ed5f37c0a8f1ca62fd998b7b69bc38fb2dd78835c2402c53",
+    "probe-9-A": "9361d735f537273b1601bf60dbba5b3adf4cec80fa467fbcf2082856dc921dbf",
+    "probe-9-B": "ba9912fa4dcaf490871204ce4570c28068d26265a5917dbf52fbaf6f64cb5fe2"
+  }
+}

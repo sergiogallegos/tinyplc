@@ -52,12 +52,20 @@ uses elapsed checks and watchdog fallback.
 
 `scan_cycles_max` measures from before GPIO acquisition through supervisor
 execution, physical output writes, state commit and publication of counter/
-output fields. It excludes stack high-water probing, the final timing-statistic
+output fields, plus owned tag snapshot publication in R3.4. It excludes stack high-water probing, the final timing-statistic
 update and scheduler blocking. Release period and absolute deviation from
 160,000 cycles are measured separately. These debugger-readable fields are
-owned by one task; they are not the future concurrent monitoring snapshot.
+owned by one task; R3.4 uses a separate owned mailbox for concurrent tag monitoring.
+R3.5 adds `scan_body_cycles_last` and `scan_body_cycles_max`. They measure from
+scan release handling through activation, GPIO, user execution, state commit,
+snapshot/status publication, watchdog heartbeat and both stack high-water
+checks, immediately before `xTaskDelayUntil`. They exclude the final measurement
+stores, the scheduler call itself and blocked time. Thus the body duration and
+the release period are separate measurements; the original wire status timing
+fields keep their existing, narrower meaning. See [R3.5 evidence](R3.5-report.md).
+
 A missed FreeRTOS release latches an overrun, clears PA5 and skips catch-up
-bursts. Static task allocation is established; a communication task is R3.
+bursts. Static task allocation and the lower-priority communication task are established.
 
 ## Tests and sources
 
@@ -75,3 +83,15 @@ OpenPLC or other runtime source copied. Hardware/API references:
 - [ST RM0390](https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf): GPIO and RCC registers.
 - [ST PM0214](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf): Cortex-M4 programmer's model and debug facilities.
 - [FreeRTOS xTaskDelayUntil](https://www.freertos.org/Documentation/02-Kernel/04-API-references/02-Task-control/03-xTaskDelayUntil): fixed-period scheduling and missed-wake return behavior.
+
+
+## R4 boundary transactions
+
+R4 resolves the preceding trial at the next release after the actual scheduler
+admission result, before applying a pending migration/restoration. Both slots
+stay reserved through that point. Resolution and the next preparation are
+included in that release's whole-body counter. Precomputed name maps keep the
+quadratic schema search in the lower-priority comms task. Late trial overruns
+restore initialized trial VARs before corrected fault publication, while the
+physical fault policy immediately clears outputs. See [R4.2](R4.2-report.md)
+and [R4.3 board evidence](R4.3-report.md).

@@ -97,3 +97,15 @@ loader-target-check:
 test: test-engineering
 test-engineering: compiler
 	CLANG="$(CLANG)" $(PYTHON) -m unittest discover -s tests/engineering -v
+
+.PHONY: test-snapshot-thread
+test-snapshot-thread:
+	mkdir -p build/scan
+	$(CLANG) -std=c11 -O1 -g -pthread -fsanitize=thread -Wall -Wextra -Werror -Icontract -Iruntime/include runtime/src/package.c runtime/src/loader.c runtime/src/engineering.c runtime/src/snapshot.c runtime/src/update.c tests/engineering/snapshot_test.c -o build/scan/snapshot-tsan
+	./build/scan/snapshot-tsan
+
+.PHONY: test-update-thread
+test-update-thread:
+	mkdir -p build/scan
+	$(CLANG) -std=c11 -O1 -g -pthread -fsanitize=thread -Wall -Wextra -Werror -Icontract -Iruntime/include runtime/src/scan.c runtime/src/package.c runtime/src/loader.c runtime/src/engineering.c runtime/src/snapshot.c runtime/src/update.c tests/engineering/update_thread_test.c -o build/scan/update-tsan
+	./build/scan/update-tsan

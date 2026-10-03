@@ -33,7 +33,9 @@ access to this struct. All API output pointers must be valid and disjoint from
 loader/input storage; chunk input must remain valid for its declared count.
 
 The initial active-slot argument protects an existing firmware-linked module
-as generation 1; its schema is deliberately unavailable through this API.
+as generation 1; its schema is unavailable until registered by the adapter.
+The R4 board adapter registers boot entry/schema/bindings immediately after
+loader initialization.
 Alternatively `-1` starts with empty slots. Initializing is a boot operation,
 not a way to reset counters in an existing session.
 
@@ -43,7 +45,9 @@ BEGIN validates total size, unsigned-lab policy, slot availability and counter
 capacity. It reserves an EMPTY slot preferentially, otherwise an inactive READY
 or PREVIOUS slot. A new reservation explicitly retires that candidate/rollback
 image and its generation. ACTIVE slots are never selected; any PENDING slot
-blocks BEGIN. This clarifies the R3.1 ownership rule: READY is immutable until
+blocks BEGIN. The R4 engineering adapter additionally blocks BEGIN throughout
+planning, first-scan trial and recovery, and retires its checkpoint only on
+successful BEGIN. This clarifies the R3.1 ownership rule: READY is immutable until
 explicitly retired by a new BEGIN, not permanently reserved forever.
 
 CHUNK requires the live transfer ID and the next contiguous package offset.

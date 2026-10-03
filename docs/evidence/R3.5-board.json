@@ -1,0 +1,872 @@
+{
+  "firmware_sha256": "2748c6882bb03651cc244c78f74f130ffa92501c20834a8e7427e792cf9f0d5f",
+  "date": "2026-10-02",
+  "events": [
+    {
+      "name": "cli",
+      "command": [
+        "info"
+      ],
+      "result": {
+        "protocol": 1,
+        "capabilities": 1,
+        "commands": 351,
+        "transfer_id": 0,
+        "next_offset": 0,
+        "remaining_ms": 0,
+        "slots": [
+          {
+            "base": 536936448,
+            "state": 1,
+            "generation": 1
+          },
+          {
+            "base": 536952832,
+            "state": 0,
+            "generation": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "result": {
+        "generation": 1,
+        "scan": 85,
+        "tags": [
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": true
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/monitor-board/edited-B.tplc"
+      ],
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 384
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "result": {
+        "active_generation": 1,
+        "scan": 135,
+        "execution": 1,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 206,
+        "max_scan_us": 228,
+        "jitter_us": 26,
+        "missed_releases": 0
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "result": {
+        "active_generation": 2,
+        "scan": 160,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 206,
+        "max_scan_us": 1294,
+        "jitter_us": 31,
+        "missed_releases": 0
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "result": {
+        "generation": 2,
+        "scan": 183,
+        "tags": [
+          {
+            "name": "BTN",
+            "type": 1,
+            "class": 1,
+            "binding": 1,
+            "value": false
+          },
+          {
+            "name": "LED",
+            "type": 1,
+            "class": 2,
+            "binding": 2,
+            "value": false
+          },
+          {
+            "name": "N",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 175
+          }
+        ]
+      }
+    },
+    {
+      "name": "edit-build-upload-accept-monitor-pass",
+      "generation": 2,
+      "scan": 183,
+      "tags": {
+        "BTN": false,
+        "LED": false,
+        "N": 175
+      }
+    },
+    {
+      "name": "boot-baseline",
+      "values": {
+        "scan_count": 350,
+        "native_status": 0,
+        "assertion_latched": 0,
+        "scan_cycles_max": 3297,
+        "scan_body_cycles_last": 26037,
+        "scan_body_cycles_max": 26041,
+        "period_cycles_min": 154628,
+        "period_cycles_max": 160000,
+        "release_jitter_max": 5372,
+        "missed_releases": 0,
+        "uart_rx_errors": 0,
+        "uart_frames": 0,
+        "comms_stack_free_words": 994,
+        "stack_free_words": 418,
+        "worker_stack_free_words": 502
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/monitor-board/maximum-B.tplc"
+      ],
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 5304
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "result": {
+        "active_generation": 2,
+        "scan": 137,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 2640,
+        "max_scan_us": 2640,
+        "jitter_us": 26,
+        "missed_releases": 0
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "monitor"
+      ],
+      "result": {
+        "generation": 2,
+        "scan": 159,
+        "tags": [
+          {
+            "name": "V00",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 23
+          },
+          {
+            "name": "V01",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 24
+          },
+          {
+            "name": "V02",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 25
+          },
+          {
+            "name": "V03",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 26
+          },
+          {
+            "name": "V04",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 27
+          },
+          {
+            "name": "V05",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 28
+          },
+          {
+            "name": "V06",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 29
+          },
+          {
+            "name": "V07",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 30
+          },
+          {
+            "name": "V08",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 31
+          },
+          {
+            "name": "V09",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 32
+          },
+          {
+            "name": "V10",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 33
+          },
+          {
+            "name": "V11",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 34
+          },
+          {
+            "name": "V12",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 35
+          },
+          {
+            "name": "V13",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 36
+          },
+          {
+            "name": "V14",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 37
+          },
+          {
+            "name": "V15",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 38
+          },
+          {
+            "name": "V16",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 39
+          },
+          {
+            "name": "V17",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 40
+          },
+          {
+            "name": "V18",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 41
+          },
+          {
+            "name": "V19",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 42
+          },
+          {
+            "name": "V20",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 43
+          },
+          {
+            "name": "V21",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 44
+          },
+          {
+            "name": "V22",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 45
+          },
+          {
+            "name": "V23",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 46
+          },
+          {
+            "name": "V24",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 47
+          },
+          {
+            "name": "V25",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 48
+          },
+          {
+            "name": "V26",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 49
+          },
+          {
+            "name": "V27",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 50
+          },
+          {
+            "name": "V28",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 51
+          },
+          {
+            "name": "V29",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 52
+          },
+          {
+            "name": "V30",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 53
+          },
+          {
+            "name": "V31",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 54
+          },
+          {
+            "name": "V32",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 55
+          },
+          {
+            "name": "V33",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 56
+          },
+          {
+            "name": "V34",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 57
+          },
+          {
+            "name": "V35",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 58
+          },
+          {
+            "name": "V36",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 59
+          },
+          {
+            "name": "V37",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 60
+          },
+          {
+            "name": "V38",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 61
+          },
+          {
+            "name": "V39",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 62
+          },
+          {
+            "name": "V40",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 63
+          },
+          {
+            "name": "V41",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 64
+          },
+          {
+            "name": "V42",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 65
+          },
+          {
+            "name": "V43",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 66
+          },
+          {
+            "name": "V44",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 67
+          },
+          {
+            "name": "V45",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 68
+          },
+          {
+            "name": "V46",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 69
+          },
+          {
+            "name": "V47",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 70
+          },
+          {
+            "name": "V48",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 71
+          },
+          {
+            "name": "V49",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 72
+          },
+          {
+            "name": "V50",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 73
+          },
+          {
+            "name": "V51",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 74
+          },
+          {
+            "name": "V52",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 75
+          },
+          {
+            "name": "V53",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 76
+          },
+          {
+            "name": "V54",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 77
+          },
+          {
+            "name": "V55",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 78
+          },
+          {
+            "name": "V56",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 79
+          },
+          {
+            "name": "V57",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 80
+          },
+          {
+            "name": "V58",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 81
+          },
+          {
+            "name": "V59",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 82
+          },
+          {
+            "name": "V60",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 83
+          },
+          {
+            "name": "V61",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 84
+          },
+          {
+            "name": "V62",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 85
+          },
+          {
+            "name": "V63",
+            "type": 2,
+            "class": 3,
+            "binding": 0,
+            "value": 86
+          }
+        ]
+      }
+    },
+    {
+      "name": "maximum-baseline",
+      "values": {
+        "scan_count": 522,
+        "native_status": 0,
+        "assertion_latched": 0,
+        "scan_cycles_max": 42233,
+        "scan_body_cycles_last": 44832,
+        "scan_body_cycles_max": 64853,
+        "period_cycles_min": 154644,
+        "period_cycles_max": 160194,
+        "release_jitter_max": 5356,
+        "missed_releases": 0,
+        "uart_rx_errors": 0,
+        "uart_frames": 43,
+        "comms_stack_free_words": 928,
+        "stack_free_words": 408,
+        "worker_stack_free_words": 502
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/monitor-board/maximum-B.tplc"
+      ],
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 5304
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "result": {
+        "active_generation": 2,
+        "scan": 143,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1396,
+        "max_scan_us": 2640,
+        "jitter_us": 31,
+        "missed_releases": 0
+      }
+    },
+    {
+      "name": "mixed-traffic-pass",
+      "duration_seconds": 16.006035958998837,
+      "before": {
+        "generation": 2,
+        "scan": 148,
+        "misses": 0
+      },
+      "after": {
+        "generation": 2,
+        "scan": 1755,
+        "misses": 0
+      },
+      "downloads": 11,
+      "pages": 260,
+      "snapshots": 20
+    },
+    {
+      "name": "mixed-traffic-timing",
+      "values": {
+        "scan_count": 1775,
+        "native_status": 0,
+        "assertion_latched": 0,
+        "scan_cycles_max": 42237,
+        "scan_body_cycles_last": 44826,
+        "scan_body_cycles_max": 64856,
+        "period_cycles_min": 154636,
+        "period_cycles_max": 160194,
+        "release_jitter_max": 5364,
+        "missed_releases": 0,
+        "uart_rx_errors": 0,
+        "uart_frames": 567,
+        "comms_stack_free_words": 928,
+        "stack_free_words": 408,
+        "worker_stack_free_words": 502
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "download",
+        "build/monitor-board/maximum-B.tplc"
+      ],
+      "result": {
+        "ready_generation": 2,
+        "base": 536952832,
+        "bytes": 5304
+      }
+    },
+    {
+      "name": "cli",
+      "command": [
+        "activate",
+        "2"
+      ],
+      "result": {
+        "active_generation": 2,
+        "scan": 138,
+        "execution": 1,
+        "outcome": 2,
+        "requested_generation": 2,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 1396,
+        "max_scan_us": 2640,
+        "jitter_us": 31,
+        "missed_releases": 0
+      }
+    },
+    {
+      "name": "stalled-reader-slot-reuse-pass",
+      "pinned_generation": 2,
+      "pinned_scan": 145,
+      "progress_scan": 173,
+      "active_generation": 3,
+      "replacement_generation": 4
+    },
+    {
+      "name": "snapshot-expiry-pass",
+      "generation": 5
+    },
+    {
+      "name": "R3.5-pass"
+    },
+    {
+      "name": "cli",
+      "command": [
+        "status"
+      ],
+      "result": {
+        "active_generation": 1,
+        "scan": 48,
+        "execution": 1,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 206,
+        "max_scan_us": 207,
+        "jitter_us": 26,
+        "missed_releases": 0
+      }
+    },
+    {
+      "name": "normal-boot-restored",
+      "status": {
+        "active_generation": 1,
+        "scan": 48,
+        "execution": 1,
+        "outcome": 0,
+        "requested_generation": 0,
+        "pending_generation": 0,
+        "fault": 0,
+        "last_scan_us": 206,
+        "max_scan_us": 207,
+        "jitter_us": 26,
+        "missed_releases": 0
+      }
+    }
+  ],
+  "packages": {
+    "normal-A": {
+      "sha256": "4ba824149a2ca48e79a95ded42a13f018a7fdc98a9494bfb8ef02660a24135a8",
+      "bytes": 384
+    },
+    "normal-B": {
+      "sha256": "20babe1a0b92f87d05ec76d08af7e592352411b7994deafc9c22fa9d67af1fc7",
+      "bytes": 384
+    },
+    "edited-A": {
+      "sha256": "f90ea7389f6fcaa8efc9ccbe444d1a0af3c623254075f1a31fd06b6810698a60",
+      "bytes": 384
+    },
+    "edited-B": {
+      "sha256": "2a012f2b9c575a9140f1ba6fbaf5d7d26174da98f8ee3d7626b9bc9475382756",
+      "bytes": 384
+    },
+    "maximum-A": {
+      "sha256": "056dd56e0dde52998824f916ac4059db36a0cc1295501b95df138af8c6598aa7",
+      "bytes": 5304
+    },
+    "maximum-B": {
+      "sha256": "f09d08e093e2669bd764b51013341133a1e0f5478f0f032afdcf7cd67af9b73b",
+      "bytes": 5304
+    }
+  },
+  "sources": {
+    "edited": "PROGRAM Edited\nVAR_INPUT BTN : BOOL; END_VAR\nVAR_OUTPUT LED : BOOL; END_VAR\nVAR N : DINT; END_VAR\nN := N + 7;\nLED := BTN;\nEND_PROGRAM\n",
+    "maximum": "PROGRAM Maximum\nVAR\nV00 : DINT;\nV01 : DINT;\nV02 : DINT;\nV03 : DINT;\nV04 : DINT;\nV05 : DINT;\nV06 : DINT;\nV07 : DINT;\nV08 : DINT;\nV09 : DINT;\nV10 : DINT;\nV11 : DINT;\nV12 : DINT;\nV13 : DINT;\nV14 : DINT;\nV15 : DINT;\nV16 : DINT;\nV17 : DINT;\nV18 : DINT;\nV19 : DINT;\nV20 : DINT;\nV21 : DINT;\nV22 : DINT;\nV23 : DINT;\nV24 : DINT;\nV25 : DINT;\nV26 : DINT;\nV27 : DINT;\nV28 : DINT;\nV29 : DINT;\nV30 : DINT;\nV31 : DINT;\nV32 : DINT;\nV33 : DINT;\nV34 : DINT;\nV35 : DINT;\nV36 : DINT;\nV37 : DINT;\nV38 : DINT;\nV39 : DINT;\nV40 : DINT;\nV41 : DINT;\nV42 : DINT;\nV43 : DINT;\nV44 : DINT;\nV45 : DINT;\nV46 : DINT;\nV47 : DINT;\nV48 : DINT;\nV49 : DINT;\nV50 : DINT;\nV51 : DINT;\nV52 : DINT;\nV53 : DINT;\nV54 : DINT;\nV55 : DINT;\nV56 : DINT;\nV57 : DINT;\nV58 : DINT;\nV59 : DINT;\nV60 : DINT;\nV61 : DINT;\nV62 : DINT;\nV63 : DINT;\nEND_VAR\nV00 := V00 + 1;\nV01 := V00 + 1;\nV02 := V00 + 2;\nV03 := V00 + 3;\nV04 := V00 + 4;\nV05 := V00 + 5;\nV06 := V00 + 6;\nV07 := V00 + 7;\nV08 := V00 + 8;\nV09 := V00 + 9;\nV10 := V00 + 10;\nV11 := V00 + 11;\nV12 := V00 + 12;\nV13 := V00 + 13;\nV14 := V00 + 14;\nV15 := V00 + 15;\nV16 := V00 + 16;\nV17 := V00 + 17;\nV18 := V00 + 18;\nV19 := V00 + 19;\nV20 := V00 + 20;\nV21 := V00 + 21;\nV22 := V00 + 22;\nV23 := V00 + 23;\nV24 := V00 + 24;\nV25 := V00 + 25;\nV26 := V00 + 26;\nV27 := V00 + 27;\nV28 := V00 + 28;\nV29 := V00 + 29;\nV30 := V00 + 30;\nV31 := V00 + 31;\nV32 := V00 + 32;\nV33 := V00 + 33;\nV34 := V00 + 34;\nV35 := V00 + 35;\nV36 := V00 + 36;\nV37 := V00 + 37;\nV38 := V00 + 38;\nV39 := V00 + 39;\nV40 := V00 + 40;\nV41 := V00 + 41;\nV42 := V00 + 42;\nV43 := V00 + 43;\nV44 := V00 + 44;\nV45 := V00 + 45;\nV46 := V00 + 46;\nV47 := V00 + 47;\nV48 := V00 + 48;\nV49 := V00 + 49;\nV50 := V00 + 50;\nV51 := V00 + 51;\nV52 := V00 + 52;\nV53 := V00 + 53;\nV54 := V00 + 54;\nV55 := V00 + 55;\nV56 := V00 + 56;\nV57 := V00 + 57;\nV58 := V00 + 58;\nV59 := V00 + 59;\nV60 := V00 + 60;\nV61 := V00 + 61;\nV62 := V00 + 62;\nV63 := V00 + 63;\nEND_PROGRAM\n"
+  }
+}

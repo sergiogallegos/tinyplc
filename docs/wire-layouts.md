@@ -284,6 +284,35 @@ Fixed size: 0 bytes.
 
 Fixed size: 49 bytes.
 
+## get_update_status_request
+
+| Field | Offset | Type / bytes |
+| --- | --- | --- |
+
+Fixed size: 0 bytes.
+
+## get_update_status_response
+
+| Field | Offset | Type / bytes |
+| --- | --- | --- |
+| status | 0 | u8 |
+| kind | 1 | u8 |
+| phase | 2 | u8 |
+| outcome | 3 | u8 |
+| reserved | 4 | u8 |
+| source_generation | 5 | u32 |
+| requested_generation | 9 | u32 |
+| failed_generation | 13 | u32 |
+| first_fault | 17 | u32 |
+| recovery_fault | 21 | u32 |
+| line | 25 | u32 |
+| column | 29 | u32 |
+| failed_scan | 33 | u64 |
+| completed_generation | 41 | u32 |
+| completed_scan | 45 | u64 |
+
+Fixed size: 53 bytes.
+
 ## Numeric constants
 
 | Name | Value |
@@ -366,3 +395,13 @@ Fixed size: 49 bytes.
 | CRC16_INIT | 65535 |
 | CRC16_XOROUT | 0 |
 | CRC16_CHECK | 10673 |
+| CMD_GET_UPDATE_STATUS | 10 |
+| UPDATE_NONE | 0 |
+| UPDATE_ACTIVATE | 1 |
+| UPDATE_ROLLBACK | 2 |
+| UPDATE_IDLE | 0 |
+| UPDATE_QUEUED | 1 |
+| UPDATE_TRIAL | 2 |
+| UPDATE_RECOVERY_QUEUED | 3 |
+| UPDATE_RECOVERY_TRIAL | 4 |
+| UPDATE_COMPLETE | 5 |

@@ -2,7 +2,7 @@
 
 The architecture and educational scope are ready to guide development. R1 and R2 are complete with linked host and hardware evidence. R3.1 freezes the download
 wire format with cross-language fixtures; R3.2 implements the packager and
-portable validation/staging. R3.3 adds board download/activation. Tag monitoring and online state changes remain R3/R4 work.
+portable validation/staging. R3.3 adds board download/activation. R3.4 adds owned tag monitoring. R3.5 verifies the complete board workflow and timing under mixed traffic. R4 implements online migration and rollback with host and hardware evidence.
 This checklist tracks the [native roadmap](native-roadmap.md), whose stages
 supersede historical M3–M5. Update checkboxes only with linked evidence.
 
@@ -53,7 +53,7 @@ Execute in this order; each item produces reviewable code/specification and evid
 
 The R2 research gate is closed: protected native execution, fixed-slot host
 linking and unsigned-lab package requirements are established. Exact package encoding is complete in R3.1; dynamic loading remains R3 work.
-Upload/status/activation are implemented in R3.3; snapshots and online migration remain pending.
+Upload/status/activation are implemented in R3.3; R3.4 adds snapshots. R4 adds migration and rollback.
 
 ## R3 — upload, acceptance and monitoring
 
@@ -66,18 +66,28 @@ Upload/status/activation are implemented in R3.3; snapshots and online migration
 - [x] R3.3: Implement UART engineering transport and host download/activate/status
   commands, including retries, interrupted transfer and uncertain outcomes.
   Evidence: [R3.3 report](R3.3-report.md), `make test-engineering`, explicit board matrix.
-- [ ] R3.4: Implement owned snapshots with generation/scan IDs and bounded monitor
+- [x] R3.4: Implement owned snapshots with generation/scan IDs and bounded monitor
   reads; prove a stalled reader does not delay scans or reference retired data.
-- [ ] R3.5: Demonstrate edit → build → upload → accept → monitor on the board; report
+  Evidence: [R3.4 report](R3.4-report.md), `make test-engineering`, concurrent
+  sanitizer stress and target build/layout checks. Hardware timing remains R3.5.
+- [x] R3.5: Demonstrate edit → build → upload → accept → monitor on the board; report
   measured whole-scan timing while downloads and monitoring are active.
+  Evidence: [R3.5 report](R3.5-report.md), [board results](evidence/R3.5-board.json),
+  11 downloads and 20 complete 64-tag snapshots with zero missed releases.
 
 ## R4 — online state changes
 
-- [ ] Define compatible migration, new-variable initialization and rollback
+- [x] R4.1: Define compatible migration, new-variable initialization and rollback
   state semantics; preserve frozen inputs and recompute outputs.
-- [ ] Implement reserved first-scan trial, explicit rollback and contained-fault
+  Evidence: [normative state contract](online-state.md), [R4.1 review](R4.1-report.md).
+  Implemented in R4.2; historical R4.1 evidence records the design decision.
+- [x] R4.2: Implement reserved first-scan trial, explicit rollback and contained-fault
   rollback, with generation/slot lifetime checks and concurrency tests.
-- [ ] Demonstrate state transfer and failed-update recovery on hardware.
+  Evidence: [R4.2 report](R4.2-report.md), `make test-engineering test-update-thread`,
+  2,000 concurrent activation/rollback pairs under ThreadSanitizer.
+- [x] R4.3: Demonstrate state transfer and failed-update recovery on hardware.
+  Evidence: [R4.3 report](R4.3-report.md), [board matrix](evidence/R4.3-board.json)
+  and [mixed traffic](evidence/R4.3-monitor.json), including failed restoration.
 
 ## R5 — deliberate extensions
 
@@ -86,5 +96,5 @@ Upload/status/activation are implemented in R3.3; snapshots and online migration
 - [ ] Give each extension its own semantics, resource budget and acceptance tests.
 
 IDE, broad IEC coverage, industrial networking and product assurance remain
-future scope. The full educational pipeline is complete only after the R3/R4
-board demonstrations, not when the frontend alone passes host tests.
+future scope. The R1–R4 educational pipeline now has host and board evidence;
+future extensions require their own defined need and acceptance gates.

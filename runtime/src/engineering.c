@@ -35,6 +35,18 @@ size_t tinyplc_frame_encode(uint8_t cmd,const uint8_t *p,size_t n,uint8_t *out) 
     if(n)memcpy(out+4,p,n);
     tinyplc_put16(out,n+4,tplc_crc16(out+1,n+3));return n+6;
 }
+static uint32_t request_update(tinyplc_engine *e,uint32_t kind,uint32_t generation) {
+    if(e->critical)e->critical(true);
+    uint32_t status=tinyplc_update_reserve(e->update,kind,generation);
+    if(e->critical)e->critical(false);
+    if(!status) {
+        tinyplc_update_plan(e->update); /* Preemptible; schemas reserved, state untouched. */
+        if(e->critical)e->critical(true);
+        tinyplc_update_arm(e->update);
+        if(e->critical)e->critical(false);
+    }
+    return status;
+}
 size_t tinyplc_engine_request(tinyplc_engine *e,uint8_t cmd,const uint8_t *p,size_t n,uint32_t now,uint8_t *r) {
     if(cmd&TPLC_RESPONSE_BIT)return 0;
     tinyplc_loader *l=e->loader;tinyplc_loader_expire(l,now);
@@ -49,8 +61,8 @@ size_t tinyplc_engine_request(tinyplc_engine *e,uint8_t cmd,const uint8_t *p,siz
         tinyplc_put16(r,TPLC_INFO_RESPONSE_NATIVE_ABI_OFFSET,TPLC_NATIVE_ABI);
         tinyplc_put16(r,TPLC_INFO_RESPONSE_RUNTIME_CONTRACT_OFFSET,TPLC_RUNTIME_CONTRACT);
         tinyplc_put16(r,TPLC_INFO_RESPONSE_AUTH_OFFSET,TPLC_AUTH_UNSIGNED_LAB);
-        tinyplc_put32(r,TPLC_INFO_RESPONSE_CAPABILITIES_OFFSET,l->allow_unsigned?TPLC_CAP_UNSIGNED_LAB:0);
-        tinyplc_put32(r,TPLC_INFO_RESPONSE_COMMAND_MASK_OFFSET,0x0f|(e->activate?0x10:0)|(e->status?0x100:0)); /* Advertise only wired callbacks. */
+        tinyplc_put32(r,TPLC_INFO_RESPONSE_CAPABILITIES_OFFSET,(l->allow_unsigned?TPLC_CAP_UNSIGNED_LAB:0)|(e->update?(TPLC_CAP_ONLINE_MIGRATION|TPLC_CAP_ROLLBACK):0));
+        tinyplc_put32(r,TPLC_INFO_RESPONSE_COMMAND_MASK_OFFSET,0x0f|((e->activate||e->update)?0x10:0)|(e->status?0x100:0)|(e->snapshots?0x40:0)|(e->update?0x220:0)); /* Advertise only wired callbacks. */
         tinyplc_put32(r,TPLC_INFO_RESPONSE_PACKAGE_MAX_OFFSET,TPLC_PACKAGE_BYTES_MAX);
         tinyplc_put16(r,TPLC_INFO_RESPONSE_TAG_LIMIT_OFFSET,TPLC_TAG_LIMIT);
         tinyplc_put16(r,TPLC_INFO_RESPONSE_CELL_BYTES_OFFSET,TPLC_CELL_BYTES);
@@ -59,6 +71,7 @@ size_t tinyplc_engine_request(tinyplc_engine *e,uint8_t cmd,const uint8_t *p,siz
         tinyplc_put32(r,TPLC_INFO_RESPONSE_TRANSFER_ID_OFFSET,l->transfer_id);
         tinyplc_put32(r,TPLC_INFO_RESPONSE_NEXT_OFFSET_OFFSET,l->next_offset);
         tinyplc_put32(r,TPLC_INFO_RESPONSE_TRANSFER_REMAINING_MS_OFFSET,l->transfer_id?TPLC_TRANSFER_TIMEOUT_MS-(uint32_t)(now-l->last_ms):0);
+        if(e->critical)e->critical(true);
         for(unsigned i=0;i<2;++i) {
             uint8_t *s=r+(i?TPLC_INFO_RESPONSE_SLOT_B_OFFSET:TPLC_INFO_RESPONSE_SLOT_A_OFFSET);
             tinyplc_put32(s,TPLC_SLOT_BASE_OFFSET,i?TPLC_SLOT_B_BASE:TPLC_SLOT_A_BASE);
@@ -66,10 +79,20 @@ size_t tinyplc_engine_request(tinyplc_engine *e,uint8_t cmd,const uint8_t *p,siz
             s[TPLC_SLOT_STATE_OFFSET]=(uint8_t)l->slots[i].state;
             tinyplc_put32(s,TPLC_SLOT_GENERATION_OFFSET,l->slots[i].generation);
         }
+        if(e->critical)e->critical(false);
         r[0]=0;return TPLC_INFO_RESPONSE_BYTES;
     case TPLC_CMD_DOWNLOAD_BEGIN:
         if(n!=TPLC_DOWNLOAD_BEGIN_REQUEST_BYTES)break;
+        if(e->critical)e->critical(true);
+        bool busy=e->update && tinyplc_update_busy(e->update);
+        if(e->critical)e->critical(false);
+        if(busy){r[0]=TPLC_STATUS_BUSY;break;}
         status=tinyplc_loader_begin(l,get(p,n,0),now,&value,&base);r[0]=(uint8_t)status;
+        if(!status && e->update) {
+            if(e->critical)e->critical(true);
+            tinyplc_update_retire(e->update,l->receiving);
+            if(e->critical)e->critical(false);
+        }
         if(!status) {tinyplc_put32(r,1,value);tinyplc_put32(r,5,base);tinyplc_put32(r,9,TPLC_CODE_CAPACITY);tinyplc_put32(r,13,TPLC_TRANSFER_TIMEOUT_MS);size=TPLC_DOWNLOAD_BEGIN_RESPONSE_BYTES;}break;
     case TPLC_CMD_DOWNLOAD_CHUNK:
         if(n<=TPLC_DOWNLOAD_CHUNK_REQUEST_BYTES || n>TPLC_DOWNLOAD_CHUNK_REQUEST_BYTES+TPLC_CHUNK_BYTES_MAX)break;
@@ -85,8 +108,23 @@ size_t tinyplc_engine_request(tinyplc_engine *e,uint8_t cmd,const uint8_t *p,siz
         r[0]=(uint8_t)status;if(!status){tinyplc_put32(r,1,value);size=TPLC_DOWNLOAD_END_RESPONSE_BYTES;}break;
     case TPLC_CMD_ACTIVATE:
         if(n!=TPLC_ACTIVATE_REQUEST_BYTES)break;
-        value=get(p,n,0);status=e->activate?e->activate(e->context,value):TPLC_STATUS_UNSUPPORTED;
+        value=get(p,n,0);status=e->update?request_update(e,TPLC_UPDATE_ACTIVATE,value):e->activate?e->activate(e->context,value):TPLC_STATUS_UNSUPPORTED;
         r[0]=(uint8_t)status;if(!status){tinyplc_put32(r,1,value);size=TPLC_ACTIVATE_RESPONSE_BYTES;}break;
+    case TPLC_CMD_ROLLBACK:
+        if(n)break;
+        status=e->update?request_update(e,TPLC_UPDATE_ROLLBACK,0):TPLC_STATUS_UNSUPPORTED;
+        r[0]=(uint8_t)status;
+        if(!status){tinyplc_put32(r,1,e->update->requested);size=TPLC_ROLLBACK_RESPONSE_BYTES;}break;
+    case TPLC_CMD_GET_UPDATE_STATUS:
+        if(n)break;
+        if(!e->update){r[0]=TPLC_STATUS_UNSUPPORTED;break;}
+        if(e->critical)e->critical(true);
+        tinyplc_update_status(e->update,r);
+        if(e->critical)e->critical(false);
+        return TPLC_GET_UPDATE_STATUS_RESPONSE_BYTES;
+    case TPLC_CMD_READ_TAGS:
+        if(e->snapshots)return tinyplc_snapshot_read(e->snapshots,p,n,now,r);
+        r[0]=TPLC_STATUS_UNSUPPORTED;break;
     case TPLC_CMD_GET_STATUS:
         if(n)break;
         if(e->status){e->status(e->context,r);return TPLC_GET_STATUS_RESPONSE_BYTES;}

@@ -1,10 +1,12 @@
-# R3.3 engineering transport and native activation
+# Engineering transport, native activation and monitoring
 
 The STM32 now accepts native packages over its ST-LINK USB serial bridge.
-Rust `plctool` implements INFO, GET_STATUS, DOWNLOAD_BEGIN/CHUNK/END and ACTIVATE.
-The firmware advertises command mask `0x11f` and unsigned-lab capability only.
-READ_TAGS, WRITE_TAG and ROLLBACK return UNSUPPORTED; tag monitoring and online
-state preservation are not implied by the status command.
+Rust `plctool` implements INFO, GET_STATUS, DOWNLOAD_BEGIN/CHUNK/END, ACTIVATE
+and READ_TAGS (`monitor`). R4 adds ROLLBACK and GET_UPDATE_STATUS. The firmware
+advertises command mask `0x37f` and capability mask `0x7` (unsigned lab,
+migration, rollback). WRITE_TAG remains UNSUPPORTED. R3.4 adds
+[owned tag snapshots](R3.4-report.md); R4 implements the
+[online state contract](online-state.md).
 
 ## Task and interrupt ownership
 
@@ -83,13 +85,15 @@ immutable flash gateway reads it before each invocation. Counts 1..64 are
 supported, and physical bindings derive from the validated tag table rather
 than fixed BTN/LED indices. Unbound physical outputs remain FALSE.
 
-Activation resets internal values to zero. The previous image stays in its
-original slot as PREVIOUS until a new reservation retires it. A first-scan fault
-marks the request REJECTED and leaves that generation fault-latched with safe
-outputs; automatic rollback is not implemented. A later explicit ACTIVATE of a
-fresh READY program rebuilds the worker and clears the scan fault. An invalid
-exception context instead uses the watchdog reset path; the boot image remains
-fault-latched until an explicit fresh activation or manual reset.
+Healthy activation migrates internal VARs by exact name/type and captures a
+checkpoint. The previous image remains reserved through the candidate trial,
+including the scheduler release check. A contained first-scan failure discards
+working state and restores that checkpoint at a later release. Explicit rollback
+restores the same saved state and consumes PREVIOUS. A failed restoration stays
+faulted and never starts a retry loop. Faulted-source activation cold-starts the
+candidate with no fallback checkpoint. Invalid exception contexts still take
+the watchdog reset path and lose all RAM reservations. See the
+[R4 implementation and ownership tests](R4.2-report.md).
 
 ## Host workflow
 

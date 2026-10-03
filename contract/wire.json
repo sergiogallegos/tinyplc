@@ -78,7 +78,17 @@
     "CRC16_POLY": 4129,
     "CRC16_INIT": 65535,
     "CRC16_XOROUT": 0,
-    "CRC16_CHECK": 10673
+    "CRC16_CHECK": 10673,
+    "CMD_GET_UPDATE_STATUS": 10,
+    "UPDATE_NONE": 0,
+    "UPDATE_ACTIVATE": 1,
+    "UPDATE_ROLLBACK": 2,
+    "UPDATE_IDLE": 0,
+    "UPDATE_QUEUED": 1,
+    "UPDATE_TRIAL": 2,
+    "UPDATE_RECOVERY_QUEUED": 3,
+    "UPDATE_RECOVERY_TRIAL": 4,
+    "UPDATE_COMPLETE": 5
   },
   "layouts": {
     "package": [
@@ -577,6 +587,69 @@
         "missed_releases",
         "u64"
       ]
+    ],
+    "get_update_status_request": [],
+    "get_update_status_response": [
+      [
+        "status",
+        "u8"
+      ],
+      [
+        "kind",
+        "u8"
+      ],
+      [
+        "phase",
+        "u8"
+      ],
+      [
+        "outcome",
+        "u8"
+      ],
+      [
+        "reserved",
+        "u8"
+      ],
+      [
+        "source_generation",
+        "u32"
+      ],
+      [
+        "requested_generation",
+        "u32"
+      ],
+      [
+        "failed_generation",
+        "u32"
+      ],
+      [
+        "first_fault",
+        "u32"
+      ],
+      [
+        "recovery_fault",
+        "u32"
+      ],
+      [
+        "line",
+        "u32"
+      ],
+      [
+        "column",
+        "u32"
+      ],
+      [
+        "failed_scan",
+        "u64"
+      ],
+      [
+        "completed_generation",
+        "u32"
+      ],
+      [
+        "completed_scan",
+        "u64"
+      ]
     ]
   },
   "commands": {
@@ -624,6 +697,11 @@
       "id": 9,
       "request": "get_status_request",
       "response": "get_status_response"
+    },
+    "get_update_status": {
+      "id": 10,
+      "request": "get_update_status_request",
+      "response": "get_update_status_response"
     }
   }
 }

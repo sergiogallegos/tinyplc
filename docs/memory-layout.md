@@ -140,3 +140,24 @@ This includes the 24,240-byte loader, 4 KiB comms stack and 5 KiB timestamped RX
 ring. Code/input/working/worker-stack regions are separate and unchanged.
 Future monitor buffers must fit this remaining budget and be remeasured.
 See [R3.3 measurements](R3.3-report.md).
+
+
+## R3.5 baseline for R4 planning
+
+The integrated R3.5 image uses 58,428 bytes of privileged RAM including
+alignment gaps. The raw 7,108-byte gap to 64 KiB includes the mandatory 4,096-byte
+MSP reservation in `native/memory.ld`; additional static headroom is 3,012 bytes.
+[R4.1](online-state.md) caps planned additional checkpoint/request/diagnostic
+storage at 1,024 bytes and reuses pinned per-slot schemas. This is a design
+budget, not a measured R4 implementation. R4.2 must retain the linker assertion
+and remeasure stack and whole-scan timing.
+
+
+## R4 integrated budget
+
+R4's update object occupies 424 target bytes; boot metadata now reuses the
+loader slot table. Integrated privileged RAM is 58,740 bytes (312 more than
+R3.5), leaving 2,700 bytes beyond the mandatory 4 KiB MSP reservation.
+Privileged flash is 28,656 bytes and call/gateway flash remains 528 bytes.
+Existing native slots, input/working regions and worker stack are unchanged.
+See [R4.2 checks](R4.2-report.md) and [R4.3 measurements](R4.3-report.md).

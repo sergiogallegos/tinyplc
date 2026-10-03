@@ -125,7 +125,7 @@ impl Serial {
                     }
                     return Err(format!("device status {} for command {cmd}", payload[0]));
                 }
-                if payload.len() != expected {
+                if expected != 0 && payload.len() != expected {
                     return Err(format!("wrong response width for command {cmd}"));
                 }
                 // A delayed duplicate chunk ACK must not acknowledge a later chunk.
@@ -174,17 +174,99 @@ fn show_status(b: &[u8]) {
     println!("{{\"active_generation\":{},\"scan\":{},\"execution\":{},\"outcome\":{},\"requested_generation\":{},\"pending_generation\":{},\"fault\":{},\"last_scan_us\":{},\"max_scan_us\":{},\"jitter_us\":{},\"missed_releases\":{}}}",
         u(b,1),wide(b,5),b[13],b[14],u(b,17),u(b,21),u(b,25),u(b,29),u(b,33),u(b,37) as i32,wide(b,41));
 }
+fn monitor(serial: &mut Serial, info: &[u8]) -> Result<()> {
+    if u(info, INFO_RESPONSE_COMMAND_MASK_OFFSET) & (1 << (CMD_READ_TAGS - 1)) == 0 {
+        return Err("controller does not support tag snapshots".into());
+    }
+    let mut generation = 0u32;
+    let mut scan = 0u64;
+    let mut first = 0u8;
+    let mut total = None;
+    let mut records = Vec::new();
+    loop {
+        let mut request = generation.to_le_bytes().to_vec();
+        request.extend_from_slice(&scan.to_le_bytes());
+        request.extend_from_slice(&[first, TAG_PAGE_LIMIT as u8]);
+        let b = serial.request(CMD_READ_TAGS, &request, 0)?;
+        if b.len() < READ_TAGS_RESPONSE_BYTES as usize {
+            return Err("short tag response".into());
+        }
+        let count = b[14];
+        if count == 0
+            || count > TAG_PAGE_LIMIT as u8
+            || b[13] != first
+            || b[15] > TAG_LIMIT as u8
+            || first as u16 + count as u16 > b[15] as u16
+            || b.len()
+                != READ_TAGS_RESPONSE_BYTES as usize + count as usize * TAG_VALUE_BYTES as usize
+            || u(&b, 1) == 0
+            || wide(&b, 5) == 0
+            || (scan != 0 && (u(&b, 1) != generation || wide(&b, 5) != scan))
+            || total.is_some_and(|n| n != b[15])
+        {
+            return Err("inconsistent tag snapshot".into());
+        }
+        generation = u(&b, 1);
+        scan = wide(&b, 5);
+        total = Some(b[15]);
+        for tag in b[16..].chunks_exact(TAG_VALUE_BYTES as usize) {
+            let end = tag[..32]
+                .iter()
+                .position(|&c| c == 0)
+                .ok_or("invalid tag name")?;
+            if end == 0
+                || !tag[..end].iter().enumerate().all(|(i, c)| {
+                    c.is_ascii_alphabetic() || *c == b'_' || (i > 0 && c.is_ascii_digit())
+                })
+                || tag[end..32].iter().any(|&c| c != 0)
+                || ![TYPE_BOOL as u8, TYPE_DINT as u8].contains(&tag[32])
+                || !(1..=3).contains(&tag[33])
+            {
+                return Err("invalid tag metadata".into());
+            }
+            let value = u(tag, TAG_VALUE_VALUE_OFFSET);
+            let value = if tag[32] == TYPE_BOOL as u8 {
+                if value > 1 {
+                    return Err("invalid BOOL value".into());
+                }
+                (value != 0).to_string()
+            } else {
+                (value as i32).to_string()
+            };
+            records.push(format!(
+                "{{\"name\":\"{}\",\"type\":{},\"class\":{},\"binding\":{},\"value\":{}}}",
+                std::str::from_utf8(&tag[..end]).map_err(|_| "invalid tag name")?,
+                tag[32],
+                tag[33],
+                h(tag, 34),
+                value
+            ));
+        }
+        first += count;
+        if first == b[15] {
+            break;
+        }
+    }
+    println!(
+        "{{\"generation\":{generation},\"scan\":{scan},\"tags\":[{}]}}",
+        records.join(",")
+    );
+    Ok(())
+}
 fn run() -> Result<()> {
     let args: Vec<_> = env::args().skip(1).collect();
     if args.first().is_some_and(|s| s == "--help") {
-        println!("plctool DEVICE info|status|download PACKAGE.tplc|activate GENERATION\n115200 8N1 local serial. Download ends at READY; activate is explicit.");
+        println!("plctool DEVICE info|status|update-status|monitor|rollback|download PACKAGE.tplc|activate GENERATION\n115200 8N1 local serial. Download ends at READY; activate is explicit.");
         return Ok(());
     }
     if args.len() < 2 {
-        return Err("usage: plctool DEVICE info|status|download FILE|activate GENERATION".into());
+        return Err(
+            "usage: plctool DEVICE info|status|update-status|monitor|rollback|download FILE|activate GENERATION".into(),
+        );
     }
     let command = args[1].as_str();
-    let expected = if ["info", "status"].contains(&command) {
+    let expected = if ["info", "status", "monitor", "rollback", "update-status"].contains(&command)
+    {
         2
     } else if ["download", "activate"].contains(&command) {
         3
@@ -213,6 +295,12 @@ fn run() -> Result<()> {
     let info = serial.info()?;
     match command {
         "info" => show_info(&info),
+        "update-status" => {
+            let b = serial.request(CMD_GET_UPDATE_STATUS, &[], GET_UPDATE_STATUS_RESPONSE_BYTES)?;
+            println!("{{\"kind\":{},\"phase\":{},\"outcome\":{},\"source_generation\":{},\"requested_generation\":{},\"failed_generation\":{},\"first_fault\":{},\"recovery_fault\":{},\"line\":{},\"column\":{},\"failed_scan\":{},\"completed_generation\":{},\"completed_scan\":{}}}",
+                b[1],b[2],b[3],u(&b,5),u(&b,9),u(&b,13),u(&b,17),u(&b,21),u(&b,25),u(&b,29),wide(&b,33),u(&b,41),wide(&b,45));
+        }
+        "monitor" => monitor(&mut serial, &info)?,
         "status" => show_status(&serial.request(CMD_GET_STATUS, &[], GET_STATUS_RESPONSE_BYTES)?),
         "download" => {
             if u(&info, INFO_RESPONSE_CAPABILITIES_OFFSET) & CAP_UNSIGNED_LAB == 0 {
@@ -288,22 +376,33 @@ fn run() -> Result<()> {
                 b.len()
             );
         }
-        "activate" => {
-            let generation: u32 = args[2].parse().map_err(|_| "invalid generation")?;
-            if ![INFO_RESPONSE_SLOT_A_OFFSET, INFO_RESPONSE_SLOT_B_OFFSET]
-                .iter()
-                .any(|&at| {
-                    u(&info, at + SLOT_GENERATION_OFFSET) == generation
-                        && info[(at + SLOT_STATE_OFFSET) as usize] == SLOT_READY as u8
-                })
-            {
-                return Err("generation is not READY in current session".into());
-            }
-            serial.request(
-                CMD_ACTIVATE,
-                &generation.to_le_bytes(),
-                ACTIVATE_RESPONSE_BYTES,
-            )?;
+        "activate" | "rollback" => {
+            let generation = if command == "activate" {
+                let generation: u32 = args[2].parse().map_err(|_| "invalid generation")?;
+                if ![INFO_RESPONSE_SLOT_A_OFFSET, INFO_RESPONSE_SLOT_B_OFFSET]
+                    .iter()
+                    .any(|&at| {
+                        u(&info, at + SLOT_GENERATION_OFFSET) == generation
+                            && info[(at + SLOT_STATE_OFFSET) as usize] == SLOT_READY as u8
+                    })
+                {
+                    return Err("generation is not READY in current session".into());
+                }
+                serial.request(
+                    CMD_ACTIVATE,
+                    &generation.to_le_bytes(),
+                    ACTIVATE_RESPONSE_BYTES,
+                )?;
+                generation
+            } else {
+                if u(&info, INFO_RESPONSE_CAPABILITIES_OFFSET) & CAP_ROLLBACK == 0 {
+                    return Err("controller does not support rollback".into());
+                }
+                u(
+                    &serial.request(CMD_ROLLBACK, &[], ROLLBACK_RESPONSE_BYTES)?,
+                    1,
+                )
+            };
             let deadline = Instant::now() + Duration::from_secs(3);
             loop {
                 let s = serial.request(CMD_GET_STATUS, &[], GET_STATUS_RESPONSE_BYTES)?;
@@ -313,7 +412,10 @@ fn run() -> Result<()> {
                         || s[14] != OUTCOME_RUNNING as u8
                         || s[13] != EXEC_RUNNING as u8
                     {
-                        return Err("activation completed in fault/rejected state".into());
+                        return Err(
+                            "update failed or automatically rolled back; inspect update-status"
+                                .into(),
+                        );
                     }
                     break;
                 }

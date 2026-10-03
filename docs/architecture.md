@@ -10,7 +10,9 @@ object generation. This document describes the target supervisor, loader, and
 monitoring design. R2.5 implements the GPIO scan transaction and R2.6 adds an isolated native
 worker with deadline/reset recovery. R3.2 implements the Rust packager and
 portable C validation/staging. R3.3 integrates board download/activation;
-coherent tag monitoring remains next. The current statically linked test ABI is
+R3.4/R3.5 implement and verify coherent monitoring.
+[R4](R4.2-report.md) implements migration/trial/rollback under the
+[state contract](online-state.md), with [board evidence](R4.3-report.md). The current statically linked test ABI is
 in [compiler/README.md](../compiler/README.md); package/target work is detailed
 in [native-roadmap.md](native-roadmap.md). The [R2.1 call ABI draft](native-abi.md)
 defines separate input/working buffers, now emitted with `--abi 2` and exercised
@@ -119,12 +121,14 @@ a queued request, not completed execution. The scan owner prepares state,
 installs protection/context, and activates only at a boundary. Both old and
 new contexts remain reserved through the candidate's first scan.
 
-Future migration copies compatible internal variables by name/type/layout.
+[R4.1](online-state.md) is the normative migration and rollback contract.
+Migration copies exact-name/same-type internal variables; other target variables
+start zero. A faulted source cold-starts the candidate and creates no checkpoint.
 Inputs are sampled again; outputs are recomputed. Do not copy raw pointers.
 Freeze the old context/state for rollback. If the candidate fails its first
 scan, enforce outputs FALSE, retain its diagnostic, and restore old execution
 at the next scheduled release if recovery is possible. Explicit rollback
-restores saved old state, not the candidate's newest values. Starting another
+restores saved old state, consumes the checkpoint, and never toggles images. Starting another
 download retires old rollback storage; two slots cannot hold three versions.
 
 ## Acceptance evidence

@@ -1,0 +1,148 @@
+=== flash ===
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+Info : clock speed 1000 kHz
+Info : STLINK V2J46M33 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.233618
+Info : [stm32f4x.cpu] Cortex-M4 r0p1 processor detected
+Info : [stm32f4x.cpu] target has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32f4x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+[stm32f4x.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08003a58 msp: 0x20010000
+Info : Unable to match requested speed 8000 kHz, using 4000 kHz
+Info : Unable to match requested speed 8000 kHz, using 4000 kHz
+** Programming Started **
+Info : device id = 0x10006421
+Info : flash size = 512 KiB
+Info : Flash write discontinued at 0x080065a0, next section at 0x08010000
+** Programming Finished **
+** Verify Started **
+** Verified OK **
+** Resetting Target **
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+shutdown command invoked
+
+=== boot-baseline ===
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+Info : clock speed 1000 kHz
+Info : STLINK V2J46M33 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.236769
+Info : [stm32f4x.cpu] Cortex-M4 r0p1 processor detected
+Info : [stm32f4x.cpu] target has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32f4x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+[stm32f4x.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x61000000 pc: 0x08000ac8 psp: 0x20001f20
+DATA scan_count 0x15e
+DATA native_status 0x0
+DATA assertion_latched 0x0
+DATA scan_cycles_max 0xce1
+DATA scan_body_cycles_last 0x65b5
+DATA scan_body_cycles_max 0x65b9
+DATA period_cycles_min 0x25c04
+DATA period_cycles_max 0x27100
+DATA release_jitter_max 0x14fc
+DATA missed_releases 0x0
+DATA uart_rx_errors 0x0
+DATA uart_frames 0x0
+DATA comms_stack_free_words 0x3e2
+DATA stack_free_words 0x1a2
+DATA worker_stack_free_words 0x1f6
+shutdown command invoked
+
+=== maximum-baseline ===
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+Info : clock speed 1000 kHz
+Info : STLINK V2J46M33 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.235194
+Info : [stm32f4x.cpu] Cortex-M4 r0p1 processor detected
+Info : [stm32f4x.cpu] target has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32f4x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+[stm32f4x.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x61000000 pc: 0x08000ac8 psp: 0x20005fc8
+DATA scan_count 0x20a
+DATA native_status 0x0
+DATA assertion_latched 0x0
+DATA scan_cycles_max 0xa4f9
+DATA scan_body_cycles_last 0xaf20
+DATA scan_body_cycles_max 0xfd55
+DATA period_cycles_min 0x25c14
+DATA period_cycles_max 0x271c2
+DATA release_jitter_max 0x14ec
+DATA missed_releases 0x0
+DATA uart_rx_errors 0x0
+DATA uart_frames 0x2b
+DATA comms_stack_free_words 0x3a0
+DATA stack_free_words 0x198
+DATA worker_stack_free_words 0x1f6
+shutdown command invoked
+
+=== mixed-traffic-timing ===
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+Info : clock speed 1000 kHz
+Info : STLINK V2J46M33 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.236769
+Info : [stm32f4x.cpu] Cortex-M4 r0p1 processor detected
+Info : [stm32f4x.cpu] target has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32f4x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+[stm32f4x.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x21000000 pc: 0x08005434 psp: 0x20001ed8
+DATA scan_count 0x6ef
+DATA native_status 0x0
+DATA assertion_latched 0x0
+DATA scan_cycles_max 0xa4fd
+DATA scan_body_cycles_last 0xaf1a
+DATA scan_body_cycles_max 0xfd58
+DATA period_cycles_min 0x25c0c
+DATA period_cycles_max 0x271c2
+DATA release_jitter_max 0x14f4
+DATA missed_releases 0x0
+DATA uart_rx_errors 0x0
+DATA uart_frames 0x237
+DATA comms_stack_free_words 0x3a0
+DATA stack_free_words 0x198
+DATA worker_stack_free_words 0x1f6
+shutdown command invoked
+
+=== restore-normal ===
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+Info : clock speed 1000 kHz
+Info : STLINK V2J46M33 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.235194
+Info : [stm32f4x.cpu] Cortex-M4 r0p1 processor detected
+Info : [stm32f4x.cpu] target has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32f4x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+shutdown command invoked

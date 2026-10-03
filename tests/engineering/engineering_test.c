@@ -17,7 +17,7 @@ int main(void) {
     f.used=0;feed(&f,good,3,UINT32_MAX-20);tinyplc_frame_expire(&f,79);assert(f.used==0);
     feed(&f,good,n,80);assert(frames==before+2);
     uint32_t seed=5;for(unsigned i=0;i<10000;++i){seed=seed*1664525+1013904223;tinyplc_frame_feed(&f,(uint8_t)(seed>>24),81+i,got,NULL);assert(f.used<=262);}
-    assert(tinyplc_loader_init(&l,a,b,0,true));tinyplc_engine e={&l,NULL,NULL,NULL,NULL};
+    assert(tinyplc_loader_init(&l,a,b,0,true));tinyplc_engine e={.loader=&l};
     size_t size=tinyplc_engine_request(&e,TPLC_CMD_INFO,NULL,0,0,r);assert(size==TPLC_INFO_RESPONSE_BYTES && r[0]==0);
     assert(tinyplc_engine_request(&e,TPLC_CMD_INFO,p,1,0,r)==1 && r[0]==TPLC_STATUS_BAD_REQUEST);
     assert(tinyplc_engine_request(&e,0x81,NULL,0,0,r)==0);

@@ -52,7 +52,8 @@ A tag record is `name[32], type:u8, class:u8, binding:u16, reserved:u32`.
 Names are 1..31 ASCII bytes matching `[A-Z_][A-Z0-9_]*`, followed by a NUL and
 zero padding. Names are unique; declaration order is tag index and cell offset
 is `index × 4`. Type IDs are BOOL=1, DINT=2; classes INPUT=1, OUTPUT=2, VAR=3.
-All cells initially contain zero. There are no pointer or nonzero-initializer
+Cold activation initializes all cells to zero; R4 healthy activation may migrate
+compatible VAR cells under the [state contract](online-state.md). There are no pointer or nonzero-initializer
 records. BOOL values are 0/1; DINT values are two's-complement 32-bit cells.
 
 The board binding is independent of the tag's name. INPUT requires BOOL and
@@ -139,11 +140,15 @@ not assumed idempotent: reconcile INFO after an uncertain response.
 
 ACTIVATE names a READY generation. OK acknowledges a queued boundary request,
 not execution. BUSY covers occupied queues/slots; stale or non-READY candidates
-are BAD_REQUEST. R3's initial activation resets state to zero; no online state
-preservation is implied. R4 adds migration and trial/rollback, advertised by
-capabilities. ROLLBACK is UNSUPPORTED until implemented; when available it queues
-the PREVIOUS generation, or returns NO_PROGRAM if there is none. Fault recovery
+are BAD_REQUEST. R3 activation resets state to zero. R4 advertises migration and rollback through
+CAP_ONLINE_MIGRATION/CAP_ROLLBACK; healthy activations migrate same-name/type
+VARs, while faulted sources cold-start. ROLLBACK queues the retained PREVIOUS
+generation, or returns NO_PROGRAM if there is none. A successful rollback
+consumes that checkpoint; an accepted BEGIN retires it. Older firmware returns
+UNSUPPORTED for ROLLBACK. Fault recovery
 policy cannot be inferred from a package CRC or a pending flag.
+[The state contract](online-state.md) specifies migration, one-shot rollback
+and exact request outcomes. R4.2 implements it; R3 firmware does not advertise it.
 
 GET_STATUS returns active generation (zero when absent), monotonically
 increasing u64 scan sequence, execution state, latest activation outcome,
@@ -153,8 +158,16 @@ is zero when none; requested generation persists with its last outcome until a
 new request. Times round elapsed cycles upward to µs; jitter is actual minus
 scheduled release, rounded away from zero and saturated to i32. Counters
 saturate rather than wrap. Outcome ROLLED_BACK refers to the rejected request;
-active generation identifies what actually runs. These diagnostics need R3
-integration; their existence here does not claim a current serial monitor.
+active generation identifies what actually runs. R3.3 implements these diagnostics; R3.4/R3.5 add coherent tag monitoring.
+The fault field describes the current execution fault, not a recovered update
+failure. R4 keeps those causes separate without changing this response.
+
+GET_UPDATE_STATUS (command 10, INFO command-mask bit 9) returns the coherent
+53-byte retained update record defined in [online-state.md](online-state.md).
+It separates first-trial and recovery faults from current execution. Before any
+accepted request its fields are zero; a new accepted ACTIVATE/ROLLBACK clears it,
+while rejected requests and ordinary scans do not. The additive operation uses
+protocol v1; no existing command encoding or native package field changes.
 
 READ_TAGS `snapshot_scan=0, first_index=0` starts enumeration; generation zero
 accepts the captured active generation, otherwise it must match. Continuations

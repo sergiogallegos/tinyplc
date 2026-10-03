@@ -90,8 +90,8 @@ class Wire(unittest.TestCase):
 
     def test_frames_and_response_widths(self):
         # Independent explicit struct formats cross-check the source layouts.
-        requests = ['<', '<I', '<II', '<I', '<I', '<', '<IQBB', '<IBI', '<']
-        responses = ['<B6H3I4H4I16s16s', '<B4I', '<BI', '<BI', '<BI', '<BI', '<BIQBBB', '<BIQ', '<BIQBBH5IiQ']
+        requests = ['<', '<I', '<II', '<I', '<I', '<', '<IQBB', '<IBI', '<', '<']
+        responses = ['<B6H3I4H4I16s16s', '<B4I', '<BI', '<BI', '<BI', '<BI', '<BIQBBB', '<BIQ', '<BIQBBH5IiQ', '<5B7IQIQ']
         spec = json.loads((ROOT / 'contract/wire.json').read_text())
         widths = {'u8': 1, 'u16': 2, 'u32': 4, 'i32': 4, 'u64': 8}
         for i, command in enumerate(spec['commands'].values()):

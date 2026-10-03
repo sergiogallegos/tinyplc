@@ -117,7 +117,7 @@ def main():
         try:
             bad=bytearray(serial.frame(1));bad[-1]^=1;serial.send(bad);assert serial.read(.15) is None
             serial.send(serial.frame(1)[:3]);time.sleep(.15);assert serial.request(1)[0]==0
-            assert serial.request(127)==b'\x08';assert serial.request(7)==b'\x08';assert serial.request(9,b'\0')==b'\x01'
+            assert serial.request(127)==b'\x08';assert serial.request(7)==b'\x01';assert serial.request(9,b'\0')==b'\x01'
             b=bytearray(packages['off','B'].read_bytes());b[80]^=1
             begin=serial.request(2,struct.pack('<I',len(b)));assert begin[0]==0;tid=struct.unpack_from('<I',begin,1)[0]
             assert serial.request(4,struct.pack('<I',tid))==b'\x01'

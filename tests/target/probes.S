@@ -10,6 +10,9 @@
 .type tinyplc_scan,%function
 .thumb_func
 tinyplc_scan:
+#ifdef FIRST_SCAN_FAULT
+    b attack /* R4 trial-failure fixture; default probes still fail on scan four. */
+#endif
     ldr r2, [r1, #8]
     cmp r2, #3
     bhs attack
@@ -96,4 +99,14 @@ tinyplc_abi_version: .word 2
 tinyplc_tag_count: .word 3
 tinyplc_tag_types: .byte 1, 1, 2
 tinyplc_tag_classes: .byte 1, 2, 3
+/* Metadata for the fixed probe input/output/internal layout. */
+.global tinyplc_tag_names
+tinyplc_tag_names:
+.asciz "BTN"
+.space 28
+.asciz "LED"
+.space 28
+.asciz "N"
+.space 30
+
 .section .note.GNU-stack,"",%progbits

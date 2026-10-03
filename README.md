@@ -33,8 +33,17 @@ into an inactive slot, explicitly activates a generation, and reports execution
 status. Downloaded code runs unprivileged with validated tag bindings and a
 fresh worker context. Both slots and 64-tag execution have hardware evidence.
 
-**Not implemented yet:** coherent tag monitoring, tag writes, online state
-migration or rollback. Activation currently resets state to zero.
+[R3.4](docs/R3.4-report.md) adds owned snapshots and `plctool DEVICE monitor`,
+with host concurrency tests and target build validation.
+[R3.5](docs/R3.5-report.md) verifies the full board workflow and mixed download/monitor
+traffic: a 4.054 ms maximum observed scan body within the 10 ms period, with no
+missed releases in the recorded run. R3 is complete.
+
+[R4](docs/R4.2-report.md) adds compatible VAR migration, a reserved first-scan
+trial and one-use rollback to saved pre-update state. [Board evidence](docs/R4.3-report.md)
+covers 64-tag reorder, contained faults, recovery failure and reset behavior.
+
+**Not implemented yet:** tag writes, persistence or broader language types.
 
 The primary compiler is `compiler/` (Rust). Earlier Python/bytecode work is
 retained only as a historical semantic test reference; it is not the product
@@ -85,15 +94,15 @@ flowchart TB
     Gate --> Runtime
     Runtime --> IO["Input sampling and output commit"]
     Runtime --> Tags["Runtime-owned schema and values<br/>validated bindings, frozen I/O"]
-    Tags -. "next milestone" .-> Monitor["Coherent tag snapshots<br/>PC monitoring"]
+    Tags --> Monitor["Coherent tag snapshots<br/>PC monitoring"]
   end
   classDef implemented fill:#e1f5ef,stroke:#39927d,color:#064f43;
   classDef planned fill:#f2f2f2,stroke:#888,color:#333;
   class ST,Front,IR,LLVM,Object,Link,Package,Experiment,Runtime,Worker,Gate,IO,Loader,Activate,Tags implemented;
-  class Monitor planned;
+  class Monitor implemented;
 ```
 
-Green is implemented and tested; grey is the next monitoring milestone. The C
+Green is implemented; the R3.4 report distinguishes host tests from board evidence. The C
 runtime is firmware installed through ST-LINK. The user program is a separate
 native artifact downloaded through the engineering connection. A general
 Linux `.so` or an unqualified raw `.bin` is not our MCU loading contract.
@@ -103,8 +112,7 @@ Linux `.so` or an unqualified raw `.bin` is not our MCU loading contract.
 **Full target design.** Scheduling, sampled inputs, working/committed state,
 physical outputs, fault latching, unprivileged execution and native deadline
 abort are implemented in the [scan supervisor](docs/scan-runtime.md) and
-[execution boundary](docs/native-isolation.md). Concurrent snapshots and
-boundary requests in this diagram remain planned.
+[execution boundary](docs/native-isolation.md). Owned tag snapshots are implemented in R3.4; tag-write boundary requests remain planned.
 
 ```mermaid
 flowchart TB
@@ -141,7 +149,7 @@ with byte offset `4 × declaration index`.
 ### 3. Edit, download, accept, observe
 
 **Implemented download/activation workflow.** Download success and activation
-success are separate states; tag snapshots are the next step.
+success are separate states; R3.4 adds coherent tag snapshots.
 
 ```mermaid
 sequenceDiagram
@@ -158,13 +166,13 @@ sequenceDiagram
   PC->>Loader: ACTIVATE(candidate generation)
   Loader-->>PC: Request accepted, not yet running
   Loader->>Scan: Publish owned boundary request
-  Scan->>Scan: Reset state and install a fresh native worker
+  Scan->>Scan: Migrate compatible VARs and install a fresh native worker
   Scan->>Scan: Execute first candidate scan under deadline guard
   alt Successful execution
     Scan-->>Loader: Snapshot confirms running generation
   else Contained application fault
     Scan->>Scan: Outputs FALSE, discard candidate working state
-    Scan->>Scan: Latch fault and keep outputs FALSE
+    Scan->>Scan: Restore healthy checkpoint at the next release, if available
     Scan-->>Loader: Fault and rejected generation retained
   end
   PC->>Loader: Read execution status
@@ -172,7 +180,8 @@ sequenceDiagram
   PC-->>User: Confirm the edit outcome
 ```
 
-Future R4 migration will match internal variable names and compatible types/layouts.
+R4 migration matches exact internal variable names and types. Explicit rollback
+restores saved pre-update values and consumes its checkpoint.
 Inputs are resampled and outputs recomputed. Preserved variables do not
 promise unchanged output behavior; rollback cannot undo physical actions.
 Two slots cannot preserve active, previous, and another candidate at once.
@@ -252,8 +261,8 @@ contract, engineering operations, and runtime state management.
 | M0–M2 | Initial board scaffold, C VM, Python compiler and independent execution tests | Historical; retained for evidence and test reuse |
 | R1 | Rust ST frontend → typed PLC IR → LLVM IR; host AOT and Cortex-M object generation | Implemented and host-tested |
 | R2 | Native ABI/package contract, C supervisor, bounded static native execution and fault containment on F446 | Complete, including hardware evidence |
-| R3 | Native loader, upload protocol, engineering CLI and coherent tag monitoring | R3.1–R3.3 complete; coherent tag monitoring next |
-| R4 | Online state migration, first-scan trial and explicit/automatic rollback | Planned |
+| R3 | Native loader, upload protocol, engineering CLI and coherent tag monitoring | Complete, including board monitoring and mixed-traffic timing |
+| R4 | Online state migration, first-scan trial and explicit/automatic rollback | Implemented and verified on the board |
 | R5 | Larger language scope, source debugging, target ports and production-oriented assurance | Research extensions |
 
 R1 replaces the earlier bytecode-first roadmap. No MCU loading, RTOS timing,
@@ -286,4 +295,9 @@ requirements and fixed-slot placement are defined in [R2.7](docs/native-package.
 The [R2 report](docs/R2-report.md) closes this stage. [R3.1](docs/R3.1-report.md) freezes shared package/protocol encoding and golden
 fixtures. [R3.2](docs/R3.2-report.md) adds the Rust packager and bounded C
 validation/staging. [R3.3](docs/R3.3-report.md) implements USB serial download
-and board activation. Next is coherent tag snapshots and PC monitoring.
+and board activation. [R3.4](docs/R3.4-report.md) implements coherent tag snapshots
+and PC monitoring. [R3.5](docs/R3.5-report.md) closes the board workflow and timing
+gate. [R4.1](docs/online-state.md) defines migration, initialization and rollback
+state semantics. [R4.2](docs/R4.2-report.md) implements them and
+[R4.3](docs/R4.3-report.md) records board acceptance. Next is R5: select a
+deliberate language, debugging or target extension from a documented need.
