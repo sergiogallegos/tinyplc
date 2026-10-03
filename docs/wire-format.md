@@ -51,15 +51,17 @@ Placement and bounds are validated before any address calculation or copy:
 A tag record is `name[32], type:u8, class:u8, binding:u16, reserved:u32`.
 Names are 1..31 ASCII bytes matching `[A-Z_][A-Z0-9_]*`, followed by a NUL and
 zero padding. Names are unique; declaration order is tag index and cell offset
-is `index × 4`. Type IDs are BOOL=1, DINT=2; classes INPUT=1, OUTPUT=2, VAR=3.
+is `index × 4`. Type IDs are BOOL=1, DINT=2, TIME=3; classes INPUT=1, OUTPUT=2, VAR=3,
+TIMER=4 (the last type and class are the [R5.1 extension](ton.md)).
 Cold activation initializes all cells to zero; R4 healthy activation may migrate
 compatible VAR cells under the [state contract](online-state.md). There are no pointer or nonzero-initializer
 records. BOOL values are 0/1; DINT values are two's-complement 32-bit cells.
 
 The board binding is independent of the tag's name. INPUT requires BOOL and
-binding 1 (BTN/PC13, inverted). OUTPUT requires BOOL and binding 2 (LED/PA5,
-safe FALSE). VAR requires binding 0 and permits BOOL or DINT. Each physical
-binding may occur at most once. A schema need not use every binding; an
+binding 1 (BTN/PC13, inverted), or DINT and binding 3 (frozen unsigned millisecond
+clock bits). OUTPUT requires BOOL and binding 2 (LED/PA5, safe FALSE). VAR and
+TIMER require binding 0 and permit BOOL, DINT, or TIME. Each nonzero binding
+may occur at most once. A schema need not use every binding; an
 unbound physical output stays safe. Unsupported type/class/binding combinations
 are rejected before READY. This profile does not support arbitrary pin numbers.
 

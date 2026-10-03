@@ -53,5 +53,9 @@ int main(void)
     assert(tinyplc_scan_init(&s, 3, bad, classes) == TINYPLC_SCAN_BAD_LAYOUT);
     assert(tinyplc_scan_init(&s, 3, types, bad) == TINYPLC_SCAN_BAD_LAYOUT);
     reset(); assert(!step(0));
+    reset();s.types[2]=TINYPLC_NATIVE_TYPE_TIME;s.classes[2]=TINYPLC_NATIVE_TIMER;
+    assert(!step(0) && s.committed[2]==1);
+    s.committed[2]=INT32_MAX;
+    assert(step(0)==TINYPLC_SCAN_BAD_STATE && s.committed[2]==INT32_MAX && pin==0);
     puts("scan transaction: success, dirty faults, latch/reset, input/state checks, deadline and wrap passed");
 }

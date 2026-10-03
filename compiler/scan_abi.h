@@ -10,7 +10,7 @@
  * Caller owns execution and supplies disjoint, aligned, valid storage.
  * cells has at least count u32 cells; diagnostic is always required.
  * Initialize cells to zero, then sample INPUT cells before each call.
- * Success commits OUTPUT/VAR cells. Fault 5/8 clears OUTPUTs and preserves VARs.
+ * Success commits OUTPUT/VAR cells. Fault 5/8/9 clears OUTPUTs and preserves VARs.
  * Fault 4 (count too small) leaves all cells untouched. No latching or deadlines.
  */
 typedef struct { uint32_t line, column; } tinyplc_diagnostic;

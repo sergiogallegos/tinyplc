@@ -53,7 +53,7 @@ static bool layout(const tinyplc_slot *s,unsigned slot) {
     if(!s->generation || !s->tag_count || s->tag_count>64 || !(s->entry&1) || s->entry<base || s->entry>=base+TPLC_CODE_CAPACITY)return false;
     for(unsigned i=0;i<s->tag_count;++i) {
         const uint8_t *t=s->tags+i*TPLC_TAG_BYTES;
-        if((t[32]!=TPLC_TYPE_BOOL && t[32]!=TPLC_TYPE_DINT) || t[33]<TPLC_CLASS_INPUT || t[33]>TPLC_CLASS_VAR)return false;
+        if((t[32]!=TPLC_TYPE_BOOL && t[32]!=TPLC_TYPE_DINT && t[32]!=TPLC_TYPE_TIME) || t[33]<TPLC_CLASS_INPUT || t[33]>TPLC_CLASS_TIMER)return false;
     }
     return true;
 }
@@ -86,7 +86,8 @@ bool tinyplc_update_prepare(tinyplc_update *u,tinyplc_scan_state *state,uint64_t
         for(unsigned i=0;valid && i<state->count;++i) {
             const uint8_t *t=a->tags+i*TPLC_TAG_BYTES;
             valid=state->types[i]==t[32] && state->classes[i]==t[33] &&
-                (t[32]!=TPLC_TYPE_BOOL || state->committed[i]<=1);
+                (t[32]!=TPLC_TYPE_BOOL || state->committed[i]<=1) &&
+                (t[32]!=TPLC_TYPE_TIME || state->committed[i]<=INT32_MAX);
         }
     }
     if(!restore)for(unsigned i=0;valid && i<b->tag_count;++i) {
@@ -98,7 +99,8 @@ bool tinyplc_update_prepare(tinyplc_update *u,tinyplc_scan_state *state,uint64_t
         if(bt[33]!=TPLC_CLASS_VAR || at[33]!=TPLC_CLASS_VAR || bt[32]!=at[32] || memcmp(bt,at,32))valid=false;
     }
     if(restore)for(unsigned i=0;valid && i<b->tag_count;++i)
-        if(b->tags[i*TPLC_TAG_BYTES+32]==TPLC_TYPE_BOOL && u->saved[i]>1)valid=false;
+        if((b->tags[i*TPLC_TAG_BYTES+32]==TPLC_TYPE_BOOL && u->saved[i]>1) ||
+           (b->tags[i*TPLC_TAG_BYTES+32]==TPLC_TYPE_TIME && u->saved[i]>INT32_MAX))valid=false;
     if(!valid) {
         state->fault=TINYPLC_SCAN_BAD_STATE;u->saved_generation=0;
         if(recovery)u->recovery_fault=TINYPLC_SCAN_BAD_STATE;

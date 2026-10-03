@@ -132,6 +132,39 @@ impl Emitter<'_> {
     fn body(&mut self, statements: &[Statement]) {
         for statement in statements {
             match statement {
+                Statement::Ton {
+                    base,
+                    clock,
+                    input,
+                    preset,
+                } => {
+                    let input = self.expression(*input);
+                    let preset = self.expression(*preset);
+                    let now = self.value(format!("load i32, ptr %w{clock}, align 4"));
+                    let run = self.value(format!("load i32, ptr %w{}, align 4", base + 2));
+                    let last = self.value(format!("load i32, ptr %w{}, align 4", base + 3));
+                    let age = self.value(format!("load i32, ptr %w{}, align 4", base + 4));
+                    let delta = self.value(format!("sub i32 {now}, {last}"));
+                    let remaining = self.value(format!("sub i32 2147483647, {age}"));
+                    let overflow = self.value(format!("icmp uge i32 {delta}, {remaining}"));
+                    let sum = self.value(format!("add i32 {age}, {delta}"));
+                    let sum =
+                        self.value(format!("select i1 {overflow}, i32 2147483647, i32 {sum}"));
+                    let running = self.value(format!("icmp ne i32 {run}, 0"));
+                    let age = self.value(format!("select i1 {running}, i32 {sum}, i32 0"));
+                    let enabled = self.value(format!("icmp ne i32 {input}, 0"));
+                    let age = self.value(format!("select i1 {enabled}, i32 {age}, i32 0"));
+                    let done = self.value(format!("icmp uge i32 {age}, {preset}"));
+                    let elapsed = self.value(format!("select i1 {done}, i32 {preset}, i32 {age}"));
+                    let q = self.value(format!("and i1 {enabled}, {done}"));
+                    let q = self.value(format!("zext i1 {q} to i32"));
+                    for (offset, value) in [(0, q), (1, elapsed), (2, input), (3, now), (4, age)] {
+                        self.line(format!(
+                            "store i32 {value}, ptr %w{}, align 4",
+                            base + offset
+                        ));
+                    }
+                }
                 Statement::Assign { tag, expression } => {
                     let value = self.expression(*expression);
                     self.line(format!("store i32 {value}, ptr %w{tag}, align 4"));
@@ -254,13 +287,14 @@ pub(crate) fn emit(program: &Program, abi: Abi) -> String {
         e.line(format!("store i32 %initial{index}, ptr %w{index}, align 4"));
     }
     for (index, tag) in program.tags.iter().enumerate() {
-        if tag.ty == Type::Bool {
-            let valid = e.value(format!("icmp ule i32 %initial{index}, 1"));
+        if matches!(tag.ty, Type::Bool | Type::Time) {
+            let maximum = if tag.ty == Type::Bool { 1 } else { i32::MAX };
+            let valid = e.value(format!("icmp ule i32 %initial{index}, {maximum}"));
             e.line(format!(
                 "br i1 {valid}, label %bool_ok{index}, label %bool_fault{index}"
             ));
             e.label(&format!("bool_fault{index}"));
-            e.fault(8, tag.span);
+            e.fault(if tag.ty == Type::Bool { 8 } else { 9 }, tag.span);
             e.label(&format!("bool_ok{index}"));
         }
     }

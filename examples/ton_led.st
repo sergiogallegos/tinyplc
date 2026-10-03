@@ -1,0 +1,7 @@
+PROGRAM DelayedButton
+VAR_INPUT BTN : BOOL; END_VAR
+VAR_OUTPUT LED : BOOL; END_VAR
+VAR Delay : TON; END_VAR
+Delay(IN := BTN, PT := T#500ms);
+LED := Delay.Q;
+END_PROGRAM

@@ -22,7 +22,8 @@ static struct {
     uint32_t padding[62];
 } working;
 static tinyplc_scan_state supervisor;
-static int input_index=0, output_index=1;
+static int input_index=0, output_index=1, clock_index=-1;
+_Static_assert(configTICK_RATE_HZ == 1000, "TON clock requires millisecond ticks");
 static uint64_t scan_sequence, missed_sequence;
 static void create_worker(void) {
     const TaskParameters_t user={.pvTaskCode=plc_worker,.pcName="ST",.usStackDepth=512,
@@ -40,11 +41,12 @@ static void activate_boundary(void) {
     /* Worker is suspended following every return/fault. Discard its old stack
      * and register context before publishing a new descriptor or slot mapping. */
     vTaskDelete(worker_handle);
-    input_index=-1;output_index=-1;
+    input_index=-1;output_index=-1;clock_index=-1;
     for(unsigned i=0;i<candidate->tag_count;++i) {
         const uint8_t *tag=candidate->tags+i*TPLC_TAG_BYTES;
         if(tag[TPLC_TAG_BINDING_OFFSET]==TPLC_BINDING_BTN_PC13)input_index=(int)i;
         if(tag[TPLC_TAG_BINDING_OFFSET]==TPLC_BINDING_LED_PA5)output_index=(int)i;
+        if(tag[TPLC_TAG_BINDING_OFFSET]==TPLC_BINDING_CLOCK_MS)clock_index=(int)i;
     }
     for(unsigned i=0;i<64;++i){inputs[i]=0;working.cells[i]=0;}
     inputs[64]=candidate->entry;inputs[65]=candidate->tag_count;inputs[66]=candidate->generation;inputs[67]=0;
@@ -132,6 +134,7 @@ static void scan(void *unused)
         if (scan_count && input_pressed != pressed) ++input_transitions;
         input_pressed = pressed;
         if(input_index>=0) inputs[input_index] = pressed;
+        if(clock_index>=0) inputs[clock_index] = xTaskGetTickCount();
         guard_scan_start = start;
         native_status = tinyplc_scan_step(&supervisor, inputs, working.cells,
             &working.diagnostic, guard_invoke, cycle_clock, commit_outputs, start, 160000);

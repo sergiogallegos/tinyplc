@@ -6,8 +6,8 @@ uint32_t tinyplc_scan_init(tinyplc_scan_state *s, uint32_t count,
     s->fault = TINYPLC_SCAN_BAD_LAYOUT;
     if (!count || count > 64 || !types || !classes) return s->fault;
     for (uint32_t i = 0; i < count; ++i) {
-        if ((types[i] != TINYPLC_NATIVE_TYPE_BOOL && types[i] != TINYPLC_NATIVE_TYPE_DINT)
-            || classes[i] < TINYPLC_NATIVE_INPUT || classes[i] > TINYPLC_NATIVE_VAR)
+        if ((types[i] != TINYPLC_NATIVE_TYPE_BOOL && types[i] != TINYPLC_NATIVE_TYPE_DINT && types[i] != TINYPLC_NATIVE_TYPE_TIME)
+            || classes[i] < TINYPLC_NATIVE_INPUT || classes[i] > TINYPLC_NATIVE_TIMER)
             return s->fault;
     }
     s->count = count;
@@ -35,7 +35,8 @@ uint32_t tinyplc_scan_step(tinyplc_scan_state *s, const uint32_t *inputs,
         if (!s->fault) {
             for (uint32_t i = 0; i < s->count; ++i) {
                 if ((s->classes[i] == TINYPLC_NATIVE_INPUT && working[i] != 0)
-                    || (s->types[i] == TINYPLC_NATIVE_TYPE_BOOL && working[i] > 1))
+                    || (s->types[i] == TINYPLC_NATIVE_TYPE_BOOL && working[i] > 1)
+                    || (s->types[i] == TINYPLC_NATIVE_TYPE_TIME && working[i] > INT32_MAX))
                     s->fault = TINYPLC_SCAN_BAD_STATE;
             }
         }

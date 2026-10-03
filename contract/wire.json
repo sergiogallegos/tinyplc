@@ -88,7 +88,10 @@
     "UPDATE_TRIAL": 2,
     "UPDATE_RECOVERY_QUEUED": 3,
     "UPDATE_RECOVERY_TRIAL": 4,
-    "UPDATE_COMPLETE": 5
+    "UPDATE_COMPLETE": 5,
+    "TYPE_TIME": 3,
+    "CLASS_TIMER": 4,
+    "BINDING_CLOCK_MS": 3
   },
   "layouts": {
     "package": [

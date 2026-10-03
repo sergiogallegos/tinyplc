@@ -80,5 +80,12 @@ pub fn compile(source: &str, bindings: &[Binding]) -> Result<String, Error> {
 }
 
 pub fn compile_with_abi(source: &str, bindings: &[Binding], abi: Abi) -> Result<String, Error> {
-    Ok(llvm::emit(&analyze(source, bindings)?, abi))
+    let program = analyze(source, bindings)?;
+    if abi != Abi::NativeV2 && program.tags.iter().any(|t| t.kind == ir::Class::Timer) {
+        return Err(Error::new(
+            Span { line: 1, column: 1 },
+            "TON requires native ABI 2 and the millisecond clock binding",
+        ));
+    }
+    Ok(llvm::emit(&program, abi))
 }

@@ -43,6 +43,10 @@ missed releases in the recorded run. R3 is complete.
 trial and one-use rollback to saved pre-update state. [Board evidence](docs/R4.3-report.md)
 covers 64-tag reorder, contained faults, recovery failure and reset behavior.
 
+[R5.1](docs/ton.md) adds native TON on-delay timers and millisecond TIME values,
+with frozen clock input and explicit restart behavior for online changes. See
+[the example](examples/ton_led.st) and [acceptance report](docs/R5.1-report.md).
+
 **Not implemented yet:** tag writes, persistence or broader language types.
 
 The primary compiler is `compiler/` (Rust). Earlier Python/bytecode work is

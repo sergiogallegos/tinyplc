@@ -18,11 +18,13 @@ pub(crate) struct AstExpr {
 }
 pub(crate) enum AstStatement {
     Assign(Token, usize),
+    Ton(Token, usize, usize),
     If(Vec<(usize, Vec<AstStatement>)>, Vec<AstStatement>),
 }
 pub(crate) struct Ast {
     pub name: String,
     pub tags: Vec<Tag>,
+    pub timers: Vec<(Token, usize)>,
     pub expressions: Vec<AstExpr>,
     pub statements: Vec<AstStatement>,
 }
@@ -111,6 +113,28 @@ impl Parser {
                 let value = u32::from(token.text == "TRUE");
                 self.node(AstExprKind::Constant(Type::Bool, value), token)?
             }
+            "T" | "TIME" if self.accept("#") => {
+                let number = self.bump();
+                let amount = number
+                    .text
+                    .parse::<u64>()
+                    .ok()
+                    .filter(|_| number.kind == Kind::Number)
+                    .ok_or_else(|| Error::new(number.span, "expected nonnegative TIME integer"))?;
+                let unit = self.bump();
+                let scale = match unit.text.as_str() {
+                    "MS" => 1,
+                    "S" => 1000,
+                    "M" => 60_000,
+                    "H" => 3_600_000,
+                    _ => return Err(Error::new(unit.span, "TIME unit must be ms, s, m, or h")),
+                };
+                let value = amount
+                    .checked_mul(scale)
+                    .filter(|v| *v <= i32::MAX as u64)
+                    .ok_or_else(|| Error::new(token.span, "TIME literal out of range"))?;
+                self.node(AstExprKind::Constant(Type::Time, value as u32), token)?
+            }
             _ if token.kind == Kind::Number => {
                 let digits = token.text.trim_start_matches('0');
                 let value = if digits.is_empty() {
@@ -124,7 +148,12 @@ impl Parser {
                 self.node(AstExprKind::Constant(Type::Dint, value), token)?
             }
             _ if token.kind == Kind::Ident => {
-                self.node(AstExprKind::Name(token.text.clone()), token)?
+                let mut name = token.text.clone();
+                if self.accept(".") {
+                    name.push('.');
+                    name.push_str(&self.ident()?.text);
+                }
+                self.node(AstExprKind::Name(name), token)?
             }
             _ => return Err(Error::new(token.span, "expected expression")),
         };
@@ -168,6 +197,39 @@ impl Parser {
                 body.push(AstStatement::If(branches, otherwise));
             } else {
                 let name = self.ident()?;
+                if self.accept("(") {
+                    let mut input = None;
+                    let mut preset = None;
+                    loop {
+                        let parameter = self.ident()?;
+                        self.take(":=")?;
+                        let value = self.expression(1, 0)?;
+                        let field = match parameter.text.as_str() {
+                            "IN" => &mut input,
+                            "PT" => &mut preset,
+                            _ => {
+                                return Err(Error::new(
+                                    parameter.span,
+                                    "TON parameter must be IN or PT",
+                                ))
+                            }
+                        };
+                        if field.replace(value).is_some() {
+                            return Err(Error::new(parameter.span, "duplicate TON parameter"));
+                        }
+                        if !self.accept(",") {
+                            break;
+                        }
+                    }
+                    self.take(")")?;
+                    self.take(";")?;
+                    body.push(AstStatement::Ton(
+                        name.clone(),
+                        input.ok_or_else(|| Error::new(name.span, "TON requires IN"))?,
+                        preset.ok_or_else(|| Error::new(name.span, "TON requires PT"))?,
+                    ));
+                    continue;
+                }
                 self.take(":=")?;
                 let expression = self.expression(1, 0)?;
                 self.take(";")?;
@@ -187,6 +249,7 @@ pub(crate) fn parse(tokens: Vec<Token>) -> Result<Ast, Error> {
     p.take("PROGRAM")?;
     let name = p.ident()?.text;
     let mut tags = Vec::new();
+    let mut timers = Vec::new();
     while ["VAR", "VAR_INPUT", "VAR_OUTPUT"].contains(&p.token().text.as_str()) {
         let kind = match p.bump().text.as_str() {
             "VAR_INPUT" => Class::Input,
@@ -195,15 +258,59 @@ pub(crate) fn parse(tokens: Vec<Token>) -> Result<Ast, Error> {
         };
         while p.token().text != "END_VAR" {
             let name = p.ident()?;
+            if name.text.starts_with("__") {
+                return Err(Error::new(name.span, "names beginning __ are reserved"));
+            }
+            if tags.iter().any(|t: &Tag| t.name == name.text)
+                || timers
+                    .iter()
+                    .any(|(t, _): &(Token, usize)| t.text == name.text)
+            {
+                return Err(Error::new(
+                    name.span,
+                    format!("duplicate tag {}", name.text),
+                ));
+            }
             if tags.len() >= 64 {
                 return Err(Error::new(name.span, "tag capacity exceeded"));
             }
             p.take(":")?;
             let type_token = p.bump();
+            if type_token.text == "TON" {
+                if kind != Class::Var || name.text.len() > 20 {
+                    return Err(Error::new(
+                        name.span,
+                        "TON requires VAR and an instance name of at most 20 characters",
+                    ));
+                }
+                p.take(";")?;
+                timers.push((name.clone(), tags.len()));
+                for (field, ty) in [
+                    ("Q", Type::Bool),
+                    ("ET", Type::Time),
+                    ("RUN", Type::Bool),
+                    ("LAST", Type::Dint),
+                    ("AGE", Type::Time),
+                ] {
+                    tags.push(Tag {
+                        name: format!("__T_{}_{}", name.text, field),
+                        ty,
+                        kind: Class::Timer,
+                        span: name.span,
+                    });
+                }
+                continue;
+            }
             let ty = match type_token.text.as_str() {
                 "BOOL" => Type::Bool,
                 "DINT" => Type::Dint,
-                _ => return Err(Error::new(type_token.span, "expected BOOL or DINT")),
+                "TIME" => Type::Time,
+                _ => {
+                    return Err(Error::new(
+                        type_token.span,
+                        "expected BOOL, DINT, TIME, or TON",
+                    ))
+                }
             };
             p.take(";")?;
             tags.push(Tag {
@@ -215,6 +322,20 @@ pub(crate) fn parse(tokens: Vec<Token>) -> Result<Ast, Error> {
         }
         p.take("END_VAR")?;
     }
+    if let Some((timer, _)) = timers.first() {
+        tags.push(Tag {
+            name: "__CLOCK_MS".into(),
+            ty: Type::Dint,
+            kind: Class::Input,
+            span: timer.span,
+        });
+    }
+    if tags.len() > 64 {
+        return Err(Error::new(
+            p.token().span,
+            "expanded tag capacity exceeded (64 cells)",
+        ));
+    }
     let statements = p.body(0)?;
     p.take("END_PROGRAM")?;
     if p.token().kind != Kind::Eof {
@@ -223,6 +344,7 @@ pub(crate) fn parse(tokens: Vec<Token>) -> Result<Ast, Error> {
     Ok(Ast {
         name,
         tags,
+        timers,
         expressions: p.expressions,
         statements,
     })

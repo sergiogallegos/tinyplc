@@ -3,7 +3,8 @@
 This is tinyplc's primary compiler. It uses Rust's standard library only and
 emits textual LLVM IR without embedding LLVM libraries. The selected pipeline
 is ST → Rust frontend → typed PLC IR → LLVM IR → PC-side LLVM AOT → native
-controller image → C/RTOS runtime. The image/loader stage is still planned.
+controller image → C/RTOS runtime. The packager and board loader are implemented. [TON](../docs/ton.md) is the
+first R5 language extension and requires native ABI 2.
 
 ```sh
 make compiler
@@ -45,7 +46,7 @@ One module exports a scan function and these constants:
 | `tinyplc_abi_version` | u32 = 1, identifying this research call ABI |
 | `tinyplc_tag_count` | u32 number of cells |
 | `tinyplc_tag_names` | count × 32 NUL-padded uppercase ASCII bytes |
-| `tinyplc_tag_types` | count bytes: BOOL=1, DINT=2 |
+| `tinyplc_tag_types` | count bytes: BOOL=1, DINT=2, TIME=3 |
 | `tinyplc_tag_classes` | count bytes: INPUT=1, OUTPUT=2, VAR=3 |
 
 Each tag occupies a u32 cell at `4 * declaration_index`. BOOL is exactly 0/1;
@@ -55,10 +56,10 @@ cells. Start at zero and sample inputs before each call; reuse state across
 successful calls. The function has no globals containing mutable PLC state.
 
 Return codes: 0 success; 4 insufficient cell count; 5 division by zero;
-8 invalid BOOL cell. The diagnostic contains u32 line/column: the division
+8 invalid BOOL cell; 9 invalid TIME cell. The diagnostic contains u32 line/column: the division
 operator or invalid BOOL declaration, or zero/zero for success/count failure.
 On success, OUTPUT and VAR cells commit and INPUT cells remain untouched.
-On 5/8, OUTPUT cells clear and previous VAR values remain. On 4, cells remain
+On 5/8/9, OUTPUT cells clear and previous VAR values remain. On 4, cells remain
 untouched because the provided storage may be too small to clear outputs.
 The future supervisor must still apply the physical fault policy in every case.
 

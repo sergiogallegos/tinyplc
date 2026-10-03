@@ -1,6 +1,7 @@
-# R2.1: native call ABI draft 2, revision 1
+# R2.1: native call ABI draft 2, revision 2
 
-This freezes the first target **call contract** for R2 experiments. It is not
+This records the target **call contract** established in R2. Revision 2 adds
+the [R5.1 TON schema extension](ton.md) with unchanged arguments and cell widths. It is not
 an image format, an implemented native loader, or a board acceptance result.
 The compiler implements ABI 2 with `--abi 2`; default emission remains ABI 1
 for existing host examples. R2.4 verifies ABI 2 on the board.
@@ -51,22 +52,22 @@ on mismatch, return 4 and zero the diagnostic without accessing either array.
 Tag index is declaration order, offset `4 * index` in either array. BOOL cells
 are canonical 0/1; DINT cells hold the 32-bit two's-complement bit pattern.
 Names remain unique uppercase ASCII identifiers, up to 31 bytes plus NUL in a
-32-byte zero-padded field. Type/class IDs retain R1 values: BOOL=1, DINT=2;
-INPUT=1, OUTPUT=2, VAR=3. No embedded pointers, packed C enums or native-size
+32-byte zero-padded field. Type/class IDs retain R1 values: BOOL=1, DINT=2, TIME=3;
+INPUT=1, OUTPUT=2, VAR=3, TIMER=4. TIME is 0..INT32_MAX milliseconds. No embedded pointers, packed C enums or native-size
 integers in metadata. Package encoding is a separate R2.7/R3 contract.
 
 | Storage | Before entry | User permissions | After return |
 | --- | --- | --- | --- |
 | Input array | INPUT indices sampled; all other indices zero | Read-only, non-executable | Remains frozen for the whole scan |
-| Working array | OUTPUT/VAR from committed state; INPUT indices zero | Read/write, non-executable | Candidate values only; never physical I/O |
+| Working array | OUTPUT/VAR/TIMER from committed state; INPUT indices zero | Read/write, non-executable | Candidate values only; never physical I/O |
 | Diagnostic | Cleared by supervisor | Read/write, non-executable | Untrusted line/column report |
 | Committed state | Previous successful state | Inaccessible | Supervisor alone commits accepted changes |
 | Code/constants | Fully loaded and validated | Read/execute code; immutable constants | No modification during execution |
 
-Generated INPUT loads use the input base; OUTPUT/VAR loads and stores use the
+Generated INPUT loads use the input base; OUTPUT/VAR/TIMER loads and stores use the
 working base. Working INPUT cells are reserved zero and must stay zero. The
-supervisor checks those cells and all candidate BOOL values on successful
-return before committing only OUTPUT/VAR indices. C `const` is not protection:
+supervisor checks those cells and all candidate BOOL and TIME values on successful
+return before committing only OUTPUT/VAR/TIMER indices. C `const` is not protection:
 the board port must enforce memory permissions and keep committed state private.
 Disjoint logical buffers do not imply one MPU region per buffer; alignment and
 placement are determined by the R2.3 memory budget.
@@ -74,11 +75,11 @@ placement are determined by the R2.3 memory budget.
 ## Results, faults and control transfer
 
 Return 0 for success, 4 for count mismatch, 5 for division by zero, 8 for an
-invalid BOOL in a relevant input/working cell. Report one-based source line
-and column for 5/8; report zero/zero for success/count mismatch. Unknown return
+invalid BOOL in a relevant input/working cell, or 9 for invalid TIME. Report one-based source line
+and column for 5/8/9; report zero/zero for success/count mismatch. Unknown return
 codes are application faults. Diagnostics are bounded numeric data, never
 trusted addresses. The initial profile exposes **no runtime service imports**:
-I/O is represented by buffers, and timers are outside the language subset.
+I/O and the R5.1 frozen millisecond clock are represented by input buffers.
 
 On any failure, working state and diagnostic contents may have been modified;
 the supervisor discards candidate state, preserves committed internal values,

@@ -1,4 +1,4 @@
-# Structured Text research subset (R1)
+# Structured Text research subset (R1 + R5.1)
 
 One source file contains `PROGRAM name`, zero or more declaration blocks,
 statements, and `END_PROGRAM`, with no trailing tokens. Keywords and ASCII
@@ -6,7 +6,7 @@ identifiers are case-insensitive. Identifiers match `[A-Za-z_][A-Za-z_0-9]*`
 and are at most 31 characters; keywords are reserved. `(* ... *)` comments
 may span lines but do not nest. Diagnostics use one-based line and column.
 
-Declarations are `name : BOOL;` or `name : DINT;` inside `VAR_INPUT`,
+Declarations are `name : BOOL;`, `name : DINT;`, or `name : TIME;` inside `VAR_INPUT`,
 `VAR_OUTPUT`, or `VAR` blocks terminated by `END_VAR`. Multiple blocks are
 allowed; duplicate names (including case variants) are rejected. No declaration
 initializers, comma-separated names, or implicit conversions are supported.
@@ -16,7 +16,8 @@ board profile's name, direction, and type. Inputs cannot be assigned.
 Statements are `name := expression;` and
 `IF expression THEN ... {ELSIF expression THEN ...} [ELSE ...] END_IF;`.
 Conditions must be BOOL. Empty bodies and nested IFs are allowed. There are
-no loops, calls, timers, or standalone empty statements.
+no loops, general-purpose calls, or standalone empty statements. The R5.1
+extension adds `VAR name : TON;` and timer calls; see [TON semantics](ton.md).
 
 Operator precedence, from lowest to highest:
 
@@ -25,8 +26,8 @@ Operator precedence, from lowest to highest:
 | OR | left / BOOL |
 | XOR | left / BOOL |
 | AND | left / BOOL |
-| = <> | left / matching BOOL or DINT |
-| < > <= >= | left / DINT |
+| = <> | left / matching BOOL, DINT, or TIME |
+| < > <= >= | left / DINT or TIME |
 | + - | left / DINT |
 | * / | left / DINT |
 | unary +, unary -, NOT | right / DINT, DINT, BOOL |
@@ -44,7 +45,7 @@ zero, minimum DINT divided by -1 wraps, and division by zero faults at runtime.
 The Rust compiler preserves declaration order as tag order and evaluates
 expressions left to right. It emits LLVM IR with forward control flow and a
 transactional scan entry point; see [the call ABI](../compiler/README.md).
-Limits are 64 tags, 1 MiB source, 65,536 tokens, 4,096 expression nodes,
+Limits are 64 expanded cells (including timer state and its shared clock), 1 MiB source, 65,536 tokens, 4,096 expression nodes,
 4,096 statements, and 64 levels of parser nesting. These bound compiler
 resources; they are not a measured MCU execution-time guarantee.
 

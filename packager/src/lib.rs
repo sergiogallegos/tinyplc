@@ -199,7 +199,8 @@ pub fn package_elf(elf: &[u8], base: u32) -> Result<Vec<u8>> {
         let binding = match (class, ty, &name[..n]) {
             (CLASS_INPUT, TYPE_BOOL, b"BTN") => BINDING_BTN_PC13,
             (CLASS_OUTPUT, TYPE_BOOL, b"LED") => BINDING_LED_PA5,
-            (CLASS_VAR, TYPE_BOOL | TYPE_DINT, _) => BINDING_NONE,
+            (CLASS_INPUT, TYPE_DINT, b"__CLOCK_MS") => BINDING_CLOCK_MS,
+            (CLASS_VAR | CLASS_TIMER, TYPE_BOOL | TYPE_DINT | TYPE_TIME, _) => BINDING_NONE,
             _ => return Err("unsupported compiler board binding/type".into()),
         };
         if binding != 0 {

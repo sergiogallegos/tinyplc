@@ -12,10 +12,11 @@ use std::collections::HashMap;
 pub(crate) fn analyze(ast: Ast, bindings: &[Binding]) -> Result<Program, Error> {
     let mut symbols = HashMap::new();
     for (index, tag) in ast.tags.iter().enumerate() {
-        if symbols.insert(tag.name.clone(), index).is_some() {
+        if !tag.name.starts_with("__") && symbols.insert(tag.name.clone(), index).is_some() {
             return Err(Error::new(tag.span, format!("duplicate tag {}", tag.name)));
         }
-        if tag.kind != Class::Var
+        if matches!(tag.kind, Class::Input | Class::Output)
+            && tag.name != "__CLOCK_MS"
             && !bindings.iter().any(|b| {
                 b.name.eq_ignore_ascii_case(&tag.name) && b.ty == tag.ty && b.kind == tag.kind
             })
@@ -26,6 +27,15 @@ pub(crate) fn analyze(ast: Ast, bindings: &[Binding]) -> Result<Program, Error> 
             ));
         }
     }
+    for (timer, base) in &ast.timers {
+        symbols.insert(format!("{}.Q", timer.text), *base);
+        symbols.insert(format!("{}.ET", timer.text), *base + 1);
+    }
+    let timers: HashMap<String, usize> = ast
+        .timers
+        .iter()
+        .map(|(t, b)| (t.text.clone(), *b))
+        .collect();
     let mut expressions: Vec<Expr> = Vec::new();
     for expression in ast.expressions {
         let span = expression.token.span;
@@ -68,7 +78,10 @@ pub(crate) fn analyze(ast: Ast, bindings: &[Binding]) -> Result<Program, Error> 
                         Type::Bool
                     }
                     _ => {
-                        if lt != Type::Dint {
+                        if lt != Type::Dint
+                            && !(lt == Type::Time
+                                && matches!(op, Binary::Lt | Binary::Gt | Binary::Le | Binary::Ge))
+                        {
                             return Err(mismatch());
                         }
                         if matches!(op, Binary::Lt | Binary::Gt | Binary::Le | Binary::Ge) {
@@ -88,11 +101,31 @@ pub(crate) fn analyze(ast: Ast, bindings: &[Binding]) -> Result<Program, Error> 
         tags: &[Tag],
         expressions: &[Expr],
         symbols: &HashMap<String, usize>,
+        timers: &HashMap<String, usize>,
     ) -> Result<Vec<Statement>, Error> {
         statements
             .into_iter()
             .map(|statement| {
                 Ok(match statement {
+                    AstStatement::Ton(name, input, preset) => {
+                        let base = *timers.get(&name.text).ok_or_else(|| {
+                            Error::new(name.span, "call target must be a TON instance")
+                        })?;
+                        if expressions[input].ty != Type::Bool
+                            || expressions[preset].ty != Type::Time
+                        {
+                            return Err(Error::new(
+                                name.span,
+                                "TON requires IN: BOOL and PT: TIME",
+                            ));
+                        }
+                        Statement::Ton {
+                            base,
+                            clock: tags.len() - 1,
+                            input,
+                            preset,
+                        }
+                    }
                     AstStatement::Assign(name, expression) => {
                         let tag = *symbols.get(&name.text).ok_or_else(|| {
                             Error::new(name.span, format!("unknown tag {}", name.text))
@@ -114,19 +147,21 @@ pub(crate) fn analyze(ast: Ast, bindings: &[Binding]) -> Result<Program, Error> 
                                     "IF condition must be BOOL",
                                 ));
                             }
-                            checked
-                                .push((condition, body(statements, tags, expressions, symbols)?));
+                            checked.push((
+                                condition,
+                                body(statements, tags, expressions, symbols, timers)?,
+                            ));
                         }
                         Statement::If {
                             branches: checked,
-                            otherwise: body(otherwise, tags, expressions, symbols)?,
+                            otherwise: body(otherwise, tags, expressions, symbols, timers)?,
                         }
                     }
                 })
             })
             .collect()
     }
-    let statements = body(ast.statements, &ast.tags, &expressions, &symbols)?;
+    let statements = body(ast.statements, &ast.tags, &expressions, &symbols, &timers)?;
     Ok(Program {
         name: ast.name,
         tags: ast.tags,

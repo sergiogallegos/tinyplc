@@ -4,10 +4,14 @@ Decision recorded 2026-10-02. [R4.2](R4.2-report.md) implements and host-tests
 this contract; [R4.3](R4.3-report.md) records board acceptance. Older R3 firmware
 still cold-starts activations and rejects ROLLBACK; negotiate INFO capabilities.
 
-The profile remains ABI 2, BOOL/DINT, 64 tags, one u32 cell per tag, two fixed
+The R4 profile remains ABI 2, BOOL/DINT, 64 tags, one u32 cell per tag, two fixed
 native-code slots, one engineering host and a 10 ms scheduled release. There
 is no new language syntax, persistence, tag-write support or cold/warm selector.
 All names below are canonical names from validated package metadata.
+
+R5.1 extends this contract with TIME scalars and TIMER cells. TIME VARs migrate
+and restore by exact name/type; TIMER cells always reset, including on rollback
+and automatic recovery. See [TON](ton.md).
 
 ## Migration and initialization
 
@@ -24,6 +28,7 @@ immutable source/target schemas.
 | Same name but different type or source class | Zero; no conversion or rejection solely for this difference |
 | INPUT | Working/committed cell zero; input image freshly sampled by binding |
 | OUTPUT | Zero; candidate code computes its first proposal |
+| TIMER (R5.1) | Zero on activation, rollback, and automatic recovery; never copied into a checkpoint |
 
 Declaration order and index may change; offsets do not identify variables.
 BOOL and DINT must match exactly. A schema CRC match is not a substitute for

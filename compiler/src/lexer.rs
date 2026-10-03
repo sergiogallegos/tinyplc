@@ -24,6 +24,8 @@ const KEYWORDS: &[&str] = &[
     "END_VAR",
     "BOOL",
     "DINT",
+    "TIME",
+    "TON",
     "IF",
     "THEN",
     "ELSIF",
@@ -85,7 +87,7 @@ pub(crate) fn lex(source: &str) -> Result<Vec<Token>, Error> {
                     pos += 1;
                 }
                 Kind::Number
-            } else if ";:()+*/=<>-".contains(c) {
+            } else if ";:()+*/=<>-,.#".contains(c) {
                 pos += 1;
                 if pos < chars.len()
                     && matches!(

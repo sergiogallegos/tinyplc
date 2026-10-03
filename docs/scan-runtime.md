@@ -31,7 +31,7 @@ Reinitialization/reset is the only recovery operation currently exposed. VAR
 values survive a failed scan; all values initialize to zero on reset. Output
 cells are cleared on faults, including a failed program that previously drove
 an output high. Unknown nonzero native statuses also latch. The supervisor
-checks canonical BOOL values and rejects writes to reserved INPUT working
+checks canonical BOOL and TIME values and rejects writes to reserved INPUT working
 cells. This is a transaction contract, not protection against arbitrary native
 writes; the portable module alone cannot contain arbitrary native writes. The STM32
 port now supplies the R2.6 isolation boundary.

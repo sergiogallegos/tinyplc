@@ -6,6 +6,7 @@ use crate::Span;
 pub enum Type {
     Bool = 1,
     Dint = 2,
+    Time = 3,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -13,6 +14,7 @@ pub enum Class {
     Input = 1,
     Output = 2,
     Var = 3,
+    Timer = 4,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Unary {
@@ -78,6 +80,12 @@ pub struct Expr {
 }
 #[derive(Clone, Debug)]
 pub enum Statement {
+    Ton {
+        base: usize,
+        clock: usize,
+        input: usize,
+        preset: usize,
+    },
     Assign {
         tag: usize,
         expression: usize,

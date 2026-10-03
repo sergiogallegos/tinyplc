@@ -61,12 +61,14 @@ uint32_t tinyplc_package_validate(const uint8_t *b, size_t n, uint32_t base,
         for (uint16_t j=0; j<i; ++j)
             if (memcmp(tag,b+tags+j*TPLC_TAG_BYTES,32)==0) return TPLC_STATUS_INVALID_IMAGE;
         uint8_t type=tag[TPLC_TAG_TYPE_OFFSET], kind=tag[TPLC_TAG_CLASS_OFFSET];
-        if (type!=TPLC_TYPE_BOOL && type!=TPLC_TYPE_DINT) return TPLC_STATUS_INVALID_IMAGE;
-        if (kind==TPLC_CLASS_VAR) {
+        if (type!=TPLC_TYPE_BOOL && type!=TPLC_TYPE_DINT && type!=TPLC_TYPE_TIME) return TPLC_STATUS_INVALID_IMAGE;
+        if (kind==TPLC_CLASS_VAR || kind==TPLC_CLASS_TIMER) {
             if (binding!=TPLC_BINDING_NONE) return TPLC_STATUS_INVALID_IMAGE;
         } else {
-            if (type!=TPLC_TYPE_BOOL || !((kind==TPLC_CLASS_INPUT && binding==TPLC_BINDING_BTN_PC13) ||
-                (kind==TPLC_CLASS_OUTPUT && binding==TPLC_BINDING_LED_PA5))) return TPLC_STATUS_INVALID_IMAGE;
+            if (!((kind==TPLC_CLASS_INPUT && type==TPLC_TYPE_BOOL && binding==TPLC_BINDING_BTN_PC13) ||
+                (kind==TPLC_CLASS_OUTPUT && type==TPLC_TYPE_BOOL && binding==TPLC_BINDING_LED_PA5) ||
+                (kind==TPLC_CLASS_INPUT && type==TPLC_TYPE_DINT && binding==TPLC_BINDING_CLOCK_MS)))
+                return TPLC_STATUS_INVALID_IMAGE;
             if (bindings & (1u<<binding)) return TPLC_STATUS_INVALID_IMAGE;
             bindings |= 1u<<binding;
         }

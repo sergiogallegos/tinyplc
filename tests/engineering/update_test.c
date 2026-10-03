@@ -84,6 +84,18 @@ int main(void) {
     assert(tinyplc_engine_request(&e,2,bad,4,0,r)==1 && r[0]==1 && u.saved_generation==1);
     begin(true);assert(!u.saved_generation);tinyplc_loader_expire(&l,30000);
     assert(tinyplc_update_reserve(&u,2,0)==TPLC_STATUS_NO_PROGRAM);
+    /* TIME scalars migrate, TON cells restart even with identical names/types.
+     * Explicit rollback and failed-trial recovery also restart TON. */
+    for(unsigned failure=0;failure<2;++failure) {
+        setup();tag(0,0,"PT",3,3);tag(1,2,"PT",3,3);s.types[0]=3;
+        tag(0,1,"__T_DELAY_Q",1,4);tag(1,0,"__T_DELAY_Q",1,4);s.classes[1]=4;
+        request(1,2);assert(tinyplc_update_prepare(&u,&s,1));
+        assert(s.committed[0]==0 && s.committed[2]==41 && u.saved[1]==0);
+        s.committed[0]=1;finish(failure?5:0,1);
+        if(!failure)request(2,0);
+        assert(tinyplc_update_prepare(&u,&s,2));
+        assert(s.committed[0]==41 && s.committed[1]==0);finish(0,2);
+    }
     /* Full 64-tag permutation, signed extrema and BOOL canonicality. */
     setup();l.slots[0].tag_count=64;l.slots[1].tag_count=64;s.count=64;
     for(unsigned i=0;i<64;++i) {

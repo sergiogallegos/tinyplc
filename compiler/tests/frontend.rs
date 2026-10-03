@@ -167,3 +167,60 @@ fn golden_button_ir() {
         include_str!("button_led.ll")
     );
 }
+
+#[test]
+fn ton_types_limits_and_diagnostics() {
+    use tinyplc_compiler::{analyze, compile_with_abi, nucleo_f446re, Abi};
+    let valid = "PROGRAM P VAR wait: TON; elapsed: TIME; END_VAR wait(PT := TIME#2s, IN := TRUE); elapsed := wait.ET; END_PROGRAM";
+    let p = analyze(valid, &nucleo_f446re()).unwrap();
+    assert_eq!(p.tags.len(), 7);
+    assert_eq!(p.tags[0].kind, tinyplc_compiler::ir::Class::Timer);
+    assert_eq!(p.tags[6].name, "__CLOCK_MS");
+    assert!(compile_with_abi(valid, &nucleo_f446re(), Abi::NativeV2).is_ok());
+    assert!(compile_with_abi(valid, &nucleo_f446re(), Abi::ResearchV1).is_err());
+    for body in [
+        "wait(IN := TRUE, PT := 50);",
+        "wait(IN := 1, PT := T#1s);",
+        "wait(IN := TRUE);",
+        "wait(PT := T#1s);",
+        "wait(IN := TRUE, IN := FALSE, PT := T#1s);",
+        "wait(IN := TRUE, PT := T#1s, Q := TRUE);",
+        "elapsed(IN := TRUE, PT := T#1s);",
+        "wait := wait;",
+        "wait.Q := TRUE;",
+        "elapsed := wait.RUN;",
+        "elapsed := __T_WAIT_ET;",
+        "elapsed := T#2147483648ms;",
+        "elapsed := T#-1s;",
+        "elapsed := T#1.5s;",
+        "elapsed := T#1s500ms;",
+        "elapsed := T#1d;",
+        "elapsed := T#1s + T#2s;",
+        "elapsed := -T#1s;",
+        "elapsed := 1000;",
+    ] {
+        let source = format!("PROGRAM P VAR wait: TON; elapsed: TIME; END_VAR {body} END_PROGRAM");
+        assert!(analyze(&source, &nucleo_f446re()).is_err(), "{body}");
+    }
+    for decl in [
+        "VAR_INPUT wait: TON; END_VAR",
+        "VAR a: TON; a: BOOL; END_VAR",
+        "VAR a: BOOL; a: TON; END_VAR",
+        "VAR __CLOCK_MS: DINT; END_VAR",
+        "VAR this_name_is_too_long_for_ton: TON; END_VAR",
+    ] {
+        assert!(analyze(&format!("PROGRAM P {decl} END_PROGRAM"), &nucleo_f446re()).is_err());
+    }
+    // Twelve timers plus three scalars plus one shared clock exactly fit.
+    let timers = (0..12).map(|i| format!("t{i}: TON;")).collect::<String>();
+    assert!(analyze(
+        &format!("PROGRAM P VAR {timers} a: BOOL; b: DINT; c: TIME; END_VAR END_PROGRAM"),
+        &[]
+    )
+    .is_ok());
+    assert!(analyze(
+        &format!("PROGRAM P VAR {timers} a: BOOL; b: DINT; c: TIME; d: DINT; END_VAR END_PROGRAM"),
+        &[]
+    )
+    .is_err());
+}

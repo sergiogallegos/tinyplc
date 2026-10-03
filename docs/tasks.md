@@ -91,9 +91,11 @@ Upload/status/activation are implemented in R3.3; R3.4 adds snapshots. R4 adds m
 
 ## R5 — deliberate extensions
 
-- [ ] Select each extension from a documented need: timers/function blocks,
-  larger types, source debugging, persistence or additional CPU targets.
-- [ ] Give each extension its own semantics, resource budget and acceptance tests.
+- [x] R5.1: Add the requested TON on-delay timer with TIME, a frozen millisecond
+  clock, reset-on-update behavior, resource limits and host/board acceptance.
+  Evidence: [TON contract](ton.md), [R5.1 report](R5.1-report.md).
+- [ ] Select subsequent extensions from a documented need, with their own
+  semantics, resource budget and acceptance tests.
 
 IDE, broad IEC coverage, industrial networking and product assurance remain
 future scope. The R1–R4 educational pipeline now has host and board evidence;

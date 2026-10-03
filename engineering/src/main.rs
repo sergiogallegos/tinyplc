@@ -219,8 +219,8 @@ fn monitor(serial: &mut Serial, info: &[u8]) -> Result<()> {
                     c.is_ascii_alphabetic() || *c == b'_' || (i > 0 && c.is_ascii_digit())
                 })
                 || tag[end..32].iter().any(|&c| c != 0)
-                || ![TYPE_BOOL as u8, TYPE_DINT as u8].contains(&tag[32])
-                || !(1..=3).contains(&tag[33])
+                || ![TYPE_BOOL as u8, TYPE_DINT as u8, TYPE_TIME as u8].contains(&tag[32])
+                || !(1..=4).contains(&tag[33])
             {
                 return Err("invalid tag metadata".into());
             }
@@ -230,6 +230,11 @@ fn monitor(serial: &mut Serial, info: &[u8]) -> Result<()> {
                     return Err("invalid BOOL value".into());
                 }
                 (value != 0).to_string()
+            } else if tag[32] == TYPE_TIME as u8 {
+                if value > i32::MAX as u32 {
+                    return Err("invalid TIME value".into());
+                }
+                value.to_string()
             } else {
                 (value as i32).to_string()
             };

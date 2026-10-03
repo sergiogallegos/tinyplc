@@ -88,6 +88,24 @@ class Loader(unittest.TestCase):
         subprocess.run([cc,*flags,'tests/loader/memory_test.c',str(obj),'-o',str(exe)],cwd=ROOT,check=True)
         subprocess.run([str(exe)],check=True)
 
+    def test_ton_package_and_clock_binding(self):
+        p=self.out/'ton.tplc'
+        subprocess.run([str(ROOT/'target/debug/plcpack'),str(ROOT/'examples/ton_led.st'),
+                        '--slot','B','-o',str(p),'--clang',os.environ.get('CLANG','clang'),
+                        '--ld',os.environ.get('ARM_LD','arm-none-eabi-ld')],check=True)
+        b=p.read_bytes();self.validate(b,0)
+        offset=struct.unpack_from('<I',b,48)[0]
+        records=[b[i:i+40] for i in range(offset,len(b),40)]
+        self.assertEqual(len(records),8)
+        self.assertEqual([r[33] for r in records],[1,2,4,4,4,4,4,1])
+        self.assertEqual(struct.unpack_from('<BBH',records[-1],32),(2,1,3))
+        for index,field,value in [(7,32,1),(7,34,4),(2,34,3),(2,33,5),(3,32,4)]:
+            bad=bytearray(b);bad[offset+40*index+field]=value
+            self.validate(self.fixed(bad,True),4)
+        # Duplicate clock bindings cannot alias the frozen input image.
+        bad=bytearray(b);bad[offset+32]=2;bad[offset+34]=3
+        self.validate(self.fixed(bad,True),4)
+
     def test_real_packager(self):
         ld=os.environ.get('ARM_LD','arm-none-eabi-ld')
         self.assertTrue(shutil.which(ld), 'Set ARM_LD to pinned arm-none-eabi-ld; this test must not silently skip')

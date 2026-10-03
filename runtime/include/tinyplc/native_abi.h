@@ -1,4 +1,4 @@
-/* tinyplc target call ABI draft 2, revision 1. Project-owned contract.
+/* tinyplc target call ABI draft 2, revision 2. Project-owned contract.
  * See docs/native-abi.md; compiler --abi 2 implements this call shape.
  * Arm calling-convention source: https://github.com/ARM-software/abi-aa
  * Related-work credits: docs/references.md. No upstream code incorporated.
@@ -17,9 +17,12 @@
 #define TINYPLC_NATIVE_BAD_BOOL UINT32_C(8)
 #define TINYPLC_NATIVE_TYPE_BOOL 1u
 #define TINYPLC_NATIVE_TYPE_DINT 2u
+#define TINYPLC_NATIVE_TYPE_TIME 3u
+#define TINYPLC_NATIVE_BAD_TIME UINT32_C(9)
 #define TINYPLC_NATIVE_INPUT 1u
 #define TINYPLC_NATIVE_OUTPUT 2u
 #define TINYPLC_NATIVE_VAR 3u
+#define TINYPLC_NATIVE_TIMER 4u
 
 /* Diagnostic data is untrusted application output, never a supervisor pointer. */
 typedef struct {
@@ -28,7 +31,7 @@ typedef struct {
 } tinyplc_native_diagnostic;
 
 /* Both arrays have count cells in declaration order; only INPUT indices in
- * inputs and OUTPUT/VAR indices in working are meaningful. All three memory
+ * inputs and OUTPUT/VAR/TIMER indices in working are meaningful. All three memory
  * ranges are disjoint. The supervisor owns separate committed state.
  * Const documents the contract; actual read-only enforcement needs the MPU.
  */
