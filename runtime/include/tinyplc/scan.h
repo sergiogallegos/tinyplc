@@ -16,13 +16,16 @@ typedef struct {
 typedef uint32_t (*tinyplc_cycle_clock)(void);
 typedef void (*tinyplc_output_commit)(const uint32_t *cells);
 uint32_t tinyplc_scan_init(tinyplc_scan_state *state, uint32_t count,
-                          const uint8_t *types, const uint8_t *classes);
+                           const uint8_t *types, const uint8_t *classes);
 /* start is sampled BEFORE physical input acquisition. budget is in cycles,
  * nonzero and < 2^31. Unsigned elapsed subtraction tolerates one clock wrap.
  * A fault latches until reinitialization/reset; VAR state survives failed scans.
  * The output hook receives all-zero OUTPUT cells on every faulted scan. */
 uint32_t tinyplc_scan_step(tinyplc_scan_state *state, const uint32_t *inputs,
-                          uint32_t *working, tinyplc_native_diagnostic *diagnostic,
-                          tinyplc_native_entry entry, tinyplc_cycle_clock clock,
-                          tinyplc_output_commit output, uint32_t start, uint32_t budget);
+                           uint32_t *working,
+                           tinyplc_native_diagnostic *diagnostic,
+                           tinyplc_native_entry entry,
+                           tinyplc_cycle_clock clock,
+                           tinyplc_output_commit output, uint32_t start,
+                           uint32_t budget);
 #endif

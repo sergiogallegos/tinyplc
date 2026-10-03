@@ -1,4 +1,5 @@
 """Independent Python execution of validated bytecode, using integer cells."""
+
 from dataclasses import dataclass
 from .image import read_image, signed
 
@@ -14,10 +15,12 @@ class Result:
 def run(data, profile, values=None, budget=4096):
     image = read_image(data, profile)
     cells = list(values) if values is not None else [0] * len(image.tags)
-    if len(cells) != len(image.tags) or any(not isinstance(v, int) or not 0 <= v <= 0xffffffff for v in cells):
-        raise ValueError('values must contain one u32 cell per tag')
-    if not isinstance(budget, int) or not 0 <= budget <= 0xffffffff:
-        raise ValueError('budget must be u32')
+    if len(cells) != len(image.tags) or any(
+        not isinstance(v, int) or not 0 <= v <= 0xFFFFFFFF for v in cells
+    ):
+        raise ValueError("values must contain one u32 cell per tag")
+    if not isinstance(budget, int) or not 0 <= budget <= 0xFFFFFFFF:
+        raise ValueError("budget must be u32")
     for tag, value in zip(image.tags, cells):
         if tag.type == 1 and value > 1:
             return Result(tuple(cells), 8, 65535, 0)
@@ -34,7 +37,7 @@ def run(data, profile, values=None, budget=4096):
         elif op == 3:
             cells[args[0]] = stack.pop()
         elif op == 0x14:
-            stack.append(-stack.pop() & 0xffffffff)
+            stack.append(-stack.pop() & 0xFFFFFFFF)
         elif op == 0x23:
             stack.append(int(not stack.pop()))
         elif op == 0x40:
@@ -42,7 +45,7 @@ def run(data, profile, values=None, budget=4096):
         elif op == 0x41:
             if not stack.pop():
                 next_pc = args[0]
-        elif op == 0xff:
+        elif op == 0xFF:
             return Result(tuple(cells), 0, pc, op)
         else:
             b, a = stack.pop(), stack.pop()
@@ -77,6 +80,6 @@ def run(data, profile, values=None, budget=4096):
                 value = int(signed(a) <= signed(b))
             elif op == 0x35:
                 value = int(signed(a) >= signed(b))
-            stack.append(value & 0xffffffff)
+            stack.append(value & 0xFFFFFFFF)
         pc = next_pc
     return Result(tuple(cells), 6, pc, instructions[pc].op)

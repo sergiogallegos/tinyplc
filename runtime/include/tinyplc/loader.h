@@ -5,7 +5,7 @@
 typedef struct {
     uint32_t state, generation, payload_bytes, entry, schema_crc;
     uint16_t tag_count;
-    uint8_t tags[TPLC_TAG_LIMIT*TPLC_TAG_BYTES];
+    uint8_t tags[TPLC_TAG_LIMIT * TPLC_TAG_BYTES];
 } tinyplc_slot;
 typedef struct {
     uint8_t staging[TPLC_PACKAGE_BYTES_MAX];
@@ -29,8 +29,8 @@ void tinyplc_loader_expire(tinyplc_loader *l, uint32_t now_ms);
 uint32_t tinyplc_loader_begin(tinyplc_loader *l, uint32_t total, uint32_t now,
                               uint32_t *id, uint32_t *base);
 uint32_t tinyplc_loader_chunk(tinyplc_loader *l, uint32_t id, uint32_t offset,
-                              const uint8_t *bytes, uint32_t count, uint32_t now,
-                              uint32_t *next);
+                              const uint8_t *bytes, uint32_t count,
+                              uint32_t now, uint32_t *next);
 uint32_t tinyplc_loader_end(tinyplc_loader *l, uint32_t id, uint32_t now,
                             uint32_t *generation);
 #endif

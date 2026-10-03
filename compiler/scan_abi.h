@@ -13,9 +13,12 @@
  * Success commits OUTPUT/VAR cells. Fault 5/8/9 clears OUTPUTs and preserves VARs.
  * Fault 4 (count too small) leaves all cells untouched. No latching or deadlines.
  */
-typedef struct { uint32_t line, column; } tinyplc_diagnostic;
+typedef struct {
+    uint32_t line, column;
+} tinyplc_diagnostic;
 extern const uint32_t tinyplc_abi_version, tinyplc_tag_count;
 extern const uint8_t tinyplc_tag_types[], tinyplc_tag_classes[];
 extern const char tinyplc_tag_names[][32];
-uint32_t tinyplc_scan(uint32_t *cells, uint32_t count, tinyplc_diagnostic *diagnostic);
+uint32_t tinyplc_scan(uint32_t *cells, uint32_t count,
+                      tinyplc_diagnostic *diagnostic);
 #endif

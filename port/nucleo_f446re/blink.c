@@ -16,7 +16,8 @@
 static void delay_ms(unsigned milliseconds)
 {
     for (unsigned i = 0; i < milliseconds; ++i) {
-        while ((SYST_CSR & (1u << 16)) == 0u) { }
+        while ((SYST_CSR & (1u << 16)) == 0u) {
+        }
     }
 }
 

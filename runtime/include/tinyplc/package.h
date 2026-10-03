@@ -3,9 +3,11 @@
 #define TINYPLC_PACKAGE_H
 #include "wire.h"
 typedef struct {
-    uint32_t link_base, payload_bytes, entry, text_offset, text_bytes, schema_crc;
+    uint32_t link_base, payload_bytes, entry, text_offset, text_bytes,
+        schema_crc;
     uint16_t tag_count;
-    const uint8_t *payload, *tags; /* Borrowed only while input remains immutable. */
+    const uint8_t *payload,
+        *tags; /* Borrowed only while input remains immutable. */
 } tinyplc_package;
 /* Returns wire status; output is untouched on failure. Input/output must not
  * alias. Caller owns stable input for the duration of validation and use. */

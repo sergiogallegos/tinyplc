@@ -18,5 +18,6 @@ int main(void)
     assert(plc_frame_xpsr_valid(0x01000200));
     assert(!plc_frame_xpsr_valid(0x0100000b));
     assert(!plc_frame_xpsr_valid(0));
-    puts("exception frame: stack bounds, alignment, privilege, PSP, FP and xPSR passed");
+    puts(
+        "exception frame: stack bounds, alignment, privilege, PSP, FP and xPSR passed");
 }

@@ -5,36 +5,85 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
-static tinyplc_loader l;static tinyplc_framer f;static tinyplc_engine e;
-static uint8_t a[TPLC_CODE_CAPACITY],b[TPLC_CODE_CAPACITY],response[256],out[262];
-static uint32_t active=1,requested;static uint64_t scans;
+static tinyplc_loader l;
+static tinyplc_framer f;
+static tinyplc_engine e;
+static uint8_t a[TPLC_CODE_CAPACITY], b[TPLC_CODE_CAPACITY], response[256],
+    out[262];
+static uint32_t active = 1, requested;
+static uint64_t scans;
 static int dropped;
 static tinyplc_snapshots snapshots;
-static uint32_t now(void){struct timespec t;clock_gettime(CLOCK_MONOTONIC,&t);return (uint32_t)((uint64_t)t.tv_sec*1000+t.tv_nsec/1000000);}
-static uint32_t activate(void *unused,uint32_t gen) {
+static uint32_t now(void)
+{
+    struct timespec t;
+    clock_gettime(CLOCK_MONOTONIC, &t);
+    return (uint32_t)((uint64_t)t.tv_sec * 1000 + t.tv_nsec / 1000000);
+}
+static uint32_t activate(void *unused, uint32_t gen)
+{
     (void)unused;
-    if(l.transfer_id)return TPLC_STATUS_BUSY;
-    for(unsigned i=0;i<2;++i)if(l.slots[i].state==TPLC_SLOT_READY && l.slots[i].generation==gen){
-        l.slots[1-i].state=TPLC_SLOT_PREVIOUS;l.slots[i].state=TPLC_SLOT_ACTIVE;active=gen;requested=gen;return 0;
-    }
+    if (l.transfer_id)
+        return TPLC_STATUS_BUSY;
+    for (unsigned i = 0; i < 2; ++i)
+        if (l.slots[i].state == TPLC_SLOT_READY &&
+            l.slots[i].generation == gen) {
+            l.slots[1 - i].state = TPLC_SLOT_PREVIOUS;
+            l.slots[i].state = TPLC_SLOT_ACTIVE;
+            active = gen;
+            requested = gen;
+            return 0;
+        }
     return TPLC_STATUS_BAD_REQUEST;
 }
-static void status(void *unused,uint8_t *r){(void)unused;memset(r,0,49);tinyplc_put32(r,1,active);tinyplc_put64(r,5,++scans);r[13]=1;r[14]=requested?2:0;tinyplc_put32(r,17,requested);}
-static void frame(void *unused,uint8_t cmd,const uint8_t *p,uint16_t n) {
+static void status(void *unused, uint8_t *r)
+{
     (void)unused;
-    uint8_t tags[64][TPLC_TAG_BYTES]={0};uint32_t cells[64];
-    for(unsigned i=0;i<64;++i){snprintf((char *)tags[i],32,"TAG%u",i);tags[i][32]=TPLC_TYPE_DINT;tags[i][33]=TPLC_CLASS_VAR;cells[i]=(uint32_t)(-100+(int)i);}
-    tags[0][32]=TPLC_TYPE_BOOL;cells[0]=1;
-    tinyplc_snapshot_publish(&snapshots,active,++scans,64,&tags[0][0],cells);
-    size_t len=tinyplc_engine_request(&e,cmd,p,n,now(),response);
-    if(!len)return;
-    if(cmd==3 && getenv("DROP_CHUNK_ACK") && !dropped){dropped=1;return;}
-    len=tinyplc_frame_encode(cmd|128,response,len,out);
-    for(size_t i=0;i<len;++i)if(write(1,out+i,1)!=1)exit(2);
+    memset(r, 0, 49);
+    tinyplc_put32(r, 1, active);
+    tinyplc_put64(r, 5, ++scans);
+    r[13] = 1;
+    r[14] = requested ? 2 : 0;
+    tinyplc_put32(r, 17, requested);
 }
-int main(void) {
-    if(!tinyplc_loader_init(&l,a,b,0,true))return 2;
+static void frame(void *unused, uint8_t cmd, const uint8_t *p, uint16_t n)
+{
+    (void)unused;
+    uint8_t tags[64][TPLC_TAG_BYTES] = {0};
+    uint32_t cells[64];
+    for (unsigned i = 0; i < 64; ++i) {
+        snprintf((char *)tags[i], 32, "TAG%u", i);
+        tags[i][32] = TPLC_TYPE_DINT;
+        tags[i][33] = TPLC_CLASS_VAR;
+        cells[i] = (uint32_t)(-100 + (int)i);
+    }
+    tags[0][32] = TPLC_TYPE_BOOL;
+    cells[0] = 1;
+    tinyplc_snapshot_publish(&snapshots, active, ++scans, 64, &tags[0][0],
+                             cells);
+    size_t len = tinyplc_engine_request(&e, cmd, p, n, now(), response);
+    if (!len)
+        return;
+    if (cmd == 3 && getenv("DROP_CHUNK_ACK") && !dropped) {
+        dropped = 1;
+        return;
+    }
+    len = tinyplc_frame_encode(cmd | 128, response, len, out);
+    for (size_t i = 0; i < len; ++i)
+        if (write(1, out + i, 1) != 1)
+            exit(2);
+}
+int main(void)
+{
+    if (!tinyplc_loader_init(&l, a, b, 0, true))
+        return 2;
     tinyplc_snapshots_init(&snapshots);
-    e=(tinyplc_engine){.loader=&l,.activate=activate,.status=status,.snapshots=&snapshots};
-    uint8_t byte;while(read(0,&byte,1)==1)tinyplc_frame_feed(&f,byte,now(),frame,NULL);return 0;
+    e = (tinyplc_engine){.loader = &l,
+                         .activate = activate,
+                         .status = status,
+                         .snapshots = &snapshots};
+    uint8_t byte;
+    while (read(0, &byte, 1) == 1)
+        tinyplc_frame_feed(&f, byte, now(), frame, NULL);
+    return 0;
 }

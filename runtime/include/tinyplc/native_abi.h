@@ -36,11 +36,13 @@ typedef struct {
  * Const documents the contract; actual read-only enforcement needs the MPU.
  */
 typedef uint32_t (*tinyplc_native_entry)(const uint32_t *inputs,
-                                      uint32_t *working, uint32_t count,
-                                      tinyplc_native_diagnostic *diagnostic);
+                                         uint32_t *working, uint32_t count,
+                                         tinyplc_native_diagnostic *diagnostic);
 
 _Static_assert(sizeof(uint32_t) == 4, "ABI requires 32-bit cells");
 _Static_assert(sizeof(tinyplc_native_diagnostic) == 8, "diagnostic size");
-_Static_assert(_Alignof(tinyplc_native_diagnostic) == 4, "diagnostic alignment");
-_Static_assert(offsetof(tinyplc_native_diagnostic, column) == 4, "column offset");
+_Static_assert(_Alignof(tinyplc_native_diagnostic) == 4,
+               "diagnostic alignment");
+_Static_assert(offsetof(tinyplc_native_diagnostic, column) == 4,
+               "column offset");
 #endif

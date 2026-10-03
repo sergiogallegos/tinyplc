@@ -10,7 +10,8 @@
 void guard_init(TaskHandle_t owner, TaskHandle_t worker);
 void guard_heartbeat(void);
 void guard_set_worker(TaskHandle_t worker);
-uint32_t guard_invoke(const uint32_t *, uint32_t *, uint32_t, tinyplc_native_diagnostic *);
+uint32_t guard_invoke(const uint32_t *, uint32_t *, uint32_t,
+                      tinyplc_native_diagnostic *);
 extern uint32_t guard_scan_start;
 extern volatile uint32_t guard_boot_fault, guard_entries, guard_returns;
 void plc_worker(void *unused);

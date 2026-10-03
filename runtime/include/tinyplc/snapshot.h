@@ -20,6 +20,8 @@ typedef struct {
 } tinyplc_snapshots;
 void tinyplc_snapshots_init(tinyplc_snapshots *);
 /* Stable validated schema and committed cells supplied by the scan owner. */
-void tinyplc_snapshot_publish(tinyplc_snapshots *,uint32_t,uint64_t,unsigned,const uint8_t *,const uint32_t *);
-size_t tinyplc_snapshot_read(tinyplc_snapshots *,const uint8_t *,size_t,uint32_t,uint8_t *);
+void tinyplc_snapshot_publish(tinyplc_snapshots *, uint32_t, uint64_t, unsigned,
+                              const uint8_t *, const uint32_t *);
+size_t tinyplc_snapshot_read(tinyplc_snapshots *, const uint8_t *, size_t,
+                             uint32_t, uint8_t *);
 #endif

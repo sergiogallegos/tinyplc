@@ -1,0 +1,8 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 80
+BreakBeforeBraces: Linux
+BreakStringLiterals: false
+# Preserve include order and comment contents in this formatting-only pass.
+SortIncludes: Never
+ReflowComments: Never
