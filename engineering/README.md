@@ -32,7 +32,8 @@ See [transport/ownership](../docs/engineering-transport.md),
 
 `monitor` prints one complete coherent snapshot as JSON, with generation, scan,
 and up to 64 named tags. BOOL values are JSON booleans; DINT values are signed
-integers. It reads pages of at most five tags from one owned snapshot and rejects
+integers; TIME values are nonnegative milliseconds. TON records include Q/ET
+and internal state, with the shared clock input. It reads pages of at most five tags from one owned snapshot and rejects
 inconsistent pages. The board releases the enumeration after its last page or
 2 seconds of inactivity. On expiry, run `monitor` again to start a new snapshot.
 See [R3.4 ownership and validation](../docs/R3.4-report.md) and
@@ -53,3 +54,6 @@ trial latches normally; explicit rollback may still recover the saved program.
 See [R4 implementation](../docs/R4.2-report.md) and
 [board evidence](../docs/R4.3-report.md). The CLI supports older R3 firmware;
 its missing rollback/update-status operations remain unavailable.
+
+R5.1 adds [TON/TIME](../docs/ton.md). Timer instances restart on activation,
+rollback, and failed-trial recovery; scalar TIME VARs follow normal migration.

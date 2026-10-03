@@ -72,6 +72,55 @@ harness, and prints `R1 AOT scans=5 LED=1 N=2`. `make aot-arm` creates
 link firmware, or flash a board. [Compiler usage and ABI](compiler/README.md)
 and [setup](docs/setup.md) give exact reproduction commands.
 
+## Compile, upload, and run on the board
+
+The NUCLEO-F446RE must already have the current R5.1 runtime firmware installed
+through ST-LINK. Firmware prerequisites and build instructions are in
+[setup](docs/setup.md) and the [target toolchain guide](docs/target-toolchain.md).
+The following workflow uploads an ST program through the ST-LINK virtual serial
+port; it does not replace the runtime firmware.
+
+After a board reset, the boot program occupies slot A and slot B is available.
+Use your actual serial device path and installed toolchain paths:
+
+```sh
+make compiler
+mkdir -p build/programs
+PLC_DEVICE=/dev/cu.usbmodem2103
+./target/debug/plctool "$PLC_DEVICE" info
+./target/debug/plcpack examples/ton_led.st --slot B -o build/programs/ton-b.tplc \
+  --clang /path/to/clang --ld /path/to/arm-none-eabi-ld
+./target/debug/plctool "$PLC_DEVICE" download build/programs/ton-b.tplc
+```
+
+`plcpack` compiles ST, generates ARM code, links for the chosen slot, and builds
+the download package. Download returns a JSON `ready_generation`; substitute
+that number for `GENERATION` below:
+
+```sh
+./target/debug/plctool "$PLC_DEVICE" activate GENERATION
+./target/debug/plctool "$PLC_DEVICE" status
+./target/debug/plctool "$PLC_DEVICE" monitor
+./target/debug/plctool "$PLC_DEVICE" update-status
+```
+
+Activation starts execution on the board's **10 ms scan cycle**. In this example,
+hold BTN for 500 ms to light LED; releasing BTN clears the timer and LED on the
+next invocation. `monitor` prints one coherent snapshot, including TON Q/ET
+and the clock; run it again for another sample. TIME values are milliseconds.
+
+For subsequent edits, inspect `info` and build for the inactive slot: A is
+`0x20010000`, B is `0x20014000`, and ACTIVE has state 1. The download command
+rejects a package built for the wrong available slot. Downloading only stages
+code; `activate` is required to run it. See [package usage](packager/README.md)
+and [engineering commands](engineering/README.md) for details.
+
+Healthy online updates preserve matching scalar VAR names/types. TON instances
+restart their delays. `plctool "$PLC_DEVICE" rollback` restores the saved previous
+program and scalar state when a checkpoint is available; timers restart again.
+Starting another download retires that checkpoint. Downloads and state are
+RAM-only: reset or power loss returns to the firmware's boot program.
+
 ## How the system works
 
 ### 1. Compile on the PC; execute on the controller
@@ -131,7 +180,7 @@ flowchart TB
   end
   subgraph Comms["Lower-priority engineering task"]
     Receive["Receive command"] --> Stage["Stage native image<br/>validate before READY"]
-    Receive --> Request["Request activation or tag write<br/>bounded payload + generation"]
+    Receive --> Request["Request activation/rollback<br/>bounded payload + generation"]
     Receive --> Monitor["Read owned snapshot<br/>respond to PC monitor"]
   end
   Request -. "scan owner applies" .-> Boundary
@@ -142,7 +191,7 @@ flowchart TB
 Comms never reads a tag by racing a live write or retaining a pointer into a
 reusable program slot. A snapshot contains values **and** names/types/scan and
 generation identifiers. A slow monitor may miss scans without blocking the
-producer. Tag writes are requests applied by the scan owner.
+producer. Tag writes remain unimplemented; the planned design routes them through the scan owner.
 
 Native code addresses fields relative to a supplied state block. The symbol
 metadata maps names to types/classes and offsets; it does not embed arbitrary
@@ -195,9 +244,13 @@ pointer flip alone are insufficient.
 ## Structured Text scope
 
 The initial language is a small **IEC 61131-3-inspired ST subset**, not full
-IEC conformance: BOOL/DINT, input/output/internal declarations, assignments,
-IF/ELSIF/ELSE, arithmetic, comparisons, eager boolean logic, and comments.
-See [language.md](docs/language.md) for exact grammar and limits.
+IEC conformance: BOOL, DINT, TIME, input/output/internal declarations,
+assignments, IF/ELSIF/ELSE, DINT arithmetic, comparisons, eager boolean logic,
+comments, and TON on-delay timers with IN/PT inputs and Q/ET outputs.
+TIME supports nonnegative millisecond durations and comparisons, not arithmetic.
+See [language.md](docs/language.md) and [TON](docs/ton.md) for exact grammar,
+clock behavior, and limits: 64 expanded cells, including five per timer and one
+shared clock cell. General function blocks and loops are not supported.
 
 ```iecst
 PROGRAM Main
@@ -267,7 +320,8 @@ contract, engineering operations, and runtime state management.
 | R2 | Native ABI/package contract, C supervisor, bounded static native execution and fault containment on F446 | Complete, including hardware evidence |
 | R3 | Native loader, upload protocol, engineering CLI and coherent tag monitoring | Complete, including board monitoring and mixed-traffic timing |
 | R4 | Online state migration, first-scan trial and explicit/automatic rollback | Implemented and verified on the board |
-| R5 | Larger language scope, source debugging, target ports and production-oriented assurance | Research extensions |
+| R5.1 | TON on-delay timers, TIME, frozen clock input and restart-on-update behavior | Complete, including host and board acceptance |
+| Further R5 work | Additional language features, source debugging, persistence and target ports | Future extensions |
 
 R1 replaces the earlier bytecode-first roadmap. No MCU loading, RTOS timing,
 or hardware acceptance is implied by host tests. [Runtime architecture](docs/architecture.md)
@@ -303,5 +357,6 @@ and board activation. [R3.4](docs/R3.4-report.md) implements coherent tag snapsh
 and PC monitoring. [R3.5](docs/R3.5-report.md) closes the board workflow and timing
 gate. [R4.1](docs/online-state.md) defines migration, initialization and rollback
 state semantics. [R4.2](docs/R4.2-report.md) implements them and
-[R4.3](docs/R4.3-report.md) records board acceptance. Next is R5: select a
-deliberate language, debugging or target extension from a documented need.
+[R4.3](docs/R4.3-report.md) records board acceptance. [R5.1](docs/R5.1-report.md)
+adds verified TON/TIME support. Further extensions remain future work, selected
+from a documented need.

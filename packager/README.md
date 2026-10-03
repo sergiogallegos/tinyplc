@@ -32,6 +32,10 @@ The packager pads the payload to four bytes, serializes the generated contract
 fields and computes schema/package CRCs. It is a trusted host build tool, not
 an ELF loader on the MCU and not a signature service. Package A and B are
 separate placement artifacts, even if a particular example produces identical
-payload bytes. The future engineering tool must select the base returned by
-DOWNLOAD_BEGIN. See [wire contract](../docs/wire-format.md),
+payload bytes. The engineering CLI checks that the package matches the available slot and
+the base returned by DOWNLOAD_BEGIN. See [wire contract](../docs/wire-format.md),
 [C staging](../docs/native-loader.md) and [R3.2 evidence](../docs/R3.2-report.md).
+
+For TON, package [ton_led.st](../examples/ton_led.st) in the same way. The
+compiler adds timer state and a frozen millisecond clock binding automatically;
+the board must run the R5.1 firmware. See [TON semantics](../docs/ton.md).
