@@ -332,6 +332,12 @@ records, not current implementation instructions. Project code is MIT licensed.
 
 ## Acknowledgments and next tasks
 
+The [future hardware plan](docs/hardware-roadmap.md) records a deferred proposal
+for a standalone tinyPLC: custom PCB, printed enclosure, USB/Ethernet, status
+display, BOM, manufacturing files, assembly, and learning documentation. It
+uses a manual KiCad/FreeCAD workflow; hardware design has not started and the
+proposed specifications are not manufacturing-ready.
+
 The educational approach is inspired by Andrej Karpathy's micrograd and nanoGPT.
 We study Rusty, OpenPLC Runtime and matiec for compiler/runtime design lessons.
 tinyplc remains an independent implementation with its own small scope and
