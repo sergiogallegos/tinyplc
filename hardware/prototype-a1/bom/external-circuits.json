@@ -1,0 +1,72 @@
+[
+  {
+    "ref": "SW3",
+    "symbol": "tinyplc:Switch_SW_SPST",
+    "value": "POWER ON/OFF (external)",
+    "footprint": "",
+    "nets": {
+      "1": "VIN_FUSED",
+      "2": "VIN_SWITCHED"
+    },
+    "pin_names": {
+      "1": "A",
+      "2": "B"
+    },
+    "xy": [
+      0,
+      0
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "Maintained SPST switch in fused positive supply; OFF is not galvanic isolation",
+    "mpn": "C&K D102J12S215HQA",
+    "official_document": "https://www.ckswitches.com/media/1439/d.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "7d6c8fa9-601c-577f-aa62-92b8f98bad83",
+    "sch": [
+      345,
+      170
+    ],
+    "schematic_xy": [
+      345.44,
+      170.18
+    ]
+  },
+  {
+    "ref": "DS1",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x04",
+    "value": "OLED 326 / STEMMA QT (external)",
+    "footprint": "",
+    "nets": {
+      "1": "GND",
+      "2": "+3V3",
+      "3": "I2C_SDA",
+      "4": "I2C_SCL"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2",
+      "3": "Pin_3",
+      "4": "Pin_4"
+    },
+    "xy": [
+      0,
+      0
+    ],
+    "angle": 0,
+    "group": "Expansion",
+    "purpose": "Adafruit 326 I2C status display, QT revision; 4-wire cable to J16",
+    "mpn": "Adafruit 326",
+    "official_document": "https://www.adafruit.com/product/326",
+    "status": "candidate; verify before purchase",
+    "uuid": "19b0756d-8ab7-5314-9ce7-453ce28a0e10",
+    "sch": [
+      760,
+      410
+    ],
+    "schematic_xy": [
+      759.46,
+      410.21
+    ]
+  }
+]

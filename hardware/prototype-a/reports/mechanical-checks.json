@@ -1,0 +1,48 @@
+{
+  "units": "mm",
+  "status": "CAD checks only; no physical fit test",
+  "solids": {
+    "base": {
+      "valid": true,
+      "volume_mm3": 60381.192,
+      "solid_count": 1,
+      "print_mesh_closed": true
+    },
+    "lid": {
+      "valid": true,
+      "volume_mm3": 32004.868,
+      "solid_count": 1,
+      "print_mesh_closed": true
+    },
+    "display_blank": {
+      "valid": true,
+      "volume_mm3": 2367.37,
+      "solid_count": 1,
+      "print_mesh_closed": true
+    },
+    "pcb": {
+      "valid": true,
+      "volume_mm3": 17228.528,
+      "solid_count": 1
+    }
+  },
+  "interferences": [
+    {
+      "pair": "base-pcb",
+      "volume_mm3": 0.0
+    },
+    {
+      "pair": "base-lid",
+      "volume_mm3": 0.0
+    },
+    {
+      "pair": "lid-pcb",
+      "volume_mm3": 0.0
+    },
+    {
+      "pair": "lid-blank",
+      "volume_mm3": 0.0
+    }
+  ],
+  "component_count": 87
+}

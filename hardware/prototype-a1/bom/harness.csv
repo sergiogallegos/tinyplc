@@ -1,0 +1,7 @@
+from,to,signal,identification
+J17.1,SW3.1,VIN_FUSED,Positive supply; not GND
+SW3.1A,J17.2,VIN_SWITCHED,Positive return; not GND
+J16.1,DS1 QT.2,+3V3,Red
+J16.2,DS1 QT.1,GND,Black
+J16.3,DS1 QT.4,I2C_SCL,Yellow
+J16.4,DS1 QT.3,I2C_SDA,Blue

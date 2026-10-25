@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297mm" height="210mm" viewBox="0 0 297 210">
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#236d76"/></marker></defs>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#202c34}</style>
+<rect width="297" height="210" fill="white"/>
+<text x="14" y="13" font-size="2.9" style="fill:#236d76" font-weight="700" text-anchor="start" transform="rotate(0 14 13)">CONSTRUCTION / A1 / mm / ACTUAL SIZE A4 / CAD FIT ONLY</text>
+<text x="14" y="28" font-size="6.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 14 28)">04  Switch coupon, lens and optical rods</text>
+<path d="M14,198 L283,198" fill="none" stroke="#d8e1e3" stroke-width="0.3" stroke-linecap="round"/>
+<text x="14" y="204" font-size="2.3" style="fill:#586872" font-weight="400" text-anchor="start" transform="rotate(0 14 204)">A1 prototype • CAD renders • not a fabrication release • 2026-10-24</text>
+<text x="283" y="204" font-size="2.8" style="fill:#586872" font-weight="400" text-anchor="end" transform="rotate(0 283 204)">04</text>
+<path d="M180,187 L280,187" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<path d="M180,185 L180,189" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<path d="M280,185 L280,189" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<text x="230" y="183" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(0 230 183)">100 mm — verify printed scale</text>
+<rect x="25" y="52" width="54" height="32" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="30" y="58" width="12.9" height="19.81" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="52" cy="68" r="1.25" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="61" cy="68" r="1.6" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="70" cy="68" r="0.8" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="25" y="46" font-size="3.2" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 25 46)">COUPON 54 × 32 × 2.4</text>
+<text x="25" y="93" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 25 93)">Switch opening 12.90 × 19.81</text>
+<text x="25" y="100" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 25 100)">Pilots Ø2.5 / rod bore Ø3.2 / pilot Ø1.6</text>
+<rect x="25" y="119" width="64" height="32" rx="2" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="46.75" y="128" width="24.5" height="14" rx="0.7" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="35" cy="133" r="1" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="35" cy="137" r="1" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="25" y="114" font-size="3.2" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 25 114)">LENS CUT 64 × 32 × 1 / R2</text>
+<text x="25" y="160" font-size="2.9" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 25 160)">Clear screen + LED windows in a reverse black mask.</text>
+<text x="170" y="47.0" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 47.0)">Switch panel: 2.4 mm. Opening centered at left-face Y49, Z22.</text>
+<text x="170" y="51.95" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 51.95)">C&amp;K D102 S2 nominal dimensions; validate with actual switch.</text>
+<text x="170" y="84.0" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 84.0)">Lens front-view mask: screen window centered at (34,16), 24.5 ×</text>
+<text x="170" y="88.95" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 88.95)">14. LED clear spots Ø2 at (10,14) PWR and (10,18) RUN.</text>
+<text x="170" y="121.0" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 121.0)">Two clear acrylic rods: Ø3 × 24.6. Polish ends. Lower ledge</text>
+<text x="170" y="125.95" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 125.95)">Z11.2; LED top envelope Z10.6. No contact pressure on LEDs.</text>
+<text x="170" y="156.0" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 156.0)">Base print: floor down. Lid print: outside down, columns up. Use the</text>
+<text x="170" y="160.65" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 160.65)">STL orientations; import units as mm.</text>
+</svg>

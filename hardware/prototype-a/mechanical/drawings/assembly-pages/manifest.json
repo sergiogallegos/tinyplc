@@ -1,0 +1,26 @@
+{
+  "pages": 16,
+  "page_format": "A4 landscape",
+  "source": "FreeCAD-derived meshes rendered in Blender; vector annotations",
+  "status": "Illustrated intended mechanical sequence; no physical assembly validation",
+  "hardware": "Nominal candidate screw, washer and nut geometry; colors for identification",
+  "pdf": "assembly-guide.pdf",
+  "page_sources": [
+    "01-cover.svg",
+    "02-large-parts.svg",
+    "03-hardware.svg",
+    "04-coupon.svg",
+    "05-print-orientation.svg",
+    "06-base.svg",
+    "07-card-fit.svg",
+    "08-install-board.svg",
+    "09-board-fasteners.svg",
+    "10-blank-fasteners.svg",
+    "11-blank-stack-detail.svg",
+    "12-completed-lid.svg",
+    "13-inspect.svg",
+    "14-close-lid.svg",
+    "15-lid-fasteners.svg",
+    "16-complete.svg"
+  ]
+}

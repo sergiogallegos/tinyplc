@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/adafruit/Adafruit-128x64-Monochrome-OLED-PCB/blob/master/Adafruit%200.96in%20128x64%20OLED%20STEMMA%20QT.brd",
+  "downloaded": "2026-10-24",
+  "sha256": "0f3edce362179e1520a71fe477d631187fbc6f914fc569b8ba39931fe741d617",
+  "outline_mm": [
+    29.21,
+    31.75
+  ],
+  "hole_pitch_mm": [
+    24.13,
+    26.67
+  ],
+  "hole_drill_mm": 2.5,
+  "active_area_mm": [
+    21.744,
+    10.864
+  ],
+  "note": "Envelope includes mounting tabs. Vendor web listing gives smaller height; use the published QT CAD and check received module. Original CAD kept in /tmp for inspection, not redistributed."
+}

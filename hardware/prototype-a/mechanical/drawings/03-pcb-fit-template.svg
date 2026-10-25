@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="210mm" viewBox="0 0 297 210">
+<style>text{font-family:DejaVu Sans,sans-serif;font-size:2.6px;fill:#152431} .line{stroke:#152431;stroke-width:.25;fill:none}.hidden{stroke:#70828d;stroke-width:.2;stroke-dasharray:1.5 1;fill:none}.dim{stroke:#405f73;stroke-width:.18;fill:none}</style>
+<rect width="297" height="210" fill="white"/>
+<rect x="7" y="7" width="283" height="196" rx="0" class="line"/>
+<text x="12" y="15" style="font-size:4.5px">tinyPLC A0 / PCB FIT TEMPLATE / COMPONENT PLACEMENT</text>
+<text x="12" y="21" style="font-size:2.4px">ENGINEERING DRAFT - mm - scale 1:1 at actual-size A4 printing - NOT A PCB FABRICATION RELEASE</text>
+<path d="M 7,186 L 290,186" class="line"/>
+<text x="12" y="193" style="font-size:2.6px">Rev A0 / 2026-10-24 / Sheet 3 of 4 / CAD fit only; physical tolerances unverified</text>
+<text x="12" y="199" style="font-size:2.5px">Check the scale bar. Print at 100%; disable fit-to-page. Native FreeCAD and parameters govern geometry.</text>
+<path d="M 175,196 L 275,196" class="line"/>
+<path d="M 175,194 L 175,198" class="line"/>
+<path d="M 275,194 L 275,198" class="line"/>
+<text x="215" y="193" style="font-size:2.6px">100 mm</text>
+<rect x="25" y="47" width="120" height="90" rx="0" class="line"/>
+<circle cx="30" cy="52" r="1.6" class="line"/>
+<path d="M 27,52 L 33,52" class="dim"/>
+<path d="M 30,49 L 30,55" class="dim"/>
+<circle cx="140" cy="52" r="1.6" class="line"/>
+<path d="M 137,52 L 143,52" class="dim"/>
+<path d="M 140,49 L 140,55" class="dim"/>
+<circle cx="30" cy="132" r="1.6" class="line"/>
+<path d="M 27,132 L 33,132" class="dim"/>
+<path d="M 30,129 L 30,135" class="dim"/>
+<circle cx="140" cy="132" r="1.6" class="line"/>
+<path d="M 137,132 L 143,132" class="dim"/>
+<path d="M 140,129 L 140,135" class="dim"/>
+<rect x="116.44000000000001" y="124.8" width="10.2" height="9.8" rx="0" class="line"/>
+<text x="118.14" y="130.9" style="font-size:2.3px">J1</text>
+<rect x="80" y="85" width="10" height="10" rx="0" class="line"/>
+<text x="82" y="91" style="font-size:2.6px">U1</text>
+<rect x="35.36" y="48.8" width="10.2" height="9.8" rx="0" class="line"/>
+<text x="37.06" y="54.9" style="font-size:2.3px">J5</text>
+<rect x="49.36" y="48.8" width="10.2" height="9.8" rx="0" class="line"/>
+<text x="51.06" y="54.9" style="font-size:2.3px">J6</text>
+<rect x="65.36000000000001" y="48.8" width="10.2" height="9.8" rx="0" class="line"/>
+<text x="67.06" y="54.9" style="font-size:2.3px">J7</text>
+<rect x="81.36000000000001" y="48.8" width="10.2" height="9.8" rx="0" class="line"/>
+<text x="83.06" y="54.9" style="font-size:2.3px">J8</text>
+<rect x="34.44" y="124.8" width="10.2" height="9.8" rx="0" class="line"/>
+<text x="36.14" y="130.9" style="font-size:2.3px">J9</text>
+<rect x="50.44" y="124.8" width="10.2" height="9.8" rx="0" class="line"/>
+<text x="52.14" y="130.9" style="font-size:2.3px">J10</text>
+<rect x="66.44" y="124.8" width="10.2" height="9.8" rx="0" class="line"/>
+<text x="68.13999999999999" y="130.9" style="font-size:2.3px">J11</text>
+<rect x="82.44" y="124.8" width="10.2" height="9.8" rx="0" class="line"/>
+<text x="84.13999999999999" y="130.9" style="font-size:2.3px">J12</text>
+<rect x="137.3" y="85.4" width="7.4" height="9.2" rx="0" class="line"/>
+<text x="131" y="83" style="font-size:2.6px">USB</text>
+<path d="M 25,40 L 145,40" class="dim"/>
+<path d="M 25,38 L 25,42" class="dim"/>
+<path d="M 145,38 L 145,42" class="dim"/>
+<text x="80.0" y="38.5" style="font-size:2.6px">120</text>
+<path d="M 15,47 L 15,137" class="dim"/>
+<path d="M 13,47 L 17,47" class="dim"/>
+<path d="M 13,137 L 17,137" class="dim"/>
+<text x="16.5" y="92.0" style="font-size:2.6px">90</text>
+<path d="M 30,145 L 140,145" class="dim"/>
+<path d="M 30,143 L 30,147" class="dim"/>
+<path d="M 140,143 L 140,147" class="dim"/>
+<text x="80.0" y="143.5" style="font-size:2.6px">110 hole pitch</text>
+<path d="M 153,52 L 153,132" class="dim"/>
+<path d="M 151,52 L 155,52" class="dim"/>
+<path d="M 151,132 L 155,132" class="dim"/>
+<text x="154.5" y="92.0" style="font-size:2.6px">80</text>
+<text x="170" y="47" style="font-size:2.6px">Board: 120 x 90 x 1.6</text>
+<text x="170" y="54" style="font-size:2.6px">Mounting holes: 4 x dia 3.2 NPTH</text>
+<text x="170" y="61" style="font-size:2.6px">Centers relative to board datum:</text>
+<text x="170" y="68" style="font-size:2.6px">(5,5), (115,5), (5,85), (115,85)</text>
+<text x="170" y="75" style="font-size:2.6px">DI edge = Y=0 (top of this view)</text>
+<text x="170" y="82" style="font-size:2.6px">Q/power edge = Y=90 (bottom)</text>
+<text x="170" y="89" style="font-size:2.6px">J5 DI1 / J6 DI2 / J7 DI3 / J8 DI4</text>
+<text x="170" y="96" style="font-size:2.6px">J9 Q1 / J10 Q2 / J11 Q3 / J12 Q4</text>
+<text x="170" y="103" style="font-size:2.6px">J1 power / J13 USB-C</text>
+<text x="170" y="110" style="font-size:2.6px">Board-to-case offset: +6,+6</text>
+<text x="170" y="117" style="font-size:2.6px">Template can be cut from card.</text>
+<text x="170" y="124" style="font-size:2.6px">THIS IS NOT A COPPER/PAD ARTWORK.</text>
+<text x="25" y="163" style="font-size:2.6px">TOP VIEW - label side up. A0 footprint placements are provisional; use KiCad for all pads and pin numbers.</text>
+<text x="25" y="171" style="font-size:2.6px">The mounting-hole and terminal envelope template is for mechanical fit only. The electronic PCB is unrouted.</text>
+</svg>

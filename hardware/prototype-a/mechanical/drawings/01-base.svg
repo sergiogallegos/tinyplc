@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="210mm" viewBox="0 0 297 210">
+<style>text{font-family:DejaVu Sans,sans-serif;font-size:2.6px;fill:#152431} .line{stroke:#152431;stroke-width:.25;fill:none}.hidden{stroke:#70828d;stroke-width:.2;stroke-dasharray:1.5 1;fill:none}.dim{stroke:#405f73;stroke-width:.18;fill:none}</style>
+<rect width="297" height="210" fill="white"/>
+<rect x="7" y="7" width="283" height="196" rx="0" class="line"/>
+<text x="12" y="15" style="font-size:4.5px">tinyPLC A0 / BASE / TOP AND SIDE VIEWS</text>
+<text x="12" y="21" style="font-size:2.4px">ENGINEERING DRAFT - mm - scale 1:1 at actual-size A4 printing - NOT A PCB FABRICATION RELEASE</text>
+<path d="M 7,186 L 290,186" class="line"/>
+<text x="12" y="193" style="font-size:2.6px">Rev A0 / 2026-10-24 / Sheet 1 of 4 / CAD fit only; physical tolerances unverified</text>
+<text x="12" y="199" style="font-size:2.5px">Check the scale bar. Print at 100%; disable fit-to-page. Native FreeCAD and parameters govern geometry.</text>
+<path d="M 175,196 L 275,196" class="line"/>
+<path d="M 175,194 L 175,198" class="line"/>
+<path d="M 275,194 L 275,198" class="line"/>
+<text x="215" y="193" style="font-size:2.6px">100 mm</text>
+<rect x="23" y="43" width="132" height="102" rx="0" class="line"/>
+<rect x="25.4" y="45.4" width="127.2" height="97.2" rx="0" class="hidden"/>
+<circle cx="34" cy="54" r="3.5" class="line"/>
+<circle cx="34" cy="54" r="1.25" class="line"/>
+<circle cx="144" cy="54" r="3.5" class="line"/>
+<circle cx="144" cy="54" r="1.25" class="line"/>
+<circle cx="34" cy="134" r="3.5" class="line"/>
+<circle cx="34" cy="134" r="1.25" class="line"/>
+<circle cx="144" cy="134" r="3.5" class="line"/>
+<circle cx="144" cy="134" r="1.25" class="line"/>
+<circle cx="26.5" cy="46.5" r="3.1" class="line"/>
+<circle cx="26.5" cy="46.5" r="1.25" class="line"/>
+<circle cx="151.5" cy="46.5" r="3.1" class="line"/>
+<circle cx="151.5" cy="46.5" r="1.25" class="line"/>
+<circle cx="26.5" cy="141.5" r="3.1" class="line"/>
+<circle cx="26.5" cy="141.5" r="1.25" class="line"/>
+<circle cx="151.5" cy="141.5" r="3.1" class="line"/>
+<circle cx="151.5" cy="141.5" r="1.25" class="line"/>
+<rect x="119.54" y="142.6" width="12" height="2.4" rx="0" class="hidden"/>
+<rect x="38.46" y="43" width="12" height="2.4" rx="0" class="hidden"/>
+<rect x="52.46" y="43" width="12" height="2.4" rx="0" class="hidden"/>
+<rect x="68.46000000000001" y="43" width="12" height="2.4" rx="0" class="hidden"/>
+<rect x="84.46" y="43" width="12" height="2.4" rx="0" class="hidden"/>
+<rect x="37.54" y="142.6" width="12" height="2.4" rx="0" class="hidden"/>
+<rect x="53.54" y="142.6" width="12" height="2.4" rx="0" class="hidden"/>
+<rect x="69.53999999999999" y="142.6" width="12" height="2.4" rx="0" class="hidden"/>
+<rect x="85.54" y="142.6" width="12" height="2.4" rx="0" class="hidden"/>
+<rect x="152.6" y="82.5" width="2.4" height="19" rx="0" class="hidden"/>
+<path d="M 23,36 L 155,36" class="dim"/>
+<path d="M 23,34 L 23,38" class="dim"/>
+<path d="M 155,34 L 155,38" class="dim"/>
+<text x="84.0" y="34.5" style="font-size:2.6px">132</text>
+<path d="M 14,43 L 14,145" class="dim"/>
+<path d="M 12,43 L 16,43" class="dim"/>
+<path d="M 12,145 L 16,145" class="dim"/>
+<text x="15.5" y="94.0" style="font-size:2.6px">102</text>
+<text x="25" y="151" style="font-size:2.6px">TOP: XY datum = outside corner at left/top; Z datum = outside floor</text>
+<text x="170" y="40" style="font-size:3.2px">SIDE / SECTION HEIGHTS</text>
+<rect x="170" y="53" width="102" height="30" rx="0" class="line"/>
+<path d="M 170,80.6 L 272,80.6" class="hidden"/>
+<path d="M 170,75 L 272,75" class="hidden"/>
+<path d="M 170,73.4 L 272,73.4" class="hidden"/>
+<path d="M 279,53 L 279,83" class="dim"/>
+<path d="M 277,53 L 281,53" class="dim"/>
+<path d="M 277,83 L 281,83" class="dim"/>
+<text x="280.5" y="68.0" style="font-size:2.6px">30</text>
+<text x="170" y="94" style="font-size:2.6px">Floor: 2.4; walls: 2.4</text>
+<text x="170" y="100" style="font-size:2.6px">PCB underside Z=8; top Z=9.6</text>
+<text x="170" y="106" style="font-size:2.6px">PCB support: OD 7; pilot 2.5</text>
+<text x="170" y="112" style="font-size:2.6px">Support centers: (11,11), (121,11),</text>
+<text x="170" y="118" style="font-size:2.6px">(11,91), (121,91)</text>
+<text x="170" y="124" style="font-size:2.6px">Lid towers: OD 6.2; pilot 2.5</text>
+<text x="170" y="130" style="font-size:2.6px">Terminal windows: 12 W x 16 H</text>
+<text x="170" y="136" style="font-size:2.6px">Window bottom Z=9; top Z=25</text>
+<text x="170" y="142" style="font-size:2.6px">USB: 19 W x 10 H; bottom Z=7</text>
+<text x="170" y="148" style="font-size:2.6px">USB Y span: 39.5 to 58.5</text>
+<text x="170" y="154" style="font-size:2.6px">Pilot sizes require printer coupon.</text>
+<text x="23" y="164" style="font-size:2.6px">CUTOUTS: 4 DI windows on Y=0 edge; 4 Q + power windows on Y=102 edge</text>
+<text x="23" y="171" style="font-size:2.6px">See component placement/template for terminal centers. M3 pilots are tapped, not heat-set-insert sockets.</text>
+</svg>

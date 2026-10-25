@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="210mm" viewBox="0 0 297 210">
+<style>text{font-family:DejaVu Sans,sans-serif;font-size:2.6px;fill:#152431} .line{stroke:#152431;stroke-width:.25;fill:none}.hidden{stroke:#70828d;stroke-width:.2;stroke-dasharray:1.5 1;fill:none}.dim{stroke:#405f73;stroke-width:.18;fill:none}</style>
+<rect width="297" height="210" fill="white"/>
+<rect x="7" y="7" width="283" height="196" rx="0" class="line"/>
+<text x="12" y="15" style="font-size:4.5px">tinyPLC A0 / PRINT COUPON AND ASSEMBLY STACK</text>
+<text x="12" y="21" style="font-size:2.4px">ENGINEERING DRAFT - mm - scale 1:1 at actual-size A4 printing - NOT A PCB FABRICATION RELEASE</text>
+<path d="M 7,186 L 290,186" class="line"/>
+<text x="12" y="193" style="font-size:2.6px">Rev A0 / 2026-10-24 / Sheet 4 of 4 / CAD fit only; physical tolerances unverified</text>
+<text x="12" y="199" style="font-size:2.5px">Check the scale bar. Print at 100%; disable fit-to-page. Native FreeCAD and parameters govern geometry.</text>
+<path d="M 175,196 L 275,196" class="line"/>
+<path d="M 175,194 L 175,198" class="line"/>
+<path d="M 275,194 L 275,198" class="line"/>
+<text x="215" y="193" style="font-size:2.6px">100 mm</text>
+<rect x="25" y="47" width="50" height="24" rx="0" class="line"/>
+<circle cx="32" cy="59" r="1.25" class="line"/>
+<text x="28" y="78" style="font-size:2.6px">2.5 pilot</text>
+<circle cx="49" cy="59" r="1.6" class="line"/>
+<text x="45" y="78" style="font-size:2.6px">3.2</text>
+<circle cx="66" cy="59" r="1.7" class="line"/>
+<text x="62" y="78" style="font-size:2.6px">3.4</text>
+<text x="25" y="40" style="font-size:3.2px">50 x 24 x 5 test coupon</text>
+<text x="25" y="88" style="font-size:2.6px">Tap pilot and try actual screws before the full print.</text>
+<text x="25" y="95" style="font-size:2.6px">Measure hole size, elephant foot, layer bonding and flatness.</text>
+<text x="173" y="40" style="font-size:3px">STACK / assembled Z coordinates:</text>
+<text x="173" y="48" style="font-size:2.6px">0.0  outside base bottom</text>
+<text x="173" y="56" style="font-size:2.6px">2.4  inside floor</text>
+<text x="173" y="64" style="font-size:2.6px">8.0  PCB underside</text>
+<text x="173" y="72" style="font-size:2.6px">9.6  PCB component side</text>
+<text x="173" y="80" style="font-size:2.6px">23.4 terminal top (nominal envelope)</text>
+<text x="173" y="88" style="font-size:2.6px">28.2 underside of lid locating lip</text>
+<text x="173" y="96" style="font-size:2.6px">30.0 lid underside / tower top</text>
+<text x="173" y="104" style="font-size:2.6px">32.4 lid outside face</text>
+<text x="173" y="112" style="font-size:2.6px">34.4 blank outside face</text>
+<text x="173" y="120" style="font-size:2.6px">Screw heads may project further.</text>
+<text x="25" y="120" style="font-size:3.2px">PRINT ORIENTATION</text>
+<text x="25" y="129" style="font-size:2.6px">base-print.stl: floor down, open side up</text>
+<text x="25" y="135" style="font-size:2.6px">lid-print.stl: outside face down, lip up</text>
+<text x="25" y="141" style="font-size:2.6px">display-blank-print.stl: flat</text>
+<text x="25" y="147" style="font-size:2.6px">fit-coupon-print.stl: flat</text>
+<text x="25" y="153" style="font-size:2.6px">Import STL units as mm; do not rescale.</text>
+<text x="25" y="159" style="font-size:2.6px">0.4 nozzle / 0.2 layer is a starting proposal.</text>
+<text x="25" y="165" style="font-size:2.6px">Check bridges/supports in the slicer first.</text>
+<text x="25" y="171" style="font-size:2.6px">Material and settings are not physically qualified.</text>
+</svg>

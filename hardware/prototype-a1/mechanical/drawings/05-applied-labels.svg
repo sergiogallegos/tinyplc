@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297mm" height="210mm" viewBox="0 0 297 210">
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#236d76"/></marker></defs>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#202c34}</style>
+<rect width="297" height="210" fill="white"/>
+<text x="14" y="13" font-size="2.9" style="fill:#236d76" font-weight="700" text-anchor="start" transform="rotate(0 14 13)">CONSTRUCTION / A1 / mm / ACTUAL SIZE A4 / CAD FIT ONLY</text>
+<text x="14" y="28" font-size="6.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 14 28)">05  Applied label master / front-view orientation</text>
+<path d="M14,198 L283,198" fill="none" stroke="#d8e1e3" stroke-width="0.3" stroke-linecap="round"/>
+<text x="14" y="204" font-size="2.3" style="fill:#586872" font-weight="400" text-anchor="start" transform="rotate(0 14 204)">A1 prototype • CAD renders • not a fabrication release • 2026-10-24</text>
+<text x="283" y="204" font-size="2.8" style="fill:#586872" font-weight="400" text-anchor="end" transform="rotate(0 283 204)">05</text>
+<path d="M180,187 L280,187" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<path d="M180,185 L180,189" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<path d="M280,185 L280,189" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<text x="230" y="183" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(0 230 183)">100 mm — verify printed scale</text>
+<rect x="25" y="46" width="140" height="110" rx="7" fill="none" stroke="#586872" stroke-width=".3"/>
+<text x="95" y="72" font-size="4.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 95 72)">tinyPLC</text>
+<text x="95" y="76.5" font-size="1.25" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 95 76.5)">A1 / RESEARCH CONTROLLER</text>
+<text x="50.46" y="149" font-size="2.1" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 50.46 149)">DI1</text>
+<text x="50.46" y="152.3" font-size="1.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 50.46 152.3)">0V  +</text>
+<text x="64.46000000000001" y="149" font-size="2.1" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 64.46000000000001 149)">DI2</text>
+<text x="64.46000000000001" y="152.3" font-size="1.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 64.46000000000001 152.3)">0V  +</text>
+<text x="80.46000000000001" y="149" font-size="2.1" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 80.46000000000001 149)">DI3</text>
+<text x="80.46000000000001" y="152.3" font-size="1.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 80.46000000000001 152.3)">0V  +</text>
+<text x="96.46" y="149" font-size="2.1" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 96.46 149)">DI4</text>
+<text x="96.46" y="152.3" font-size="1.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 96.46 152.3)">0V  +</text>
+<text x="49.54" y="53" font-size="2.1" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 49.54 53)">Q1</text>
+<text x="49.54" y="49.7" font-size="1.25" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 49.54 49.7)">Q  +24</text>
+<text x="65.53999999999999" y="53" font-size="2.1" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 65.53999999999999 53)">Q2</text>
+<text x="65.53999999999999" y="49.7" font-size="1.25" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 65.53999999999999 49.7)">Q  +24</text>
+<text x="81.53999999999999" y="53" font-size="2.1" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 81.53999999999999 53)">Q3</text>
+<text x="81.53999999999999" y="49.7" font-size="1.25" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 81.53999999999999 49.7)">Q  +24</text>
+<text x="97.54" y="53" font-size="2.1" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 97.54 53)">Q4</text>
+<text x="97.54" y="49.7" font-size="1.25" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 97.54 49.7)">Q  +24</text>
+<text x="131.54000000000002" y="55" font-size="2.4" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 131.54000000000002 55)">24 V DC</text>
+<text x="129" y="51" font-size="2" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 129 51)">+</text>
+<text x="134.07999999999998" y="51" font-size="2" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(180 134.07999999999998 51)">−</text>
+<text x="179" y="51.0" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 51.0)">Print at actual size on a suitable decal/transfer medium.</text>
+<text x="179" y="55.95" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 55.95)">Outline is an alignment reference, not part of the label.</text>
+<text x="179" y="84.0" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 84.0)">Separate side labels below. No protective-earth symbol: 0</text>
+<text x="179" y="88.95" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 88.95)">V/GND is the shared DC return, not PE.</text>
+<text x="179" y="124" font-size="2.0" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 124)">24 V DC INPUT</text>
+<text x="179" y="130" font-size="1.7" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 130)">− 0V/GND  |  +24V</text>
+<text x="179" y="143" font-size="1.8" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 143)">USB / SERVICE</text>
+<text x="179" y="154" font-size="1.7" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 154)">POWER</text>
+<text x="25" y="173.0" font-size="2.8" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 25 173.0)">The lens mask is a separate 64 × 32 mm SVG. Mask artwork is a front view: reverse/mirror for</text>
+<text x="25" y="177.2" font-size="2.8" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 25 177.2)">reverse-side printing, keeping viewing windows clear.</text>
+</svg>

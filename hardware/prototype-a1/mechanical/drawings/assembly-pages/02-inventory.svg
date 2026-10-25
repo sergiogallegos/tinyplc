@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297mm" height="210mm" viewBox="0 0 297 210">
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#236d76"/></marker></defs>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#202c34}</style>
+<rect width="297" height="210" fill="white"/>
+<text x="14" y="13" font-size="2.9" style="fill:#236d76" font-weight="700" text-anchor="start" transform="rotate(0 14 13)">INVENTORY / USE THE MATCHING A1 BOM</text>
+<text x="14" y="28" font-size="6.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 14 28)">Lay out the parts.</text>
+<path d="M14,198 L283,198" fill="none" stroke="#d8e1e3" stroke-width="0.3" stroke-linecap="round"/>
+<text x="14" y="204" font-size="2.3" style="fill:#586872" font-weight="400" text-anchor="start" transform="rotate(0 14 204)">A1 prototype • CAD renders • not a fabrication release • 2026-10-24</text>
+<text x="283" y="204" font-size="2.8" style="fill:#586872" font-weight="400" text-anchor="end" transform="rotate(0 283 204)">02</text>
+<rect x="14" y="44" width="83" height="58" rx="2" fill="#edf2f2"/>
+<text x="18" y="53" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 18 53)">Printed parts</text>
+<text x="18" y="61.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 18 61.0)">1 base + 1 lid + 1 fit coupon. Print STLs</text>
+<text x="18" y="65.5" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 18 65.5)">already have bed orientation.</text>
+<rect x="107" y="44" width="83" height="58" rx="2" fill="#edf2f2"/>
+<text x="111" y="53" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 111 53)">Board retention</text>
+<text x="111" y="61.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 111 61.0)">4 × M3 × 6 screws; 4 × M3 washers, nominal 0.5</text>
+<text x="111" y="65.5" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 111 65.5)">mm thick.</text>
+<rect x="200" y="44" width="83" height="58" rx="2" fill="#edf2f2"/>
+<text x="204" y="53" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 204 53)">Case retention</text>
+<text x="204" y="61.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 204 61.0)">4 × M3 × 10 screws from below; 4 adhesive feet,</text>
+<text x="204" y="65.5" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 204 65.5)">nominal 8 × 2 mm.</text>
+<rect x="14" y="109" width="83" height="58" rx="2" fill="#edf2f2"/>
+<text x="18" y="118" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 18 118)">Status optics</text>
+<text x="18" y="126.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 18 126.0)">1 lens, 64 × 32 × 1; reverse black mask; 2 clear</text>
+<text x="18" y="130.5" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 18 130.5)">Ø3 × 24.6 rods.</text>
+<rect x="107" y="109" width="83" height="58" rx="2" fill="#edf2f2"/>
+<text x="111" y="118" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 111 118)">OLED module</text>
+<text x="111" y="126.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 111 126.0)">1 Adafruit 326 QT; 4 × M2 × 6 screws; 4 × M2</text>
+<text x="111" y="130.5" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 111 130.5)">washers; 1 four-wire harness.</text>
+<rect x="200" y="109" width="83" height="58" rx="2" fill="#edf2f2"/>
+<text x="204" y="118" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 204 118)">Power switch</text>
+<text x="204" y="126.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 204 126.0)">1 C&amp;K D102J12S215HQA candidate; 2 insulated</text>
+<text x="204" y="130.5" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 204 130.5)">leads with matching quick-connects.</text>
+<text x="14" y="185.0" font-size="3.2" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 14 185.0)">Prepare a ruler, suitable hand screwdriver, M3/M2 taps, crimp tool and multimeter. Try actual hardware on the coupon before printing the whole case.</text>
+</svg>

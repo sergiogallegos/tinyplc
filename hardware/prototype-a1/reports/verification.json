@@ -1,0 +1,18 @@
+{
+  "checked_utc": "2026-10-25T00:57:40.960526+00:00",
+  "kicad": "10.0.7",
+  "footprints": 99,
+  "named_signal_and_power_nets": 61,
+  "erc_violations": 0,
+  "schematic_parity_issues": 0,
+  "drc_errors": 0,
+  "drc_warnings": {},
+  "unrouted_connections": 0,
+  "tracks": 830,
+  "vias": 80,
+  "minimum_track_width_mm": 0.2,
+  "bom_rows": 91,
+  "independent_mcu_and_power_pin_contract": "passed",
+  "mechanical_checks": "valid solids, closed print meshes, zero reported intersections",
+  "status": "routed prototype candidate; independent fabrication review and physical testing pending"
+}

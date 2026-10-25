@@ -1,0 +1,9 @@
+{
+  "revision": "A0",
+  "status": "engineering draft; unrouted PCB; no fabrication release",
+  "units": "mm",
+  "pcb": {"width": 120, "depth": 90, "thickness": 1.6, "holes": [[5,5],[115,5],[5,85],[115,85]], "hole_diameter": 3.2},
+  "case": {"width": 132, "depth": 102, "base_height": 30, "floor": 2.4, "wall": 2.4, "lid_thickness": 2.4, "pcb_offset": [6,6], "pcb_bottom": 8, "post_diameter": 7, "post_pilot": 2.5, "lid_screw_pilot": 2.5, "fit_gap": 0.3},
+  "display": {"center": [82,51], "window": [30,18], "cover": [46,26], "screw_pitch": 39, "status": "blank cover supplied; display-specific bracket deferred"},
+  "render": {"width": 1500, "height": 1100, "samples": 48}
+}

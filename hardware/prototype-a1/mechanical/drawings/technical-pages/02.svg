@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297"><rect width="210" height="297" fill="white"/><g font-family="sans-serif" fill="#202c34">
+<text x="15" y="13" font-size="3">tinyPLC A1 / TECHNICAL ASSEMBLY / 2 of 2</text>
+<text x="15" y="26.0" font-size="3.5" font-weight="700">Electrical build sequence and A1 changes</text>
+<text x="15" y="35.7" font-size="3" font-weight="400">The A0 detailed procedure remains the reference for the common MCU, power converter, inputs,</text>
+<text x="15" y="40.400000000000006" font-size="3" font-weight="400">outputs, SWD, UART and USB circuits. Use A1 component placements and nets, not the A0</text>
+<text x="15" y="45.1" font-size="3" font-weight="400">manufacturing files. First complete a routed, reviewed release and resolve purchasing</text>
+<text x="15" y="49.800000000000004" font-size="3" font-weight="400">placeholders.</text>
+<text x="15" y="59.5" font-size="3" font-weight="400">For power-only bring-up, populate J1, F1, J17, D1, U2, C1–C3 and D3/R75. Wire and verify SW3</text>
+<text x="15" y="64.2" font-size="3" font-weight="400">before applying the current-limited 24 V source. The original 100 mA power-only limit is a</text>
+<text x="15" y="68.9" font-size="3" font-weight="400">starting test setting, not a final board limit. Measure VIN24, VIN_FUSED, VIN_SWITCHED, V24</text>
+<text x="15" y="73.6" font-size="3" font-weight="400">and +3V3. Switch off immediately if the source current-limits unexpectedly. Check PWR</text>
+<text x="15" y="78.3" font-size="3" font-weight="400">independently of MCU firmware; disconnect the source before adding parts. Do not jumper J17 in</text>
+<text x="15" y="83.0" font-size="3" font-weight="400">the final prototype: that bypasses the requested power switch.</text>
+<text x="15" y="92.7" font-size="3" font-weight="400">After logic, SWD and I/O acceptance, add DS1 separately. Verify supply polarity, the effective</text>
+<text x="15" y="97.4" font-size="3" font-weight="400">I²C pull-ups and selected module address before enabling its driver. Implement the A1 status</text>
+<text x="15" y="102.10000000000001" font-size="3" font-weight="400">ownership and bounded-update policy in the design document; do not relabel the old Nucleo</text>
+<text x="15" y="106.80000000000001" font-size="3" font-weight="400">application LED as a working heartbeat. Check retained power from external I/O, UART, USB or</text>
+<text x="15" y="111.5" font-size="3" font-weight="400">debugger sources before treating the power switch as a convenient bench stop. It is not an</text>
+<text x="15" y="116.2" font-size="3" font-weight="400">emergency-stop or safety disconnect. Applications currently need re-download after reset;</text>
+<text x="15" y="120.9" font-size="3" font-weight="400">persistence remains future software work.</text>
+<text x="15" y="286" font-size="2.5">Routed prototype; physical testing pending. Use matching A1 design, schematic, BOM and illustrated assembly guide.</text></g></svg>

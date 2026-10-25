@@ -1,0 +1,17 @@
+item,quantity,specification,purpose,official_reference,status
+Base print,1,base-print.stl; mm; candidate PETG,Protect and support PCB,https://help.prusa3d.com/article/petg_2059,print-fit prototype only
+Lid print,1,lid-print.stl; mm; candidate PETG,Removable access and display aperture,https://help.prusa3d.com/article/petg_2059,print-fit prototype only
+Display blank print,1,display-blank-print.stl; mm,Close unused display aperture,https://help.prusa3d.com/article/petg_2059,print-fit prototype only
+Fit coupon print,1,fit-coupon-print.stl; mm,Check pilot and clearance holes before full print,https://help.prusa3d.com/article/petg_2059,print first
+PCB mounting screws,4,M3 x 6 pan head; exact supplier SKU pending,Attach PCB to carefully tapped printed pilots,https://media.bossard.com/us-en/-/media/bossard-group/website/documents/white-paper/bossard-whitepaper-fastening-solutions-for-composite-and-plastic-materials-en-04-2021.pdf,verify screw drawing and coupon; not an exact-part datasheet
+PCB washers,4,M3; approximately 0.5 mm thick; exact SKU pending,Spread mounting force and set screw engagement,https://www.bossard.com/,supplier drawing pending
+Lid screws,4,M3 x 8; head OD at most 6 mm; exact SKU pending,Retain lid in tapped printed pilots,https://www.bossard.com/,supplier drawing and engagement check pending
+Blank screws,2,M2.5 x 8 pan head; exact SKU pending,Retain display blank,https://www.bossard.com/,supplier drawing pending
+Blank nuts,2,M2.5; exact SKU pending,Retain removable display blank,https://www.bossard.com/,supplier drawing pending
+Blank washers,2,M2.5; exact SKU pending,Spread force at blank holes,https://www.bossard.com/,supplier drawing pending
+M3 hand tap,1,M3 x 0.5; exact SKU pending,Cut threads in coupon and printed pilots,https://www.bossard.com/,tool selection pending
+Bench supply,1,Regulated 24 V DC with adjustable current limit,Controlled power during bring-up,,equipment selection pending
+SWD programmer,1,STLINK-V3MINIE or existing 3.3 V compatible probe,Flash and recover standalone MCU,https://www.st.com/en/development-tools/stlink-v3minie.html,candidate external equipment
+UART adapter,1,3.3 V signal-level USB-UART; power lead disconnected,Existing engineering connection over USART2,https://ftdichip.com/products/ttl-232r-3v3/,candidate equipment; use individual jumpers for custom J4 pinout
+Test load resistor,4,4.7k ohm at least 0.25 W; exact SKU pending,Initial approximately 5 mA resistive output test,https://industrial.panasonic.com/,external test equipment not PCB BOM
+Insulated hookup wire,1 set,Wire size and strip length per selected terminal datasheet,Bench input and output wiring,https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721,select after electrical and terminal review

@@ -1,0 +1,3276 @@
+[
+  {
+    "ref": "J1",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x02",
+    "value": "24V DC: 1=+ 2=0V/GND (-)",
+    "footprint": "tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "nets": {
+      "1": "VIN24",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2"
+    },
+    "xy": [
+      94,
+      83
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "24V DC: 1=+ 2=0V/GND (-)",
+    "mpn": "1715721",
+    "official_document": "https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721",
+    "status": "candidate; verify before purchase",
+    "uuid": "5e39d46e-1a03-5578-86f5-846f89e37d92",
+    "sch": null,
+    "original_footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "schematic_xy": [
+      219.71,
+      49.53
+    ]
+  },
+  {
+    "ref": "F1",
+    "symbol": "tinyplc:Device_Polyfuse",
+    "value": "500mA / 60V",
+    "footprint": "tinyplc:PTC_MF_R050",
+    "nets": {
+      "1": "VIN24",
+      "2": "VIN_FUSED"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      95,
+      67
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "Resettable input fuse; slow overload protection",
+    "mpn": "MF-R050",
+    "official_document": "https://www.bourns.com/docs/product-datasheets/mf-r.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "f5266803-2796-5421-9ea0-be0bf07e862b",
+    "sch": null,
+    "original_footprint": "tinyplc:PTC_MF_R050",
+    "schematic_xy": [
+      276.86,
+      49.53
+    ]
+  },
+  {
+    "ref": "D1",
+    "symbol": "tinyplc:Device_D_Schottky",
+    "value": "SS16",
+    "footprint": "tinyplc:D_SMA",
+    "nets": {
+      "1": "V24",
+      "2": "VIN_SWITCHED"
+    },
+    "pin_names": {
+      "1": "K",
+      "2": "A"
+    },
+    "xy": [
+      85,
+      67
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "Series reverse-polarity diode",
+    "mpn": "SS16",
+    "official_document": "https://www.diodes.com/datasheet/download/ds13003.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "6fe5db23-27bc-5bab-8eb3-2568f33f8c8b",
+    "sch": null,
+    "original_footprint": "Diode_SMD:D_SMA",
+    "schematic_xy": [
+      334.01,
+      49.53
+    ]
+  },
+  {
+    "ref": "U2",
+    "symbol": "tinyplc:tinyplc_TSR_1_2433",
+    "value": "TSR 1-2433",
+    "footprint": "tinyplc:Converter_DCDC_TRACO_TSR-1_THT",
+    "nets": {
+      "1": "V24",
+      "2": "GND",
+      "3": "+3V3"
+    },
+    "pin_names": {
+      "1": "VIN",
+      "2": "GND",
+      "3": "3V3"
+    },
+    "xy": [
+      97,
+      54
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "24 V to 3.3 V switching supply",
+    "mpn": "TSR 1-2433",
+    "official_document": "https://www.tracopower.com/tsr1-datasheet",
+    "status": "candidate; verify before purchase",
+    "uuid": "30856b78-cc96-5c9e-84c8-c1ee33f72ee2",
+    "sch": null,
+    "original_footprint": "Converter_DCDC:Converter_DCDC_TRACO_TSR-1_THT",
+    "schematic_xy": [
+      219.71,
+      87.63
+    ]
+  },
+  {
+    "ref": "C1",
+    "symbol": "tinyplc:Device_C_Polarized",
+    "value": "22uF / 50V",
+    "footprint": "tinyplc:CP_Radial_D5.0mm_P2.00mm",
+    "nets": {
+      "1": "V24",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      108,
+      64
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "Input reservoir; polarity matters",
+    "mpn": "Panasonic EEU-FR1H220",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1259.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "e777f777-0ee0-5ca0-9e6a-1abd52efbdf5",
+    "sch": null,
+    "original_footprint": "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm",
+    "schematic_xy": [
+      276.86,
+      87.63
+    ]
+  },
+  {
+    "ref": "C2",
+    "symbol": "tinyplc:Device_C",
+    "value": "100nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "V24",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      89,
+      53
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "High-frequency input bypass",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "bd831280-010e-578c-a3d6-7a6ab5765188",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      334.01,
+      87.63
+    ]
+  },
+  {
+    "ref": "C3",
+    "symbol": "tinyplc:Device_C",
+    "value": "10uF / 10V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      104,
+      47
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "3V3 reservoir",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "e6084717-31da-5215-82d1-818be05c58e8",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      219.71,
+      125.73
+    ]
+  },
+  {
+    "ref": "U1",
+    "symbol": "tinyplc:MCU_ST_STM32F4_STM32F446RETx",
+    "value": "STM32F446RET6",
+    "footprint": "tinyplc:LQFP-64_10x10mm_P0.5mm",
+    "nets": {
+      "1": "+3V3",
+      "2": "BTN_N",
+      "3": null,
+      "4": null,
+      "5": "OSC_IN",
+      "6": "OSC_OUT",
+      "7": "NRST",
+      "8": null,
+      "9": null,
+      "10": null,
+      "11": null,
+      "12": "GND",
+      "13": "VDDA",
+      "14": "DI1_N",
+      "15": "DI2_N",
+      "16": "UART_TX",
+      "17": "UART_RX",
+      "18": "GND",
+      "19": "+3V3",
+      "20": "DI3_N",
+      "21": "STATUS_LED",
+      "22": "DI4_N",
+      "23": null,
+      "24": null,
+      "25": null,
+      "26": "DO1",
+      "27": "DO2",
+      "28": "BOOT1",
+      "29": null,
+      "30": "VCAP1",
+      "31": "GND",
+      "32": "+3V3",
+      "33": "ETH_CS_N",
+      "34": "SPI2_SCK",
+      "35": "SPI2_MISO",
+      "36": "SPI2_MOSI",
+      "37": null,
+      "38": null,
+      "39": null,
+      "40": null,
+      "41": "ETH_INT_N",
+      "42": "USB_VBUS_SENSE",
+      "43": "ETH_RST_N",
+      "44": "USB_DM",
+      "45": "USB_DP",
+      "46": "SWDIO",
+      "47": "GND",
+      "48": "+3V3",
+      "49": "SWCLK",
+      "50": null,
+      "51": null,
+      "52": null,
+      "53": null,
+      "54": null,
+      "55": null,
+      "56": null,
+      "57": null,
+      "58": "I2C_SCL",
+      "59": "I2C_SDA",
+      "60": "BOOT0",
+      "61": "DO3",
+      "62": "DO4",
+      "63": "GND",
+      "64": "+3V3"
+    },
+    "pin_names": {
+      "1": "VBAT",
+      "2": "PC13",
+      "3": "PC14",
+      "4": "PC15",
+      "5": "PH0",
+      "6": "PH1",
+      "7": "NRST",
+      "8": "PC0",
+      "9": "PC1",
+      "10": "PC2",
+      "11": "PC3",
+      "12": "VSSA",
+      "13": "VDDA",
+      "14": "PA0",
+      "15": "PA1",
+      "16": "PA2",
+      "17": "PA3",
+      "18": "VSS",
+      "19": "VDD",
+      "20": "PA4",
+      "21": "PA5",
+      "22": "PA6",
+      "23": "PA7",
+      "24": "PC4",
+      "25": "PC5",
+      "26": "PB0",
+      "27": "PB1",
+      "28": "PB2",
+      "29": "PB10",
+      "30": "VCAP_1",
+      "31": "VSS",
+      "32": "VDD",
+      "33": "PB12",
+      "34": "PB13",
+      "35": "PB14",
+      "36": "PB15",
+      "37": "PC6",
+      "38": "PC7",
+      "39": "PC8",
+      "40": "PC9",
+      "41": "PA8",
+      "42": "PA9",
+      "43": "PA10",
+      "44": "PA11",
+      "45": "PA12",
+      "46": "PA13",
+      "47": "VSS",
+      "48": "VDD",
+      "49": "PA14",
+      "50": "PA15",
+      "51": "PC10",
+      "52": "PC11",
+      "53": "PC12",
+      "54": "PD2",
+      "55": "PB3",
+      "56": "PB4",
+      "57": "PB5",
+      "58": "PB6",
+      "59": "PB7",
+      "60": "BOOT0",
+      "61": "PB8",
+      "62": "PB9",
+      "63": "VSS",
+      "64": "VDD"
+    },
+    "xy": [
+      60,
+      43
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "Native ST processor; internal regulator ON",
+    "mpn": "STM32F446RET6",
+    "official_document": "https://www.st.com/resource/en/datasheet/stm32f446re.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "63c1cd86-4409-56f3-90a3-fdd63c955cac",
+    "sch": [
+      92.71,
+      116.84
+    ],
+    "original_footprint": "Package_QFP:LQFP-64_10x10mm_P0.5mm",
+    "schematic_xy": [
+      92.71000000000001,
+      116.84
+    ]
+  },
+  {
+    "ref": "C4",
+    "symbol": "tinyplc:Device_C",
+    "value": "100nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      56.25,
+      34.5
+    ],
+    "angle": 90,
+    "group": "MCU",
+    "purpose": "One local bypass per VDD pin",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "807aa6af-4fa2-510a-9ee8-8f6951508b3e",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      44.45,
+      214.63
+    ]
+  },
+  {
+    "ref": "C5",
+    "symbol": "tinyplc:Device_C",
+    "value": "100nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      57.25,
+      51.7
+    ],
+    "angle": 270,
+    "group": "MCU",
+    "purpose": "One local bypass per VDD pin",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "586cbb13-f6ec-5775-971f-6b3fccf637fc",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      101.6,
+      214.63
+    ]
+  },
+  {
+    "ref": "C6",
+    "symbol": "tinyplc:Device_C",
+    "value": "100nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      66,
+      50.5
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "One local bypass per VDD pin",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "384ce896-2081-5992-b6e2-19245fb757b4",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      158.75,
+      214.63
+    ]
+  },
+  {
+    "ref": "C7",
+    "symbol": "tinyplc:Device_C",
+    "value": "100nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      68,
+      35
+    ],
+    "angle": 90,
+    "group": "MCU",
+    "purpose": "One local bypass per VDD pin",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "dbefbb3a-42c8-5060-8205-a4e59f69ae33",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      44.45,
+      252.73
+    ]
+  },
+  {
+    "ref": "C8",
+    "symbol": "tinyplc:Device_C",
+    "value": "4.7uF / 10V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "VCAP1",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      62.75,
+      52
+    ],
+    "angle": 270,
+    "group": "MCU",
+    "purpose": "Single VCAP package requires 4.7uF low ESR; never a power output",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "b45ffffd-6507-5a4a-b5ad-968520a011c7",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      101.6,
+      252.73
+    ]
+  },
+  {
+    "ref": "C9",
+    "symbol": "tinyplc:Device_C",
+    "value": "4.7uF / 10V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      51,
+      32
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "MCU local bulk capacitance",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "e7d5b666-86b1-5c76-8fba-b4b481ef4a0e",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      158.75,
+      252.73
+    ]
+  },
+  {
+    "ref": "R1",
+    "symbol": "tinyplc:Device_R",
+    "value": "22",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "VDDA"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      46,
+      51
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "Analog supply RC filter; verify VDDA drop",
+    "mpn": "ERJ-6ENF22R0V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "ef96d883-8e69-587e-af94-1ee76a0b74b9",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      44.45,
+      290.83
+    ]
+  },
+  {
+    "ref": "C10",
+    "symbol": "tinyplc:Device_C",
+    "value": "100nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "VDDA",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      51,
+      45.8
+    ],
+    "angle": 180,
+    "group": "MCU",
+    "purpose": "VDDA high-frequency bypass",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "7f920bb0-1de5-5b38-8749-f8fd20fe5534",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      101.6,
+      290.83
+    ]
+  },
+  {
+    "ref": "C11",
+    "symbol": "tinyplc:Device_C",
+    "value": "1uF / 10V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "VDDA",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      46,
+      48
+    ],
+    "angle": 180,
+    "group": "MCU",
+    "purpose": "VDDA low-frequency bypass",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "04a7bf6f-3d79-5226-8874-492f359d0e2b",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      158.75,
+      290.83
+    ]
+  },
+  {
+    "ref": "R2",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "NRST",
+      "2": "+3V3"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      46,
+      36.5
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "Reset pull-up",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "b9a7c3ca-9729-53fe-b40e-ea56e5d168c1",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      44.45,
+      328.93
+    ]
+  },
+  {
+    "ref": "C12",
+    "symbol": "tinyplc:Device_C",
+    "value": "100nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "NRST",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      50,
+      47.8
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "Reset noise filter",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "971dbce2-4e38-50d6-b1d4-586140386029",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      101.6,
+      328.93
+    ]
+  },
+  {
+    "ref": "R3",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "BOOT0",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      74,
+      34
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "Normal boot from user flash",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "df63eb70-5482-5000-9a59-4f5ca12f9023",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      158.75,
+      328.93
+    ]
+  },
+  {
+    "ref": "R4",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "BOOT1",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      74,
+      46
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "Bootloader mode selection pull-down",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "a5fa0c50-d13e-5b5a-a8f8-3a253ca15c77",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      44.45,
+      367.03000000000003
+    ]
+  },
+  {
+    "ref": "J2",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x03",
+    "value": "BOOT: 1=3V3 2=BOOT0 3=GND",
+    "footprint": "tinyplc:PinHeader_1x03_P2.54mm_Vertical",
+    "nets": {
+      "1": "+3V3",
+      "2": "BOOT0",
+      "3": "GND"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2",
+      "3": "Pin_3"
+    },
+    "xy": [
+      78,
+      30
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "Momentary shunt 1-2 only for ROM recovery",
+    "mpn": "Samtec TSW-103-07-G-S",
+    "official_document": "https://www.samtec.com/products/tsw",
+    "status": "candidate; verify before purchase",
+    "uuid": "1c8069d9-e5a9-5b2c-8004-0ab91b5159f4",
+    "sch": null,
+    "original_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+    "schematic_xy": [
+      101.6,
+      367.03000000000003
+    ]
+  },
+  {
+    "ref": "J3",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x06",
+    "value": "SWD: 3V3 GND DIO CLK NRST SWO",
+    "footprint": "tinyplc:PinHeader_1x06_P2.54mm_Vertical",
+    "nets": {
+      "1": "+3V3",
+      "2": "GND",
+      "3": "SWDIO",
+      "4": "SWCLK",
+      "5": "NRST",
+      "6": null
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2",
+      "3": "Pin_3",
+      "4": "Pin_4",
+      "5": "Pin_5",
+      "6": "Pin_6"
+    },
+    "xy": [
+      88,
+      24
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "Custom 2.54mm SWD header; pin 6 unconnected",
+    "mpn": "Samtec TSW-106-07-G-S",
+    "official_document": "https://www.samtec.com/products/tsw",
+    "status": "candidate; verify before purchase",
+    "uuid": "663c1b3a-ffe5-54a5-ad24-d9c0c9cea7f1",
+    "sch": null,
+    "original_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical",
+    "schematic_xy": [
+      158.75,
+      367.03000000000003
+    ]
+  },
+  {
+    "ref": "J4",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x03",
+    "value": "UART: GND TX RX",
+    "footprint": "tinyplc:PinHeader_1x03_P2.54mm_Vertical",
+    "nets": {
+      "1": "GND",
+      "2": "UART_TX",
+      "3": "UART_RX"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2",
+      "3": "Pin_3"
+    },
+    "xy": [
+      102,
+      30
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "3.3V UART recovery and existing engineering transport",
+    "mpn": "Samtec TSW-103-07-G-S",
+    "official_document": "https://www.samtec.com/products/tsw",
+    "status": "candidate; verify before purchase",
+    "uuid": "de0b2ce2-0575-5c80-afbb-3992b7d0a4b5",
+    "sch": null,
+    "original_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+    "schematic_xy": [
+      44.45,
+      405.13
+    ]
+  },
+  {
+    "ref": "Y1",
+    "symbol": "tinyplc:Device_Crystal",
+    "value": "8MHz CL18pF",
+    "footprint": "tinyplc:Crystal_SMD_5032-2Pin_5.0x3.2mm",
+    "nets": {
+      "1": "OSC_IN",
+      "2": "OSC_OUT"
+    },
+    "pin_names": {
+      "1": "1",
+      "2": "2"
+    },
+    "xy": [
+      50,
+      41.5
+    ],
+    "angle": 270,
+    "group": "MCU",
+    "purpose": "Independent HSE; Nucleo ST-LINK clock is absent",
+    "mpn": "ABM3-8.000MHZ-B2-T",
+    "official_document": "https://abracon.com/Resonators/abm3.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "11415f95-cdec-5fd8-9d1d-2cc98868f304",
+    "sch": null,
+    "original_footprint": "Crystal:Crystal_SMD_5032-2Pin_5.0x3.2mm",
+    "schematic_xy": [
+      101.6,
+      405.13
+    ]
+  },
+  {
+    "ref": "C13",
+    "symbol": "tinyplc:Device_C",
+    "value": "27pF C0G / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "OSC_IN",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      46,
+      39.65
+    ],
+    "angle": 180,
+    "group": "MCU",
+    "purpose": "Provisional crystal loading; tune using parasitics",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "0036c3f8-0643-54d6-b3eb-0b2b7bd66c7d",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      158.75,
+      405.13
+    ]
+  },
+  {
+    "ref": "C14",
+    "symbol": "tinyplc:Device_C",
+    "value": "27pF C0G / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "OSC_OUT",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      46,
+      43.35
+    ],
+    "angle": 180,
+    "group": "MCU",
+    "purpose": "Provisional crystal loading; tune using parasitics",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "3c546b8c-cf74-5299-bd28-61274456e018",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      44.45,
+      443.23
+    ]
+  },
+  {
+    "ref": "SW1",
+    "symbol": "tinyplc:Switch_SW_Push",
+    "value": "RESET",
+    "footprint": "tinyplc:SW_PUSH_6mm",
+    "nets": {
+      "1": "NRST",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "1",
+      "2": "2"
+    },
+    "xy": [
+      80,
+      15
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "Reset button under service lid",
+    "mpn": "Omron B3F-1000",
+    "official_document": "https://components.omron.com/us-en/datasheet_pdf/A070-E1.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "08bef2e8-8ab7-58f9-9b85-ead8414b4725",
+    "sch": null,
+    "original_footprint": "Button_Switch_THT:SW_PUSH_6mm",
+    "schematic_xy": [
+      101.6,
+      443.23
+    ]
+  },
+  {
+    "ref": "SW2",
+    "symbol": "tinyplc:Switch_SW_Push",
+    "value": "USER",
+    "footprint": "tinyplc:SW_PUSH_6mm",
+    "nets": {
+      "1": "BTN_N",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "1",
+      "2": "2"
+    },
+    "xy": [
+      94,
+      15
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "Active-low user input under service lid",
+    "mpn": "Omron B3F-1000",
+    "official_document": "https://components.omron.com/us-en/datasheet_pdf/A070-E1.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "a207e0dd-11da-5d08-bb76-b97f1cd5252d",
+    "sch": null,
+    "original_footprint": "Button_Switch_THT:SW_PUSH_6mm",
+    "schematic_xy": [
+      158.75,
+      443.23
+    ]
+  },
+  {
+    "ref": "R5",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "BTN_N",
+      "2": "+3V3"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      98,
+      24
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "User button pull-up",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "fed28f65-8ec7-5a2f-b8b2-b586525d5496",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      44.45,
+      481.33
+    ]
+  },
+  {
+    "ref": "D2",
+    "symbol": "tinyplc:Device_LED",
+    "value": "GREEN",
+    "footprint": "tinyplc:LED_0805_2012Metric",
+    "nets": {
+      "1": "GND",
+      "2": "LED_A"
+    },
+    "pin_names": {
+      "1": "K",
+      "2": "A"
+    },
+    "xy": [
+      39,
+      43
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "PA5 status LED; preserves existing output test concept",
+    "mpn": "Kingbright KP-2012SGC",
+    "official_document": "https://www.kingbrightusa.com/images/catalog/SPEC/KP-2012SGC.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "38927681-5953-5a7a-8b2d-d28484c159e1",
+    "sch": null,
+    "original_footprint": "LED_SMD:LED_0805_2012Metric",
+    "schematic_xy": [
+      101.6,
+      481.33
+    ]
+  },
+  {
+    "ref": "R6",
+    "symbol": "tinyplc:Device_R",
+    "value": "1k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "STATUS_LED",
+      "2": "LED_A"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      35,
+      43
+    ],
+    "angle": 0,
+    "group": "MCU",
+    "purpose": "RUN heartbeat LED current limit; approximately 1mA",
+    "mpn": "ERJ-6ENF1001V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "21117cf7-50a9-5f25-ab8a-bd6d7cc8b8df",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      158.75,
+      481.33
+    ]
+  },
+  {
+    "ref": "C15",
+    "symbol": "tinyplc:Device_C",
+    "value": "100nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      52,
+      37
+    ],
+    "angle": 180,
+    "group": "MCU",
+    "purpose": "Local VBAT bypass; VBAT is tied to the main 3V3 supply",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "10ff6dec-7ebd-5091-8dc2-a89434374517",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      44.45,
+      519.4300000000001
+    ]
+  },
+  {
+    "ref": "D3",
+    "symbol": "tinyplc:Device_LED",
+    "value": "PWR GREEN",
+    "footprint": "tinyplc:LED_0805_2012Metric",
+    "nets": {
+      "1": "GND",
+      "2": "PWR_LED_A"
+    },
+    "pin_names": {
+      "1": "K",
+      "2": "A"
+    },
+    "xy": [
+      39,
+      47
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "Hardware 3V3 presence indication, independent of firmware",
+    "mpn": "Kingbright KP-2012SGC",
+    "official_document": "https://www.kingbrightusa.com/images/catalog/SPEC/KP-2012SGC.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "0f6e9711-99e3-58e4-8092-35b4b12ad6f0",
+    "sch": null,
+    "original_footprint": "LED_SMD:LED_0805_2012Metric",
+    "schematic_xy": [
+      276.86,
+      125.73
+    ]
+  },
+  {
+    "ref": "R75",
+    "symbol": "tinyplc:Device_R",
+    "value": "1k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "PWR_LED_A"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      35,
+      47
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "PWR LED limit: about 1.1mA at Vf=2.2V",
+    "mpn": "ERJ-6ENF1001V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "6d0c0ca0-9b16-54e9-a867-1ebe68b9f32e",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      334.01,
+      125.73
+    ]
+  },
+  {
+    "ref": "J17",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x02",
+    "value": "SWITCH LOOP: 1=fused supply 2=switched return; neither pin is GND",
+    "footprint": "tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "nets": {
+      "1": "VIN_FUSED",
+      "2": "VIN_SWITCHED"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2"
+    },
+    "xy": [
+      10,
+      55
+    ],
+    "angle": 0,
+    "group": "Power",
+    "purpose": "SWITCH LOOP: 1=fused supply 2=switched return; neither pin is GND",
+    "mpn": "1715721",
+    "official_document": "https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721",
+    "status": "candidate; verify before purchase",
+    "uuid": "1c448a94-8952-5746-8aef-db0a971e3d2d",
+    "sch": null,
+    "original_footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "schematic_xy": [
+      219.71,
+      163.83
+    ]
+  },
+  {
+    "ref": "J5",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x02",
+    "value": "DI1 / GND",
+    "footprint": "tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "nets": {
+      "1": "DI1_24",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2"
+    },
+    "xy": [
+      18,
+      7
+    ],
+    "angle": 180,
+    "group": "Input 1",
+    "purpose": "DI1 / GND",
+    "mpn": "1715721",
+    "official_document": "https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721",
+    "status": "candidate; verify before purchase",
+    "uuid": "cf96300a-16c1-5044-98a5-e4a970495c01",
+    "sch": null,
+    "original_footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "schematic_xy": [
+      430.53000000000003,
+      54.61
+    ]
+  },
+  {
+    "ref": "R10",
+    "symbol": "tinyplc:Device_R",
+    "value": "2.2k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DI1_24",
+      "2": "DI1_MID"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      10,
+      18
+    ],
+    "angle": 0,
+    "group": "Input 1",
+    "purpose": "First half of input LED current limiter",
+    "mpn": "ERJ-6ENF2201V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "7af2c478-f91b-5f5e-bf90-61d3f235775a",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      487.68,
+      54.61
+    ]
+  },
+  {
+    "ref": "R11",
+    "symbol": "tinyplc:Device_R",
+    "value": "2.2k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DI1_MID",
+      "2": "DI1_A"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      15,
+      18
+    ],
+    "angle": 0,
+    "group": "Input 1",
+    "purpose": "Second half of input limiter; shares dissipation",
+    "mpn": "ERJ-6ENF2201V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "627e27b8-ed1d-5632-afb9-c7d6b7735b1c",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      544.83,
+      54.61
+    ]
+  },
+  {
+    "ref": "U4",
+    "symbol": "tinyplc:Isolator_LTV-817",
+    "value": "VO617A-3",
+    "footprint": "tinyplc:DIP-4_W7.62mm",
+    "nets": {
+      "1": "DI1_A",
+      "2": "GND",
+      "3": "GND",
+      "4": "DI1_N"
+    },
+    "pin_names": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": ""
+    },
+    "xy": [
+      9,
+      25
+    ],
+    "angle": 0,
+    "group": "Input 1",
+    "purpose": "24V-present signal becomes active-low 3V3 GPIO",
+    "mpn": "VO617A-3",
+    "official_document": "https://www.vishay.com/docs/83430/vo617a.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "40ca67e0-53f0-5b50-a8a1-8258955ec3ab",
+    "sch": null,
+    "original_footprint": "Package_DIP:DIP-4_W7.62mm",
+    "schematic_xy": [
+      430.53000000000003,
+      92.71000000000001
+    ]
+  },
+  {
+    "ref": "D11",
+    "symbol": "tinyplc:Device_D",
+    "value": "1N4148W",
+    "footprint": "tinyplc:D_SOD-123",
+    "nets": {
+      "1": "DI1_A",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "K",
+      "2": "A"
+    },
+    "xy": [
+      17,
+      21
+    ],
+    "angle": 0,
+    "group": "Input 1",
+    "purpose": "Antiparallel diode protects optocoupler LED against reverse input",
+    "mpn": "1N4148W",
+    "official_document": "https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "2f571860-0cdb-5956-8239-00795fdbfd24",
+    "sch": null,
+    "original_footprint": "Diode_SMD:D_SOD-123",
+    "schematic_xy": [
+      487.68,
+      92.71000000000001
+    ]
+  },
+  {
+    "ref": "R12",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "DI1_N"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      11,
+      34
+    ],
+    "angle": 0,
+    "group": "Input 1",
+    "purpose": "Collector pull-up sets GPIO HIGH when input is off",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "91e16819-9b0d-5948-b2bc-b6cd584deeb8",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      544.83,
+      92.71000000000001
+    ]
+  },
+  {
+    "ref": "C21",
+    "symbol": "tinyplc:Device_C",
+    "value": "10nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "DI1_N",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      16,
+      34
+    ],
+    "angle": 0,
+    "group": "Input 1",
+    "purpose": "About 100us release filter with 10k pull-up",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "8cc555ad-cfb9-5589-ad39-0421164453ff",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      430.53000000000003,
+      130.81
+    ]
+  },
+  {
+    "ref": "J6",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x02",
+    "value": "DI2 / GND",
+    "footprint": "tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "nets": {
+      "1": "DI2_24",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2"
+    },
+    "xy": [
+      32,
+      7
+    ],
+    "angle": 180,
+    "group": "Input 2",
+    "purpose": "DI2 / GND",
+    "mpn": "1715721",
+    "official_document": "https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721",
+    "status": "candidate; verify before purchase",
+    "uuid": "d80babd1-ee57-577b-a7bb-943a836fb8b7",
+    "sch": null,
+    "original_footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "schematic_xy": [
+      430.53000000000003,
+      165.1
+    ]
+  },
+  {
+    "ref": "R20",
+    "symbol": "tinyplc:Device_R",
+    "value": "2.2k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DI2_24",
+      "2": "DI2_MID"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      26,
+      18
+    ],
+    "angle": 0,
+    "group": "Input 2",
+    "purpose": "First half of input LED current limiter",
+    "mpn": "ERJ-6ENF2201V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "136ce5e4-5a54-5a8b-9f49-563597e66f0d",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      487.68,
+      165.1
+    ]
+  },
+  {
+    "ref": "R21",
+    "symbol": "tinyplc:Device_R",
+    "value": "2.2k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DI2_MID",
+      "2": "DI2_A"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      31,
+      18
+    ],
+    "angle": 0,
+    "group": "Input 2",
+    "purpose": "Second half of input limiter; shares dissipation",
+    "mpn": "ERJ-6ENF2201V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "e12ad5da-b97d-5d89-8324-cfb06c547b88",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      544.83,
+      165.1
+    ]
+  },
+  {
+    "ref": "U5",
+    "symbol": "tinyplc:Isolator_LTV-817",
+    "value": "VO617A-3",
+    "footprint": "tinyplc:DIP-4_W7.62mm",
+    "nets": {
+      "1": "DI2_A",
+      "2": "GND",
+      "3": "GND",
+      "4": "DI2_N"
+    },
+    "pin_names": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": ""
+    },
+    "xy": [
+      25,
+      25
+    ],
+    "angle": 0,
+    "group": "Input 2",
+    "purpose": "24V-present signal becomes active-low 3V3 GPIO",
+    "mpn": "VO617A-3",
+    "official_document": "https://www.vishay.com/docs/83430/vo617a.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "ed768a27-35cd-54a3-a577-77682b5250a5",
+    "sch": null,
+    "original_footprint": "Package_DIP:DIP-4_W7.62mm",
+    "schematic_xy": [
+      430.53000000000003,
+      203.2
+    ]
+  },
+  {
+    "ref": "D12",
+    "symbol": "tinyplc:Device_D",
+    "value": "1N4148W",
+    "footprint": "tinyplc:D_SOD-123",
+    "nets": {
+      "1": "DI2_A",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "K",
+      "2": "A"
+    },
+    "xy": [
+      33,
+      21
+    ],
+    "angle": 0,
+    "group": "Input 2",
+    "purpose": "Antiparallel diode protects optocoupler LED against reverse input",
+    "mpn": "1N4148W",
+    "official_document": "https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "53198bec-c915-5ad1-bcbe-f9dcc764cbeb",
+    "sch": null,
+    "original_footprint": "Diode_SMD:D_SOD-123",
+    "schematic_xy": [
+      487.68,
+      203.2
+    ]
+  },
+  {
+    "ref": "R22",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "DI2_N"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      27,
+      34
+    ],
+    "angle": 0,
+    "group": "Input 2",
+    "purpose": "Collector pull-up sets GPIO HIGH when input is off",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "e64699ec-532a-58b9-98cc-1bdf64fd996d",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      544.83,
+      203.2
+    ]
+  },
+  {
+    "ref": "C22",
+    "symbol": "tinyplc:Device_C",
+    "value": "10nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "DI2_N",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      32,
+      34
+    ],
+    "angle": 0,
+    "group": "Input 2",
+    "purpose": "About 100us release filter with 10k pull-up",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "f017a6a5-6ac7-51da-9400-a0c6b5f50a9f",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      430.53000000000003,
+      241.3
+    ]
+  },
+  {
+    "ref": "J7",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x02",
+    "value": "DI3 / GND",
+    "footprint": "tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "nets": {
+      "1": "DI3_24",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2"
+    },
+    "xy": [
+      48,
+      7
+    ],
+    "angle": 180,
+    "group": "Input 3",
+    "purpose": "DI3 / GND",
+    "mpn": "1715721",
+    "official_document": "https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721",
+    "status": "candidate; verify before purchase",
+    "uuid": "bf652a6f-ad13-5fa3-9927-d0b2b3e19de1",
+    "sch": null,
+    "original_footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "schematic_xy": [
+      430.53000000000003,
+      275.59000000000003
+    ]
+  },
+  {
+    "ref": "R30",
+    "symbol": "tinyplc:Device_R",
+    "value": "2.2k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DI3_24",
+      "2": "DI3_MID"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      42,
+      18
+    ],
+    "angle": 0,
+    "group": "Input 3",
+    "purpose": "First half of input LED current limiter",
+    "mpn": "ERJ-6ENF2201V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "138e10ec-cc33-5077-ab6d-74731d0207ea",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      487.68,
+      275.59000000000003
+    ]
+  },
+  {
+    "ref": "R31",
+    "symbol": "tinyplc:Device_R",
+    "value": "2.2k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DI3_MID",
+      "2": "DI3_A"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      47,
+      18
+    ],
+    "angle": 0,
+    "group": "Input 3",
+    "purpose": "Second half of input limiter; shares dissipation",
+    "mpn": "ERJ-6ENF2201V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "ad85b1c7-9acc-5f4f-9f29-3e782625a76b",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      544.83,
+      275.59000000000003
+    ]
+  },
+  {
+    "ref": "U6",
+    "symbol": "tinyplc:Isolator_LTV-817",
+    "value": "VO617A-3",
+    "footprint": "tinyplc:DIP-4_W7.62mm",
+    "nets": {
+      "1": "DI3_A",
+      "2": "GND",
+      "3": "GND",
+      "4": "DI3_N"
+    },
+    "pin_names": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": ""
+    },
+    "xy": [
+      41,
+      25
+    ],
+    "angle": 0,
+    "group": "Input 3",
+    "purpose": "24V-present signal becomes active-low 3V3 GPIO",
+    "mpn": "VO617A-3",
+    "official_document": "https://www.vishay.com/docs/83430/vo617a.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "0178b896-b70c-51a1-9aba-f1689267287f",
+    "sch": null,
+    "original_footprint": "Package_DIP:DIP-4_W7.62mm",
+    "schematic_xy": [
+      430.53000000000003,
+      313.69
+    ]
+  },
+  {
+    "ref": "D13",
+    "symbol": "tinyplc:Device_D",
+    "value": "1N4148W",
+    "footprint": "tinyplc:D_SOD-123",
+    "nets": {
+      "1": "DI3_A",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "K",
+      "2": "A"
+    },
+    "xy": [
+      49,
+      21
+    ],
+    "angle": 0,
+    "group": "Input 3",
+    "purpose": "Antiparallel diode protects optocoupler LED against reverse input",
+    "mpn": "1N4148W",
+    "official_document": "https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "1ade0081-b9f1-5776-ab63-305c253adab7",
+    "sch": null,
+    "original_footprint": "Diode_SMD:D_SOD-123",
+    "schematic_xy": [
+      487.68,
+      313.69
+    ]
+  },
+  {
+    "ref": "R32",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "DI3_N"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      43,
+      34
+    ],
+    "angle": 0,
+    "group": "Input 3",
+    "purpose": "Collector pull-up sets GPIO HIGH when input is off",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "1de69318-d077-5ff2-84ff-b5e4541dc362",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      544.83,
+      313.69
+    ]
+  },
+  {
+    "ref": "C23",
+    "symbol": "tinyplc:Device_C",
+    "value": "10nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "DI3_N",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      48,
+      34
+    ],
+    "angle": 0,
+    "group": "Input 3",
+    "purpose": "About 100us release filter with 10k pull-up",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "d01b6eec-2450-5c32-aeca-5addb5d10ada",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      430.53000000000003,
+      351.79
+    ]
+  },
+  {
+    "ref": "J8",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x02",
+    "value": "DI4 / GND",
+    "footprint": "tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "nets": {
+      "1": "DI4_24",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2"
+    },
+    "xy": [
+      64,
+      7
+    ],
+    "angle": 180,
+    "group": "Input 4",
+    "purpose": "DI4 / GND",
+    "mpn": "1715721",
+    "official_document": "https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721",
+    "status": "candidate; verify before purchase",
+    "uuid": "0525e4af-6b05-52af-9782-1d2353564c9b",
+    "sch": null,
+    "original_footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "schematic_xy": [
+      430.53000000000003,
+      384.81
+    ]
+  },
+  {
+    "ref": "R40",
+    "symbol": "tinyplc:Device_R",
+    "value": "2.2k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DI4_24",
+      "2": "DI4_MID"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      58,
+      18
+    ],
+    "angle": 0,
+    "group": "Input 4",
+    "purpose": "First half of input LED current limiter",
+    "mpn": "ERJ-6ENF2201V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "ff9423bf-173c-5038-9647-388ca3d7787a",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      487.68,
+      384.81
+    ]
+  },
+  {
+    "ref": "R41",
+    "symbol": "tinyplc:Device_R",
+    "value": "2.2k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DI4_MID",
+      "2": "DI4_A"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      63,
+      18
+    ],
+    "angle": 0,
+    "group": "Input 4",
+    "purpose": "Second half of input limiter; shares dissipation",
+    "mpn": "ERJ-6ENF2201V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "8effbe61-39f1-5253-9da0-694ce0f063a5",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      544.83,
+      384.81
+    ]
+  },
+  {
+    "ref": "U7",
+    "symbol": "tinyplc:Isolator_LTV-817",
+    "value": "VO617A-3",
+    "footprint": "tinyplc:DIP-4_W7.62mm",
+    "nets": {
+      "1": "DI4_A",
+      "2": "GND",
+      "3": "GND",
+      "4": "DI4_N"
+    },
+    "pin_names": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": ""
+    },
+    "xy": [
+      57,
+      25
+    ],
+    "angle": 0,
+    "group": "Input 4",
+    "purpose": "24V-present signal becomes active-low 3V3 GPIO",
+    "mpn": "VO617A-3",
+    "official_document": "https://www.vishay.com/docs/83430/vo617a.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "4de8f319-600c-5094-9448-5e7e14ff665b",
+    "sch": null,
+    "original_footprint": "Package_DIP:DIP-4_W7.62mm",
+    "schematic_xy": [
+      430.53000000000003,
+      422.91
+    ]
+  },
+  {
+    "ref": "D14",
+    "symbol": "tinyplc:Device_D",
+    "value": "1N4148W",
+    "footprint": "tinyplc:D_SOD-123",
+    "nets": {
+      "1": "DI4_A",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "K",
+      "2": "A"
+    },
+    "xy": [
+      65,
+      21
+    ],
+    "angle": 0,
+    "group": "Input 4",
+    "purpose": "Antiparallel diode protects optocoupler LED against reverse input",
+    "mpn": "1N4148W",
+    "official_document": "https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "6b1fcb97-1753-52d1-b681-7b57c48f0b9b",
+    "sch": null,
+    "original_footprint": "Diode_SMD:D_SOD-123",
+    "schematic_xy": [
+      487.68,
+      422.91
+    ]
+  },
+  {
+    "ref": "R42",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "+3V3",
+      "2": "DI4_N"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      59,
+      31
+    ],
+    "angle": 0,
+    "group": "Input 4",
+    "purpose": "Collector pull-up sets GPIO HIGH when input is off",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "4d06b75f-5ea0-52e0-acce-f515b7087a08",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      544.83,
+      422.91
+    ]
+  },
+  {
+    "ref": "C24",
+    "symbol": "tinyplc:Device_C",
+    "value": "10nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "DI4_N",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      64,
+      31
+    ],
+    "angle": 0,
+    "group": "Input 4",
+    "purpose": "About 100us release filter with 10k pull-up",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "f70a076f-086a-50a0-b262-bf5789cbc71a",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      430.53000000000003,
+      461.01
+    ]
+  },
+  {
+    "ref": "U3",
+    "symbol": "tinyplc:tinyplc_TPL7407L",
+    "value": "TPL7407LDR",
+    "footprint": "tinyplc:SOIC-16_3.9x9.9mm_P1.27mm",
+    "nets": {
+      "1": "DO1",
+      "2": "DO2",
+      "3": "DO3",
+      "4": "DO4",
+      "5": "GND",
+      "6": "GND",
+      "7": "GND",
+      "8": "GND",
+      "9": "V24",
+      "16": "Q1",
+      "15": "Q2",
+      "14": "Q3",
+      "13": "Q4",
+      "12": null,
+      "11": null,
+      "10": null
+    },
+    "pin_names": {
+      "1": "IN1",
+      "2": "IN2",
+      "3": "IN3",
+      "4": "IN4",
+      "5": "IN5",
+      "6": "IN6",
+      "7": "IN7",
+      "8": "GND",
+      "9": "COM",
+      "16": "OUT1",
+      "15": "OUT2",
+      "14": "OUT3",
+      "13": "OUT4",
+      "12": "OUT5",
+      "11": "OUT6",
+      "10": "OUT7"
+    },
+    "xy": [
+      35,
+      65
+    ],
+    "angle": 0,
+    "group": "Outputs",
+    "purpose": "Four 3.3V-compatible low-side drivers; 3 unused channels",
+    "mpn": "TPL7407LDR",
+    "official_document": "https://www.ti.com/lit/ds/symlink/tpl7407l.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "c6213139-4031-5b53-9a9d-e47f6aa3562f",
+    "sch": null,
+    "original_footprint": "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm",
+    "schematic_xy": [
+      635.0,
+      59.69
+    ]
+  },
+  {
+    "ref": "C30",
+    "symbol": "tinyplc:Device_C",
+    "value": "100nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "V24",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      40.5,
+      69.5
+    ],
+    "angle": 0,
+    "group": "Outputs",
+    "purpose": "Driver COM decoupling; clamp return must be short",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "bdb2285d-ab7c-5cac-b066-9d0da05c82d0",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      692.15,
+      59.69
+    ]
+  },
+  {
+    "ref": "J9",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x02",
+    "value": "+24 / Q1 sink",
+    "footprint": "tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "nets": {
+      "1": "V24",
+      "2": "Q1"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2"
+    },
+    "xy": [
+      12,
+      83
+    ],
+    "angle": 0,
+    "group": "Outputs",
+    "purpose": "+24 / Q1 sink",
+    "mpn": "1715721",
+    "official_document": "https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721",
+    "status": "candidate; verify before purchase",
+    "uuid": "88d2f72b-f687-5bbd-8400-9fa6e7a59bc7",
+    "sch": null,
+    "original_footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "schematic_xy": [
+      749.3,
+      59.69
+    ]
+  },
+  {
+    "ref": "R51",
+    "symbol": "tinyplc:Device_R",
+    "value": "100k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DO1",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      30,
+      54
+    ],
+    "angle": 0,
+    "group": "Outputs",
+    "purpose": "External pull-down keeps driver input low during MCU reset",
+    "mpn": "ERJ-6ENF1003V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "5b0392b5-3e03-583d-a113-64cf894c676a",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      635.0,
+      97.79
+    ]
+  },
+  {
+    "ref": "J10",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x02",
+    "value": "+24 / Q2 sink",
+    "footprint": "tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "nets": {
+      "1": "V24",
+      "2": "Q2"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2"
+    },
+    "xy": [
+      28,
+      83
+    ],
+    "angle": 0,
+    "group": "Outputs",
+    "purpose": "+24 / Q2 sink",
+    "mpn": "1715721",
+    "official_document": "https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721",
+    "status": "candidate; verify before purchase",
+    "uuid": "3b676f69-c44a-53f7-bfb3-9c7d157f1f38",
+    "sch": null,
+    "original_footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "schematic_xy": [
+      692.15,
+      97.79
+    ]
+  },
+  {
+    "ref": "R52",
+    "symbol": "tinyplc:Device_R",
+    "value": "100k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DO2",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      35,
+      54
+    ],
+    "angle": 0,
+    "group": "Outputs",
+    "purpose": "External pull-down keeps driver input low during MCU reset",
+    "mpn": "ERJ-6ENF1003V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "904b1eb5-bc21-5561-bbb8-f9013f24f2c1",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      749.3,
+      97.79
+    ]
+  },
+  {
+    "ref": "J11",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x02",
+    "value": "+24 / Q3 sink",
+    "footprint": "tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "nets": {
+      "1": "V24",
+      "2": "Q3"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2"
+    },
+    "xy": [
+      44,
+      83
+    ],
+    "angle": 0,
+    "group": "Outputs",
+    "purpose": "+24 / Q3 sink",
+    "mpn": "1715721",
+    "official_document": "https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721",
+    "status": "candidate; verify before purchase",
+    "uuid": "4051c181-b801-58d3-9101-23a101cb2728",
+    "sch": null,
+    "original_footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "schematic_xy": [
+      635.0,
+      135.89000000000001
+    ]
+  },
+  {
+    "ref": "R53",
+    "symbol": "tinyplc:Device_R",
+    "value": "100k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DO3",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      40,
+      54
+    ],
+    "angle": 0,
+    "group": "Outputs",
+    "purpose": "External pull-down keeps driver input low during MCU reset",
+    "mpn": "ERJ-6ENF1003V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "a1819a1e-d9a1-5093-8293-e1547dec3420",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      692.15,
+      135.89000000000001
+    ]
+  },
+  {
+    "ref": "J12",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x02",
+    "value": "+24 / Q4 sink",
+    "footprint": "tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "nets": {
+      "1": "V24",
+      "2": "Q4"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2"
+    },
+    "xy": [
+      60,
+      83
+    ],
+    "angle": 0,
+    "group": "Outputs",
+    "purpose": "+24 / Q4 sink",
+    "mpn": "1715721",
+    "official_document": "https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721",
+    "status": "candidate; verify before purchase",
+    "uuid": "be18bfe5-2b56-52ea-9d0a-ee2b68744458",
+    "sch": null,
+    "original_footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+    "schematic_xy": [
+      749.3,
+      135.89000000000001
+    ]
+  },
+  {
+    "ref": "R54",
+    "symbol": "tinyplc:Device_R",
+    "value": "100k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "DO4",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      45,
+      54
+    ],
+    "angle": 0,
+    "group": "Outputs",
+    "purpose": "External pull-down keeps driver input low during MCU reset",
+    "mpn": "ERJ-6ENF1003V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "995b2867-9178-5e38-b600-c6eae33c0190",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      635.0,
+      173.99
+    ]
+  },
+  {
+    "ref": "J13",
+    "symbol": "tinyplc:Connector_USB_C_Receptacle_USB2.0_16P",
+    "value": "USB-C DEVICE",
+    "footprint": "tinyplc:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal",
+    "nets": {
+      "A1": "GND",
+      "A4": "VBUS_USB",
+      "A5": "CC1",
+      "A6": "USB_DP_CONN",
+      "A7": "USB_DM_CONN",
+      "A8": null,
+      "A9": "VBUS_USB",
+      "A12": "GND",
+      "B1": "GND",
+      "B4": "VBUS_USB",
+      "B5": "CC2",
+      "B6": "USB_DP_CONN",
+      "B7": "USB_DM_CONN",
+      "B8": null,
+      "B9": "VBUS_USB",
+      "B12": "GND",
+      "SH": "GND"
+    },
+    "pin_names": {
+      "A1": "GND",
+      "A4": "VBUS",
+      "A5": "CC1",
+      "A6": "D+",
+      "A7": "D-",
+      "A8": "SBU1",
+      "A9": "VBUS",
+      "A12": "GND",
+      "B1": "GND",
+      "B4": "VBUS",
+      "B5": "CC2",
+      "B6": "D+",
+      "B7": "D-",
+      "B8": "SBU2",
+      "B9": "VBUS",
+      "B12": "GND",
+      "SH": "SHIELD"
+    },
+    "xy": [
+      116,
+      43
+    ],
+    "angle": 90,
+    "group": "USB",
+    "purpose": "USB2 device only; VBUS never powers board",
+    "mpn": "USB4105-GF-A-120",
+    "official_document": "https://gct.co/files/drawings/usb4105.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "0acdb778-e396-5ba6-82a1-c4679f2032ba",
+    "sch": null,
+    "original_footprint": "Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal",
+    "schematic_xy": [
+      219.71,
+      204.47
+    ]
+  },
+  {
+    "ref": "R60",
+    "symbol": "tinyplc:Device_R",
+    "value": "5.1k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "CC1",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      108,
+      36.5
+    ],
+    "angle": 0,
+    "group": "USB",
+    "purpose": "USB-C Rd advertises a sink/device on CC1",
+    "mpn": "ERJ-6ENF5101V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "4a5f1c9c-937e-551d-be2d-177529b576e6",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      276.86,
+      204.47
+    ]
+  },
+  {
+    "ref": "R61",
+    "symbol": "tinyplc:Device_R",
+    "value": "5.1k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "CC2",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      108.5,
+      46
+    ],
+    "angle": 0,
+    "group": "USB",
+    "purpose": "Independent Rd on CC2 supports either cable orientation",
+    "mpn": "ERJ-6ENF5101V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "a6ff4791-877e-516f-8f83-241dd49a2050",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      334.01,
+      204.47
+    ]
+  },
+  {
+    "ref": "R62",
+    "symbol": "tinyplc:Device_R",
+    "value": "22",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "USB_DM_CONN",
+      "2": "USB_DM"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      71,
+      41.25
+    ],
+    "angle": 180,
+    "group": "USB",
+    "purpose": "Provisional USB D- source-series damping",
+    "mpn": "ERJ-6ENF22R0V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "b0836554-646e-5241-a097-318acfa4b458",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      219.71,
+      242.57
+    ]
+  },
+  {
+    "ref": "R63",
+    "symbol": "tinyplc:Device_R",
+    "value": "22",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "USB_DP_CONN",
+      "2": "USB_DP"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      71,
+      38.25
+    ],
+    "angle": 180,
+    "group": "USB",
+    "purpose": "Provisional USB D+ source-series damping",
+    "mpn": "ERJ-6ENF22R0V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "874c8cc1-860c-557c-9a87-e286485112cf",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      276.86,
+      242.57
+    ]
+  },
+  {
+    "ref": "R64",
+    "symbol": "tinyplc:Device_R",
+    "value": "68k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "VBUS_USB",
+      "2": "USB_VBUS_SENSE"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      108,
+      48
+    ],
+    "angle": 0,
+    "group": "USB",
+    "purpose": "VBUS divider upper resistor; limits sense voltage",
+    "mpn": "ERJ-6ENF6802V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "82afe702-d01d-5aae-88b7-7eb8b3178148",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      334.01,
+      242.57
+    ]
+  },
+  {
+    "ref": "R65",
+    "symbol": "tinyplc:Device_R",
+    "value": "100k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "USB_VBUS_SENSE",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      112,
+      51
+    ],
+    "angle": 0,
+    "group": "USB",
+    "purpose": "VBUS divider lower resistor; no back-power rail connection",
+    "mpn": "ERJ-6ENF1003V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "3717d411-f3e7-5786-a85c-66c34aff5902",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      219.71,
+      280.67
+    ]
+  },
+  {
+    "ref": "U8",
+    "symbol": "tinyplc:Power_Protection_USBLC6-2SC6",
+    "value": "USBLC6-2SC6",
+    "footprint": "tinyplc:SOT-23-6",
+    "nets": {
+      "1": "USB_DM_CONN",
+      "2": "GND",
+      "3": "USB_DP_CONN",
+      "4": "USB_DP_CONN",
+      "5": "VBUS_USB",
+      "6": "USB_DM_CONN"
+    },
+    "pin_names": {
+      "1": "I/O1",
+      "2": "GND",
+      "3": "I/O2",
+      "4": "I/O2",
+      "5": "VBUS",
+      "6": "I/O1"
+    },
+    "xy": [
+      109,
+      42.5
+    ],
+    "angle": 180,
+    "group": "USB",
+    "purpose": "Low-capacitance USB connector ESD protection",
+    "mpn": "USBLC6-2SC6",
+    "official_document": "https://www.st.com/resource/en/datasheet/usblc6-2.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "8312c61b-6e27-5eb7-bcf9-a5a6185af7ee",
+    "sch": null,
+    "original_footprint": "Package_TO_SOT_SMD:SOT-23-6",
+    "schematic_xy": [
+      276.86,
+      280.67
+    ]
+  },
+  {
+    "ref": "C31",
+    "symbol": "tinyplc:Device_C",
+    "value": "100nF / 50V",
+    "footprint": "tinyplc:C_0805_2012Metric",
+    "nets": {
+      "1": "VBUS_USB",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      115,
+      53
+    ],
+    "angle": 0,
+    "group": "USB",
+    "purpose": "ESD supply-reference bypass",
+    "mpn": "TDK C2012 family; exact MPN pending",
+    "official_document": "https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/",
+    "status": "specification only; exact MPN pending",
+    "uuid": "4c253dc2-f6d1-59a5-8b7d-e33e0098f170",
+    "sch": null,
+    "original_footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "schematic_xy": [
+      334.01,
+      280.67
+    ]
+  },
+  {
+    "ref": "J14",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x06",
+    "value": "SPI: 3V3 GND SCK MISO MOSI CS",
+    "footprint": "tinyplc:PinHeader_1x06_P2.54mm_Vertical",
+    "nets": {
+      "1": "+3V3",
+      "2": "GND",
+      "3": "SPI2_SCK",
+      "4": "SPI2_MISO",
+      "5": "SPI2_MOSI",
+      "6": "ETH_CS_N"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2",
+      "3": "Pin_3",
+      "4": "Pin_4",
+      "5": "Pin_5",
+      "6": "Pin_6"
+    },
+    "xy": [
+      78,
+      53
+    ],
+    "angle": 0,
+    "group": "Expansion",
+    "purpose": "Cabled SPI2 expansion; NOT a WIZ850io direct-plug footprint",
+    "mpn": "Samtec TSW-106-07-G-S",
+    "official_document": "https://www.samtec.com/products/tsw",
+    "status": "candidate; verify before purchase",
+    "uuid": "b7a74cf5-481d-5f68-b2c9-7c05c48dcfee",
+    "sch": null,
+    "original_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical",
+    "schematic_xy": [
+      629.92,
+      260.35
+    ]
+  },
+  {
+    "ref": "J15",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x03",
+    "value": "ETH: GND RST INT",
+    "footprint": "tinyplc:PinHeader_1x03_P2.54mm_Vertical",
+    "nets": {
+      "1": "GND",
+      "2": "ETH_RST_N",
+      "3": "ETH_INT_N"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2",
+      "3": "Pin_3"
+    },
+    "xy": [
+      88,
+      71
+    ],
+    "angle": 0,
+    "group": "Expansion",
+    "purpose": "Ethernet reset and interrupt expansion",
+    "mpn": "Samtec TSW-103-07-G-S",
+    "official_document": "https://www.samtec.com/products/tsw",
+    "status": "candidate; verify before purchase",
+    "uuid": "13e71793-9503-55f6-a1ad-f76e9d8faaac",
+    "sch": null,
+    "original_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+    "schematic_xy": [
+      687.07,
+      260.35
+    ]
+  },
+  {
+    "ref": "R70",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "ETH_CS_N",
+      "2": "+3V3"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      73,
+      62
+    ],
+    "angle": 0,
+    "group": "Expansion",
+    "purpose": "Deselected SPI device during boot",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "1ed2f6af-59b0-5219-a552-aa89ea004d32",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      744.22,
+      260.35
+    ]
+  },
+  {
+    "ref": "R71",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "ETH_RST_N",
+      "2": "GND"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      73,
+      67
+    ],
+    "angle": 0,
+    "group": "Expansion",
+    "purpose": "Keep optional Ethernet module reset until firmware releases it",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "78a7721e-3ae2-5e17-a9ba-2769f15029ad",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      629.92,
+      298.45
+    ]
+  },
+  {
+    "ref": "R72",
+    "symbol": "tinyplc:Device_R",
+    "value": "10k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "ETH_INT_N",
+      "2": "+3V3"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      73,
+      72
+    ],
+    "angle": 0,
+    "group": "Expansion",
+    "purpose": "Optional interrupt pull-up",
+    "mpn": "ERJ-6ENF1002V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "ab29296f-622e-59da-a797-d058660ca960",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      687.07,
+      298.45
+    ]
+  },
+  {
+    "ref": "J16",
+    "symbol": "tinyplc:Connector_Generic_Conn_01x04",
+    "value": "OLED: 3V3 GND SCL SDA",
+    "footprint": "tinyplc:PinHeader_1x04_P2.54mm_Vertical",
+    "nets": {
+      "1": "+3V3",
+      "2": "GND",
+      "3": "I2C_SCL",
+      "4": "I2C_SDA"
+    },
+    "pin_names": {
+      "1": "Pin_1",
+      "2": "Pin_2",
+      "3": "Pin_3",
+      "4": "Pin_4"
+    },
+    "xy": [
+      65,
+      67
+    ],
+    "angle": 0,
+    "group": "Expansion",
+    "purpose": "Cabled 3.3V I2C display; custom pin order",
+    "mpn": "Samtec TSW-104-07-G-S",
+    "official_document": "https://www.samtec.com/products/tsw",
+    "status": "candidate; verify before purchase",
+    "uuid": "f5e0b6eb-d27e-5570-bf99-ebd394cebd0d",
+    "sch": null,
+    "original_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+    "schematic_xy": [
+      744.22,
+      298.45
+    ]
+  },
+  {
+    "ref": "R73",
+    "symbol": "tinyplc:Device_R",
+    "value": "4.7k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "I2C_SCL",
+      "2": "+3V3"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      57,
+      72
+    ],
+    "angle": 0,
+    "group": "Expansion",
+    "purpose": "I2C clock pull-up; review module parallel pull-ups",
+    "mpn": "ERJ-6ENF4701V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "702e37cf-57f5-570f-b5d0-eb1d82fd0f9b",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      629.92,
+      336.55
+    ]
+  },
+  {
+    "ref": "R74",
+    "symbol": "tinyplc:Device_R",
+    "value": "4.7k",
+    "footprint": "tinyplc:R_0805_2012Metric",
+    "nets": {
+      "1": "I2C_SDA",
+      "2": "+3V3"
+    },
+    "pin_names": {
+      "1": "",
+      "2": ""
+    },
+    "xy": [
+      57,
+      76
+    ],
+    "angle": 0,
+    "group": "Expansion",
+    "purpose": "I2C data pull-up; review module parallel pull-ups",
+    "mpn": "ERJ-6ENF4701V",
+    "official_document": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "status": "candidate; verify before purchase",
+    "uuid": "3e376caf-15bb-5c06-82e3-885942c75cba",
+    "sch": null,
+    "original_footprint": "Resistor_SMD:R_0805_2012Metric",
+    "schematic_xy": [
+      687.07,
+      336.55
+    ]
+  },
+  {
+    "ref": "TP1",
+    "symbol": "tinyplc:Connector_TestPoint",
+    "value": "GND",
+    "footprint": "tinyplc:TestPoint_Pad_D2.0mm",
+    "nets": {
+      "1": "GND"
+    },
+    "pin_names": {
+      "1": "1"
+    },
+    "xy": [
+      81,
+      47
+    ],
+    "angle": 0,
+    "group": "Test points",
+    "purpose": "Probe GND",
+    "mpn": "Bare PCB test pad",
+    "official_document": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html",
+    "status": "candidate; verify before purchase",
+    "uuid": "d5ed238d-58ee-5973-9cb5-c303d1eeb451",
+    "sch": null,
+    "original_footprint": "TestPoint:TestPoint_Pad_D2.0mm",
+    "schematic_xy": [
+      219.71,
+      430.53000000000003
+    ]
+  },
+  {
+    "ref": "TP2",
+    "symbol": "tinyplc:Connector_TestPoint",
+    "value": "+3V3",
+    "footprint": "tinyplc:TestPoint_Pad_D2.0mm",
+    "nets": {
+      "1": "+3V3"
+    },
+    "pin_names": {
+      "1": "1"
+    },
+    "xy": [
+      81,
+      44
+    ],
+    "angle": 0,
+    "group": "Test points",
+    "purpose": "Probe +3V3",
+    "mpn": "Bare PCB test pad",
+    "official_document": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html",
+    "status": "candidate; verify before purchase",
+    "uuid": "42f3b276-0238-55e5-a7c3-e8381a1bf35e",
+    "sch": null,
+    "original_footprint": "TestPoint:TestPoint_Pad_D2.0mm",
+    "schematic_xy": [
+      276.86,
+      430.53000000000003
+    ]
+  },
+  {
+    "ref": "TP3",
+    "symbol": "tinyplc:Connector_TestPoint",
+    "value": "V24",
+    "footprint": "tinyplc:TestPoint_Pad_D2.0mm",
+    "nets": {
+      "1": "V24"
+    },
+    "pin_names": {
+      "1": "1"
+    },
+    "xy": [
+      84,
+      76
+    ],
+    "angle": 0,
+    "group": "Test points",
+    "purpose": "Probe V24",
+    "mpn": "Bare PCB test pad",
+    "official_document": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html",
+    "status": "candidate; verify before purchase",
+    "uuid": "85df4d2f-576a-5372-8849-e34992f8fc7d",
+    "sch": null,
+    "original_footprint": "TestPoint:TestPoint_Pad_D2.0mm",
+    "schematic_xy": [
+      334.01,
+      430.53000000000003
+    ]
+  },
+  {
+    "ref": "TP4",
+    "symbol": "tinyplc:Connector_TestPoint",
+    "value": "VCAP1",
+    "footprint": "tinyplc:TestPoint_Pad_D2.0mm",
+    "nets": {
+      "1": "VCAP1"
+    },
+    "pin_names": {
+      "1": "1"
+    },
+    "xy": [
+      62.75,
+      56
+    ],
+    "angle": 0,
+    "group": "Test points",
+    "purpose": "Probe VCAP1",
+    "mpn": "Bare PCB test pad",
+    "official_document": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html",
+    "status": "candidate; verify before purchase",
+    "uuid": "ca13d64e-e3d2-58b9-aa04-fc4778158208",
+    "sch": null,
+    "original_footprint": "TestPoint:TestPoint_Pad_D2.0mm",
+    "schematic_xy": [
+      219.71,
+      468.63
+    ]
+  },
+  {
+    "ref": "H1",
+    "symbol": "tinyplc:Mechanical_MountingHole",
+    "value": "M3 NPTH",
+    "footprint": "tinyplc:MountingHole_3.2mm_M3",
+    "nets": {},
+    "pin_names": {},
+    "xy": [
+      5,
+      5
+    ],
+    "angle": 0,
+    "group": "Mounting",
+    "purpose": "Board mounting; 3.2mm non-plated hole",
+    "mpn": "No purchased component",
+    "official_document": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html",
+    "status": "candidate; verify before purchase",
+    "uuid": "33346caa-9287-5a0f-9b8a-7d54fb1c3cea",
+    "sch": null,
+    "original_footprint": "MountingHole:MountingHole_3.2mm_M3",
+    "schematic_xy": [
+      629.92,
+      439.42
+    ]
+  },
+  {
+    "ref": "H2",
+    "symbol": "tinyplc:Mechanical_MountingHole",
+    "value": "M3 NPTH",
+    "footprint": "tinyplc:MountingHole_3.2mm_M3",
+    "nets": {},
+    "pin_names": {},
+    "xy": [
+      115,
+      5
+    ],
+    "angle": 0,
+    "group": "Mounting",
+    "purpose": "Board mounting; 3.2mm non-plated hole",
+    "mpn": "No purchased component",
+    "official_document": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html",
+    "status": "candidate; verify before purchase",
+    "uuid": "8319ede1-53d4-5d9e-9434-9c64ca9b18e4",
+    "sch": null,
+    "original_footprint": "MountingHole:MountingHole_3.2mm_M3",
+    "schematic_xy": [
+      687.07,
+      439.42
+    ]
+  },
+  {
+    "ref": "H3",
+    "symbol": "tinyplc:Mechanical_MountingHole",
+    "value": "M3 NPTH",
+    "footprint": "tinyplc:MountingHole_3.2mm_M3",
+    "nets": {},
+    "pin_names": {},
+    "xy": [
+      5,
+      85
+    ],
+    "angle": 0,
+    "group": "Mounting",
+    "purpose": "Board mounting; 3.2mm non-plated hole",
+    "mpn": "No purchased component",
+    "official_document": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html",
+    "status": "candidate; verify before purchase",
+    "uuid": "03aa3f79-2301-5823-abe1-7a9e874a9143",
+    "sch": null,
+    "original_footprint": "MountingHole:MountingHole_3.2mm_M3",
+    "schematic_xy": [
+      744.22,
+      439.42
+    ]
+  },
+  {
+    "ref": "H4",
+    "symbol": "tinyplc:Mechanical_MountingHole",
+    "value": "M3 NPTH",
+    "footprint": "tinyplc:MountingHole_3.2mm_M3",
+    "nets": {},
+    "pin_names": {},
+    "xy": [
+      115,
+      85
+    ],
+    "angle": 0,
+    "group": "Mounting",
+    "purpose": "Board mounting; 3.2mm non-plated hole",
+    "mpn": "No purchased component",
+    "official_document": "https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html",
+    "status": "candidate; verify before purchase",
+    "uuid": "e695c063-911c-58b2-b2ca-55c5999fb9ab",
+    "sch": null,
+    "original_footprint": "MountingHole:MountingHole_3.2mm_M3",
+    "schematic_xy": [
+      629.92,
+      477.52
+    ]
+  }
+]

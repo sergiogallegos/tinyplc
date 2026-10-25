@@ -1,0 +1,16 @@
+{
+  "router": "Freerouting 2.5.0, bundled Java 25 runtime",
+  "download": "https://github.com/freerouting/freerouting/releases/download/v2.5.0/freerouting-2.5.0-linux-x64.zip",
+  "download_sha256": "e8ffca14914e5307a2fa9aea723fb93d11b99bebda20d126472da5460c03196e",
+  "release_digest_matched": true,
+  "command": "java -Djava.awt.headless=true -jar freerouting-2.5.0.jar -de tinyplc-a1.dsn -do tinyplc-a1.ses --router.autorouter.max_passes=30 --router.optimizer.max_threads=4 --router.automatic_neckdown=false --router.neck_width_um=0 -da --gui.enabled=false --user_data_path=/tmp/tinyplc-freerouting",
+  "postprocessing": "route_pcb.py import and fill; C1 SES package identifier corrected to 5 mm / 2 mm pitch; see routing decisions",
+  "hashes": {
+    "electronics/routing/tinyplc-a1.dsn": "d87c1d00cae6661a90334c54df8a29b85d5d2ebffed383eec1e028474f1047cc",
+    "electronics/routing/tinyplc-a1.ses": "684364fac2d46fe67fdc7d74708f72a2423a6f484f2bab269923ab162c981e65",
+    "electronics/routing/seed.kicad_pcb": "156294f7cc9a0bdf1a05cc6731c0604cf221ffc8e0ae670d5f11abe90be3139c",
+    "scripts/generate_electronics.py": "46c5a15432b962b11157ab8548c79231d164d5f1f399d459a849e83a65f6d3cb",
+    "scripts/route_pcb.py": "ee698b80029b9aded4859dc4a880126b955bd57891c1827ff95a0e0f671627c9",
+    "electronics/tinyplc-a1.kicad_pcb": "630f0c912483c29862da10095193eaffd77d9b3c3031b940aad9b9d9e5de1d0e"
+  }
+}

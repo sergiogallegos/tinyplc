@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297"><rect width="210" height="297" fill="white"/><g font-family="sans-serif" fill="#202c34">
+<text x="15" y="13" font-size="3">tinyPLC A1 / TECHNICAL ASSEMBLY / 1 of 2</text>
+<text x="15" y="26.0" font-size="3.5" font-weight="700">A1 printing, assembly and first build</text>
+<text x="15" y="35.7" font-size="3" font-weight="400">Use the A1 visual guide with the design decisions and matching A1 BOM/CAD. A1 now has a routed</text>
+<text x="15" y="40.400000000000006" font-size="3" font-weight="400">controller board that passes the configured CAD checks. Printing and card fit checks can start</text>
+<text x="15" y="45.1" font-size="3" font-weight="400">now. Review the routing decisions, resolve remaining purchasing choices and inspect</text>
+<text x="15" y="49.800000000000004" font-size="3" font-weight="400">fabrication outputs before ordering.</text>
+<text x="15" y="59.5" font-size="3" font-weight="400">1. Print the 54 × 32 × 2.4 mm fit coupon first. Try the actual power switch in    its 12.90 ×</text>
+<text x="15" y="64.2" font-size="3" font-weight="400">19.81 mm opening; try M3 and M2 taps in the 2.5 and 1.6 mm pilots,    and the 3 mm light rod</text>
+<text x="15" y="68.9" font-size="3" font-weight="400">in the 3.2 mm bore. Reject cracking, loose retention or    binding. Measure the drawings&#x27; 100</text>
+<text x="15" y="73.6" font-size="3" font-weight="400">mm scale bar before using paper templates. 2. Print the white base floor-down and the white</text>
+<text x="15" y="78.3" font-size="3" font-weight="400">lid outside-face-down using    the supplied print STLs in mm. The lid&#x27;s tall columns and</text>
+<text x="15" y="83.0" font-size="3" font-weight="400">optical sleeves    face upward. Start with a 0.4 mm nozzle, 0.2 mm layers and multiple</text>
+<text x="15" y="87.7" font-size="3" font-weight="400">perimeters;    review bridge/support paths and record the real profile. Sand or paint only</text>
+<text x="15" y="92.4" font-size="3" font-weight="400">external cosmetic surfaces; preserve mating faces and optical bores. 3. Deburr and test the</text>
+<text x="15" y="97.1" font-size="3" font-weight="400">empty lid. Tap the four PCB pilots and four lid-column    pilots M3; tap the four OLED post</text>
+<text x="15" y="101.80000000000001" font-size="3" font-weight="400">pilots M2 after successful coupon trials.    Cut a card controller template from drawing 03</text>
+<text x="15" y="106.5" font-size="3" font-weight="400">and check mounting/port alignment. 4. With all supplies removed, snap SW3 into the left-side</text>
+<text x="15" y="111.2" font-size="3" font-weight="400">aperture. Identify    terminals 1 and 1A by the actual switch marking and continuity test, and</text>
+<text x="15" y="115.9" font-size="3" font-weight="400">confirm the I position closes them. Prepare two insulated leads with proper    4.75 × 0.8 mm</text>
+<text x="15" y="120.6" font-size="3" font-weight="400">female quick-connects and a suitable crimp tool. The connection    boots and wire bending room</text>
+<text x="15" y="125.3" font-size="3" font-weight="400">require a physical trial. 5. After PCB review and electrical bring-up, lower the board onto</text>
+<text x="15" y="130.0" font-size="3" font-weight="400">the posts, DI row toward the four front openings. Inspect underside leads.    Secure with four</text>
+<text x="15" y="134.7" font-size="3" font-weight="400">M3 × 6 screws and nominal 0.5 mm M3 washers. Tighten gently    in opposite corners; confirm no</text>
+<text x="15" y="139.4" font-size="3" font-weight="400">bowing, bottoming or contact with the floor. 6. Connect J17.1 to SW3.1 and SW3.1A to J17.2.</text>
+<text x="15" y="144.10000000000002" font-size="3" font-weight="400">Both are positive supply paths;    never connect either to GND. Check OFF opens the loop and</text>
+<text x="15" y="148.8" font-size="3" font-weight="400">ON closes it.    Route the pair away from optical sleeves, the display and lid columns. 7.</text>
+<text x="15" y="153.5" font-size="3" font-weight="400">Install two clear 3 mm rods, 24.6 mm long, through the lens pocket into    their sleeves.</text>
+<text x="15" y="158.2" font-size="3" font-weight="400">Their lower ends rest on the internal ledges. Check they stay    above the LED packages and do</text>
+<text x="15" y="162.9" font-size="3" font-weight="400">not press on them. Trial-fit the clear lens    and its reverse black mask; align both clear</text>
+<text x="15" y="167.60000000000002" font-size="3" font-weight="400">LED spots and the screen window.    Bond only the lens perimeter using the nominal 0.2 mm</text>
+<text x="15" y="172.3" font-size="3" font-weight="400">adhesive allowance. 8. With the lid upside down, place the Adafruit 326 QT module on its four</text>
+<text x="15" y="177.0" font-size="3" font-weight="400">underside posts, glass facing the viewing aperture. Use four M2 × 6 screws    and nominal 0.5</text>
+<text x="15" y="181.7" font-size="3" font-weight="400">mm washers, from the rear of the module. Do not clamp glass    or flex cable. Compare the</text>
+<text x="15" y="186.4" font-size="3" font-weight="400">received board with the drawing and inspect the    narrow post-to-glass clearance before</text>
+<text x="15" y="191.1" font-size="3" font-weight="400">tightening. 9. Make the display harness: J16.1 → VIN/red, J16.2 → GND/black,    J16.3 →</text>
+<text x="15" y="195.8" font-size="3" font-weight="400">SCL/yellow, J16.4 → SDA/blue. The connector orders differ. Verify    every wire by continuity,</text>
+<text x="15" y="200.5" font-size="3" font-weight="400">leave a short service loop and unplug before    removing the lid. Measure 3.3 V at the cable</text>
+<text x="15" y="205.20000000000002" font-size="3" font-weight="400">before plugging in DS1. 10. Inspect for loose screws, cut leads and trapped wires. Check the</text>
+<text x="15" y="209.9" font-size="3" font-weight="400">switch     wire boots and display cable clear the lens sleeves and columns. Seat the     lid</text>
+<text x="15" y="214.6" font-size="3" font-weight="400">flush by hand, turn the unpowered enclosure over and install four     M3 × 10 screws into the</text>
+<text x="15" y="219.3" font-size="3" font-weight="400">underside counterbores. Tighten diagonally. Do not     use screws to pull a warped lid into</text>
+<text x="15" y="224.0" font-size="3" font-weight="400">place. Add four nominal 8 × 2 mm feet     away from the screw heads so later service does not</text>
+<text x="15" y="228.70000000000002" font-size="3" font-weight="400">destroy the feet. 11. Apply the labels from the A1 label sheet. Confirm J1.1 is +24 V, J1.2 is</text>
+<text x="15" y="233.4" font-size="3" font-weight="400">0 V/GND (−); there is no PE terminal. Input contacts are DI/GND; output     contacts are</text>
+<text x="15" y="238.1" font-size="3" font-weight="400">protected +24 V/Q sink, not supply input pairs. All lettering     in the render is a separate</text>
+<text x="15" y="242.8" font-size="3" font-weight="400">applied label, not embossed STL geometry. 12. Record fit, screw engagement, cable paths, lens</text>
+<text x="15" y="247.5" font-size="3" font-weight="400">visibility and any changes.     Only after staged board bring-up and A1 firmware integration</text>
+<text x="15" y="252.20000000000002" font-size="3" font-weight="400">should you     test with the case closed. Measure temperature, power behavior and physical</text>
+<text x="15" y="256.9" font-size="3" font-weight="400">outputs, including boot, OFF/ON and reset. The displayed RUN state must     reflect actual</text>
+<text x="15" y="261.6" font-size="3" font-weight="400">accepted scans. A working power light alone is not a PLC test.</text>
+<text x="15" y="286" font-size="2.5">Routed prototype; physical testing pending. Use matching A1 design, schematic, BOM and illustrated assembly guide.</text></g></svg>

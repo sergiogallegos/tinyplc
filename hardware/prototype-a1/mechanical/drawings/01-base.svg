@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297mm" height="210mm" viewBox="0 0 297 210">
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#236d76"/></marker></defs>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#202c34}</style>
+<rect width="297" height="210" fill="white"/>
+<text x="14" y="13" font-size="2.9" style="fill:#236d76" font-weight="700" text-anchor="start" transform="rotate(0 14 13)">CONSTRUCTION / A1 / mm / ACTUAL SIZE A4 / CAD FIT ONLY</text>
+<text x="14" y="28" font-size="6.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 14 28)">01  Base and concealed fastening</text>
+<path d="M14,198 L283,198" fill="none" stroke="#d8e1e3" stroke-width="0.3" stroke-linecap="round"/>
+<text x="14" y="204" font-size="2.3" style="fill:#586872" font-weight="400" text-anchor="start" transform="rotate(0 14 204)">A1 prototype • CAD renders • not a fabrication release • 2026-10-24</text>
+<text x="283" y="204" font-size="2.8" style="fill:#586872" font-weight="400" text-anchor="end" transform="rotate(0 283 204)">01</text>
+<path d="M180,187 L280,187" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<path d="M180,185 L180,189" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<path d="M280,185 L280,189" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<text x="230" y="183" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(0 230 183)">100 mm — verify printed scale</text>
+<rect x="25" y="49" width="140" height="110" rx="7" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="27.4" y="51.4" width="135.2" height="105.2" rx="4.6" fill="none" stroke="#586872" stroke-width=".3"/>
+<circle cx="40" cy="64" r="3.5" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="40" cy="64" r="1.25" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="150" cy="64" r="3.5" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="150" cy="64" r="1.25" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="40" cy="144" r="3.5" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="40" cy="144" r="1.25" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="150" cy="144" r="3.5" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="150" cy="144" r="1.25" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="32" cy="56" r="3.2" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="32" cy="56" r="1.7" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="158" cy="56" r="3.2" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="158" cy="56" r="1.7" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="32" cy="152" r="3.2" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="32" cy="152" r="1.7" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="158" cy="152" r="3.2" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="158" cy="152" r="1.7" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="125.54000000000002" y="156.6" width="12" height="2.4" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="44.46" y="49" width="12" height="2.4" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="58.46000000000001" y="49" width="12" height="2.4" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="74.46000000000001" y="49" width="12" height="2.4" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="90.46" y="49" width="12" height="2.4" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="43.54" y="156.6" width="12" height="2.4" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="59.53999999999999" y="156.6" width="12" height="2.4" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="75.53999999999999" y="156.6" width="12" height="2.4" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="91.54" y="156.6" width="12" height="2.4" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<path d="M25,42 L165,42" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M25,40 L25,44" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M165,40 L165,44" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<text x="95.0" y="40" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(0 95.0 40)">140</text>
+<path d="M18,49 L18,159" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M16,49 L20,49" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M16,159 L20,159" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<text x="16" y="104.0" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(-90 16 104.0)">110</text>
+<text x="179" y="49.0" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 49.0)">Base H 34; floor/wall 2.4. Corner R7. PCB underside Z8; PCB</text>
+<text x="179" y="53.95" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 53.95)">thickness 1.6.</text>
+<text x="179" y="75.0" font-size="3.2" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 75.0)">PCB posts: Ø7 / pilot Ø2.5. Centers (15,15), (125,15),</text>
+<text x="179" y="79.8" font-size="3.2" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 79.8)">(15,95), (125,95). M3 × 6 + 0.5 washer.</text>
+<text x="179" y="106.0" font-size="3.2" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 106.0)">Lid screws enter from below: M3 × 10. Centers (7,7), (133,7),</text>
+<text x="179" y="110.8" font-size="3.2" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 110.8)">(7,103), (133,103). Ø3.4 clearance; Ø6.4 × 1.5 counterbore.</text>
+<text x="179" y="143.0" font-size="3.2" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 143.0)">Ports: 12 W × 16 H; bottom Z9. Right USB port: Y43.5–62.5,</text>
+<text x="179" y="147.8" font-size="3.2" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 147.8)">Z7–17. Switch detail: sheet 04.</text>
+<text x="25" y="172.0" font-size="2.8" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 25 172.0)">Plan uses the numeric board/case XY datum. DI edge Y=0; supply/Q edge Y=110. All tolerances are</text>
+<text x="25" y="176.2" font-size="2.8" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 25 176.2)">prototype starting assumptions.</text>
+</svg>

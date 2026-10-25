@@ -1,0 +1,21 @@
+ref,quantity,specification,purpose,official_reference,status
+CASE-BASE,1,base-print.stl; white PETG,Protect board; support PCB and side switch,../mechanical/tinyplc-a1.FCStd,custom print; physical fit untested
+CASE-LID,1,lid-print.stl; white PETG,Conceal fasteners; retain OLED and optical guides,../mechanical/tinyplc-a1.FCStd,custom print; physical fit untested
+COUPON,1,fit-coupon-print.stl,"Trial switch aperture, M3/M2 pilots and rod bore",../mechanical/tinyplc-a1.FCStd,print before full enclosure
+PCB-SCREW,4,M3 x 6 pan head,Secure controller to support posts,https://www.bossard.com/,exact supplier SKU pending
+PCB-WASHER,4,M3; nominal 0.5 mm thickness,Spread force and set screw engagement,https://www.bossard.com/,exact supplier SKU pending
+CASE-SCREW,4,M3 x 10; head OD <=6.4 mm,Underside access keeps top visually clean,https://www.bossard.com/,exact head height and SKU pending; verify counterbore
+OLED-SCREW,4,M2 x 6 pan head,Secure OLED from rear into integral posts,https://www.bossard.com/,exact supplier SKU pending
+OLED-WASHER,4,M2; nominal 0.5 mm thickness,Protect module mounting tabs,https://www.bossard.com/,exact supplier SKU pending
+LENS,1,Clear nonconductive sheet 64 x 32 x 1 mm; R2 corners,Protect status window and capture rods,https://www.plexiglas.de/en,material family only; exact sheet grade and supplier pending
+LENS-MASK,1,lens-mask-front.svg; reverse black mask,Hide module edges while keeping optical windows clear,../mechanical/drawings/lens-mask-front.svg,custom artwork; mirror for reverse-side printing
+LENS-ADHESIVE,1,Perimeter adhesive; 0.2 mm thickness allowance,Retain lens without loading screen,../mechanical/drawings/02-lid-and-optics.pdf,exact nonconductive adhesive and optical compatibility pending
+LIGHT-ROD,2,Clear PMMA rod diameter 3 mm; cut/polish length 24.6 mm,Bring power and RUN LED light to lens,https://www.plexiglas.de/en,material family only; exact stock and optical fit pending
+FEET,4,Nominal diameter 8 x 2 mm; compare 3M SJ5302 (7.93 x 2.16),Keep underside screws clear of desk,https://multimedia.3m.com/mws/media/175691O/3m-tm-bumpon-tm-protective-products.pdf,render uses nominal 8 x 2; selected part and final height pending
+LABELS,1,05-applied-labels.pdf; suitable transfer/decal medium,"Identify supply polarity, I/O, service port and power",../mechanical/drawings/05-applied-labels.pdf,custom artwork; verify labels against nets before applying
+FINISH,1,Optional narrow silver cosmetic paint stripe,Subtle seam accent without conductive metal enclosure,../README.md,optional finish; mask mating faces and electrical parts
+SW3,1,C&K D102J12S215HQA,Maintained SPST switch in fused positive supply; OFF is not galvanic isolation,https://www.ckswitches.com/media/1439/d.pdf,"candidate; verify exact drawing, fit and availability"
+DS1,1,Adafruit 326,"Adafruit 326 I2C status display, QT revision; 4-wire cable to J16",https://www.adafruit.com/product/326,"candidate; verify exact drawing, fit and availability"
+OLED-CABLE,1,Adafruit 4397; QT to premium female sockets; 150 mm,Connect J16 male header to DS1; map by signal not position,https://www.adafruit.com/product/4397,candidate; dress service loop and verify color-to-pin continuity
+SWITCH-LEADS,2,Insulated wire suitable for fused 24 V circuit,Carry fused positive feed to/from panel switch,https://www.ckswitches.com/media/1439/d.pdf,wire gauge and insulation grade pending; match crimp range
+SWITCH-RECEPTACLE,2,Insulated female quick-connect 4.75 x 0.8 mm,Cover SW3 terminals; removable service harness,https://www.ckswitches.com/media/1439/d.pdf,exact receptacle/boot and crimp tool pending; check space physically

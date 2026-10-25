@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297mm" height="210mm" viewBox="0 0 297 210">
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#236d76"/></marker></defs>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#202c34}</style>
+<rect width="297" height="210" fill="white"/>
+<text x="14" y="13" font-size="2.9" style="fill:#236d76" font-weight="700" text-anchor="start" transform="rotate(0 14 13)">CONSTRUCTION / A1 / mm / ACTUAL SIZE A4 / CAD FIT ONLY</text>
+<text x="14" y="28" font-size="6.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 14 28)">03  Custom PCB card fit template</text>
+<path d="M14,198 L283,198" fill="none" stroke="#d8e1e3" stroke-width="0.3" stroke-linecap="round"/>
+<text x="14" y="204" font-size="2.3" style="fill:#586872" font-weight="400" text-anchor="start" transform="rotate(0 14 204)">A1 prototype • CAD renders • not a fabrication release • 2026-10-24</text>
+<text x="283" y="204" font-size="2.8" style="fill:#586872" font-weight="400" text-anchor="end" transform="rotate(0 283 204)">03</text>
+<path d="M180,187 L280,187" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<path d="M180,185 L180,189" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<path d="M280,185 L280,189" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<text x="230" y="183" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(0 230 183)">100 mm — verify printed scale</text>
+<rect x="25" y="50" width="120" height="90" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="30" cy="55" r="1.6" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="140" cy="55" r="1.6" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="30" cy="135" r="1.6" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="140" cy="135" r="1.6" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="116.44000000000001" y="127.79999999999998" width="10.2" height="9.8" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="121.54" y="133.7" font-size="2.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 121.54 133.7)">J1</text>
+<circle cx="64" cy="93" r="1" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="64" cy="97" r="1" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="32.44" y="99.8" width="10.2" height="9.8" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="37.54" y="105.7" font-size="2.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 37.54 105.7)">J17</text>
+<rect x="35.36" y="52.4" width="10.2" height="9.8" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="40.46" y="58.3" font-size="2.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 40.46 58.3)">J5</text>
+<rect x="49.36" y="52.4" width="10.2" height="9.8" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="54.46" y="58.3" font-size="2.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 54.46 58.3)">J6</text>
+<rect x="65.36000000000001" y="52.4" width="10.2" height="9.8" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="70.46000000000001" y="58.3" font-size="2.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 70.46000000000001 58.3)">J7</text>
+<rect x="81.36000000000001" y="52.4" width="10.2" height="9.8" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="86.46000000000001" y="58.3" font-size="2.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 86.46000000000001 58.3)">J8</text>
+<rect x="34.44" y="127.79999999999998" width="10.2" height="9.8" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="39.54" y="133.7" font-size="2.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 39.54 133.7)">J9</text>
+<rect x="50.44" y="127.79999999999998" width="10.2" height="9.8" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="55.54" y="133.7" font-size="2.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 55.54 133.7)">J10</text>
+<rect x="66.44" y="127.79999999999998" width="10.2" height="9.8" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="71.53999999999999" y="133.7" font-size="2.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 71.53999999999999 133.7)">J11</text>
+<rect x="82.44" y="127.79999999999998" width="10.2" height="9.8" rx="0" fill="none" stroke="#202c34" stroke-width=".3"/>
+<text x="87.53999999999999" y="133.7" font-size="2.3" style="fill:#202c34" font-weight="400" text-anchor="middle" transform="rotate(0 87.53999999999999 133.7)">J12</text>
+<path d="M25,43 L145,43" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M25,41 L25,45" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M145,41 L145,45" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<text x="85.0" y="41" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(0 85.0 41)">120</text>
+<path d="M18,50 L18,140" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M16,50 L20,50" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M16,140 L20,140" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<text x="16" y="95.0" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(-90 16 95.0)">90</text>
+<path d="M30,149 L140,149" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M30,147 L30,151" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M140,147 L140,151" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<text x="85.0" y="147" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(0 85.0 147)">110 hole pitch</text>
+<text x="170" y="49.0" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 49.0)">120 × 90 × 1.6 mm custom controller. Four Ø3.2 NPTH holes at</text>
+<text x="170" y="53.95" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 53.95)">(5,5), (115,5), (5,85), (115,85).</text>
+<text x="170" y="80.0" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 80.0)">Case offset: +10,+10. DI edge is Y=0. Q and input supply edge is</text>
+<text x="170" y="84.95" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 84.95)">Y=90. J1.1 = +24 V; J1.2 = 0 V/GND (−).</text>
+<text x="170" y="114.0" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 114.0)">J17 is the internal switch loop. Both contacts carry positive</text>
+<text x="170" y="118.95" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 118.95)">supply; neither is ground. D2 RUN at (39,43); D3 PWR at (39,47).</text>
+<text x="170" y="147.0" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 147.0)">Cut from card for fit checks. This is not a copper/pad image. A1</text>
+<text x="170" y="151.95" font-size="3.3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 170 151.95)">has no routed tracks and is not ready for fabrication.</text>
+</svg>

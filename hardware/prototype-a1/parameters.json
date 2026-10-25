@@ -1,0 +1,148 @@
+{
+  "revision": "A1",
+  "status": "routed prototype candidate; independent fabrication review and physical testing pending",
+  "units": "mm",
+  "pcb": {
+    "width": 120,
+    "depth": 90,
+    "thickness": 1.6,
+    "holes": [
+      [
+        5,
+        5
+      ],
+      [
+        115,
+        5
+      ],
+      [
+        5,
+        85
+      ],
+      [
+        115,
+        85
+      ]
+    ],
+    "hole_diameter": 3.2
+  },
+  "case": {
+    "width": 140,
+    "depth": 110,
+    "base_height": 34,
+    "floor": 2.4,
+    "wall": 2.4,
+    "lid_thickness": 3,
+    "pcb_offset": [
+      10,
+      10
+    ],
+    "pcb_bottom": 8,
+    "post_diameter": 7,
+    "post_pilot": 2.5,
+    "lid_screw_pilot": 2.5,
+    "fit_gap": 0.3,
+    "corner_radius": 7,
+    "lid_screw_centers": [
+      [
+        7,
+        7
+      ],
+      [
+        133,
+        7
+      ],
+      [
+        7,
+        103
+      ],
+      [
+        133,
+        103
+      ]
+    ]
+  },
+  "display": {
+    "part": "Adafruit 326 STEMMA QT revision",
+    "center": [
+      73,
+      55
+    ],
+    "screen_window": [
+      24.5,
+      14
+    ],
+    "lens": [
+      64,
+      32,
+      1
+    ],
+    "status": "candidate; physical fit and firmware pending",
+    "board_size": [
+      29.21,
+      31.75,
+      1.6
+    ],
+    "board_origin": [
+      58.395,
+      35.599,
+      27.0
+    ],
+    "holes": [
+      [
+        2.54,
+        2.54
+      ],
+      [
+        26.67,
+        2.54
+      ],
+      [
+        2.54,
+        29.21
+      ],
+      [
+        26.67,
+        29.21
+      ]
+    ],
+    "active_area": [
+      21.744,
+      10.864
+    ],
+    "glass_top": 33.2,
+    "source": "https://github.com/adafruit/Adafruit-128x64-Monochrome-OLED-PCB/blob/master/Adafruit%200.96in%20128x64%20OLED%20STEMMA%20QT.brd"
+  },
+  "render": {
+    "width": 1800,
+    "height": 1300,
+    "samples": 40
+  },
+  "indicators": {
+    "pwr_board_xy": [
+      39,
+      47
+    ],
+    "run_board_xy": [
+      39,
+      43
+    ],
+    "lightpipe_diameter": 3,
+    "lightpipe_length": 24.6,
+    "status": "PWR indicates 3V3 rail; RUN requires firmware heartbeat"
+  },
+  "switch": {
+    "part": "C&K D102J12S215HQA",
+    "center_yz": [
+      49,
+      22
+    ],
+    "cutout_yz": [
+      12.9,
+      19.81
+    ],
+    "panel_thickness": 2.4,
+    "source": "https://www.ckswitches.com/media/1439/d.pdf",
+    "terminals": "1 and 1A; continuity-check ON/OFF before wiring"
+  }
+}

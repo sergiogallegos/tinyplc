@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297mm" height="210mm" viewBox="0 0 297 210">
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#236d76"/></marker></defs>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#202c34}</style>
+<rect width="297" height="210" fill="white"/>
+<text x="14" y="13" font-size="2.9" style="fill:#236d76" font-weight="700" text-anchor="start" transform="rotate(0 14 13)">CONSTRUCTION / A1 / mm / ACTUAL SIZE A4 / CAD FIT ONLY</text>
+<text x="14" y="28" font-size="6.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 14 28)">02  Lid, optics and display mounting</text>
+<path d="M14,198 L283,198" fill="none" stroke="#d8e1e3" stroke-width="0.3" stroke-linecap="round"/>
+<text x="14" y="204" font-size="2.3" style="fill:#586872" font-weight="400" text-anchor="start" transform="rotate(0 14 204)">A1 prototype • CAD renders • not a fabrication release • 2026-10-24</text>
+<text x="283" y="204" font-size="2.8" style="fill:#586872" font-weight="400" text-anchor="end" transform="rotate(0 283 204)">02</text>
+<path d="M180,187 L280,187" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<path d="M180,185 L180,189" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<path d="M280,185 L280,189" fill="none" stroke="#586872" stroke-width="0.4" stroke-linecap="round"/>
+<text x="230" y="183" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(0 230 183)">100 mm — verify printed scale</text>
+<rect x="25" y="49" width="140" height="110" rx="7" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="63.8" y="87.8" width="64.4" height="32.4" rx="2.2" fill="none" stroke="#202c34" stroke-width=".3"/>
+<rect x="85.75" y="97" width="24.5" height="14" rx="0.7" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="74" cy="102" r="1.6" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="74" cy="106" r="1.6" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="32" cy="56" r="3.3" fill="none" stroke="#586872" stroke-width=".3"/>
+<circle cx="158" cy="56" r="3.3" fill="none" stroke="#586872" stroke-width=".3"/>
+<circle cx="32" cy="152" r="3.3" fill="none" stroke="#586872" stroke-width=".3"/>
+<circle cx="158" cy="152" r="3.3" fill="none" stroke="#586872" stroke-width=".3"/>
+<circle cx="85.93500000000002" cy="87.139" r="2" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="85.93500000000002" cy="87.139" r="0.8" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="110.06500000000001" cy="87.139" r="2" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="110.06500000000001" cy="87.139" r="0.8" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="85.93500000000002" cy="113.809" r="2" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="85.93500000000002" cy="113.809" r="0.8" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="110.06500000000001" cy="113.809" r="2" fill="none" stroke="#202c34" stroke-width=".3"/>
+<circle cx="110.06500000000001" cy="113.809" r="0.8" fill="none" stroke="#202c34" stroke-width=".3"/>
+<path d="M25,42 L165,42" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M25,40 L25,44" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M165,40 L165,44" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<text x="95.0" y="40" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(0 95.0 40)">140</text>
+<path d="M18,49 L18,159" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M16,49 L20,49" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<path d="M16,159 L20,159" fill="none" stroke="#586872" stroke-width="0.3" stroke-linecap="round"/>
+<text x="16" y="104.0" font-size="2.7" style="fill:#586872" font-weight="400" text-anchor="middle" transform="rotate(-90 16 104.0)">110</text>
+<text x="179" y="49.0" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 49.0)">Plate Z34–37; top-edge fillet R0.7. Locating lip Z32.2–34; gap</text>
+<text x="179" y="53.65" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 53.65)">0.3/side.</text>
+<text x="179" y="65.3" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 65.3)">Lid columns Ø6.6, Z4.3–34. Blind M3 pilots Ø2.5, 10 deep from</text>
+<text x="179" y="69.95" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 69.95)">underside.</text>
+<text x="179" y="81.6" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 81.6)">Lens 64 × 32 × 1, R2. Pocket 64.4 × 32.4 × 1.2; 0.2 adhesive</text>
+<text x="179" y="86.25" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 86.25)">allowance.</text>
+<text x="179" y="97.89999999999999" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 97.89999999999999)">OLED PCB origin (58.395,35.599,27). Hole pitch 24.13 × 26.67.</text>
+<text x="179" y="102.55" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 102.55)">Posts Ø4; M2 pilots Ø1.6.</text>
+<text x="179" y="114.19999999999999" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 114.19999999999999)">Glass top Z33.2; nominal lid gap 0.8. Rods Ø3 × 24.6,</text>
+<text x="179" y="118.85" font-size="3.1" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 179 118.85)">Z11.2–35.8. Physical fit must be checked.</text>
+<text x="25" y="174.0" font-size="2.8" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 25 174.0)">OLED and column circles are underside features; no top screw holes. Top lettering is applied</text>
+<text x="25" y="178.2" font-size="2.8" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 25 178.2)">separately. Rods must clear LED packages.</text>
+</svg>

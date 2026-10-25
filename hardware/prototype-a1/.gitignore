@@ -1,0 +1,7 @@
+*.FCStd1
+*.FCStd.*
+*.FCBak
+*.blend1
+*.kicad_prl
+*-backups/
+~*.lck

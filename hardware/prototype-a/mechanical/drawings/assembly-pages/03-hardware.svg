@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297mm" height="210mm" viewBox="0 0 297 210">
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L6,3.5 L0,7 Z" fill="#146bcc"/></marker></defs>
+<rect width="297" height="210" fill="white"/>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#172f46} .bold{font-weight:bold}</style>
+<rect x="0" y="0" width="297" height="3" fill="#146bcc" rx="0"/>
+<text x="12" y="12" font-size="3" style="fill:#146bcc" font-weight="bold" text-anchor="start">tinyPLC  /  A0 VISUAL ASSEMBLY</text>
+<text x="165" y="12" font-size="2.65" style="fill:#ea682b" font-weight="bold" text-anchor="start">INVENTORY / NOMINAL HARDWARE</text>
+<text x="12" y="28" font-size="6" style="fill:#172f46" font-weight="bold" text-anchor="start">Sort the screws before you start</text>
+<path d="M12,199 L285,199" fill="none" stroke="#dae3eb" stroke-width="0.3" stroke-linecap="round" />
+<text x="12" y="204" font-size="2.4" style="fill:#52677b" font-weight="normal" text-anchor="start">A0 • CAD illustrations, not assembly photos • physical fit untested • images not to scale</text>
+<text x="285" y="204" font-size="3" style="fill:#172f46" font-weight="bold" text-anchor="end">03</text>
+<rect x="12" y="41" width="87" height="61" fill="#f1f6fa" rx="3"/>
+<rect x="25" y="50" width="3" height="15" fill="#e7ad27" rx="0"/>
+<path d="M25,52.0 L28,50.0" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M25,54.5 L28,52.5" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M25,57.0 L28,55.0" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M25,59.5 L28,57.5" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M25,62.0 L28,60.0" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<rect x="22" y="47" width="9" height="4" fill="#f2bb3f" rx="1.2"/>
+<path d="M24,48.2 L29,48.2" fill="none" stroke="#172f46" stroke-width="0.5" stroke-linecap="round" />
+<text x="39" y="54" font-size="4" style="fill:#172f46" font-weight="bold" text-anchor="start">4 ×</text>
+<text x="39" y="60" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">M3 × 6</text>
+<text x="17" y="74" font-size="3.2" style="fill:#172f46" font-weight="bold" text-anchor="start">PCB mounting</text>
+<text x="17" y="82.0" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">With 4 M3 washers, about 0.5 mm thick.</text>
+<rect x="105" y="41" width="87" height="61" fill="#f1f6fa" rx="3"/>
+<rect x="118" y="50" width="3" height="15" fill="#e7ad27" rx="0"/>
+<path d="M118,52.0 L121,50.0" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M118,54.5 L121,52.5" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M118,57.0 L121,55.0" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M118,59.5 L121,57.5" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M118,62.0 L121,60.0" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<rect x="115" y="47" width="9" height="4" fill="#f2bb3f" rx="1.2"/>
+<path d="M117,48.2 L122,48.2" fill="none" stroke="#172f46" stroke-width="0.5" stroke-linecap="round" />
+<text x="132" y="54" font-size="4" style="fill:#172f46" font-weight="bold" text-anchor="start">4 ×</text>
+<text x="132" y="60" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">M3 × 8</text>
+<text x="110" y="74" font-size="3.2" style="fill:#172f46" font-weight="bold" text-anchor="start">Lid mounting</text>
+<text x="110" y="82.0" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">Head diameter at most 6 mm.</text>
+<rect x="198" y="41" width="87" height="61" fill="#f1f6fa" rx="3"/>
+<rect x="211" y="50" width="3" height="15" fill="#e7ad27" rx="0"/>
+<path d="M211,52.0 L214,50.0" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M211,54.5 L214,52.5" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M211,57.0 L214,55.0" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M211,59.5 L214,57.5" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<path d="M211,62.0 L214,60.0" fill="none" stroke="#aa791b" stroke-width="0.45" stroke-linecap="round" />
+<rect x="208" y="47" width="9" height="4" fill="#f2bb3f" rx="1.2"/>
+<path d="M210,48.2 L215,48.2" fill="none" stroke="#172f46" stroke-width="0.5" stroke-linecap="round" />
+<text x="225" y="54" font-size="4" style="fill:#172f46" font-weight="bold" text-anchor="start">2 ×</text>
+<text x="225" y="60" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">M2.5 × 8</text>
+<text x="203" y="74" font-size="3.2" style="fill:#172f46" font-weight="bold" text-anchor="start">Display blank</text>
+<text x="203" y="82.0" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">Pass through blank and lid.</text>
+<rect x="12" y="107" width="87" height="61" fill="#f1f6fa" rx="3"/>
+<circle cx="27" cy="121" r="6" fill="#e7ad27"/>
+<circle cx="27" cy="121" r="3" fill="#f1f6fa"/>
+<text x="39" y="120" font-size="4" style="fill:#172f46" font-weight="bold" text-anchor="start">4 ×</text>
+<text x="39" y="126" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">M3</text>
+<text x="17" y="140" font-size="3.2" style="fill:#172f46" font-weight="bold" text-anchor="start">Under PCB screw heads</text>
+<text x="17" y="148.0" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">Seat on the board, not below it.</text>
+<rect x="105" y="107" width="87" height="61" fill="#f1f6fa" rx="3"/>
+<circle cx="120" cy="121" r="6" fill="#e7ad27"/>
+<circle cx="120" cy="121" r="3" fill="#f1f6fa"/>
+<text x="132" y="120" font-size="4" style="fill:#172f46" font-weight="bold" text-anchor="start">2 ×</text>
+<text x="132" y="126" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">M2.5</text>
+<text x="110" y="140" font-size="3.2" style="fill:#172f46" font-weight="bold" text-anchor="start">Under the lid</text>
+<text x="110" y="148.0" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">Between lid underside and blank nuts.</text>
+<rect x="198" y="107" width="87" height="61" fill="#f1f6fa" rx="3"/>
+<path d="M207,117 L213,114 L219,117 L219,124 L213,127 L207,124 Z" fill="#e7ad27"/>
+<circle cx="213" cy="120.5" r="2.5" fill="#f1f6fa"/>
+<text x="225" y="120" font-size="4" style="fill:#172f46" font-weight="bold" text-anchor="start">2 ×</text>
+<text x="225" y="126" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">M2.5</text>
+<text x="203" y="140" font-size="3.2" style="fill:#172f46" font-weight="bold" text-anchor="start">Display blank retention</text>
+<text x="203" y="148.0" font-size="3" style="fill:#172f46" font-weight="normal" text-anchor="start">Hold while tightening the two screws.</text>
+<text x="12" y="181.0" font-size="3.2" style="fill:#172f46" font-weight="normal" text-anchor="start">Tools: ruler, deburring tool, M3 × 0.5 hand tap, suitable hand screwdriver and a small nut driver. Confirm actual screw drawings and fit on the coupon; no</text>
+<text x="12" y="185.8" font-size="3.2" style="fill:#172f46" font-weight="normal" text-anchor="start">tightening torque is qualified.</text>
+</svg>

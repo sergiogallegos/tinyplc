@@ -1,0 +1,4018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/home/sheco/Projects/tinyplc/hardware/prototype-a/electronics/tinyplc-a0.kicad_sch</source>
+    <date>2026-10-24T16:46:42</date>
+    <tool>Eeschema 10.0.7</tool>
+    <textvar name="REVISION">A0 - UNROUTED DRAFT</textvar>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>tinyPLC A0 - electrical prototype draft</title>
+        <company/>
+        <rev>A0</rev>
+        <date>2026-10-24</date>
+        <source>tinyplc-a0.kicad_sch</source>
+        <comment number="1" value="UNROUTED / NOT FOR FABRICATION - see hardware/prototype-a/README.md"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>22uF / 50V</value>
+      <footprint>tinyplc:CP_Radial_D6.3mm_P2.50mm</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1015.pdf</datasheet>
+      <fields>
+        <field name="MPN">Panasonic EEU-FR1H220</field>
+        <field name="Purpose">Input reservoir; polarity matters</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:CP_Radial_D6.3mm_P2.50mm</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1015.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C_Polarized" description="Polarized capacitor"/>
+      <property name="MPN" value="Panasonic EEU-FR1H220"/>
+      <property name="Purpose" value="Input reservoir; polarity matters"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>35bbc842-e4ab-5911-856f-44f79934cad1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>100nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">High-frequency input bypass</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="High-frequency input bypass"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cf1e0d87-1149-5278-9591-882f5bc30de4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>10uF / 10V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">3V3 reservoir</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="3V3 reservoir"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dbc480e0-1b4c-5c7d-824b-b093de02641e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>100nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">One local bypass per VDD pin</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="One local bypass per VDD pin"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>880d3d5f-3cb9-5574-97d2-a9a8d7f4b027</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>100nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">One local bypass per VDD pin</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="One local bypass per VDD pin"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fceaa020-8892-5109-b0de-874d934ac228</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>100nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">One local bypass per VDD pin</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="One local bypass per VDD pin"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dba5a8fe-f36f-5bcd-a2e8-c5eeb71c8040</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C7">
+      <value>100nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">One local bypass per VDD pin</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="One local bypass per VDD pin"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6b990e80-4aed-52b0-a909-85cecd7fed5d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C8">
+      <value>4.7uF / 10V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">Single VCAP package requires 4.7uF low ESR; never a power output</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="Single VCAP package requires 4.7uF low ESR; never a power output"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f0135ce9-7182-5725-9842-5079704f22ff</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C9">
+      <value>4.7uF / 10V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">MCU local bulk capacitance</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="MCU local bulk capacitance"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>613cbe68-46c1-5c60-a53d-b7764ac989d0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C10">
+      <value>100nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">VDDA high-frequency bypass</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="VDDA high-frequency bypass"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b4aae933-d243-5832-8839-60d9bf8d5e4d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C11">
+      <value>1uF / 10V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">VDDA low-frequency bypass</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="VDDA low-frequency bypass"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>40035791-ba4d-5288-a7f4-63d0ea4447e3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C12">
+      <value>100nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">Reset noise filter</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="Reset noise filter"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>18cbc82d-6702-590b-b9b8-06a40dc09ff5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C13">
+      <value>27pF C0G / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">Provisional crystal loading; tune using parasitics</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="Provisional crystal loading; tune using parasitics"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d97fa9af-d818-540f-9d03-474a6381dd23</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C14">
+      <value>27pF C0G / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">Provisional crystal loading; tune using parasitics</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="Provisional crystal loading; tune using parasitics"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>07c74b99-7de8-52b2-a289-b89c0139a36e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C21">
+      <value>10nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">About 100us release filter with 10k pull-up</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="About 100us release filter with 10k pull-up"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7846a8fd-493f-5a98-83bc-95f85af4c4c5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C22">
+      <value>10nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">About 100us release filter with 10k pull-up</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="About 100us release filter with 10k pull-up"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ecd0c1ab-aca3-5396-b3e6-e2f98300c2ef</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C23">
+      <value>10nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">About 100us release filter with 10k pull-up</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="About 100us release filter with 10k pull-up"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2e4dace8-992b-5c84-bace-0b1cdf630e4e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C24">
+      <value>10nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">About 100us release filter with 10k pull-up</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="About 100us release filter with 10k pull-up"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1a598498-da12-5d33-81e7-5c80d938fcd5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C30">
+      <value>100nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">Driver COM decoupling; clamp return must be short</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="Driver COM decoupling; clamp return must be short"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>735535fc-78cf-56a8-98e3-0d2d47b87c4d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C31">
+      <value>100nF / 50V</value>
+      <footprint>tinyplc:C_0805_2012Metric</footprint>
+      <datasheet>https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</datasheet>
+      <fields>
+        <field name="MPN">TDK C2012 family; exact MPN pending</field>
+        <field name="Purpose">ESD supply-reference bypass</field>
+        <field name="Status">specification only; exact MPN pending</field>
+        <field name="Footprint">tinyplc:C_0805_2012Metric</field>
+        <field name="Datasheet">https://product.tdk.com/en/products/capacitor/ceramic/mlcc/characteristic/</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_C" description="Unpolarized capacitor"/>
+      <property name="MPN" value="TDK C2012 family; exact MPN pending"/>
+      <property name="Purpose" value="ESD supply-reference bypass"/>
+      <property name="Status" value="specification only; exact MPN pending"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f395846b-2268-5e81-873e-a255ce20770c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>SS16</value>
+      <footprint>tinyplc:D_SMA</footprint>
+      <datasheet>https://www.diodes.com/datasheet/download/ds13003.pdf</datasheet>
+      <fields>
+        <field name="MPN">SS16</field>
+        <field name="Purpose">Series reverse-polarity diode</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:D_SMA</field>
+        <field name="Datasheet">https://www.diodes.com/datasheet/download/ds13003.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_D_Schottky" description="Schottky diode"/>
+      <property name="MPN" value="SS16"/>
+      <property name="Purpose" value="Series reverse-polarity diode"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8e4f1bc7-f44a-5b4b-8426-b5a1d106766d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>GREEN</value>
+      <footprint>tinyplc:LED_0805_2012Metric</footprint>
+      <datasheet>https://www.kingbrightusa.com/images/catalog/SPEC/KP-2012SGC.pdf</datasheet>
+      <fields>
+        <field name="MPN">Kingbright KP-2012SGC</field>
+        <field name="Purpose">PA5 status LED; preserves existing output test concept</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:LED_0805_2012Metric</field>
+        <field name="Datasheet">https://www.kingbrightusa.com/images/catalog/SPEC/KP-2012SGC.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_LED" description="Light emitting diode"/>
+      <property name="MPN" value="Kingbright KP-2012SGC"/>
+      <property name="Purpose" value="PA5 status LED; preserves existing output test concept"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4b4a58e1-75c4-52f2-8b0b-193d94ac18a4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D11">
+      <value>1N4148W</value>
+      <footprint>tinyplc:D_SOD-123</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf</datasheet>
+      <fields>
+        <field name="MPN">1N4148W</field>
+        <field name="Purpose">Antiparallel diode protects optocoupler LED against reverse input</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:D_SOD-123</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_D" description="Diode"/>
+      <property name="MPN" value="1N4148W"/>
+      <property name="Purpose" value="Antiparallel diode protects optocoupler LED against reverse input"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="diode"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8002424d-c7d6-5f15-bb6e-1a2777b573b6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D12">
+      <value>1N4148W</value>
+      <footprint>tinyplc:D_SOD-123</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf</datasheet>
+      <fields>
+        <field name="MPN">1N4148W</field>
+        <field name="Purpose">Antiparallel diode protects optocoupler LED against reverse input</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:D_SOD-123</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_D" description="Diode"/>
+      <property name="MPN" value="1N4148W"/>
+      <property name="Purpose" value="Antiparallel diode protects optocoupler LED against reverse input"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="diode"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5cf89e78-57c2-5b86-8e59-b38367fcd943</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D13">
+      <value>1N4148W</value>
+      <footprint>tinyplc:D_SOD-123</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf</datasheet>
+      <fields>
+        <field name="MPN">1N4148W</field>
+        <field name="Purpose">Antiparallel diode protects optocoupler LED against reverse input</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:D_SOD-123</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_D" description="Diode"/>
+      <property name="MPN" value="1N4148W"/>
+      <property name="Purpose" value="Antiparallel diode protects optocoupler LED against reverse input"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="diode"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1d27c4e8-822d-5612-b4bb-7a5f6463f63f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D14">
+      <value>1N4148W</value>
+      <footprint>tinyplc:D_SOD-123</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf</datasheet>
+      <fields>
+        <field name="MPN">1N4148W</field>
+        <field name="Purpose">Antiparallel diode protects optocoupler LED against reverse input</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:D_SOD-123</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/1N4148W_1N4448W.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_D" description="Diode"/>
+      <property name="MPN" value="1N4148W"/>
+      <property name="Purpose" value="Antiparallel diode protects optocoupler LED against reverse input"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="diode"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>49f79bc0-19b7-59a2-9d96-5e1c23defa8d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="F1">
+      <value>500mA / 60V</value>
+      <footprint>tinyplc:PTC_MF_R050</footprint>
+      <datasheet>https://www.bourns.com/docs/product-datasheets/mf-r.pdf</datasheet>
+      <fields>
+        <field name="MPN">MF-R050</field>
+        <field name="Purpose">Resettable input fuse; slow overload protection</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:PTC_MF_R050</field>
+        <field name="Datasheet">https://www.bourns.com/docs/product-datasheets/mf-r.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_Polyfuse" description="Resettable fuse, polymeric positive temperature coefficient"/>
+      <property name="MPN" value="MF-R050"/>
+      <property name="Purpose" value="Resettable input fuse; slow overload protection"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="resettable fuse PTC PPTC polyfuse polyswitch"/>
+      <property name="ki_fp_filters" value="*polyfuse* *PTC*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bb43737f-aa91-5c23-92da-2933e1d43bde</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H1">
+      <value>M3 NPTH</value>
+      <footprint>tinyplc:MountingHole_3.2mm_M3</footprint>
+      <datasheet>https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</datasheet>
+      <fields>
+        <field name="MPN">No purchased component</field>
+        <field name="Purpose">Board mounting; 3.2mm non-plated hole</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet">https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Mechanical_MountingHole" description="Mounting Hole without connection"/>
+      <property name="MPN" value="No purchased component"/>
+      <property name="Purpose" value="Board mounting; 3.2mm non-plated hole"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>954558d3-df33-523c-852a-fc5e8702122a</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H2">
+      <value>M3 NPTH</value>
+      <footprint>tinyplc:MountingHole_3.2mm_M3</footprint>
+      <datasheet>https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</datasheet>
+      <fields>
+        <field name="MPN">No purchased component</field>
+        <field name="Purpose">Board mounting; 3.2mm non-plated hole</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet">https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Mechanical_MountingHole" description="Mounting Hole without connection"/>
+      <property name="MPN" value="No purchased component"/>
+      <property name="Purpose" value="Board mounting; 3.2mm non-plated hole"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>22e6ebfa-1c67-56d9-aff0-3fb7aafbffd4</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H3">
+      <value>M3 NPTH</value>
+      <footprint>tinyplc:MountingHole_3.2mm_M3</footprint>
+      <datasheet>https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</datasheet>
+      <fields>
+        <field name="MPN">No purchased component</field>
+        <field name="Purpose">Board mounting; 3.2mm non-plated hole</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet">https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Mechanical_MountingHole" description="Mounting Hole without connection"/>
+      <property name="MPN" value="No purchased component"/>
+      <property name="Purpose" value="Board mounting; 3.2mm non-plated hole"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b51842b6-efbb-50e6-bfa6-eab61c44b4a7</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H4">
+      <value>M3 NPTH</value>
+      <footprint>tinyplc:MountingHole_3.2mm_M3</footprint>
+      <datasheet>https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</datasheet>
+      <fields>
+        <field name="MPN">No purchased component</field>
+        <field name="Purpose">Board mounting; 3.2mm non-plated hole</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet">https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Mechanical_MountingHole" description="Mounting Hole without connection"/>
+      <property name="MPN" value="No purchased component"/>
+      <property name="Purpose" value="Board mounting; 3.2mm non-plated hole"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4166034d-2b2c-5e41-9933-7da62db16a8c</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>24V IN / GND</value>
+      <footprint>tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</datasheet>
+      <fields>
+        <field name="MPN">1715721</field>
+        <field name="Purpose">24V IN / GND</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="1715721"/>
+      <property name="Purpose" value="24V IN / GND"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>18a8a4dc-b344-5898-94c0-65976e4cbc85</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>BOOT: 1=3V3 2=BOOT0 3=GND</value>
+      <footprint>tinyplc:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <datasheet>https://www.samtec.com/products/tsw</datasheet>
+      <fields>
+        <field name="MPN">Samtec TSW-103-07-G-S</field>
+        <field name="Purpose">Momentary shunt 1-2 only for ROM recovery</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet">https://www.samtec.com/products/tsw</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="Samtec TSW-103-07-G-S"/>
+      <property name="Purpose" value="Momentary shunt 1-2 only for ROM recovery"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>514696bf-c815-50ac-a1c1-a3786caf5667</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J3">
+      <value>SWD: 3V3 GND DIO CLK NRST SWO</value>
+      <footprint>tinyplc:PinHeader_1x06_P2.54mm_Vertical</footprint>
+      <datasheet>https://www.samtec.com/products/tsw</datasheet>
+      <fields>
+        <field name="MPN">Samtec TSW-106-07-G-S</field>
+        <field name="Purpose">Custom 2.54mm SWD header; pin 6 unconnected</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:PinHeader_1x06_P2.54mm_Vertical</field>
+        <field name="Datasheet">https://www.samtec.com/products/tsw</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x06" description="Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="Samtec TSW-106-07-G-S"/>
+      <property name="Purpose" value="Custom 2.54mm SWD header; pin 6 unconnected"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d0f0700b-167a-51f3-9128-05ba7aa13747</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J4">
+      <value>UART: GND TX RX</value>
+      <footprint>tinyplc:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <datasheet>https://www.samtec.com/products/tsw</datasheet>
+      <fields>
+        <field name="MPN">Samtec TSW-103-07-G-S</field>
+        <field name="Purpose">3.3V UART recovery and existing engineering transport</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet">https://www.samtec.com/products/tsw</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="Samtec TSW-103-07-G-S"/>
+      <property name="Purpose" value="3.3V UART recovery and existing engineering transport"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>724cfbd0-3a64-5225-bc77-9134cfff8c16</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J5">
+      <value>DI1 / GND</value>
+      <footprint>tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</datasheet>
+      <fields>
+        <field name="MPN">1715721</field>
+        <field name="Purpose">DI1 / GND</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="1715721"/>
+      <property name="Purpose" value="DI1 / GND"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4e3fc85d-40db-5b0b-a5f6-bac39e941d4a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J6">
+      <value>DI2 / GND</value>
+      <footprint>tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</datasheet>
+      <fields>
+        <field name="MPN">1715721</field>
+        <field name="Purpose">DI2 / GND</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="1715721"/>
+      <property name="Purpose" value="DI2 / GND"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ae9384ee-b02b-5e5b-a878-2e7c4380c882</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J7">
+      <value>DI3 / GND</value>
+      <footprint>tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</datasheet>
+      <fields>
+        <field name="MPN">1715721</field>
+        <field name="Purpose">DI3 / GND</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="1715721"/>
+      <property name="Purpose" value="DI3 / GND"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f9f28cee-39f6-5e6d-9407-56adeeec6868</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J8">
+      <value>DI4 / GND</value>
+      <footprint>tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</datasheet>
+      <fields>
+        <field name="MPN">1715721</field>
+        <field name="Purpose">DI4 / GND</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="1715721"/>
+      <property name="Purpose" value="DI4 / GND"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>06bd09bc-0334-5ac0-b268-240c4e93b0ea</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J9">
+      <value>+24 / Q1 sink</value>
+      <footprint>tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</datasheet>
+      <fields>
+        <field name="MPN">1715721</field>
+        <field name="Purpose">+24 / Q1 sink</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="1715721"/>
+      <property name="Purpose" value="+24 / Q1 sink"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>726b4fb0-d9b0-572a-a197-ba1a93f873f6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J10">
+      <value>+24 / Q2 sink</value>
+      <footprint>tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</datasheet>
+      <fields>
+        <field name="MPN">1715721</field>
+        <field name="Purpose">+24 / Q2 sink</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="1715721"/>
+      <property name="Purpose" value="+24 / Q2 sink"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>483ca18e-e530-5a4c-8c10-8cb8ca09ee9d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J11">
+      <value>+24 / Q3 sink</value>
+      <footprint>tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</datasheet>
+      <fields>
+        <field name="MPN">1715721</field>
+        <field name="Purpose">+24 / Q3 sink</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="1715721"/>
+      <property name="Purpose" value="+24 / Q3 sink"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>daca6282-d1da-5465-91fc-b611ccfb7560</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J12">
+      <value>+24 / Q4 sink</value>
+      <footprint>tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</datasheet>
+      <fields>
+        <field name="MPN">1715721</field>
+        <field name="Purpose">+24 / Q4 sink</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://www.phoenixcontact.com/en-us/products/pcb-terminal-block-mkds-15-2-508-1715721</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="1715721"/>
+      <property name="Purpose" value="+24 / Q4 sink"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7f77546c-9a62-53f2-b37f-6388404209f4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J13">
+      <value>USB-C DEVICE</value>
+      <footprint>tinyplc:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal</footprint>
+      <datasheet>https://gct.co/files/drawings/usb4105.pdf</datasheet>
+      <fields>
+        <field name="MPN">USB4105-GF-A-120</field>
+        <field name="Purpose">USB2 device only; VBUS never powers board</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal</field>
+        <field name="Datasheet">https://gct.co/files/drawings/usb4105.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_USB_C_Receptacle_USB2.0_16P" description="USB 2.0-only 16P Type-C Receptacle connector"/>
+      <property name="MPN" value="USB4105-GF-A-120"/>
+      <property name="Purpose" value="USB2 device only; VBUS never powers board"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="usb universal serial bus type-C USB2.0"/>
+      <property name="ki_fp_filters" value="USB*C*Receptacle*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cc2d6be5-38c3-5e54-9c09-ec1c59c39783</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="SH"/>
+            <pin num="B1"/>
+            <pin num="B12"/>
+            <pin num="A1"/>
+            <pin num="A12"/>
+            <pin num="A9"/>
+            <pin num="B4"/>
+            <pin num="B9"/>
+            <pin num="A4"/>
+            <pin num="A5"/>
+            <pin num="B5"/>
+            <pin num="A7"/>
+            <pin num="B7"/>
+            <pin num="A6"/>
+            <pin num="B6"/>
+            <pin num="A8"/>
+            <pin num="B8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J14">
+      <value>SPI: 3V3 GND SCK MISO MOSI CS</value>
+      <footprint>tinyplc:PinHeader_1x06_P2.54mm_Vertical</footprint>
+      <datasheet>https://www.samtec.com/products/tsw</datasheet>
+      <fields>
+        <field name="MPN">Samtec TSW-106-07-G-S</field>
+        <field name="Purpose">Cabled SPI2 expansion; NOT a WIZ850io direct-plug footprint</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:PinHeader_1x06_P2.54mm_Vertical</field>
+        <field name="Datasheet">https://www.samtec.com/products/tsw</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x06" description="Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="Samtec TSW-106-07-G-S"/>
+      <property name="Purpose" value="Cabled SPI2 expansion; NOT a WIZ850io direct-plug footprint"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>df036f9e-21a3-590a-9741-4ffd10e93111</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J15">
+      <value>ETH: GND RST INT</value>
+      <footprint>tinyplc:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <datasheet>https://www.samtec.com/products/tsw</datasheet>
+      <fields>
+        <field name="MPN">Samtec TSW-103-07-G-S</field>
+        <field name="Purpose">Ethernet reset and interrupt expansion</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet">https://www.samtec.com/products/tsw</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="Samtec TSW-103-07-G-S"/>
+      <property name="Purpose" value="Ethernet reset and interrupt expansion"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d0bedff2-c605-5345-bff6-5ec854c9ec0f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J16">
+      <value>OLED: 3V3 GND SCL SDA</value>
+      <footprint>tinyplc:PinHeader_1x04_P2.54mm_Vertical</footprint>
+      <datasheet>https://www.samtec.com/products/tsw</datasheet>
+      <fields>
+        <field name="MPN">Samtec TSW-104-07-G-S</field>
+        <field name="Purpose">Cabled 3.3V I2C display; custom pin order</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:PinHeader_1x04_P2.54mm_Vertical</field>
+        <field name="Datasheet">https://www.samtec.com/products/tsw</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_Generic_Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="Samtec TSW-104-07-G-S"/>
+      <property name="Purpose" value="Cabled 3.3V I2C display; custom pin order"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8f274f63-9d32-5d90-b02b-eefbce9cdbee</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>22</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF22R0V</field>
+        <field name="Purpose">Analog supply RC filter; verify VDDA drop</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF22R0V"/>
+      <property name="Purpose" value="Analog supply RC filter; verify VDDA drop"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7cb82d7f-682a-59ea-89eb-83b4a076af3a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">Reset pull-up</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="Reset pull-up"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3b72858c-c8b8-5720-bef2-832c25206500</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">Normal boot from user flash</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="Normal boot from user flash"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>19f300f0-3103-5d62-a443-066be66df317</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">Bootloader mode selection pull-down</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="Bootloader mode selection pull-down"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4a5c172a-2e21-5e64-9108-37e7f92f0757</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">User button pull-up</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="User button pull-up"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fe49f5ca-a4a9-57e5-8b83-656019e10241</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>1k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1001V</field>
+        <field name="Purpose">Approximately 1mA LED current</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1001V"/>
+      <property name="Purpose" value="Approximately 1mA LED current"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e7569246-1f0b-5f14-ae34-a5c7622cfb85</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R10">
+      <value>2.2k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF2201V</field>
+        <field name="Purpose">First half of input LED current limiter</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF2201V"/>
+      <property name="Purpose" value="First half of input LED current limiter"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c4ee48a8-7cb1-5465-ac41-dd2d6b66f80b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R11">
+      <value>2.2k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF2201V</field>
+        <field name="Purpose">Second half of input limiter; shares dissipation</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF2201V"/>
+      <property name="Purpose" value="Second half of input limiter; shares dissipation"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5e221a68-8971-5e1d-82ed-8890e3f23605</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R12">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">Collector pull-up sets GPIO HIGH when input is off</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="Collector pull-up sets GPIO HIGH when input is off"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>67a44b3b-6975-566f-93d7-d0489e18596e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R20">
+      <value>2.2k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF2201V</field>
+        <field name="Purpose">First half of input LED current limiter</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF2201V"/>
+      <property name="Purpose" value="First half of input LED current limiter"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c5fe892a-f320-55cf-b2bc-31f4940fb5fe</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R21">
+      <value>2.2k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF2201V</field>
+        <field name="Purpose">Second half of input limiter; shares dissipation</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF2201V"/>
+      <property name="Purpose" value="Second half of input limiter; shares dissipation"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0bd4ebf1-a2c5-5361-9ed0-4e28ee14f7e1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R22">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">Collector pull-up sets GPIO HIGH when input is off</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="Collector pull-up sets GPIO HIGH when input is off"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c1e5da6f-9497-51ba-91a2-17eabe009774</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R30">
+      <value>2.2k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF2201V</field>
+        <field name="Purpose">First half of input LED current limiter</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF2201V"/>
+      <property name="Purpose" value="First half of input LED current limiter"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7e0a9dc2-359e-597f-b20f-1a6a46eff40d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R31">
+      <value>2.2k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF2201V</field>
+        <field name="Purpose">Second half of input limiter; shares dissipation</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF2201V"/>
+      <property name="Purpose" value="Second half of input limiter; shares dissipation"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3384ca8d-1246-5146-ba66-c157df5b9fa2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R32">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">Collector pull-up sets GPIO HIGH when input is off</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="Collector pull-up sets GPIO HIGH when input is off"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>31d03de7-56b6-5f06-9011-54fc843a58e4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R40">
+      <value>2.2k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF2201V</field>
+        <field name="Purpose">First half of input LED current limiter</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF2201V"/>
+      <property name="Purpose" value="First half of input LED current limiter"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a0c2f334-082b-58dc-acfe-8f1f0a9c9edb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R41">
+      <value>2.2k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF2201V</field>
+        <field name="Purpose">Second half of input limiter; shares dissipation</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF2201V"/>
+      <property name="Purpose" value="Second half of input limiter; shares dissipation"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a136fcc5-fe2e-57d5-a83b-6575d6e3c6e8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R42">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">Collector pull-up sets GPIO HIGH when input is off</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="Collector pull-up sets GPIO HIGH when input is off"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7bd50473-cec6-5890-9382-1eb73d1c4eb7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R51">
+      <value>100k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1003V</field>
+        <field name="Purpose">External pull-down keeps driver input low during MCU reset</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1003V"/>
+      <property name="Purpose" value="External pull-down keeps driver input low during MCU reset"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3919fed4-9eb5-5569-b3c8-190e0b46a2a3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R52">
+      <value>100k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1003V</field>
+        <field name="Purpose">External pull-down keeps driver input low during MCU reset</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1003V"/>
+      <property name="Purpose" value="External pull-down keeps driver input low during MCU reset"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ea688796-c47c-5c62-9c78-73d9ba5b5f47</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R53">
+      <value>100k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1003V</field>
+        <field name="Purpose">External pull-down keeps driver input low during MCU reset</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1003V"/>
+      <property name="Purpose" value="External pull-down keeps driver input low during MCU reset"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c630bb3c-48f6-538f-bd4d-c54233ae2f2e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R54">
+      <value>100k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1003V</field>
+        <field name="Purpose">External pull-down keeps driver input low during MCU reset</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1003V"/>
+      <property name="Purpose" value="External pull-down keeps driver input low during MCU reset"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>42a1d4ca-af8b-56b4-83fc-e38650d2a03a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R60">
+      <value>5.1k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF5101V</field>
+        <field name="Purpose">USB-C Rd advertises a sink/device on CC1</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF5101V"/>
+      <property name="Purpose" value="USB-C Rd advertises a sink/device on CC1"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dbc815cf-b15d-59f0-938b-b4882cb9bac0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R61">
+      <value>5.1k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF5101V</field>
+        <field name="Purpose">Independent Rd on CC2 supports either cable orientation</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF5101V"/>
+      <property name="Purpose" value="Independent Rd on CC2 supports either cable orientation"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>67e967ac-d47b-5f8e-b1e0-93a7869e72f5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R62">
+      <value>22</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF22R0V</field>
+        <field name="Purpose">Provisional USB D- source-series damping</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF22R0V"/>
+      <property name="Purpose" value="Provisional USB D- source-series damping"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6f50d706-1a62-5e1a-bd1a-ad5c9d5a8ccf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R63">
+      <value>22</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF22R0V</field>
+        <field name="Purpose">Provisional USB D+ source-series damping</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF22R0V"/>
+      <property name="Purpose" value="Provisional USB D+ source-series damping"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>202fee77-9dff-59e1-adeb-1da3b0911cf2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R64">
+      <value>68k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF6802V</field>
+        <field name="Purpose">VBUS divider upper resistor; limits sense voltage</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF6802V"/>
+      <property name="Purpose" value="VBUS divider upper resistor; limits sense voltage"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>28e3b2d9-ede9-5b17-8a24-177d59282fb3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R65">
+      <value>100k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1003V</field>
+        <field name="Purpose">VBUS divider lower resistor; no back-power rail connection</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1003V"/>
+      <property name="Purpose" value="VBUS divider lower resistor; no back-power rail connection"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3b918a4f-fdbb-5343-8b9c-4028082ab67a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R70">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">Deselected SPI device during boot</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="Deselected SPI device during boot"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9df03d2c-3afd-5771-bd7a-71a0183e6c14</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R71">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">Keep optional Ethernet module reset until firmware releases it</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="Keep optional Ethernet module reset until firmware releases it"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>aa9c4a47-2757-5bd5-a03e-66bef19cc722</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R72">
+      <value>10k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF1002V</field>
+        <field name="Purpose">Optional interrupt pull-up</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF1002V"/>
+      <property name="Purpose" value="Optional interrupt pull-up"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6de7e726-9314-55a6-8e2c-be2ace5aff09</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R73">
+      <value>4.7k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF4701V</field>
+        <field name="Purpose">I2C clock pull-up; review module parallel pull-ups</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF4701V"/>
+      <property name="Purpose" value="I2C clock pull-up; review module parallel pull-ups"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7e8c6123-cefc-507b-92c5-a2fd8f1c3daa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R74">
+      <value>4.7k</value>
+      <footprint>tinyplc:R_0805_2012Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="MPN">ERJ-6ENF4701V</field>
+        <field name="Purpose">I2C data pull-up; review module parallel pull-ups</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:R_0805_2012Metric</field>
+        <field name="Datasheet">https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C307.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_R" description="Resistor"/>
+      <property name="MPN" value="ERJ-6ENF4701V"/>
+      <property name="Purpose" value="I2C data pull-up; review module parallel pull-ups"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0bd568b7-1786-5fca-b46e-155d504fb8c5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW1">
+      <value>RESET</value>
+      <footprint>tinyplc:SW_PUSH_6mm</footprint>
+      <datasheet>https://components.omron.com/sites/default/files/datasheet_pdf/A070-E1.pdf</datasheet>
+      <fields>
+        <field name="MPN">Omron B3F-1000</field>
+        <field name="Purpose">Reset button under service lid</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:SW_PUSH_6mm</field>
+        <field name="Datasheet">https://components.omron.com/sites/default/files/datasheet_pdf/A070-E1.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Switch_SW_Push" description="Push button switch, generic, two pins"/>
+      <property name="MPN" value="Omron B3F-1000"/>
+      <property name="Purpose" value="Reset button under service lid"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4926aa24-1cf9-5c6f-a46a-45943b339b77</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW2">
+      <value>USER</value>
+      <footprint>tinyplc:SW_PUSH_6mm</footprint>
+      <datasheet>https://components.omron.com/sites/default/files/datasheet_pdf/A070-E1.pdf</datasheet>
+      <fields>
+        <field name="MPN">Omron B3F-1000</field>
+        <field name="Purpose">Active-low user input under service lid</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:SW_PUSH_6mm</field>
+        <field name="Datasheet">https://components.omron.com/sites/default/files/datasheet_pdf/A070-E1.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Switch_SW_Push" description="Push button switch, generic, two pins"/>
+      <property name="MPN" value="Omron B3F-1000"/>
+      <property name="Purpose" value="Active-low user input under service lid"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>247d107a-e961-57e3-a6b5-7bae22cbd413</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP1">
+      <value>GND</value>
+      <footprint>tinyplc:TestPoint_Pad_D2.0mm</footprint>
+      <datasheet>https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</datasheet>
+      <fields>
+        <field name="MPN">Bare PCB test pad</field>
+        <field name="Purpose">Probe GND</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TestPoint_Pad_D2.0mm</field>
+        <field name="Datasheet">https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_TestPoint" description="test point"/>
+      <property name="MPN" value="Bare PCB test pad"/>
+      <property name="Purpose" value="Probe GND"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>380c70b8-4bcb-5c0f-a790-455f7dd54f76</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP2">
+      <value>+3V3</value>
+      <footprint>tinyplc:TestPoint_Pad_D2.0mm</footprint>
+      <datasheet>https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</datasheet>
+      <fields>
+        <field name="MPN">Bare PCB test pad</field>
+        <field name="Purpose">Probe +3V3</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TestPoint_Pad_D2.0mm</field>
+        <field name="Datasheet">https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_TestPoint" description="test point"/>
+      <property name="MPN" value="Bare PCB test pad"/>
+      <property name="Purpose" value="Probe +3V3"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>85a9d12a-b0b1-58c8-99ba-05ad4e814e17</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP3">
+      <value>V24</value>
+      <footprint>tinyplc:TestPoint_Pad_D2.0mm</footprint>
+      <datasheet>https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</datasheet>
+      <fields>
+        <field name="MPN">Bare PCB test pad</field>
+        <field name="Purpose">Probe V24</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TestPoint_Pad_D2.0mm</field>
+        <field name="Datasheet">https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_TestPoint" description="test point"/>
+      <property name="MPN" value="Bare PCB test pad"/>
+      <property name="Purpose" value="Probe V24"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5ee764f2-436c-5bb3-8e9a-65f47620114c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP4">
+      <value>VCAP1</value>
+      <footprint>tinyplc:TestPoint_Pad_D2.0mm</footprint>
+      <datasheet>https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</datasheet>
+      <fields>
+        <field name="MPN">Bare PCB test pad</field>
+        <field name="Purpose">Probe VCAP1</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:TestPoint_Pad_D2.0mm</field>
+        <field name="Datasheet">https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Connector_TestPoint" description="test point"/>
+      <property name="MPN" value="Bare PCB test pad"/>
+      <property name="Purpose" value="Probe VCAP1"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>440edefc-d173-537c-9d1a-51d468c2f87b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>STM32F446RET6</value>
+      <footprint>tinyplc:LQFP-64_10x10mm_P0.5mm</footprint>
+      <datasheet>https://www.st.com/resource/en/datasheet/stm32f446re.pdf</datasheet>
+      <fields>
+        <field name="MPN">STM32F446RET6</field>
+        <field name="Purpose">Native ST processor; internal regulator ON</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:LQFP-64_10x10mm_P0.5mm</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/stm32f446re.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="MCU_ST_STM32F4_STM32F446RETx" description="STMicroelectronics Arm Cortex-M4 MCU, 512KB flash, 128KB RAM, 180 MHz, 1.8-3.6V, 50 GPIO, LQFP64"/>
+      <property name="MPN" value="STM32F446RET6"/>
+      <property name="Purpose" value="Native ST processor; internal regulator ON"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="Arm Cortex-M4 STM32F4 STM32F446"/>
+      <property name="ki_fp_filters" value="LQFP*10x10mm*P0.5mm*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a4a6cd0b-6394-5ecf-8e67-4fd9cd8d6bd0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="7"/>
+            <pin num="60"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="54"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="37"/>
+            <pin num="38"/>
+            <pin num="39"/>
+            <pin num="40"/>
+            <pin num="51"/>
+            <pin num="52"/>
+            <pin num="53"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="30"/>
+            <pin num="1"/>
+            <pin num="19"/>
+            <pin num="32"/>
+            <pin num="18"/>
+            <pin num="47"/>
+            <pin num="63"/>
+            <pin num="31"/>
+            <pin num="48"/>
+            <pin num="12"/>
+            <pin num="64"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="23"/>
+            <pin num="41"/>
+            <pin num="42"/>
+            <pin num="43"/>
+            <pin num="44"/>
+            <pin num="45"/>
+            <pin num="46"/>
+            <pin num="49"/>
+            <pin num="50"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="28"/>
+            <pin num="55"/>
+            <pin num="56"/>
+            <pin num="57"/>
+            <pin num="58"/>
+            <pin num="59"/>
+            <pin num="61"/>
+            <pin num="62"/>
+            <pin num="29"/>
+            <pin num="33"/>
+            <pin num="34"/>
+            <pin num="35"/>
+            <pin num="36"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U2">
+      <value>TSR 1-2433</value>
+      <footprint>tinyplc:Converter_DCDC_TRACO_TSR-1_THT</footprint>
+      <datasheet>https://www.tracopower.com/tsr1-datasheet</datasheet>
+      <fields>
+        <field name="MPN">TSR 1-2433</field>
+        <field name="Purpose">24 V to 3.3 V switching supply</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:Converter_DCDC_TRACO_TSR-1_THT</field>
+        <field name="Datasheet">https://www.tracopower.com/tsr1-datasheet</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="tinyplc_TSR_1_2433" description=""/>
+      <property name="MPN" value="TSR 1-2433"/>
+      <property name="Purpose" value="24 V to 3.3 V switching supply"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3a89c3db-a3d6-51bd-aa2b-7ae6b42afd05</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U3">
+      <value>TPL7407LDR</value>
+      <footprint>tinyplc:SOIC-16_3.9x9.9mm_P1.27mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tpl7407l.pdf</datasheet>
+      <fields>
+        <field name="MPN">TPL7407LDR</field>
+        <field name="Purpose">Four 3.3V-compatible low-side drivers; 3 unused channels</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:SOIC-16_3.9x9.9mm_P1.27mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tpl7407l.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="tinyplc_TPL7407L" description=""/>
+      <property name="MPN" value="TPL7407LDR"/>
+      <property name="Purpose" value="Four 3.3V-compatible low-side drivers; 3 unused channels"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8d6600f9-1405-5ddb-9139-64c9e89aa540</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="16"/>
+            <pin num="15"/>
+            <pin num="14"/>
+            <pin num="13"/>
+            <pin num="12"/>
+            <pin num="11"/>
+            <pin num="10"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U4">
+      <value>VO617A-3</value>
+      <footprint>tinyplc:DIP-4_W7.62mm</footprint>
+      <datasheet>https://www.vishay.com/docs/83430/vo617a.pdf</datasheet>
+      <fields>
+        <field name="MPN">VO617A-3</field>
+        <field name="Purpose">24V-present signal becomes active-low 3V3 GPIO</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:DIP-4_W7.62mm</field>
+        <field name="Datasheet">https://www.vishay.com/docs/83430/vo617a.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Isolator_LTV-817" description="DC Optocoupler, Vce 35V, CTR 50%, DIP-4"/>
+      <property name="MPN" value="VO617A-3"/>
+      <property name="Purpose" value="24V-present signal becomes active-low 3V3 GPIO"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="NPN DC Optocoupler"/>
+      <property name="ki_fp_filters" value="DIP*W7.62mm*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>68505dbf-2d8b-524c-b4db-25245de66372</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U5">
+      <value>VO617A-3</value>
+      <footprint>tinyplc:DIP-4_W7.62mm</footprint>
+      <datasheet>https://www.vishay.com/docs/83430/vo617a.pdf</datasheet>
+      <fields>
+        <field name="MPN">VO617A-3</field>
+        <field name="Purpose">24V-present signal becomes active-low 3V3 GPIO</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:DIP-4_W7.62mm</field>
+        <field name="Datasheet">https://www.vishay.com/docs/83430/vo617a.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Isolator_LTV-817" description="DC Optocoupler, Vce 35V, CTR 50%, DIP-4"/>
+      <property name="MPN" value="VO617A-3"/>
+      <property name="Purpose" value="24V-present signal becomes active-low 3V3 GPIO"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="NPN DC Optocoupler"/>
+      <property name="ki_fp_filters" value="DIP*W7.62mm*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3ab1610a-589f-5523-92a5-09f14242383c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U6">
+      <value>VO617A-3</value>
+      <footprint>tinyplc:DIP-4_W7.62mm</footprint>
+      <datasheet>https://www.vishay.com/docs/83430/vo617a.pdf</datasheet>
+      <fields>
+        <field name="MPN">VO617A-3</field>
+        <field name="Purpose">24V-present signal becomes active-low 3V3 GPIO</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:DIP-4_W7.62mm</field>
+        <field name="Datasheet">https://www.vishay.com/docs/83430/vo617a.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Isolator_LTV-817" description="DC Optocoupler, Vce 35V, CTR 50%, DIP-4"/>
+      <property name="MPN" value="VO617A-3"/>
+      <property name="Purpose" value="24V-present signal becomes active-low 3V3 GPIO"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="NPN DC Optocoupler"/>
+      <property name="ki_fp_filters" value="DIP*W7.62mm*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>91f2f759-25f5-5444-bdc5-99a8058f4ac8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U7">
+      <value>VO617A-3</value>
+      <footprint>tinyplc:DIP-4_W7.62mm</footprint>
+      <datasheet>https://www.vishay.com/docs/83430/vo617a.pdf</datasheet>
+      <fields>
+        <field name="MPN">VO617A-3</field>
+        <field name="Purpose">24V-present signal becomes active-low 3V3 GPIO</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:DIP-4_W7.62mm</field>
+        <field name="Datasheet">https://www.vishay.com/docs/83430/vo617a.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Isolator_LTV-817" description="DC Optocoupler, Vce 35V, CTR 50%, DIP-4"/>
+      <property name="MPN" value="VO617A-3"/>
+      <property name="Purpose" value="24V-present signal becomes active-low 3V3 GPIO"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="NPN DC Optocoupler"/>
+      <property name="ki_fp_filters" value="DIP*W7.62mm*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2f562eed-bed5-5007-9f8d-1d8e155abecb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U8">
+      <value>USBLC6-2SC6</value>
+      <footprint>tinyplc:SOT-23-6</footprint>
+      <datasheet>https://www.st.com/resource/en/datasheet/usblc6-2.pdf</datasheet>
+      <fields>
+        <field name="MPN">USBLC6-2SC6</field>
+        <field name="Purpose">Low-capacitance USB connector ESD protection</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:SOT-23-6</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/usblc6-2.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Power_Protection_USBLC6-2SC6" description="Very low capacitance ESD protection diode, 2 data-line, SOT-23-6"/>
+      <property name="MPN" value="USBLC6-2SC6"/>
+      <property name="Purpose" value="Low-capacitance USB connector ESD protection"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="usb ethernet video"/>
+      <property name="ki_fp_filters" value="SOT?23*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>99065445-c7b4-5b16-bcf5-94f1af832dfa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="3"/>
+            <pin num="5"/>
+            <pin num="2"/>
+            <pin num="6"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Y1">
+      <value>8MHz CL18pF</value>
+      <footprint>tinyplc:Crystal_SMD_5032-2Pin_5.0x3.2mm</footprint>
+      <datasheet>https://abracon.com/Resonators/abm3.pdf</datasheet>
+      <fields>
+        <field name="MPN">ABM3-8.000MHZ-B2-T</field>
+        <field name="Purpose">Independent HSE; Nucleo ST-LINK clock is absent</field>
+        <field name="Status">candidate; verify before purchase</field>
+        <field name="Footprint">tinyplc:Crystal_SMD_5032-2Pin_5.0x3.2mm</field>
+        <field name="Datasheet">https://abracon.com/Resonators/abm3.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="tinyplc" part="Device_Crystal" description="Two pin crystal"/>
+      <property name="MPN" value="ABM3-8.000MHZ-B2-T"/>
+      <property name="Purpose" value="Independent HSE; Nucleo ST-LINK clock is absent"/>
+      <property name="Status" value="candidate; verify before purchase"/>
+      <property name="Sheetname" value="tinyplc-a0"/>
+      <property name="Sheetfile" value="tinyplc-a0.kicad_sch"/>
+      <property name="ki_keywords" value="quartz ceramic resonator oscillator"/>
+      <property name="ki_fp_filters" value="Crystal*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2c1c1f08-1e3c-50a2-88a7-ffe04e503ce9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="tinyplc" part="Connector_Generic_Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Connector_Generic_Conn_01x03">
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x03</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Connector_Generic_Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Connector_Generic_Conn_01x06">
+      <description>Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x06</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Connector_TestPoint">
+      <description>test point</description>
+      <footprints>
+        <fp>Pin*</fp>
+        <fp>Test*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">test point</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Connector_USB_C_Receptacle_USB2.0_16P">
+      <description>USB 2.0-only 16P Type-C Receptacle connector</description>
+      <docs>https://www.usb.org/sites/default/files/documents/usb_type-c.zip</docs>
+      <footprints>
+        <fp>USB*C*Receptacle*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">USB_C_Receptacle_USB2.0_16P</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">https://www.usb.org/sites/default/files/documents/usb_type-c.zip</field>
+        <field name="Description">USB 2.0-only 16P Type-C Receptacle connector</field>
+      </fields>
+      <pins>
+        <pin num="A1" name="GND" type="passive"/>
+        <pin num="A4" name="VBUS" type="passive"/>
+        <pin num="A5" name="CC1" type="bidirectional"/>
+        <pin num="A6" name="D+" type="bidirectional"/>
+        <pin num="A7" name="D-" type="bidirectional"/>
+        <pin num="A8" name="SBU1" type="bidirectional"/>
+        <pin num="A9" name="VBUS" type="passive"/>
+        <pin num="A12" name="GND" type="passive"/>
+        <pin num="B1" name="GND" type="passive"/>
+        <pin num="B4" name="VBUS" type="passive"/>
+        <pin num="B5" name="CC2" type="bidirectional"/>
+        <pin num="B6" name="D+" type="bidirectional"/>
+        <pin num="B7" name="D-" type="bidirectional"/>
+        <pin num="B8" name="SBU2" type="bidirectional"/>
+        <pin num="B9" name="VBUS" type="passive"/>
+        <pin num="B12" name="GND" type="passive"/>
+        <pin num="SH" name="SHIELD" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Device_C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Device_C_Polarized">
+      <description>Polarized capacitor</description>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Polarized</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Polarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Device_Crystal">
+      <description>Two pin crystal</description>
+      <footprints>
+        <fp>Crystal*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Crystal</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Two pin crystal</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Device_D">
+      <description>Diode</description>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Diode</field>
+        <field name="Sim.Device">D</field>
+        <field name="Sim.Pins">1=K 2=A</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Device_D_Schottky">
+      <description>Schottky diode</description>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Schottky</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Schottky diode</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Device_LED">
+      <description>Light emitting diode</description>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Light emitting diode</field>
+        <field name="Sim.Pins">1=K 2=A</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Device_Polyfuse">
+      <description>Resettable fuse, polymeric positive temperature coefficient</description>
+      <footprints>
+        <fp>*polyfuse*</fp>
+        <fp>*PTC*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Polyfuse</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resettable fuse, polymeric positive temperature coefficient</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Device_R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Isolator_LTV-817">
+      <description>DC Optocoupler, Vce 35V, CTR 50%, DIP-4</description>
+      <docs>http://www.us.liteon.com/downloads/LTV-817-827-847.PDF</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LTV-817</field>
+        <field name="Footprint">Package_DIP:DIP-4_W7.62mm</field>
+        <field name="Datasheet">http://www.us.liteon.com/downloads/LTV-817-827-847.PDF</field>
+        <field name="Description">DC Optocoupler, Vce 35V, CTR 50%, DIP-4</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="MCU_ST_STM32F4_STM32F446RETx">
+      <description>STMicroelectronics Arm Cortex-M4 MCU, 512KB flash, 128KB RAM, 180 MHz, 1.8-3.6V, 50 GPIO, LQFP64</description>
+      <docs>https://www.st.com/resource/en/datasheet/stm32f446re.pdf</docs>
+      <footprints>
+        <fp>LQFP*10x10mm*P0.5mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">STM32F446RETx</field>
+        <field name="Footprint">Package_QFP:LQFP-64_10x10mm_P0.5mm</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/stm32f446re.pdf</field>
+        <field name="Description">STMicroelectronics Arm Cortex-M4 MCU, 512KB flash, 128KB RAM, 180 MHz, 1.8-3.6V, 50 GPIO, LQFP64</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VBAT" type="power_in"/>
+        <pin num="2" name="PC13" type="bidirectional"/>
+        <pin num="3" name="PC14" type="bidirectional"/>
+        <pin num="4" name="PC15" type="bidirectional"/>
+        <pin num="5" name="PH0" type="bidirectional"/>
+        <pin num="6" name="PH1" type="bidirectional"/>
+        <pin num="7" name="NRST" type="input"/>
+        <pin num="8" name="PC0" type="bidirectional"/>
+        <pin num="9" name="PC1" type="bidirectional"/>
+        <pin num="10" name="PC2" type="bidirectional"/>
+        <pin num="11" name="PC3" type="bidirectional"/>
+        <pin num="12" name="VSSA" type="power_in"/>
+        <pin num="13" name="VDDA" type="power_in"/>
+        <pin num="14" name="PA0" type="bidirectional"/>
+        <pin num="15" name="PA1" type="bidirectional"/>
+        <pin num="16" name="PA2" type="bidirectional"/>
+        <pin num="17" name="PA3" type="bidirectional"/>
+        <pin num="18" name="VSS" type="power_in"/>
+        <pin num="19" name="VDD" type="power_in"/>
+        <pin num="20" name="PA4" type="bidirectional"/>
+        <pin num="21" name="PA5" type="bidirectional"/>
+        <pin num="22" name="PA6" type="bidirectional"/>
+        <pin num="23" name="PA7" type="bidirectional"/>
+        <pin num="24" name="PC4" type="bidirectional"/>
+        <pin num="25" name="PC5" type="bidirectional"/>
+        <pin num="26" name="PB0" type="bidirectional"/>
+        <pin num="27" name="PB1" type="bidirectional"/>
+        <pin num="28" name="PB2" type="bidirectional"/>
+        <pin num="29" name="PB10" type="bidirectional"/>
+        <pin num="30" name="VCAP_1" type="power_out"/>
+        <pin num="31" name="VSS" type="passive"/>
+        <pin num="32" name="VDD" type="power_in"/>
+        <pin num="33" name="PB12" type="bidirectional"/>
+        <pin num="34" name="PB13" type="bidirectional"/>
+        <pin num="35" name="PB14" type="bidirectional"/>
+        <pin num="36" name="PB15" type="bidirectional"/>
+        <pin num="37" name="PC6" type="bidirectional"/>
+        <pin num="38" name="PC7" type="bidirectional"/>
+        <pin num="39" name="PC8" type="bidirectional"/>
+        <pin num="40" name="PC9" type="bidirectional"/>
+        <pin num="41" name="PA8" type="bidirectional"/>
+        <pin num="42" name="PA9" type="bidirectional"/>
+        <pin num="43" name="PA10" type="bidirectional"/>
+        <pin num="44" name="PA11" type="bidirectional"/>
+        <pin num="45" name="PA12" type="bidirectional"/>
+        <pin num="46" name="PA13" type="bidirectional"/>
+        <pin num="47" name="VSS" type="passive"/>
+        <pin num="48" name="VDD" type="power_in"/>
+        <pin num="49" name="PA14" type="bidirectional"/>
+        <pin num="50" name="PA15" type="bidirectional"/>
+        <pin num="51" name="PC10" type="bidirectional"/>
+        <pin num="52" name="PC11" type="bidirectional"/>
+        <pin num="53" name="PC12" type="bidirectional"/>
+        <pin num="54" name="PD2" type="bidirectional"/>
+        <pin num="55" name="PB3" type="bidirectional"/>
+        <pin num="56" name="PB4" type="bidirectional"/>
+        <pin num="57" name="PB5" type="bidirectional"/>
+        <pin num="58" name="PB6" type="bidirectional"/>
+        <pin num="59" name="PB7" type="bidirectional"/>
+        <pin num="60" name="BOOT0" type="input"/>
+        <pin num="61" name="PB8" type="bidirectional"/>
+        <pin num="62" name="PB9" type="bidirectional"/>
+        <pin num="63" name="VSS" type="passive"/>
+        <pin num="64" name="VDD" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Mechanical_MountingHole">
+      <description>Mounting Hole without connection</description>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Mounting Hole without connection</field>
+      </fields>
+    </libpart>
+    <libpart lib="tinyplc" part="Power_Protection_USBLC6-2SC6">
+      <description>Very low capacitance ESD protection diode, 2 data-line, SOT-23-6</description>
+      <docs>https://www.st.com/resource/en/datasheet/usblc6-2.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">USBLC6-2SC6</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/usblc6-2.pdf</field>
+        <field name="Description">Very low capacitance ESD protection diode, 2 data-line, SOT-23-6</field>
+      </fields>
+      <pins>
+        <pin num="1" name="I/O1" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="I/O2" type="passive"/>
+        <pin num="4" name="I/O2" type="passive"/>
+        <pin num="5" name="VBUS" type="passive"/>
+        <pin num="6" name="I/O1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="Switch_SW_Push">
+      <description>Push button switch, generic, two pins</description>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_Push</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Push button switch, generic, two pins</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="tinyplc_TPL7407L">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TPL7407L</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="IN1" type="input"/>
+        <pin num="2" name="IN2" type="input"/>
+        <pin num="3" name="IN3" type="input"/>
+        <pin num="4" name="IN4" type="input"/>
+        <pin num="5" name="IN5" type="input"/>
+        <pin num="6" name="IN6" type="input"/>
+        <pin num="7" name="IN7" type="input"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="COM" type="power_in"/>
+        <pin num="10" name="OUT7" type="open_collector"/>
+        <pin num="11" name="OUT6" type="open_collector"/>
+        <pin num="12" name="OUT5" type="open_collector"/>
+        <pin num="13" name="OUT4" type="open_collector"/>
+        <pin num="14" name="OUT3" type="open_collector"/>
+        <pin num="15" name="OUT2" type="open_collector"/>
+        <pin num="16" name="OUT1" type="open_collector"/>
+      </pins>
+    </libpart>
+    <libpart lib="tinyplc" part="tinyplc_TSR_1_2433">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TSR_1_2433</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="VIN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="3V3" type="power_out"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="tinyplc">
+      <uri>${KIPRJMOD}/tinyplc.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/+3V3" class="Default">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="J14" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J16" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R22" pin="1" pintype="passive"/>
+      <node ref="R32" pin="1" pintype="passive"/>
+      <node ref="R42" pin="1" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R70" pin="2" pintype="passive"/>
+      <node ref="R72" pin="2" pintype="passive"/>
+      <node ref="R73" pin="2" pintype="passive"/>
+      <node ref="R74" pin="2" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="VBAT_1" pintype="power_in"/>
+      <node ref="U1" pin="19" pinfunction="VDD_19" pintype="power_in"/>
+      <node ref="U1" pin="32" pinfunction="VDD_32" pintype="power_in"/>
+      <node ref="U1" pin="48" pinfunction="VDD_48" pintype="power_in"/>
+      <node ref="U1" pin="64" pinfunction="VDD_64" pintype="power_in"/>
+      <node ref="U2" pin="3" pinfunction="3V3_3" pintype="power_out"/>
+    </net>
+    <net code="2" name="/BOOT0" class="Default">
+      <node ref="J2" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="60" pinfunction="BOOT0_60" pintype="input"/>
+    </net>
+    <net code="3" name="/BOOT1" class="Default">
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="U1" pin="28" pinfunction="PB2_28" pintype="bidirectional"/>
+    </net>
+    <net code="4" name="/BTN_N" class="Default">
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="SW2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="PC13_2" pintype="bidirectional"/>
+    </net>
+    <net code="5" name="/CC1" class="Default">
+      <node ref="J13" pin="A5" pinfunction="CC1_A5" pintype="bidirectional"/>
+      <node ref="R60" pin="1" pintype="passive"/>
+    </net>
+    <net code="6" name="/CC2" class="Default">
+      <node ref="J13" pin="B5" pinfunction="CC2_B5" pintype="bidirectional"/>
+      <node ref="R61" pin="1" pintype="passive"/>
+    </net>
+    <net code="7" name="/DI1_24" class="Default">
+      <node ref="J5" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+    </net>
+    <net code="8" name="/DI1_A" class="Default">
+      <node ref="D11" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="U4" pin="1" pintype="passive"/>
+    </net>
+    <net code="9" name="/DI1_MID" class="Default">
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="R11" pin="1" pintype="passive"/>
+    </net>
+    <net code="10" name="/DI1_N" class="Default">
+      <node ref="C21" pin="1" pintype="passive"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="PA0_14" pintype="bidirectional"/>
+      <node ref="U4" pin="4" pintype="passive"/>
+    </net>
+    <net code="11" name="/DI2_24" class="Default">
+      <node ref="J6" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="R20" pin="1" pintype="passive"/>
+    </net>
+    <net code="12" name="/DI2_A" class="Default">
+      <node ref="D12" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="R21" pin="2" pintype="passive"/>
+      <node ref="U5" pin="1" pintype="passive"/>
+    </net>
+    <net code="13" name="/DI2_MID" class="Default">
+      <node ref="R20" pin="2" pintype="passive"/>
+      <node ref="R21" pin="1" pintype="passive"/>
+    </net>
+    <net code="14" name="/DI2_N" class="Default">
+      <node ref="C22" pin="1" pintype="passive"/>
+      <node ref="R22" pin="2" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="PA1_15" pintype="bidirectional"/>
+      <node ref="U5" pin="4" pintype="passive"/>
+    </net>
+    <net code="15" name="/DI3_24" class="Default">
+      <node ref="J7" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="R30" pin="1" pintype="passive"/>
+    </net>
+    <net code="16" name="/DI3_A" class="Default">
+      <node ref="D13" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="R31" pin="2" pintype="passive"/>
+      <node ref="U6" pin="1" pintype="passive"/>
+    </net>
+    <net code="17" name="/DI3_MID" class="Default">
+      <node ref="R30" pin="2" pintype="passive"/>
+      <node ref="R31" pin="1" pintype="passive"/>
+    </net>
+    <net code="18" name="/DI3_N" class="Default">
+      <node ref="C23" pin="1" pintype="passive"/>
+      <node ref="R32" pin="2" pintype="passive"/>
+      <node ref="U1" pin="20" pinfunction="PA4_20" pintype="bidirectional"/>
+      <node ref="U6" pin="4" pintype="passive"/>
+    </net>
+    <net code="19" name="/DI4_24" class="Default">
+      <node ref="J8" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="R40" pin="1" pintype="passive"/>
+    </net>
+    <net code="20" name="/DI4_A" class="Default">
+      <node ref="D14" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="R41" pin="2" pintype="passive"/>
+      <node ref="U7" pin="1" pintype="passive"/>
+    </net>
+    <net code="21" name="/DI4_MID" class="Default">
+      <node ref="R40" pin="2" pintype="passive"/>
+      <node ref="R41" pin="1" pintype="passive"/>
+    </net>
+    <net code="22" name="/DI4_N" class="Default">
+      <node ref="C24" pin="1" pintype="passive"/>
+      <node ref="R42" pin="2" pintype="passive"/>
+      <node ref="U1" pin="22" pinfunction="PA6_22" pintype="bidirectional"/>
+      <node ref="U7" pin="4" pintype="passive"/>
+    </net>
+    <net code="23" name="/DO1" class="Default">
+      <node ref="R51" pin="1" pintype="passive"/>
+      <node ref="U1" pin="26" pinfunction="PB0_26" pintype="bidirectional"/>
+      <node ref="U3" pin="1" pinfunction="IN1_1" pintype="input"/>
+    </net>
+    <net code="24" name="/DO2" class="Default">
+      <node ref="R52" pin="1" pintype="passive"/>
+      <node ref="U1" pin="27" pinfunction="PB1_27" pintype="bidirectional"/>
+      <node ref="U3" pin="2" pinfunction="IN2_2" pintype="input"/>
+    </net>
+    <net code="25" name="/DO3" class="Default">
+      <node ref="R53" pin="1" pintype="passive"/>
+      <node ref="U1" pin="61" pinfunction="PB8_61" pintype="bidirectional"/>
+      <node ref="U3" pin="3" pinfunction="IN3_3" pintype="input"/>
+    </net>
+    <net code="26" name="/DO4" class="Default">
+      <node ref="R54" pin="1" pintype="passive"/>
+      <node ref="U1" pin="62" pinfunction="PB9_62" pintype="bidirectional"/>
+      <node ref="U3" pin="4" pinfunction="IN4_4" pintype="input"/>
+    </net>
+    <net code="27" name="/ETH_CS_N" class="Default">
+      <node ref="J14" pin="6" pinfunction="Pin_6_6" pintype="passive"/>
+      <node ref="R70" pin="1" pintype="passive"/>
+      <node ref="U1" pin="33" pinfunction="PB12_33" pintype="bidirectional"/>
+    </net>
+    <net code="28" name="/ETH_INT_N" class="Default">
+      <node ref="J15" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="R72" pin="1" pintype="passive"/>
+      <node ref="U1" pin="41" pinfunction="PA8_41" pintype="bidirectional"/>
+    </net>
+    <net code="29" name="/ETH_RST_N" class="Default">
+      <node ref="J15" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="R71" pin="1" pintype="passive"/>
+      <node ref="U1" pin="43" pinfunction="PA10_43" pintype="bidirectional"/>
+    </net>
+    <net code="30" name="/GND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="C11" pin="2" pintype="passive"/>
+      <node ref="C12" pin="2" pintype="passive"/>
+      <node ref="C13" pin="2" pintype="passive"/>
+      <node ref="C14" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C21" pin="2" pintype="passive"/>
+      <node ref="C22" pin="2" pintype="passive"/>
+      <node ref="C23" pin="2" pintype="passive"/>
+      <node ref="C24" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C30" pin="2" pintype="passive"/>
+      <node ref="C31" pin="2" pintype="passive"/>
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="C9" pin="2" pintype="passive"/>
+      <node ref="D11" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="D12" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="D13" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="D14" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J13" pin="A1" pinfunction="GND_A1" pintype="passive"/>
+      <node ref="J13" pin="A12" pinfunction="GND_A12" pintype="passive"/>
+      <node ref="J13" pin="B1" pinfunction="GND_B1" pintype="passive"/>
+      <node ref="J13" pin="B12" pinfunction="GND_B12" pintype="passive"/>
+      <node ref="J13" pin="SH" pinfunction="SHIELD_SH" pintype="passive"/>
+      <node ref="J14" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J15" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J16" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J2" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J4" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J5" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J6" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J7" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J8" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="R51" pin="2" pintype="passive"/>
+      <node ref="R52" pin="2" pintype="passive"/>
+      <node ref="R53" pin="2" pintype="passive"/>
+      <node ref="R54" pin="2" pintype="passive"/>
+      <node ref="R60" pin="2" pintype="passive"/>
+      <node ref="R61" pin="2" pintype="passive"/>
+      <node ref="R65" pin="2" pintype="passive"/>
+      <node ref="R71" pin="2" pintype="passive"/>
+      <node ref="SW1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="SW2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="VSSA_12" pintype="power_in"/>
+      <node ref="U1" pin="18" pinfunction="VSS_18" pintype="power_in"/>
+      <node ref="U1" pin="31" pinfunction="VSS_31" pintype="passive"/>
+      <node ref="U1" pin="47" pinfunction="VSS_47" pintype="passive"/>
+      <node ref="U1" pin="63" pinfunction="VSS_63" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="U3" pin="5" pinfunction="IN5_5" pintype="input"/>
+      <node ref="U3" pin="6" pinfunction="IN6_6" pintype="input"/>
+      <node ref="U3" pin="7" pinfunction="IN7_7" pintype="input"/>
+      <node ref="U3" pin="8" pinfunction="GND_8" pintype="power_in"/>
+      <node ref="U4" pin="2" pintype="passive"/>
+      <node ref="U4" pin="3" pintype="passive"/>
+      <node ref="U5" pin="2" pintype="passive"/>
+      <node ref="U5" pin="3" pintype="passive"/>
+      <node ref="U6" pin="2" pintype="passive"/>
+      <node ref="U6" pin="3" pintype="passive"/>
+      <node ref="U7" pin="2" pintype="passive"/>
+      <node ref="U7" pin="3" pintype="passive"/>
+      <node ref="U8" pin="2" pinfunction="GND_2" pintype="passive"/>
+    </net>
+    <net code="31" name="/I2C_SCL" class="Default">
+      <node ref="J16" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="R73" pin="1" pintype="passive"/>
+      <node ref="U1" pin="58" pinfunction="PB6_58" pintype="bidirectional"/>
+    </net>
+    <net code="32" name="/I2C_SDA" class="Default">
+      <node ref="J16" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="R74" pin="1" pintype="passive"/>
+      <node ref="U1" pin="59" pinfunction="PB7_59" pintype="bidirectional"/>
+    </net>
+    <net code="33" name="/LED_A" class="Default">
+      <node ref="D2" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+    </net>
+    <net code="34" name="/NRST" class="Default">
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="J3" pin="5" pinfunction="Pin_5_5" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="SW1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="NRST_7" pintype="input"/>
+    </net>
+    <net code="35" name="/OSC_IN" class="Default">
+      <node ref="C13" pin="1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="PH0_5" pintype="bidirectional"/>
+      <node ref="Y1" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="36" name="/OSC_OUT" class="Default">
+      <node ref="C14" pin="1" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="PH1_6" pintype="bidirectional"/>
+      <node ref="Y1" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="37" name="/Q1" class="Default">
+      <node ref="J9" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U3" pin="16" pinfunction="OUT1_16" pintype="open_collector"/>
+    </net>
+    <net code="38" name="/Q2" class="Default">
+      <node ref="J10" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U3" pin="15" pinfunction="OUT2_15" pintype="open_collector"/>
+    </net>
+    <net code="39" name="/Q3" class="Default">
+      <node ref="J11" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U3" pin="14" pinfunction="OUT3_14" pintype="open_collector"/>
+    </net>
+    <net code="40" name="/Q4" class="Default">
+      <node ref="J12" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U3" pin="13" pinfunction="OUT4_13" pintype="open_collector"/>
+    </net>
+    <net code="41" name="/SPI2_MISO" class="Default">
+      <node ref="J14" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="U1" pin="35" pinfunction="PB14_35" pintype="bidirectional"/>
+    </net>
+    <net code="42" name="/SPI2_MOSI" class="Default">
+      <node ref="J14" pin="5" pinfunction="Pin_5_5" pintype="passive"/>
+      <node ref="U1" pin="36" pinfunction="PB15_36" pintype="bidirectional"/>
+    </net>
+    <net code="43" name="/SPI2_SCK" class="Default">
+      <node ref="J14" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="U1" pin="34" pinfunction="PB13_34" pintype="bidirectional"/>
+    </net>
+    <net code="44" name="/STATUS_LED" class="Default">
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="U1" pin="21" pinfunction="PA5_21" pintype="bidirectional"/>
+    </net>
+    <net code="45" name="/SWCLK" class="Default">
+      <node ref="J3" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="U1" pin="49" pinfunction="PA14_49" pintype="bidirectional"/>
+    </net>
+    <net code="46" name="/SWDIO" class="Default">
+      <node ref="J3" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="U1" pin="46" pinfunction="PA13_46" pintype="bidirectional"/>
+    </net>
+    <net code="47" name="/UART_RX" class="Default">
+      <node ref="J4" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="U1" pin="17" pinfunction="PA3_17" pintype="bidirectional"/>
+    </net>
+    <net code="48" name="/UART_TX" class="Default">
+      <node ref="J4" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="PA2_16" pintype="bidirectional"/>
+    </net>
+    <net code="49" name="/USB_DM" class="Default">
+      <node ref="R62" pin="2" pintype="passive"/>
+      <node ref="U1" pin="44" pinfunction="PA11_44" pintype="bidirectional"/>
+    </net>
+    <net code="50" name="/USB_DM_CONN" class="Default">
+      <node ref="J13" pin="A7" pinfunction="D-_A7" pintype="bidirectional"/>
+      <node ref="J13" pin="B7" pinfunction="D-_B7" pintype="bidirectional"/>
+      <node ref="R62" pin="1" pintype="passive"/>
+      <node ref="U8" pin="1" pinfunction="I/O1_1" pintype="passive"/>
+      <node ref="U8" pin="6" pinfunction="I/O1_6" pintype="passive"/>
+    </net>
+    <net code="51" name="/USB_DP" class="Default">
+      <node ref="R63" pin="2" pintype="passive"/>
+      <node ref="U1" pin="45" pinfunction="PA12_45" pintype="bidirectional"/>
+    </net>
+    <net code="52" name="/USB_DP_CONN" class="Default">
+      <node ref="J13" pin="A6" pinfunction="D+_A6" pintype="bidirectional"/>
+      <node ref="J13" pin="B6" pinfunction="D+_B6" pintype="bidirectional"/>
+      <node ref="R63" pin="1" pintype="passive"/>
+      <node ref="U8" pin="3" pinfunction="I/O2_3" pintype="passive"/>
+      <node ref="U8" pin="4" pinfunction="I/O2_4" pintype="passive"/>
+    </net>
+    <net code="53" name="/USB_VBUS_SENSE" class="Default">
+      <node ref="R64" pin="2" pintype="passive"/>
+      <node ref="R65" pin="1" pintype="passive"/>
+      <node ref="U1" pin="42" pinfunction="PA9_42" pintype="bidirectional"/>
+    </net>
+    <net code="54" name="/V24" class="Default">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C30" pin="1" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="J10" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J11" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J12" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J9" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="TP3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="1" pinfunction="VIN_1" pintype="power_in"/>
+      <node ref="U3" pin="9" pinfunction="COM_9" pintype="power_in"/>
+    </net>
+    <net code="55" name="/VBUS_USB" class="Default">
+      <node ref="C31" pin="1" pintype="passive"/>
+      <node ref="J13" pin="A4" pinfunction="VBUS_A4" pintype="passive"/>
+      <node ref="J13" pin="A9" pinfunction="VBUS_A9" pintype="passive"/>
+      <node ref="J13" pin="B4" pinfunction="VBUS_B4" pintype="passive"/>
+      <node ref="J13" pin="B9" pinfunction="VBUS_B9" pintype="passive"/>
+      <node ref="R64" pin="1" pintype="passive"/>
+      <node ref="U8" pin="5" pinfunction="VBUS_5" pintype="passive"/>
+    </net>
+    <net code="56" name="/VCAP1" class="Default">
+      <node ref="C8" pin="1" pintype="passive"/>
+      <node ref="TP4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="30" pinfunction="VCAP_1_30" pintype="power_out"/>
+    </net>
+    <net code="57" name="/VDDA" class="Default">
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="C11" pin="1" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="VDDA_13" pintype="power_in"/>
+    </net>
+    <net code="58" name="/VIN24" class="Default">
+      <node ref="F1" pin="1" pintype="passive"/>
+      <node ref="J1" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+    </net>
+    <net code="59" name="/VIN_FUSED" class="Default">
+      <node ref="D1" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="F1" pin="2" pintype="passive"/>
+    </net>
+    <net code="60" name="unconnected-(J3-Pin_6-Pad6)" class="Default">
+      <node ref="J3" pin="6" pinfunction="Pin_6_6" pintype="passive+no_connect"/>
+    </net>
+    <net code="61" name="unconnected-(J13-SBU1-PadA8)" class="Default">
+      <node ref="J13" pin="A8" pinfunction="SBU1_A8" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="62" name="unconnected-(J13-SBU2-PadB8)" class="Default">
+      <node ref="J13" pin="B8" pinfunction="SBU2_B8" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="63" name="unconnected-(U1-PA7-Pad23)" class="Default">
+      <node ref="U1" pin="23" pinfunction="PA7_23" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="64" name="unconnected-(U1-PA15-Pad50)" class="Default">
+      <node ref="U1" pin="50" pinfunction="PA15_50" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="65" name="unconnected-(U1-PB3-Pad55)" class="Default">
+      <node ref="U1" pin="55" pinfunction="PB3_55" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="66" name="unconnected-(U1-PB4-Pad56)" class="Default">
+      <node ref="U1" pin="56" pinfunction="PB4_56" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="67" name="unconnected-(U1-PB5-Pad57)" class="Default">
+      <node ref="U1" pin="57" pinfunction="PB5_57" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="68" name="unconnected-(U1-PB10-Pad29)" class="Default">
+      <node ref="U1" pin="29" pinfunction="PB10_29" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="69" name="unconnected-(U1-PC0-Pad8)" class="Default">
+      <node ref="U1" pin="8" pinfunction="PC0_8" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="70" name="unconnected-(U1-PC1-Pad9)" class="Default">
+      <node ref="U1" pin="9" pinfunction="PC1_9" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="71" name="unconnected-(U1-PC2-Pad10)" class="Default">
+      <node ref="U1" pin="10" pinfunction="PC2_10" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="72" name="unconnected-(U1-PC3-Pad11)" class="Default">
+      <node ref="U1" pin="11" pinfunction="PC3_11" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="73" name="unconnected-(U1-PC4-Pad24)" class="Default">
+      <node ref="U1" pin="24" pinfunction="PC4_24" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="74" name="unconnected-(U1-PC5-Pad25)" class="Default">
+      <node ref="U1" pin="25" pinfunction="PC5_25" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="75" name="unconnected-(U1-PC6-Pad37)" class="Default">
+      <node ref="U1" pin="37" pinfunction="PC6_37" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="76" name="unconnected-(U1-PC7-Pad38)" class="Default">
+      <node ref="U1" pin="38" pinfunction="PC7_38" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="77" name="unconnected-(U1-PC8-Pad39)" class="Default">
+      <node ref="U1" pin="39" pinfunction="PC8_39" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="78" name="unconnected-(U1-PC9-Pad40)" class="Default">
+      <node ref="U1" pin="40" pinfunction="PC9_40" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="79" name="unconnected-(U1-PC10-Pad51)" class="Default">
+      <node ref="U1" pin="51" pinfunction="PC10_51" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="80" name="unconnected-(U1-PC11-Pad52)" class="Default">
+      <node ref="U1" pin="52" pinfunction="PC11_52" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="81" name="unconnected-(U1-PC12-Pad53)" class="Default">
+      <node ref="U1" pin="53" pinfunction="PC12_53" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="82" name="unconnected-(U1-PC14-Pad3)" class="Default">
+      <node ref="U1" pin="3" pinfunction="PC14_3" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="83" name="unconnected-(U1-PC15-Pad4)" class="Default">
+      <node ref="U1" pin="4" pinfunction="PC15_4" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="84" name="unconnected-(U1-PD2-Pad54)" class="Default">
+      <node ref="U1" pin="54" pinfunction="PD2_54" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="85" name="unconnected-(U3-OUT5-Pad12)" class="Default">
+      <node ref="U3" pin="12" pinfunction="OUT5_12" pintype="open_collector+no_connect"/>
+    </net>
+    <net code="86" name="unconnected-(U3-OUT6-Pad11)" class="Default">
+      <node ref="U3" pin="11" pinfunction="OUT6_11" pintype="open_collector+no_connect"/>
+    </net>
+    <net code="87" name="unconnected-(U3-OUT7-Pad10)" class="Default">
+      <node ref="U3" pin="10" pinfunction="OUT7_10" pintype="open_collector+no_connect"/>
+    </net>
+  </nets>
+</export>

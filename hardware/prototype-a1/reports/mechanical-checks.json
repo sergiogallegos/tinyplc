@@ -1,0 +1,53 @@
+{
+  "status": "CAD geometry only; wiring bends, printing and physical fit not tested",
+  "solids": {
+    "base": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 68902.25,
+      "print_mesh_closed": true
+    },
+    "lid": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 48627.616,
+      "print_mesh_closed": true
+    },
+    "lens": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2044.566
+    },
+    "pcb": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 17228.528
+    },
+    "oled_pcb": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1452.452
+    },
+    "oled_glass": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2365.513
+    },
+    "rod_run": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 173.887
+    },
+    "rod_pwr": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 173.887
+    },
+    "switch": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 4815.116
+    }
+  },
+  "interferences": []
+}

@@ -1,0 +1,28 @@
+{
+  "checked_utc": "2026-10-25T00:59:22.967154+00:00",
+  "brochure": {
+    "pages": 8,
+    "text_within_page": true
+  },
+  "assembly": {
+    "pages": 13,
+    "text_within_page": true
+  },
+  "drawings": {
+    "pages": 4,
+    "text_within_page": true
+  },
+  "technical": {
+    "pages": 2,
+    "text_within_page": true
+  },
+  "pcb_layers": {
+    "pages": 3,
+    "text_within_page": true
+  },
+  "local_links": "all resolved",
+  "native_freecad": {
+    "visible_valid_shapes": 100,
+    "objects": 291
+  }
+}

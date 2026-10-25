@@ -10,6 +10,27 @@ functions.** Output fault handling is not a certified safety system.
 
 Repository: [sergiogallegos/tinyplc](https://github.com/sergiogallegos/tinyplc).
 
+## Custom hardware prototype
+
+The [hardware roadmap](docs/hardware-roadmap.md) describes a standalone tinyPLC.
+The current [A1 prototype draft](hardware/prototype-a1/README.md) includes a
+custom KiCad schematic and **routed two-layer PCB**, a rounded white FreeCAD
+enclosure, physical power switch, OLED/status-indicator design, print files,
+dimensioned drawings, BOM and official component references. Start with the
+[product brochure](hardware/prototype-a1/brochure/tinyplc-a1-brochure.pdf) or the
+[visual assembly guide](hardware/prototype-a1/mechanical/drawings/assembly-guide.pdf).
+The PCB passes ERC and DRC with zero unrouted connections. Independent fabrication
+review, physical testing, the standalone firmware port and OLED/heartbeat
+integration remain outstanding. See the [routing decisions and checks](docs/hardware/prototype-a1-routing.md). The original
+[A0 package](hardware/prototype-a/README.md) is preserved for comparison.
+
+![tinyPLC A1 — white enclosure, status display and indicators](hardware/prototype-a1/renders/hero-white.png)
+
+![tinyPLC A1 — routed custom controller in KiCad 3D](hardware/prototype-a1/renders/pcb-routed-top.png)
+
+The enclosure is a Blender render; the board view comes from the routed KiCad
+design. The display shows a proposed demo UI. [Rear connector view](hardware/prototype-a1/renders/rear-power.png).
+
 ## Current state: compile, download and activate native ST on STM32
 
 Implemented: a dependency-free Rust ST frontend, positioned diagnostics,
@@ -331,12 +352,6 @@ acceptance gates. [M1](docs/M1-report.md) and [M2](docs/M2-report.md) remain dat
 records, not current implementation instructions. Project code is MIT licensed.
 
 ## Acknowledgments and next tasks
-
-The [future hardware plan](docs/hardware-roadmap.md) records a deferred proposal
-for a standalone tinyPLC: custom PCB, printed enclosure, USB/Ethernet, status
-display, BOM, manufacturing files, assembly, and learning documentation. It
-uses a manual KiCad/FreeCAD workflow; hardware design has not started and the
-proposed specifications are not manufacturing-ready.
 
 The educational approach is inspired by Andrej Karpathy's micrograd and nanoGPT.
 We study Rusty, OpenPLC Runtime and matiec for compiler/runtime design lessons.

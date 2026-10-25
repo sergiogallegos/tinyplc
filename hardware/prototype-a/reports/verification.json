@@ -1,0 +1,18 @@
+{
+  "checked_utc": "2026-10-24T22:46:43.581246+00:00",
+  "kicad": "10.0.7",
+  "footprints": 95,
+  "named_signal_and_power_nets": 59,
+  "erc_violations": 0,
+  "schematic_parity_issues": 0,
+  "placement_drc_errors": 0,
+  "placement_drc_warnings": {
+    "silk_overlap": 6,
+    "silk_over_copper": 1
+  },
+  "unrouted_connections": 211,
+  "tracks": 0,
+  "bom_rows": 87,
+  "mechanical_checks": "valid solids, closed print meshes, zero reported intersections",
+  "status": "draft verified for cross-file CAD consistency only; not manufacturable or hardware tested"
+}

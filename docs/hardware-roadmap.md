@@ -1,9 +1,17 @@
-# Future plan: buildable tinyPLC hardware
+# Buildable tinyPLC hardware roadmap
 
-**Status: deferred proposal, recorded 2026-10-04.** This document preserves a
-future project idea. Hardware development has not started, the specifications
-below are candidates, and no design is ready to manufacture. There is no
-schedule or purchasing commitment.
+**Status updated 2026-10-24: A1 product design and routed PCB candidate.** The original proposal was
+recorded 2026-10-04. The current
+[A1 prototype](../hardware/prototype-a1/README.md) provides a custom KiCad schematic
+and routed two-layer PCB, rounded white FreeCAD enclosure, physical power
+switch, OLED/light-guide design, printable meshes and drawings, Blender previews,
+candidate BOM, visual assembly booklet and a
+[product brochure](../hardware/prototype-a1/brochure/tinyplc-a1-brochure.pdf).
+[A0](../hardware/prototype-a/README.md) is retained as the earlier revision. Electrical
+requirements remain provisional; independent fabrication review, interface proof, physical testing and
+new-board firmware remain outstanding. No design is ready to manufacture and
+no purchases have been made. The phases below remain completion gates, not
+claims that the initial CAD draft passed H0–H5.
 
 ## Purpose
 
@@ -18,9 +26,10 @@ the conditioning electronics, the firmware input image, compiled ST logic,
 the output driver, and the physical load. PCB design, mechanical design,
 manufacturing, debugging, and software are all part of the project.
 
-Use KiCad and FreeCAD manually. Future assistance can provide step-by-step
-instructions, calculations, reviews, and troubleshooting. MCP integration is
-not a prerequisite or a planned deliverable.
+Use native KiCad and FreeCAD projects with documented generation/editing steps.
+The user subsequently authorized assistant-created CAD and Blender previews;
+the A0 files include their generators and explain overwrite behavior. Manual
+editing and review remain possible. MCP integration is not a prerequisite.
 
 The existing educational/research scope remains: this is not qualified for
 real-machine control or safety functions. A custom PCB and enclosure do not
@@ -258,5 +267,6 @@ wiring diagram to schematic sections, board bindings, and runtime behavior.
 - [W5500 manufacturer documentation](https://docs.wiznet.io/Product/Chip/Ethernet/W5500)
   for evaluating the Ethernet candidate, not a final component selection.
 
-The next action, whenever this project is resumed, is H0: confirm the needs
-and constraints before choosing parts or drawing the production board.
+Next, review A0 assumptions against H0, prove the interfaces in H1, and complete
+the independent electrical/mechanical review before a fabrication release.
+A1 routing and native CAD checks are documented in [the routing report](hardware/prototype-a1-routing.md).

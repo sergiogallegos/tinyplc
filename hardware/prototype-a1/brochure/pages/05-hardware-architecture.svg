@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297mm" height="210mm" viewBox="0 0 297 210">
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#236d76"/></marker></defs>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#202c34}</style>
+<rect width="297" height="210" fill="white"/>
+<text x="14" y="13" font-size="2.9" style="fill:#236d76" font-weight="700" text-anchor="start" transform="rotate(0 14 13)">HARDWARE / STM32F446 CONTROLLER ARCHITECTURE</text>
+<text x="14" y="28" font-size="6.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 14 28)">One custom board. Clear responsibilities.</text>
+<path d="M14,198 L283,198" fill="none" stroke="#d8e1e3" stroke-width="0.3" stroke-linecap="round"/>
+<text x="14" y="204" font-size="2.3" style="fill:#586872" font-weight="400" text-anchor="start" transform="rotate(0 14 204)">A1 prototype • CAD renders • not a fabrication release • 2026-10-24</text>
+<text x="283" y="204" font-size="2.8" style="fill:#586872" font-weight="400" text-anchor="end" transform="rotate(0 283 204)">05</text>
+<rect x="14" y="46" width="83" height="30" rx="2" fill="#edf2f2"/>
+<text x="18" y="55" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 18 55)">24 V INPUT</text>
+<text x="18" y="63.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 18 63.0)">J1 → F1 → SW3 → D1</text>
+<path d="M98,61 L105,61" fill="none" stroke="#236d76" stroke-width="0.8" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="107" y="46" width="83" height="30" rx="2" fill="#edf2f2"/>
+<text x="111" y="55" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 111 55)">PROTECTED BUS</text>
+<text x="111" y="63.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 111 63.0)">V24 → TSR 1-2433</text>
+<path d="M191,61 L198,61" fill="none" stroke="#236d76" stroke-width="0.8" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="200" y="46" width="83" height="30" rx="2" fill="#edf2f2"/>
+<text x="204" y="55" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 204 55)">3.3 V LOGIC</text>
+<text x="204" y="63.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 204 63.0)">STM32 + OLED + PWR</text>
+<rect x="14" y="98" width="73" height="40" rx="2" fill="#edf2f2"/>
+<text x="18" y="107" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 18 107)">4 INPUT CHANNELS</text>
+<text x="18" y="115.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 18 115.0)">Resistor limits + optocouplers. Active-</text>
+<text x="18" y="119.5" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 18 119.5)">low raw signals; shared GND.</text>
+<rect x="108" y="94" width="81" height="49" rx="2" fill="#e2edef"/>
+<text x="112" y="103" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 112 103)">STM32F446RET6</text>
+<text x="112" y="111.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 112 111.0)">Custom 120 × 90 mm PCB. C/FreeRTOS supervisor</text>
+<text x="112" y="115.5" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 112 115.5)">executes compiled ST logic. SWD and UART for</text>
+<text x="112" y="120.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 112 120.0)">bring-up.</text>
+<rect x="210" y="98" width="73" height="40" rx="2" fill="#edf2f2"/>
+<text x="214" y="107" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 214 107)">4 SINK OUTPUTS</text>
+<text x="214" y="115.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 214 115.0)">TPL7407L low-side driver. External</text>
+<text x="214" y="119.5" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 214 119.5)">resistive loads for initial tests.</text>
+<path d="M88,117 L105,117" fill="none" stroke="#236d76" stroke-width="0.8" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M191,117 L208,117" fill="none" stroke="#236d76" stroke-width="0.8" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="14" y="156" width="83" height="30" rx="2" fill="#edf2f2"/>
+<text x="18" y="165" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 18 165)">ENGINEERING</text>
+<text x="18" y="173.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 18 173.0)">3.3 V UART first; USB integration later.</text>
+<rect x="107" y="156" width="83" height="30" rx="2" fill="#edf2f2"/>
+<text x="111" y="165" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 111 165)">STATUS</text>
+<text x="111" y="173.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 111 173.0)">I²C OLED + independent power LED.</text>
+<rect x="200" y="156" width="83" height="30" rx="2" fill="#edf2f2"/>
+<text x="204" y="165" font-size="3.5" style="fill:#202c34" font-weight="700" text-anchor="start" transform="rotate(0 204 165)">EXPANSION</text>
+<text x="204" y="173.0" font-size="3" style="fill:#202c34" font-weight="400" text-anchor="start" transform="rotate(0 204 173.0)">SPI headers; Ethernet still optional.</text>
+<path d="M148,144 L148,153" fill="none" stroke="#236d76" stroke-width="0.8" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="14" y="194" font-size="2.6" style="fill:#586872" font-weight="400" text-anchor="start" transform="rotate(0 14 194)">Block diagram describes the intended A1 hardware. PCB routing is complete; manufacturing release and hardware qualification remain pending.</text>
+</svg>
