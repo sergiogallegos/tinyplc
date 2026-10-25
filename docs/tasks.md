@@ -3,8 +3,132 @@
 The architecture and educational scope are ready to guide development. R1 and R2 are complete with linked host and hardware evidence. R3.1 freezes the download
 wire format with cross-language fixtures; R3.2 implements the packager and
 portable validation/staging. R3.3 adds board download/activation. R3.4 adds owned tag monitoring. R3.5 verifies the complete board workflow and timing under mixed traffic. R4 implements online migration and rollback with host and hardware evidence.
-This checklist tracks the [native roadmap](native-roadmap.md), whose stages
-supersede historical M3–M5. Update checkboxes only with linked evidence.
+The software sections track the [native roadmap](native-roadmap.md), whose stages
+supersede historical M3–M5. The A1 section tracks the
+[hardware roadmap](hardware-roadmap.md). Update checkboxes only with linked evidence.
+
+## A1 prototype completion
+
+This is the consolidated TODO list for completing the custom controller, its
+BOM, enclosure and firmware. The Nucleo software results below do not close A1
+hardware or firmware tasks. Unchecked items remain open; CAD checks establish
+connectivity and geometry, not a working physical prototype.
+
+Work order: freeze requirements and purchasing choices, review electronics and
+physical fit, prepare fabrication, then assemble and integrate. Firmware work
+and interface experiments on the Nucleo can proceed alongside design review.
+Record completion evidence against each task: reviewed files, measurements,
+test reports or photographs, with the matching hardware/firmware revision.
+
+### Completed design baseline
+
+- [x] Create the custom A1 schematic and route its two-layer PCB, including the
+  switch loop, display header and power/RUN indicators. Correct DI1 and the
+  input-capacitor footprint. Evidence: [routing decisions](hardware/prototype-a1-routing.md).
+- [x] Pass native ERC, DRC, schematic parity and independent pin checks with
+  zero unrouted connections. Evidence: [CAD verification](../hardware/prototype-a1/reports/verification.md).
+- [x] Create the FreeCAD enclosure, print files, construction drawings,
+  illustrated assembly guide and Blender product views. Evidence:
+  [A1 package](../hardware/prototype-a1/README.md) and
+  [publication/CAD checks](../hardware/prototype-a1/reports/publication-checks.json).
+
+### Requirements and scope — before design approval
+
+- [ ] A1-SCOPE-01: Freeze the bench operating specification: supply range,
+  input thresholds/filtering, output polarity, per-channel/total current,
+  supported loads, ambient conditions and startup/fault behavior.
+- [ ] A1-SCOPE-02: Record assembly method, available tools/programmer, prototype
+  quantity and budget including shipping, fabrication, printing and rework.
+- [ ] A1-SCOPE-03: Decide the first-build Ethernet scope and program-storage
+  behavior. Explicitly document any deferred feature and its user-visible limit.
+
+### BOM and sourcing — before ordering
+
+- [ ] A1-BOM-01: Replace every capacitor family placeholder with an exact MPN;
+  check package, voltage derating, DC bias, tolerance and VCAP ESR requirements.
+- [ ] A1-BOM-02: Resolve exact fastener, washer, lens, light-rod, adhesive, feet,
+  wire and crimp-terminal SKUs; confirm the OLED module revision and switch.
+- [ ] A1-BOM-03: Audit every electrical footprint/pinout and mechanical mating
+  dimension against the exact purchased part's official documentation.
+- [ ] A1-BOM-04: Complete a dated purchasing list with quantities, supplier/order
+  links, availability, unit/total costs, spares and reviewed alternatives.
+- [ ] A1-BOM-05: Include the external 24 V supply, SWD programmer, engineering
+  cable/adapter, assembly consumables and test loads in the build budget.
+
+### Electrical design and fabrication
+
+- [ ] A1-ELEC-01: Independently review the schematic, power budget, regulator,
+  fuse/switch/diode path, reverse polarity, transient protection and backfeed.
+- [ ] A1-ELEC-02: Review input thresholds and resistor dissipation, output-driver
+  limits and clamp paths, shared ground, and outputs during reset/faults against
+  A1-SCOPE-01. Prove representative interfaces on the Nucleo where practical.
+- [ ] A1-ELEC-03: Review clock loading/startup, decoupling, ground returns,
+  current-carrying traces/vias and USB routing/damping against component guidance.
+- [ ] A1-ELEC-04: Select the board supplier and fabrication stackup, copper
+  weight, finish, drill/clearance and USB requirements; update layout if needed.
+- [ ] A1-ELEC-05: After approved changes, regenerate matching CAD/BOM and repeat
+  ERC, DRC, pin-contract and mechanical checks; record the reviewed revision.
+- [ ] A1-ELEC-06: Generate and independently inspect Gerbers, drill files and
+  fabrication notes; add placement files, assembly BOM and stencil if required.
+- [ ] A1-ELEC-07: Order a small prototype batch after the purchasing, electrical
+  review and mechanical-fit tasks pass; record supplier approvals/substitutions.
+
+### Mechanical design and physical fit
+
+- [ ] A1-MECH-01: Print the fit coupon using the intended material/printer;
+  measure switch fit, pilots and optical bores, and record print settings.
+- [ ] A1-MECH-02: Print the enclosure and check the PCB/card template, mounting
+  holes, connector openings, component heights, lid fit and screw engagement.
+- [ ] A1-MECH-03: Trial-fit actual switch terminals, crimp boots, display cable
+  and external plugs; verify wire bends, strain relief, tool and service access.
+- [ ] A1-MECH-04: Verify OLED mounting, lens/adhesive fit, readable markings,
+  light-guide alignment, indicator brightness and light leakage.
+- [ ] A1-MECH-05: Measure temperatures in the populated, closed enclosure under
+  declared loads; review material, ventilation and clearances from the results.
+- [ ] A1-MECH-06: Apply fit/thermal findings to CAD and drawings; reprint affected
+  parts and record the final dimensions, materials and assembly instructions.
+
+### A1 firmware and software integration
+
+- [ ] A1-SW-01: Add a distinct A1 board target with its standalone clock,
+  pin assignments, startup/linker configuration, SWD and recovery instructions;
+  retain the working Nucleo target.
+- [ ] A1-SW-02: Integrate all four conditioned inputs and four sinking outputs
+  with the PLC I/O image, polarity/filtering and defined boot/STOP/fault policy.
+- [ ] A1-SW-03: Bring up the UART engineering connection, then native USB;
+  verify download, activation and monitoring without the Nucleo ST-LINK bridge.
+- [ ] A1-SW-04: Implement the OLED's BOOT/STOP/RUN/FAULT and I/O views from coherent
+  supervisor snapshots, with bounded I2C work and graceful display failure.
+- [ ] A1-SW-05: Drive the RUN heartbeat from advancing accepted scans; implement
+  the chosen user-button behavior and verify power/status indicators physically.
+- [ ] A1-SW-06: Design and implement the selected persistent-application policy,
+  validation, interrupted-write recovery and startup behavior. Decide retained
+  variable state separately; document behavior when no valid application exists.
+- [ ] A1-SW-07: If included by A1-SCOPE-03, select and integrate the Ethernet
+  module, driver and initial protocol with bounded workload and defined access.
+  If deferred, link the scope decision and keep Ethernet out of release claims.
+- [ ] A1-SW-08: Repeat target memory/stack and 10 ms scan timing measurements
+  under concurrent downloads, monitoring, display updates and enabled networking;
+  repeat watchdog, deadline, MPU, migration/rollback and TON acceptance on A1.
+
+### Assembly, validation and reproducible release
+
+- [ ] A1-TEST-01: Assemble and inspect the PCB in stages; record polarity,
+  unpowered continuity, current-limited startup, rail voltages and current draw.
+- [ ] A1-TEST-02: Establish SWD access and verify clock/reset/watchdog operation;
+  measure each input threshold and each output with the declared test loads.
+- [ ] A1-TEST-03: Test the physical switch, cold boots, power loss/brownout,
+  reset, interrupted updates, communication loss and runtime faults; record
+  actual terminal behavior and recovery, including external-cable/backfeed cases.
+- [ ] A1-TEST-04: Demonstrate ST compile → download → activate → physical I/O →
+  monitor on the assembled A1, with the case and status interface installed.
+- [ ] A1-REL-01: Record errata, correct findings and repeat affected checks;
+  publish matching CAD, fabrication files, exact BOM, firmware and test evidence.
+- [ ] A1-REL-02: Add real assembly photographs and measured bring-up results to
+  the guide, plus a first-program tutorial; keep render/demo content identified.
+- [ ] A1-REL-03: Reproduce the build from a clean checkout and have another
+  builder follow the instructions where possible; document tested operating
+  limits and distinguish remaining optional features from supported behavior.
 
 ## Completed baseline
 

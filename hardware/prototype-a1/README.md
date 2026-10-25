@@ -18,6 +18,7 @@ unchanged as the previous revision.
 
 | Artifact | What it provides |
 | --- | --- |
+| [A1 completion checklist](../../docs/tasks.md#a1-prototype-completion) | Remaining BOM, electrical, mechanical, firmware, testing and release tasks |
 | [Product brochure](brochure/tinyplc-a1-brochure.pdf) | Eight-page first look: product design, architecture, software, construction and readiness |
 | [Visual assembly guide](mechanical/drawings/assembly-guide.pdf) | Picture-led switch, PCB, optics, OLED, wiring and bottom-fastener sequence |
 | [Technical procedure](mechanical/drawings/technical-assembly-reference.pdf) | Detailed print/assembly and A1 electrical bring-up changes |

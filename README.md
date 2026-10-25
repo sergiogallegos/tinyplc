@@ -13,6 +13,8 @@ Repository: [sergiogallegos/tinyplc](https://github.com/sergiogallegos/tinyplc).
 ## Custom hardware prototype
 
 The [hardware roadmap](docs/hardware-roadmap.md) describes a standalone tinyPLC.
+The [A1 completion checklist](docs/tasks.md#a1-prototype-completion) tracks the
+remaining BOM, electrical, mechanical, firmware and validation work.
 The current [A1 prototype draft](hardware/prototype-a1/README.md) includes a
 custom KiCad schematic and **routed two-layer PCB**, a rounded white FreeCAD
 enclosure, physical power switch, OLED/status-indicator design, print files,
